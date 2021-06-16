@@ -1,0 +1,192 @@
+﻿<html>
+<head>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			width: 39px;
+			height: 26px;
+		}
+
+		.auto-style3 {
+			width: 320px;
+		}
+
+		.auto-style4 {
+			text-align: left;
+			width: 64px;
+		}
+
+		.auto-style5 {
+			text-align: right;
+			font-family: 標楷體;
+		}
+
+		.auto-style7 {
+			height: 357px;
+		}
+
+		.auto-style8 {
+			font-size: xx-small;
+		}
+		.auto-style9 {
+			font-family: 標楷體;
+		}
+		.auto-style10 {
+			font-family: 標楷體;
+			width: 347px;
+			height: 41px;
+			text-align: left;
+			font-size: large;
+
+		}
+
+		.auto-style11 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 117px;
+		}
+		.auto-style12 {
+			font-family: 標楷體;
+			width: 241px;
+			height: 130px;
+		}
+		.auto-style13 {
+			text-align: center;
+		}
+
+		.auto-style14 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 117px;
+			height: 107px;
+		}
+		.auto-style15 {
+			text-align: center;
+			height: 107px;
+		}
+		.auto-style16 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 117px;
+			height: 78px;
+		}
+		.auto-style17 {
+			text-align: center;
+			height: 78px;
+		}
+		.auto-style18 {
+			font-family: 標楷體;
+			width: 261px;
+			height: 100px;
+		}
+
+	</style>
+</head>
+<body style="background-color:#FAF4FF; width: 357px; height:812px;">
+	<div class="auto-style1">
+			<marquee direction="up" scrollamount="1" class="auto-style10"><font color="#ff0099">
+				公告：8/18(六)辦理員工體檢，相關注意事項請查閱公告
+			</font></marquee>
+	</div>
+
+	<br class="auto-style9" />
+	<table class="auto-style3" align="center">
+		<tr>
+			<td class="auto-style4">
+				&nbsp;
+				<input type="image" src="~/images/側欄符號.png" onclick="location.href='@Url.Action("Transitions", "Home")'" class="auto-style2" /><span class="auto-style9"> </span>
+			</td>
+			<td class="auto-style1">
+				<strong>申訴日期 </strong>@DateTime.Now
+			</td>
+	</table>
+	<table class="auto-style7">
+		<tr>
+			<td class="auto-style11">
+				<strong>
+					申訴者姓名
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<input type="text" name="text" class="auto-style9" /><span class="auto-style9"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style16">
+				<strong>
+					申訴者身分
+				</strong>
+			</td>
+			<td class="auto-style17">
+				<input type="radio" name="1" class="auto-style9" /><span class="auto-style9">個案本人 </span> <input type="radio" name="1" class="auto-style9" /><span class="auto-style9">個案家屬 </span> <input type="radio" name="1" class="auto-style9" /><span class="auto-style9">員工
+			</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style11">
+				<strong>
+					申訴者連絡電話
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<input type="text" name="text" class="auto-style9" /><span class="auto-style9"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style14">
+				<strong>
+					申訴類別
+				</strong>
+			</td>
+			<td class="auto-style15">
+				<input type="radio" name="1" class="auto-style9" /><span class="auto-style9">受傷&nbsp; </span> <input type="radio" name="2" class="auto-style9" /><span class="auto-style9">不當處置&nbsp;&nbsp;&nbsp; </span> <input type="radio" name="3" class="auto-style9" /><span class="auto-style9">權益損&nbsp;&nbsp;&nbsp;&nbsp; </span> <input type="radio" name="4" class="auto-style9" /><span class="auto-style9">忽略</span><br class="auto-style9" />
+				<input type="radio" name="5" class="auto-style9" /><span class="auto-style9">被欺&nbsp; </span> <input type="radio" name="6" class="auto-style9" /><span class="auto-style9">性騷擾&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span> <input type="radio" name="7" class="auto-style9" /><span class="auto-style9">職霸凌&nbsp;&nbsp;&nbsp;&nbsp; </span> <input type="radio" name="8" class="auto-style9" /><span class="auto-style9">誤判
+			</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style11">
+				<strong>
+					申訴事由
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<textarea class="auto-style18"></textarea><span class="auto-style9"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style11">
+				<strong>
+					證據照片<br />
+					<span class="auto-style8">
+						(若無則免)
+					</span>
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<input type="file" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" class="auto-style9">
+				<br class="auto-style9" />
+				<img src="../../images/照片icon.png" id="blah" alt="your image" class="auto-style12" /><span class="auto-style9"> </span>
+			</td>
+		</tr>
+	</table>
+	<div class="auto-style1">
+		<br />
+		<br />
+		<input type="button" class="auto-style9" onclick="location.href='Employee_complaint_success_Home_attendant'" value="送出" />
+		<br />
+	</div>
+	<p class="auto-style9">
+		&nbsp;
+	</p>
+	<p class="auto-style5">
+		@Html.ActionLink("上一頁", "Home_attendant_index", "Home", new { @class = "btn btn-danger btn-lg" })
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照顧日誌</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style2 {
+			width: 350px;
+			height: 71px;
+		}
+
+		.auto-style3 {
+			font-size: medium;
+			text-align: center;
+		}
+
+		.auto-style4 {
+			width: 343px;
+			height: 166px;
+		}
+
+
+		.auto-style5 {
+			width: 370px;
+			text-align: center;
+		}
+
+		.auto-style6 {
+			text-align: center;
+		}
+
+
+		.auto-style7 {
+			width: 288px;
+			height: 184px;
+		}
+
+
+		.auto-style8 {
+			text-align: right;
+		}
+
+
+		.auto-style9 {
+			font-family: 標楷體;
+			width: 390px;
+		}
+
+
+		.auto-style10 {
+			font-family: 標楷體;
+			width: 236px;
+		}
+
+		.auto-style11 {
+			width: 214px;
+		}
+
+		.auto-style12 {
+			width: 211px;
+		}
+
+		.auto-style14 {
+			width: 216px;
+		}
+
+		.auto-style15 {
+			width: 184px;
+		}
+
+		.auto-style17 {
+			width: 172px;
+		}
+
+		.auto-style18 {
+			width: 228px;
+		}
+
+		.auto-style19 {
+			text-align: left;
+		}
+
+		.auto-style20 {
+			width: 207px;
+		}
+
+
+		.auto-style21 {
+			width: 94px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; margin-right: 0px; margin-left: 0px; margin-top: 0px;">
+	<table style="background-color:#FF5F5F;" class="auto-style5" align="center">
+		<tr>
+			<td>
+				<Font color="#FFFFFF" size="5">
+					每日守護紀錄
+				</Font>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table align="center" class="auto-style2">
+		<tr>
+			<td bgcolor="#F5F5F5" valign="center" class="auto-style3">
+				<font color="0000EB">個案姓名:林XX</font>
+			</td>
+			<td bgcolor="#F5F5F5" valign="center" class="auto-style3">
+				<font color="0000EB">服務日期: <input type="date" class="auto-style21" /></font>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" colspan="2" valign="center" class="auto-style3">
+				<img src="../../images/服務人員icon.png"><font color="0000EB">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; 黃阿花 </font>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<div class="auto-style6">
+		<font color="#D60000" size="5"><strong>家屬簽名區</strong></font>
+		<br />
+		<br />
+	</div>
+	<form action="/Home/Daily_care_records" method="post">
+
+		<table align="center" class="auto-style4">
+			<tr>
+				<td bgcolor="#FFFFFF">
+					<label></label>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<br />
+		<table align="center">
+			<tr>
+				<td>
+					&nbsp;<input type="button" value="儲存" class="btn btn-primary btn-lg" />
+
+				</td>
+			</tr>
+		</table>
+	</form>
+	<br />
+
+	<br />
+	<br />
+	<table class="auto-style10">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style34">
+				&nbsp; <font color="#FFFFFF" size="4">必選項目 自立生活訓練&nbsp;&nbsp; <img src="~/images/自主生活訓練icon.png" width="30" height="20" /></font>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style9" align="left">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style11">
+				<font color="#FFFFFF" size="4">&nbsp;BA01 基本身體清潔&nbsp;&nbsp; <img src="../../images/身體清潔icon.png" width="30" height="20" /></font>
+			</td>
+			<td class="auto-style6"><font color="#0000EB" size="2">應做23次>已做10次&nbsp; </font></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style9" align="left">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style12">
+				<font color="#FFFFFF" size="4">&nbsp;BA02 基本日常照顧&nbsp;&nbsp; <img src="../../images/日常照顧icon.png" width="30" height="20" /></font>
+			</td>
+			<td class="auto-style6"><font color="#0000EB" size="2">應做23次>已做10次&nbsp; </font></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style9" align="left">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style20">
+				<font color="#FFFFFF" size="4">&nbsp;BA03 量測生命徵象&nbsp;&nbsp; <img src="../../images/量測生命徵象icon.png" width="30" height="20" /></font>
+			</td>
+			<td class="auto-style6"><font color="#0000EB" size="2">應做23次>已做10次&nbsp; </font></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style9">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style14">
+				<font color="#FFFFFF" size="4">&nbsp;BA04 協助餵食或灌食&nbsp;&nbsp; <img src="../../images/協助餵食或灌食icon.png" width="30" height="20" /></font>
+			</td>
+			<td class="auto-style6"><font color="#0000EB" size="2">應做23次>已做10次&nbsp;&nbsp;&nbsp; </font></td>
+		</tr>
+	</table>
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style9" align="left">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style15">
+				<font color="#FFFFFF" size="4">&nbsp;BA05 餐食照顧&nbsp;&nbsp; <img src="../../images/餐食照顧icon.png" width="30" height="20" /></font>
+			</td>
+			<td class="auto-style6"><font color="#0000EB" size="2">&nbsp;&nbsp;&nbsp; 應做23次>已做10次&nbsp; </font></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style9" align="left">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style18">
+				<font color="#FFFFFF" size="4">&nbsp;BA07 協助沐浴及洗頭&nbsp;&nbsp; <img src="../../images/協助沐浴及洗頭icon.png" width="30" height="20" /></font>
+			</td>
+			<td class="auto-style19"><font color="#0000EB" size="2">&nbsp;&nbsp; 應做23次>已做10次&nbsp; </font></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style9" align="left">
+		<tr>
+			<td bgcolor="#0000EB" class="auto-style17">
+				<font color="#FFFFFF" size="4">&nbsp;BA08 足部照護&nbsp;&nbsp; <img src="../../images/足部照護icon.png" width="30" height="20" /></font>
+			</td>
+			<td class="auto-style6"><font color="#0000EB" size="2">應做23次>已做10次&nbsp; </font></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF" class="auto-style6">
+				自動帶入
+			</td>
+		</tr>
+	</table>
+	<div class="auto-style8">
+		<br />
+		<br />
+		@Html.ActionLink("上一頁", "Familindex", "Home", new {  @class="btn btn-danger"})
+		<a href="'@Url.Action("Familindex", "Home")'" class="btn btn-danger">上一頁</a>
+	</div>
+</body>
+</html>

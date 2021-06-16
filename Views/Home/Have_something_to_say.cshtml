@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>有話要說</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		textarea {
+			resize: none;
+			font-family:標楷體;
+		}
+
+		.auto-style1 {
+			text-align: center;
+			font-family:標楷體;
+		}
+
+		.auto-style2 {
+			width: 345px;
+			height: 134px;
+		}
+
+		.auto-style3 {
+			font-size: x-large;
+			font-family:標楷體;
+		}
+
+		.auto-style4 {
+			font-size: x-large;
+			width: 15px;
+			height: 15px;
+			font-family:標楷體;
+		}
+
+		.auto-style5 {
+			text-align: right;
+			font-family:標楷體;
+		}
+
+		.auto-style7 {
+			text-align: center;
+			font-family:標楷體;
+			font-size:x-large;
+		}
+
+		.auto-style10 {
+			width: 390px;
+		}
+
+		.auto-style12 {
+			font-size: x-large;
+			width: 155px;
+			font-family:標楷體;
+		}
+
+		.auto-style13 {
+			font-size: large;
+			font-family:標楷體;
+		}
+
+		.auto-style14 {
+			width: 356px;
+			font-size: medium;
+			font-family:標楷體;
+		}
+
+		.auto-style15 {
+			width: 370px;
+			height: 30px;
+		}
+
+		.auto-style16 {
+			text-align: center;
+			width: 395px;
+			font-family:標楷體;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<form action="/Home/Have_something_to_say" method="post">
+		<div class="auto-style7" style="background-color:#0000C2;">
+			<Font color="#FFFFFF">有話要說</Font>
+		</div>
+		<br />
+		<br />
+		<div class="auto-style16">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<table align="center" class="auto-style15">
+				<tr>
+					<td>
+						<marquee direction="up" scrollamount="1" class="auto-style14"><font color="#ff0099">9/1(六)辦理家屬座談會，提供免費監測血糖、尿酸</font></marquee>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="auto-style10">
+			<br />
+			<br />
+
+			<label for="inputcaser_name">
+
+				<font color="0000EB"><span class="auto-style13"><strong>我的姓名 :</strong>&nbsp;&nbsp;&nbsp;</span></font>
+				<input type="text" id="inputcaser_name" name="caser_name" placeholder="請輸入姓名" class="auto-style12" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br class="auto-style3" />
+			</label>
+			<br class="auto-style3" />
+			<label for="inputuser_status">
+
+				<font color="0000EB">
+					<span class="auto-style13"><strong>我的身分:&nbsp;</strong></span><span class="auto-style3"> </span>
+					<input type="radio" id="inputuser_status" name="user_status" class="auto-style4" value="個案本人" /><span class="auto-style13"> 個案本人</span><span class="auto-style3">&nbsp;&nbsp; </span>
+					<input type="radio" id="inputuser_status" name="user_status" class="auto-style4" value="個案家屬" /><span class="auto-style13"> 個案家屬</span><span class="auto-style3">&nbsp;&nbsp; </span>
+					<input type="radio" id="inputuser_status" name="user_status" class="auto-style4" value="員工" /><span class="auto-style13"> 員工</span>
+
+				</font><br class="auto-style3" />
+			</label>
+			<br class="auto-style3" />
+			<label for="inputorigin ">
+				<font color="0000EB">
+
+					<span class="auto-style13"> <strong>意見來源:</strong></span><span class="auto-style3">&nbsp;&nbsp; </span>
+
+					<input type="radio" id="inputorigin" name="origin " class="auto-style4" value="APP" /><span class="auto-style13"> APP</span><span class="auto-style3">&nbsp; </span>
+					<input type="radio" id="inputorigin" name="origin " class="auto-style4" value="EMAIL" /><span class="auto-style13"> EMAIL</span><span class="auto-style3">&nbsp; </span>
+					<input type="radio" id="inputorigin" name="origin " class="auto-style4" value="電話" /><span class="auto-style13"> 電話</span><span class="auto-style3">
+						&nbsp;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+					</span><input type="radio" id="inputorigin" name="origin " class="auto-style4" value="現場" /><span class="auto-style13"> 現場</span>
+
+				</font>
+			</label>
+			<br class="auto-style3" />
+			<br class="auto-style3" />
+			<label for="inputphone">
+
+				<font color="0000EB"><span class="auto-style13"><strong>聯絡電話 :&nbsp;</strong>&nbsp;&nbsp;</span><span class="auto-style3">&nbsp; </span></font>
+				<input type="text" id="inputphone" name="phone" placeholder="單行輸入" class="auto-style12" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="0000EB">
+
+					<span class="auto-style3">
+						<br />
+						<br />
+					</span>
+			</label>
+			<label for="inputtim">
+
+				<span class="auto-style13">
+					<strong>日期:</strong>
+				</span>
+				<span class="auto-style3">
+					<span class="auto-style13">@DateTime.UtcNow<input type="datetime" id="inputtim" name="tim" placeholder="@DateTime.UtcNow" value="@DateTime.UtcNow" hidden="hidden" /></span>
+				</span>
+			</label>
+			<br /><br />
+				  <label for="inputcause">
+
+				  	<font color="0000EB">
+				  		<span class="auto-style13">
+				  			<strong>事由:</strong>
+				  		</span>
+				  	</font>
+
+				  	<br />
+				  		<textarea id="inputcause" name="cause" class="auto-style2"></textarea>
+				  </label>
+			<div class="auto-style1">
+				<br />
+				<Br />
+				<input type="submit" class="btn btn-primary  btn-lg" value="送出" onclick="location.href = window.alert('已送出')" />
+				<br />
+			</div>
+
+			<br />
+			<p class="auto-style1">
+				&nbsp;
+			<p class="auto-style5">
+				@Html.ActionLink("回首頁", "Familindex", "Home", new { @class = "btn btn-danger btn-lg" })
+			</p>
+		</div>
+	</form>
+</body>
+</html>

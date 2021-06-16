@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-再次進入</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: large;
+		}
+
+		.auto-style2 {
+			width: 62px;
+			height: 79px;
+			font-family: 標楷體;
+		}
+
+		.auto-style3 {
+			text-align: right;
+			font-family: 標楷體;
+		}
+
+		.auto-style4 {
+			width: 340px;
+			font-family: 標楷體;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF;  ">
+
+	<div class="auto-style3">
+
+		<div class="auto-style1">
+			<marquee direction="up" scrollamount="1" class="auto-style4"><font color="#ff0099">公告：8/18(六)辦理員工體檢，相關注意事項請查閱公告</font></marquee>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="auto-style1">
+			<input type="image" src="~/images/到點打卡icon.png" class="btn" onclick="location.href='@Url.Action("main_sign_in_success", "Home")'" disabled="disabled" />
+			<br />
+			<br />
+			<br />
+			<input type="image" src="~/images/再次進入(打點成功)icon.png" disabled="disabled"/>
+			<br />
+			<br />
+			<br />
+			<input type="image" src="~/images/離點打卡icon.png" class="btn" onclick="location.href='@Url.Action("sign_out", "Home")'" />
+		</div>
+		<br />
+		<br />
+		<br />
+		<input type="image" src="~/images/進入icon.png" class="btn" onclick="location.href='@Url.Action("Home_attendant_index", "Home")'" />
+
+	</div>
+
+</body>
+</html>

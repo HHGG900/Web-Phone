@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>每月守護紀錄</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+
+		.auto-style2 {
+			font-family: 標楷體;
+			font-size: x-large;
+			width: 328px;
+			height: 71px;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+
+		.auto-style3 {
+			width: 343px;
+			height: 166px;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			width: 377px;
+			font-family: 標楷體;
+			font-size: xx-large;
+			text-align: center;
+		}
+		.auto-style8 {
+			width: 377px;
+		}
+
+		.auto-style9 {
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			font-size: x-large;
+			width: 125px;
+			text-align: center;
+		}
+
+		.auto-style12 {
+			font-family: 標楷體;
+			width: 54px;
+			text-align: center;
+			font-size: medium;
+		}
+
+		.auto-style13 {
+			font-family: 標楷體;
+			font-size: medium;
+		}
+
+		.auto-style15 {
+			text-align: right;
+			width: 377px;
+			font-size: small;
+			font-family: 標楷體;
+		}
+
+		.auto-style17 {
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+
+		.auto-style20 {
+			font-family: 標楷體;
+			font-size: large;
+		}
+
+		.auto-style21 {
+			font-family: 標楷體;
+			font-size: large;
+			width: 25px;
+			height: 18px;
+		}
+
+		.auto-style22 {
+			font-family: 標楷體;
+			width: 78px;
+			text-align: center;
+		}
+
+		.auto-style23 {
+			font-size: large;
+		}
+
+		.auto-style24 {
+			text-align: center;
+		}
+
+		.auto-style25 {
+			font-family: 標楷體;
+			width: 115px;
+			text-align: center;
+		}
+
+		.auto-style28 {
+			font-family: 標楷體;
+			font-size: x-large;
+            text-align: right;
+        }
+
+		.auto-style29 {
+			font-family: 標楷體;
+			font-size: x-large;
+			text-align: left;
+		}
+		.auto-style30 {
+			font-family: 標楷體;
+		}
+		.auto-style31 {
+			font-family: 標楷體;
+			font-size: x-large;
+			text-align: left;
+			width: 168px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; margin-right: 0px; margin-bottom: 0px;">
+	<div style="background-color:#FF5F5F;" class="auto-style5">
+		<font color="#FFFFFF">每月守護紀錄</font>
+	</div>
+	<br class="auto-style30" />
+	<table class="auto-style2" align="center">
+		<tr>
+			<td bgcolor="#F5F5F5" valign="center" class="auto-style31">
+				<font color="0000EB"><span class="auto-style23">個案姓名:林XX</span></font>
+			</td>
+			<td bgcolor="#F5F5F5" valign="center" class="auto-style29">
+				<font color="0000EB"><span class="auto-style23">服務日期 @DateTime.Now</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" colspan="2" align="center" valign="center" class="auto-style20">
+				<img src="../../images/服務人員icon.png" /><font color="0000EB">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; 黃阿花 </font>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<div class="auto-style1">
+		<font color="#D60000" size="5"><strong>家屬簽名區</strong></font>
+		<br />
+		<br />
+	</div>
+	<form action="/Home/Guardian_of_the_month" method="post">
+		<table align="center" class="auto-style3">
+			<tr>
+				<td bgcolor="#FFFFFF">
+				<label></label>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<br />
+		<table align="center">
+			<tr>
+				<td>
+					&nbsp;<input type="button" value="儲存" class="btn btn-primary btn-lg" />
+
+				</td>
+			</tr>
+		</table>
+		<br />
+		<br />
+	</form>
+	<table align="center" class="auto-style8">
+		<tr>
+			<td bgcolor="#F5F5F5" class="auto-style9">
+				<font color="#0000EB" size="4"><strong><span class="auto-style17">照顧壓力</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style17">&nbsp; 分</span></font>
+			</td>
+			<td bgcolor="#F5F5F5" class="auto-style9">
+				<font color="#0000EB" size="4"><strong><span class="auto-style17">照顧資源</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<span class="auto-style17">分</span></font>
+			</td>
+		</tr>
+	</table>
+	<br class="auto-style30" />
+	<table class="auto-style8" align="center">
+		<tr>
+			<td bgcolor="#F5F5F5" class="auto-style10" rowspan="4">
+				<font color="#0000EB"><strong>溝通能力</strong></font>
+			</td>
+			<td bgcolor="#DEEEFF" class="auto-style12">
+				<font color="#0D62C3"><span class="auto-style13">視力</span></font><span class="auto-style13"> </span>
+			</td>
+			<td bgcolor="#F5F5F5" rowspan="4">
+				&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#DEEEFF" class="auto-style12">
+				<font color="#0D62C3"><span class="auto-style13">聽力</span></font><span class="auto-style13"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#DEEEFF" class="auto-style12">
+				<font color="#0D62C3"><span class="auto-style13">語言</span></font><span class="auto-style13"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#DEEEFF" class="auto-style12">
+				<font color="#0D62C3"><span class="auto-style13">理解</span></font><span class="auto-style13"> </span>
+			</td>
+		</tr>
+	</table>
+	<p class="auto-style15">(異常代表與平常不同)</p>
+	<table align="center" class="auto-style8">
+		<tr>
+			<td bgcolor="#F5F5F5" class="auto-style24">
+				<font color="#0000EB"><strong><span class="auto-style3">輔具合宜性</span></strong></font><span class="auto-style30"> </span>
+			</td>
+			<td bgcolor="#F5F5F5">
+				<font color="#FF1493"><span class="auto-style20">目前輔具是否合宜&nbsp; </span> <input type="radio" class="auto-style21" name="location" value="是" /><span class="auto-style20">是&nbsp; </span> <input type="radio" class="auto-style21" name="location" value="否" /><span class="auto-style20">否</span></font>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table align="center" class="auto-style8">
+		<tr>
+			<td bgcolor="#F5F5F5" rowspan="2" class="auto-style22"><span class="auto-style3"><font color="#0000EB"><strong>肌力</strong></font></span><span class="auto-style30"> </span> </td>
+			<td bgcolor="#F5F5F5" class="auto-style23">
+				<font color="#FF1493"><input type="radio" class="auto-style21" name="location1" value="可行走" /><span class="auto-style20">&nbsp;可行走:&nbsp;&nbsp;&nbsp; 行走測試&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 秒</span></font><span class="auto-style20"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" class="auto-style20">
+				<font color="#FF1493"> <input type="radio" class="auto-style21" name="location1" value="無法行走" /><span class="auto-style20">&nbsp;無法行走:&nbsp;&nbsp;&nbsp; </span> <input type="radio" class="auto-style21" name="location2" value="正常" /><span class="auto-style20">正常&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span><input type="radio" class="auto-style21" name="location2" value="異常" /><span class="auto-style20">異常</span></font><span class="auto-style20"> </span>
+			</td>
+		</tr>
+	</table>
+	<p class="auto-style15">(異常代表與平常不同)</p>
+	<table align="center" class="auto-style8">
+		<tr>
+			<td bgcolor="#F5F5F5" class="auto-style24">
+				<span class="auto-style3">
+					<font color="#0000EB"><strong>&nbsp;受虐</strong></font>
+				</span><span class="auto-style30"> </span>
+			</td>
+			<td bgcolor="#F5F5F5">
+				<font color="#FF1493"><span class="auto-style20">&nbsp;&nbsp;&nbsp; 是否出現疑似受虐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span> <input type="radio" class="auto-style21" name="location3" value="是" /><span class="auto-style20">是&nbsp;&nbsp;&nbsp;&nbsp; </span> <input type="radio" class="auto-style21" name="location3" value="否" /><span class="auto-style20">否</span></font>
+		</tr>
+	</table>
+	<br />
+	<table align="center" class="auto-style8">
+		<tr>
+			<td bgcolor="#F5F5F5" class="auto-style25">
+				<span class="auto-style3">
+					<font color="#0000EB"><strong>安全認知</strong></font>
+				</span><span class="auto-style30">	</span>
+
+			</td>
+			<td bgcolor="#F5F5F5">
+				<font color="#FF1493"><span class="auto-style30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="auto-style20"> </span> <input type="radio" class="auto-style21" name="location4" value="正常" /><span class="auto-style20">&nbsp; 正常&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span> <input type="radio" class="auto-style21" name="location4" value="異常" /><span class="auto-style20">&nbsp;&nbsp; 異常</span></font><span class="auto-style30"> </span>
+			</td>
+		</tr>
+	</table>
+	<p class="auto-style15">(異常代表與平常不同)</p>
+	<br />
+	<br />
+    <div class="auto-style28">
+        @Html.ActionLink("上一頁", "Familindex", "Home", new { @class = "btn btn-danger btn-lg" })
+        <br />
+        &nbsp;
+    </div>
+</body>
+</html>

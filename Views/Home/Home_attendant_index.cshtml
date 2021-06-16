@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員主頁面</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			width: 130px;
+			height: 40px;
+		}
+
+		.auto-style4 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 154px;
+			height: 41px;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 179px;
+			height: 49px;
+		}
+
+		.auto-style7 {
+			font-family: 標楷體;
+			width: 200px;
+			height: 100px;
+			color: dodgerblue;
+			font-size: x-large;
+		}
+
+		
+		.auto-style8 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 170px;
+			height: 53px;
+			color: dodgerblue;
+			font-size: large;
+		}
+
+		.auto-style9 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 172px;
+			height: 28px;
+			font-size: x-large;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 244px;
+		}
+
+		.auto-style11 {
+			font-family: 標楷體;
+			font-size: large;
+		}
+
+		.auto-style12 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: large;
+			width: 149px;
+		}
+
+		.auto-style14 {
+			font-family: 標楷體;
+			text-align: right;
+			width: 280px;
+			height: 80px;
+		}
+
+		.auto-style16 {
+			font-family: 標楷體;
+			width: 347px;
+			height: 41px;
+			text-align: left;
+			font-size: large;
+		}
+
+		.auto-style17 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style18 {
+			font-family: 標楷體;
+			text-align: right;
+		}
+
+		.auto-style19 {
+			font-family: 標楷體;
+			font-size: medium;
+		}
+
+		.auto-style20 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 139px;
+			height: 46px;
+		}
+
+
+
+	</style>
+	<script src="/js/jquery-1.10.2.min.js"></script>
+	<script>
+		$(function () {
+
+			$('#actButton1').click(function () {
+				location.href = "/unusual_notify";
+			});
+
+			$('#actButton2').click(function () {
+				location.href = "/treatment";
+			});
+
+			$('#actButton3').click(function () {
+				location.href = "/daily/treat2";
+			});
+
+			$('#actButton4').click(function () {
+				location.href = "/take_medicine/index";
+			});
+
+			$('#actButton5').click(function () {
+				location.href = "/records/freezer_temper";
+			});
+
+			$('#actButton6').click(function () {
+				location.href = "/records/meal_sample";
+			});
+
+			$('#actButton7').click(function () {
+				location.href = "/records/tableware_disinfection";
+			});
+
+			$('#actButton8').click(function () {
+				location.href = "/records/environment_cleaning";
+			});
+
+			$('#actButton9').click(function () {
+				location.href = "/records/toilet_cleaning";
+			});
+
+			$('#actButton10').click(function () {
+				location.href = "/records/kitchen_cleaning";
+			});
+
+			$('#actButton11').click(function () {
+				location.href = "/records/environment_disinfection";
+			});
+
+			$('#actButton12').click(function () {
+				location.href = "/records/kitchen_disinfection";
+			});
+
+			$('#actButton13').click(function () {
+				location.href = "/records/drinking_cleaning";
+			});
+
+			$('#actButton14').click(function () {
+				location.href = "/employee_appeal";
+			});
+
+			$('#actButton15').click(function () {
+				location.href = "/life_signal/index";
+			});
+
+			$('#lastPage').click(function () {
+				history.back();
+			});
+		});
+
+		function choosePos(uid, num) {
+			$.ajax({
+				url: "/home/setPosition",
+				type: "POST",
+				dataType: 'json',
+				data: {
+					id: uid,
+					num: num
+				},
+				success: function (data, status, xhr) {
+					// console.log(data,status,xhr);
+					if (data.code == 200) {
+						if (data.result != '')
+							location.href = data.result;
+					}
+					else {
+						alert(data.message);
+					}
+				},
+				error: function (xhr, ajaxOptions, thrownError) {
+					console.log(xhr, ajaxOptions, thrownError);
+					alert('發生錯誤!');
+				}
+			});
+		}
+	</script>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<div class="auto-style17">
+		<marquee direction="up" scrollamount="1" class="auto-style16">
+			<font color="#ff0099">
+				公告：8/18(六)辦理員工體檢，相關注意事項請查閱公告
+			</font>
+		</marquee>
+	</div>
+	<p>
+		<br />
+	</p>
+	<table align="center" class="auto-style1" face="標楷體">
+		<tr>
+			<td bgcolor="#F5F5F5" valign="center" class="auto-style12">
+				<font color="0000EB" face="標楷體"><span class="auto-style19">個案姓名: XXX  </span></font><span class="auto-style19"> </span>
+			</td>
+			<td bgcolor="#F5F5F5" align="center" valign="center" class="auto-style1">
+				<font color="0000EB" face="標楷體"><span class="auto-style19">服務日期 @DateTime.UtcNow </span></font><span class="auto-style19"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" colspan="2" align="center" valign="center" class="auto-style1">
+				<span class="glyphicon glyphicon-user"></span><span class="auto-style11">&nbsp;服務人員:黃阿花</span></font>
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<table height="80" align="center" class="auto-style14">
+		<tr>
+			<td class="auto-style10" bgcolor="#AE718A">
+				<br />
+				<font color="FFFFFF" face="標楷體">
+					<span class="auto-style9">
+						<strong>
+							警示須立即填報
+						</strong>
+					</span>
+					<br />
+					<br />
+					<strong><input type="button" style="background-color: #FFECEC;	" class="auto-style8 btn" onclick="location.href='@Url.Action("Abnormal_events_reactions_Home_attendant", "Home")'" value="異常事件通報" /></strong>
+					<br />
+					<br />
+					<br />
+					<strong><input type="button" style="background-color: #FFECEC;	" class="auto-style8 btn" onclick="location.href = '@Url.Action("Abnormal_event_execution_table", "Home")'" value="異常事件執行" /></strong>
+					<br />
+				</font>
+				<br />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table style="border:5px #7D7DFF " align="center" class="auto-style14">
+		<tr>
+			<td class="auto-style1" bgcolor="#C7C7C7">
+				<br />
+				<font color="FFFFFF" face="標楷體">
+					<span class="auto-style9">
+						<strong>
+							居服督導交辦
+						</strong>
+					</span>
+				</font><br /><br />
+				<input type="button" style="background-color: #F0F0F0;	width:190px;" class="auto-style8 btn" onclick="location.href = '@Url.Action("Take_care_of_page", "Home")'" value="照顧交辦單(檢視)" />
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table style="border:5px #7D7DFF " align="center" class="auto-style14">
+		<tr>
+			<td class="auto-style1" bgcolor="#00DD00">
+				<br />
+				<font color="FFFFFF" face="標楷體">
+					<span class="auto-style9">
+						<strong>
+							家屬照顧日誌
+						</strong>
+					</span><br /><br />
+
+					<input type="button" style="background-color: #D4FFD4;	" class="auto-style8 btn" onclick="location.href = '@Url.Action("Family_care_record_Home_attendant", "Home")'" value="家屬照顧日誌(檢視)" />
+				</font>
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+
+	<br />
+	<table style="border:5px #C6A300" align="center" class="auto-style14">
+		<tr>
+			<td class="auto-style1" bgcolor="#C5C11B">
+				<br />
+				<font color="FFFFFF" face="標楷體">
+					<span class="auto-style9">
+						<strong>
+							每次例行
+						</strong>
+					</span>
+				</font><br /><br />
+				&nbsp;
+				<input type="button" style="background-color: #FFF0D4;	" class="auto-style8 btn" onclick="location.href = '@Url.Action("Daily_care_record_Home_attendant", "Home")'" value="每次照顧紀錄" />
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table align="center" class="auto-style14">
+		<tr>
+			<td class="auto-style1" bgcolor="#7CCCFF">
+				<br />
+				<font color="FFFFFF" face="標楷體">
+					<span class="auto-style9">
+						<strong>
+							每月例行
+						</strong>
+					</span>
+				</font><br /><br />
+				<input type="button" style="background-color: #C9FFFF;" class="auto-style8 btn" onclick="location.href = '@Url.Action("Guardian_of_the_month_Home_attendant", "Home")'" value="每月守護紀錄" />
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table style="border:5px #009393" align="center" class="auto-style14">
+		<tr>
+			<td class="auto-style1" bgcolor="#9AE3DD">
+				<br />
+				<font color="FFFFFF" face="標楷體">
+					<span class="auto-style9">
+						<strong>
+							其他
+						</strong>
+					</span>
+				</font><br /><br />
+				<input type="button" style="background-color: #E8FFFF;	" class="auto-style8 btn" onclick="location.href = '@Url.Action("Employee_complaint_Home_attendant", "Home")'" value="員工申訴" />
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<div class="auto-style18">
+		<br />
+		<br />
+		<br />
+		<input type="button" style="background-color: #FFE1AB;" class="auto-style7 btn" onclick="location.href = '@Url.Action("sign_out", "Home")'" value="離點打卡" />
+		<br />
+	</div>
+
+
+
+</body>
+</html>

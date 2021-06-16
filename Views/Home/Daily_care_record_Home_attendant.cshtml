@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-每次照顧紀錄</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			.auto-style1 {
+				font-family: 標楷體;
+				text-align: center;
+			}
+
+			.auto-style2 {
+				font-family: 標楷體;
+				width: 330px;
+				height: 71px;
+			}
+
+			.auto-style3 {
+				font-family: 標楷體;
+				font-size: medium;
+			}
+
+			.auto-style4 {
+				font-family: 標楷體;
+				width: 38px;
+				height: 26px;
+			}
+
+			.auto-style5 {
+				font-family: 標楷體;
+				text-align: right;
+			}
+
+			.auto-style6 {
+				color: #FFFFFF;
+				font-family: 標楷體;
+				width: 200px;
+				font-size: medium;
+
+			}
+
+			.auto-style9 {
+				font-family: 標楷體;
+				width: 150px;
+				height: 150px;
+			}
+
+			.auto-style15 {
+				font-family: 標楷體;
+				font-size: medium;
+			}
+			.auto-style17 {
+				font-family: 標楷體;
+				width: 390px;
+			}
+			.auto-style18 {
+				font-family: 標楷體;
+				text-align: right;
+				width: 385px;
+			}
+			.auto-style20{
+				font-family:標楷體;
+				font-size:x-large;
+			}
+			.auto-style21 {
+				width: 30px;
+				height: 19px;
+			}
+		</style>
+	</head>
+<body style="background-color:#FAF4FF; margin-right: 0px;">
+	<div class="auto-style1">
+		<div class="auto-style1">
+			<div style="background-color:#FF5F5F;" class="auto-style1">
+				<Font color="#FFFFFF" size="5">
+					每日照顧紀錄
+				</Font>
+			</div>
+		</div>
+		<br />
+		<table align="center" class="auto-style2">
+			<tr>
+				<td bgcolor="#F5F5F5" align="right" valign="center" class="auto-style3">
+					<font color="0000EB">個案姓名:林XX</font>
+				</td>
+				<td bgcolor="#F5F5F5" align="center" valign="center" class="auto-style3">
+					<font color="0000EB">服務日期 @DateTime.Now</font>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#F5F5F5" colspan="2" align="center" valign="center" class="auto-style3">
+					<img src="../../images/服務人員icon.png" / ><font color="0000EB">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; 黃阿花 </font>
+				</td>
+			</tr>
+		</table>
+		<br />
+	</div>
+	<div><span class="auto-style20">第一部分</span></div>
+	<br />
+		<table class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+
+				<font color="#FFFFFF" size="5"><span class="auto-style3">@Html.ActionLink("溫度照顧:溫水、溫茶、溫咖啡、寒暄、聊天、打氣......等", "Required_items_Home_attendant", "Home", new { @style = "color:#FFFFFF;" })</span></font>
+			</td>
+			<td  style="width:52px;">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" value="選擇簡圖" onchange="document.getElementById('BA00').src = window.URL.createObjectURL(this.files[0])"><br />-->
+				<img  src="~/images/照片1.jpg" id="BA00" alt="自動帶入" class="auto-style9" /></td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<div><span class="auto-style20">第二部分</span></div>
+	<br />
+	<br />
+	<table class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+
+				<font color="#FFFFFF" size="5"><span class="auto-style3">@Html.ActionLink("自主生活訓練", "Required_items_Home_attendant", "Home", new { @style = "color:#FFFFFF;" })</span>&nbsp;<img src="../../images/必選項目.png" class="auto-style4" /></font>
+			</td>
+			<td  class="text-center">
+				<input type="checkbox" id="BA00" name="BA00" value="BA00" class="auto-style21" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" value="選擇簡圖" onchange="document.getElementById('BA00').src = window.URL.createObjectURL(this.files[0])"><br />-->
+				<img  src="~/images/照片1.jpg" id="BA00" alt="自動帶入" class="auto-style9" /></td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<div><span class="auto-style20">第三部分</span></div>
+	<p>
+		<br />
+	</p>
+	<table align="left" class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA01基本身體清潔", "BA01", "Home", new { @style = "color:#FFFFFF;" })&nbsp;</span><img src="../../images/基本身體清潔.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 X次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" onchange="document.getElementById('BA01').src = window.URL.createObjectURL(this.files[0])">-->
+				<img  src="~/images/照片1.jpg" id="BA01" alt="自動帶入" class="auto-style9" />
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<table align="left" class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA02基本日常照顧", "BA02", "Home", new { @style = "color:#FFFFFF;" })</span>&nbsp;</a> <img src="../../images/基本日常照顧.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 X次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" onchange="document.getElementById('BA02').src = window.URL.createObjectURL(this.files[0])">	-->
+
+				<img  src="~/images/照片1.jpg" id="BA02" alt="自動帶入" class="auto-style9" /><br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<table class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA03量測生命徵象", "BA03", "Home", new { @style = "color:#FFFFFF;" })</span>&nbsp;<img src="../../images/測量生命徵象.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 X次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" onchange="document.getElementById('BA03').src = window.URL.createObjectURL(this.files[0])">	-->
+
+				<img  src="~/images/照片1.jpg" id="BA03" alt="自動帶入" class="auto-style9" />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<table align="left" class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA04協助餵食或灌食", "BA04", "Home", new { @style = "color:#FFFFFF;" })</span>&nbsp;<img src="../../images/協助沐浴及洗頭.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 X次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" onchange="document.getElementById('BA04').src = window.URL.createObjectURL(this.files[0])">	-->
+
+				<img src="~/images/照片1.jpg" id="BA04" alt="自動帶入" class="auto-style9" /><br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<table class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA05餐食照顧", "BA05", "Home", new { @style = "color:#FFFFFF;" })</span>&nbsp;<img src="../../images/餐食照顧.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 X次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" onchange="document.getElementById('BA05').src = window.URL.createObjectURL(this.files[0])">	-->
+
+				<img  src="~/images/照片1.jpg" id="BA05" alt="自動帶入" class="auto-style9" />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<table align="left" class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA07協助沐浴及洗頭", "BA07", "Home", new { @style = "color:#FFFFFF;" })</span>&nbsp;<img src="../../images/協助沐浴及洗頭.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 X次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" onchange="document.getElementById('BA07').src = window.URL.createObjectURL(this.files[0])">	-->
+				
+				<img  src="~/images/照片1.jpg" id="BA07" alt="自動帶入" class="auto-style9" />
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	<table align="left" class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA08足部照護", "BA08", "Home", new { @style = "color:#FFFFFF;" })</span>&nbsp;<img src="../../images/足部照護.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 X次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1"><br />
+				<!--<input type="file" onchange="document.getElementById('BA08').src = window.URL.createObjectURL(this.files[0])">	-->
+
+				<img  src="~/images/照片1.jpg" id="BA08" alt="自動帶入" class="auto-style9" />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<div ><span class="auto-style20">第四部份</span></div>
+	<br />
+		<table align="left" class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("每次守護紀錄", "Every_guardian_the_record", "Home", new { @style = "color:#FFFFFF;" })</span></font>
+			</td>
+			<td>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			</td>
+		</tr>
+	</table>
+
+	<br />
+	<br />
+	<br />
+	
+	<div class="auto-style18">
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		@Html.ActionLink("上一頁", "Home_attendant_index", "Home", new { @class = "btn btn-danger btn-lg" })
+		<br />
+		<br />
+	</div>
+</body>
+</html>

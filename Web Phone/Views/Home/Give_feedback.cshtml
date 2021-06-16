@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>給予回饋</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			text-align: center;
+			font-family:標楷體;
+		}
+
+		.auto-style2 {
+			text-align: left;
+			width: 391px;
+			font-family:標楷體;
+		}
+
+		.auto-style3 {
+			width: 370px;
+			height: 60px;
+		}
+
+		.auto-style4 {
+			width: 111px;
+			height: 22px;
+		}
+
+		.auto-style5 {
+			width: 176px;
+			text-align: center;
+			font-family:標楷體;
+		}
+
+		.auto-style6 {
+			font-size: large;
+			font-family:標楷體;
+		}
+
+		textarea {
+			resize: none;
+		}
+
+		.auto-style7 {
+			width: 360px;
+			height: 213px;
+		}
+
+		.auto-style8 {
+			text-align: right;
+			font-family:標楷體;
+		}
+
+		.auto-style13 {
+			font-size: medium;
+			font-family:標楷體;
+		}
+
+		.auto-style14 {
+			width: 365px;
+			font-size: medium;
+			margin-left: 20px;
+			font-family:標楷體;
+		}
+
+		.auto-style15 {
+			height: 28px;
+		}
+		.auto-style16 {
+			text-align: center;
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+		<div class="text-center">
+		<div class="auto-style16" style="background-color:#0000C2;">
+					<font color="#FFFFFF">
+						給予回饋
+					</font>
+		</div>
+			<br />
+<table align="center">
+	<tr>
+		<td class="auto-style15">
+		<marquee direction="up" scrollamount="1" class="auto-style14"><font color="#ff0099">9/1(六)辦理家屬座談會，提供免費監測血糖、尿酸</font></marquee>	
+		</td>		
+
+	</tr>
+</table>
+			<br />
+		<div class="auto-style2">
+			&nbsp;&nbsp;&nbsp;&nbsp;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+		<img src="~/images/日期icon(藍).png" /> @DateTime.Now <font color="0000EB">&nbsp;&nbsp;<span class="auto-style6">姓名:</span></font>
+			<br />
+		<br />
+		</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<table class="auto-style3">
+			<tr>
+				<td bgcolor="#46A3FF" class="auto-style5">
+					<font color="#FFFFFF"><span class="auto-style6">對於服務人員<br />
+					整體滿意度</span></font>
+				</td>
+				<td >
+					<input type="image" src="~/images/很棒icon.png" class="btn"  />
+				</td>
+				<td>
+					<input type="image" src="~/images/普通icon.png" class="btn" />
+				</td>
+				<td>
+					<input type="image" src="~/images/不好icon.png" class="btn" />
+				</td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<table class="auto-style4">
+			<tr>
+				<td bgcolor="#46A3FF" class="auto-style1">
+					<font color="#FFFFFF" /><span class="auto-style13">
+					家屬感受<br />
+					與服務回饋</span></font>
+					<br />
+				</td>
+			</tr>
+		</table>
+		<br />
+		<textarea id="TextArea1" class="auto-style7"></textarea>
+		<br />
+		<br />
+		<br />
+		<br />
+	<div class="text-center">
+		<input type="button" class="btn btn-primary btn-lg" value="送出" />
+		<br />
+		<br />
+		<br />
+		<Br />
+	</div>
+	<p class="auto-style8">
+		@Html.ActionLink("回首頁", "Familindex", "Home", new { @class = "btn btn-danger btn-lg" })
+	</p>
+		</div>
+	</body>
+	</html>

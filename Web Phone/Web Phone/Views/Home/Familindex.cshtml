@@ -1,0 +1,142 @@
+﻿<html>
+<head>
+	<style type="text/css">
+		.auto-style1 {
+			font-family:標楷體;
+			font-size:large;
+			text-align: center;
+		}
+		.auto-style2 {
+			font-family:標楷體;
+			background-color: #0033CC;
+		}
+		.auto-style3 {
+			font-family:標楷體;
+			text-align: right;
+		}
+		.auto-style4 {
+			font-family:標楷體;	
+			width: 100px;
+			height: 100px;
+		}
+
+		.auto-style5 {
+			font-size :large;
+			font-family: 標楷體;
+			width: 299px;
+			height: 337px;
+		}
+
+		.auto-style7 {
+			width: 341px
+		}
+
+		.auto-style8 {
+			text-align: center;
+		}
+
+		.auto-style9 {
+			font-size: small;
+		}
+		.auto-style10 {
+			font-family: 標楷體;
+			font-size: medium;
+			text-align: center;
+		}
+		.auto-style11 {
+			font-family:標楷體;	
+			width: 70px;
+			height: 70px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; width: 357px; height:812px;">
+	<div class="auto-style1">
+		<marquee direction="up" scrollamount="1" class="auto-style7"><font color="#ff0099">9/1(六)辦理家屬座談會，提供免費監測血糖、尿酸</font></marquee>
+	</div>
+	<p></p>
+		<table class="auto-style5" align="center">
+			<tr>
+				<td align="center" rowspan="2" valign="bottom">
+					<p>
+						<font color="#0000EB"><strong>家屬照顧<br />紀錄</strong></font>
+					</p>
+					<input type="image" src="~/images/家屬照顧紀錄icon.png" class="auto-style4" onclick="location.href='@Url.Action("Family_care_records", "Home")'" />
+				</td>
+				<td align="center" valign="bottom">
+					<p>
+						<font color="#0000EB"><strong>照顧日誌</strong></font>
+					</p>
+					<input type="image" src="~/images/照顧日誌icon.png" class="btn auto-style4" onclick="location.href='@Url.Action("Daily_care_records", "Home")'" />
+				</td>
+				<td align="center" rowspan="2" valign="bottom">
+					<p>
+						<font color="#0000EB"><strong>守護紀錄</strong></font>
+					</p>
+					<input type="image"  src="~/images/守護紀錄icon.png" class="btn auto-style4" onclick="location.href='@Url.Action("Guardrecord", "Home")'" />
+				</td>
+
+			</tr>
+			<tr>
+				<td align="center" rowspan="2">
+					<br />
+					<input type="image" src="~/images/台灣佐伯克.png" class="btn auto-style11" onclick="location.href='@Url.Action("Familindex", "Home")'" />
+					<br />
+						<font color="#008A8A" size="5" class="auto-style9"><strong>台灣柏佐克智慧型<br />居家照護管理系統
+					</strong></font>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" rowspan="2" valign="top">
+					<p>
+						&nbsp;
+					</p>
+					<p>
+						<font color="#0000EB"><strong>照顧專欄</strong></font>
+					</p>
+					<input type="image" src="~/images/照顧專欄icon.png" class="btn auto-style4" onclick="location.href='@Url.Action("Carecolumn", "Home")'" />
+				</td>
+				<td align="center" rowspan="2" valign="top">
+					<p>
+						&nbsp;
+					</p>
+					<p>
+						<font color="#0000EB"><strong>給予回饋</strong></font>
+					</p>
+					<input type="image" src="~/images/給予回饋icon.png" class="btn auto-style4" onclick="location.href='@Url.Action("Give_feedback", "Home")'" />
+				</td>
+			</tr>
+			<tr>
+				<td align="center" valign="top">
+					<p>
+						&nbsp;</p>
+					<p>
+						<font color="#0000EB"><strong>我有話要說</strong></font>
+					</p>
+					<input type="image" src="~/images/我有話要說icon.png" class="btn auto-style4" onclick="location.href='@Url.Action("Have_something_to_say", "Home")'" />
+				</td>
+			</tr>
+		</table>
+	</center>
+		<div class="auto-style8">
+	<br />
+	<br />
+	<br />
+		</div>
+	<p class="auto-style10"><font color="#0000EB"><strong>本單位提供的服務內容有</strong></font></p>
+	<div class="auto-style1">
+		<span class="auto-style2"><font color="FFFFFF"><strong><span class="auto-style9">居家服務</span></strong></font></span><span class="auto-style9"><font color="#0000EB"><strong>-由專業醫療人員團隊所組成</strong></font><strong>
+			<br />
+		</strong>
+		<span class="auto-style2"><font color="FFFFFF"><strong>日間照顧</strong></font></span></span><font color="#0000EB"><strong><span class="auto-style9">-提供像家的托老所、每月費用不到萬元。</span></strong></font>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="auto-style3">
+		@Html.ActionLink("登出", "Login", "Home", new { @class = "btn btn-danger btn-lg" })
+	</div>
+	</div>
+</body>
+</html>

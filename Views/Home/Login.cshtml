@@ -1,0 +1,156 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>台灣長照大聯盟智慧型居家服務管理系統</title>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="~/Scripts/jquery-3.2.1.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style3 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: xx-large;
+			font-weight: bold;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: x-large;
+			color: #FF0000;
+		}
+
+		.auto-style6 {
+			font-family: 標楷體;
+			width: 373px;
+			height: 392px;
+		}
+
+		.auto-style8 {
+			font-size: xx-large;
+			font-family: 標楷體;
+		}
+
+		.auto-style9 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: 22px;
+		}
+	</style>
+	<script>
+		function () {
+			 @using Web_Phone.Models;
+
+		}
+		$(function () {
+
+		});
+
+	/* function choosePos(uid, num) {
+			$.ajax({
+				url: "/home/setPosition",
+				type: "POST",
+				dataType: 'json',
+				data: {
+					id: uid,
+					num: num
+				},
+				success: function (data, status, xhr) {
+					// console.log(data,status,xhr);
+					if (data.code == 200) {
+						if (data.result != '')
+							location.href = data.result;
+					}
+					else {
+						alert(data.message);
+					}
+				},
+				error: function (xhr, ajaxOptions, thrownError) {
+					console.log(xhr, ajaxOptions, thrownError);
+					alert('發生錯誤!');
+				}
+			});
+		} */
+	</script>
+</head>
+<body style="background-color:#FAF4FF; ">
+
+	<p class="auto-style3"><font color="#940094"><strong>台 灣 長 照 大 聯 盟 智 慧 型</strong></font></p>
+	<p class="auto-style3"><font color="#940094"><strong>居 家 服 務 管 理 系 統</strong></font></p>
+	<br />
+	<br />
+	<center><img src="../../images/長照專利證書.png" width="250" height="260" /></center>
+	<br />
+	<br />
+	<p class="auto-style9"><font color="#940094"><strong>用心呵護更加關愛我們致力於專業照顧</strong></font></p>
+	<br />
+	<br />
+	<!--	<form method="post" action="/Home/Login">-->
+	<table border="0" class="auto-style6" align="center">
+		<tr>
+			<td bgcolor="#F5F5F5" colspan="3" align="center">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<font color="#0000EB" size="5"><strong>單位代號 :</strong>&nbsp;</font>
+						<input type="text" id="usr_index" name="usr_index" required="required" />
+					</div>
+				</div>
+				<div class="form-group">
+					<span class="glyphicon glyphicon-user"></span>
+					<font color="#0000EB" size="5"><strong>帳號 :</strong>&nbsp;&nbsp;&nbsp;</font>
+					<input type="text" id="usr_name" name="usr_name" required="required" />
+				</div>
+				<div class="form-group">
+					<span class="glyphicon glyphicon-lock"></span>
+					<font color="#0000EB" size="5"><strong>密碼 :</strong>&nbsp;&nbsp;&nbsp;</font>
+					<input type="password" id="usr_key" name="usr_key" required="required" />
+				</div>
+				<div class="auto-style5"> @ViewBag.Message</div>
+				<br />
+				<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Familyobligations'" value="家屬" /><br />
+				<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Workbook'" value="照服員" /><br />
+				<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Workbook_Home_Service_Supervisor'" value="督導" /><br />
+				<br />
+				&nbsp;<span class="auto-style8">
+					@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp; @Html.ActionLink("忘記密碼", "Forgetpassword", "Home")
+
+				</span>
+
+			</td>
+		</tr>
+		<!--	<tr>
+			<td bgcolor="#F5F5F5" align="center" colspan="2">
+				<input type="submit" class="btn btn-primary btn-lg" value="家屬登入" onclick="location.href='@Url.Action("Familyobligations", "Home")'" />
+			</td>
+		</tr>
+			<tr>
+						<td bgcolor="#F5F5F5" align="center">
+						<input type="submit" class="btn btn-primary btn-lg" value="督導登入" onclick="location.href='@Url.Action("Workbook_Home_Service_Supervisor", "Home")'" />
+					</td>
+				<td bgcolor="#F5F5F5" align="center">
+					<input type="submit" class="btn btn-primary btn-lg" value="照服員登入" onclick="location.href='@Url.Action("Workbook", "Home")'" />
+				</td>
+				</tr>
+
+
+				<tr>
+					<td bgcolor="#F5F5F5" align="center" colspan="3" class="auto-style8">
+						<font size="5">
+							@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("忘記密碼", "Forgetpassword", "Home")
+						</font>
+					</td>
+				</tr>-->
+	</table>	<!--</form>-->
+</body>
+	</html>

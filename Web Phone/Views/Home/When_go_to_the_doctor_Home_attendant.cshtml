@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>家屬照顧紀錄(照服員)-有去就醫時</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style3 {
+			width: 368px;
+		}
+
+		.auto-style4 {
+			font-size: xx-large;
+		}
+
+		.auto-style5 {
+			font-size: medium;
+			width: 30px;
+			height: 30px;
+			font-family: 標楷體;
+		}
+
+		textarea {
+			resize: none;
+		}
+
+		.auto-style6 {
+			width: 186px;
+			height: 86px;
+		}
+
+		.auto-style7 {
+			width: 149px;
+		}
+
+		.auto-style8 {
+			text-align: right;
+		}
+
+		.auto-style9 {
+			font-size: medium;
+			font-family: 標楷體;
+		}
+
+		.auto-style12 {
+			font-size: medium;
+			font-family: 標楷體;
+		}
+
+		.auto-style13 {
+			width: 127px;
+		}
+
+		.auto-style14 {
+			width: 312px;
+		}
+
+		.auto-style15 {
+			font-size: large;
+			font-family: 標楷體;
+		}
+
+		.auto-style16 {
+			font-size: medium;
+			font-family: 標楷體;
+			width: 123px;
+		}
+
+		.auto-style18 {
+			width: 81px;
+		}
+
+		.auto-style19 {
+			width: 320px;
+			font-family: 標楷體;
+		}
+
+		.auto-style20 {
+			text-align: center;
+			font-size: large;
+			font-family: 標楷體;
+		}
+
+		.auto-style24 {
+			text-align: left;
+			font-family: 標楷體;
+		}
+
+		.auto-style25 {
+			width: 123px;
+		}
+	</style>
+</head>
+<body style="background-color: #FAF4FF;">
+
+	<div class="auto-style20" style="background-color:#0000C2;">
+		<Font color="#FFFFFF">家屬照顧紀錄</Font>
+	</div>
+
+	<br />
+	<div class="text-center">
+		<marquee direction="up" scrollamount="1" class="auto-style19"><font color="#ff0099">9/1(六)辦理家屬座談會，提供免費監測血糖、尿酸</font></marquee>
+	</div>
+	<div class="auto-style24">
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<img src="~/images/日期icon(藍).png" />&nbsp;&nbsp;&nbsp;
+		<input type="date" name="time" value="日期" class="auto-style18" /> <font color="0000EB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style12">姓名:</span></font>
+		<br />
+		<br />
+	</div>
+	<table align="center" class="auto-style3">
+		<tr>
+			<td class="auto-style16">
+				<font color="#600000"><strong><span class="auto-style12">就醫</span></strong></font>
+				<img src="~/images/生命徵象icon(紫).png" align="center" class="auto-style12" />
+				<span class="auto-style4"> </span>
+			</td>
+			<td class="auto-style13">
+				<input type="radio" name="location5" class="auto-style5" value="有去就醫時" checked="checked" /><span class="auto-style15"> 有去就醫</span><span class="auto-style12">
+				</span>
+			</td>
+			<td>
+				<input type="radio" name="location5" value="無" class="auto-style5" />&nbsp; <span class="auto-style15">
+					&nbsp;無
+				</span><span class="auto-style12">
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style25">
+				<font color="#600000"><strong><span class="auto-style9">醫師囑咐</span></strong></font>
+			</td>
+			<td class="text-center" colspan="2">
+				<textarea id="TextArea2" class="auto-style6"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style16">
+				<font color="#600000"><strong><span class="auto-style12">吃飯</span></strong></font>
+				<img src="~/images/飲食情況(紫).png" align="center" class="auto-style12" />
+				<span class="auto-style4"> </span>
+			</td>
+			<td class="auto-style13">
+				<input type="radio" name="location" value="不正常" class="auto-style5" /><span class="auto-style15">
+					不正常
+				</span>
+			</td>
+			<td>
+				<input type="radio" name="location" value="正常" class="auto-style5" /><span class="auto-style15"> 正常</span><span class="auto-style12">
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style16">
+				<font color="#600000"><strong><span class="auto-style12">飲水</span></strong></font>
+				<img src="../../images/飲水icon.png" align="center" class="auto-style12" />
+				<span class="auto-style4"> </span>
+			</td>
+			<td class="auto-style13">
+				<input type="radio" name="location1" value="不正常" class="auto-style5" />
+				<span class="auto-style15">
+					&nbsp;不正常
+				</span><span class="auto-style12">
+				</span>
+			</td>
+			<td>
+				<input type="radio" name="location1" value="正常" class="auto-style5" /><span class="auto-style15"> 正常</span><span class="auto-style12">
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style16">
+				<font color="#600000"><strong><span class="auto-style12">服藥</span></strong></font>
+				<img src="../../images/醫藥箱icon(紫).png" align="center" class="auto-style12" />
+				<span class="auto-style4"> </span>
+			</td>
+			<td class="auto-style13">
+				<input type="radio" name="location2" value="不正常" class="auto-style5" /><span class="auto-style15"> 不正常</span><span class="auto-style12">
+				</span>
+			</td>
+			<td>
+				<input type="radio" name="location2" value="正常" class="auto-style5" /><span class="auto-style15"> 正常</span><span class="auto-style12">
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style16">
+				<font color="#600000"><strong><span class="auto-style12">睡眠</span></strong></font>
+				<img src="../../images/特殊照顧(紫).png" align="center" class="auto-style12" />
+				<span class="auto-style4"> </span>
+			</td>
+			<td class="auto-style13">
+				<input type="radio" name="location3" value="不正常" class="auto-style5" /><span class="auto-style15"> 不正常</span><span class="auto-style12">
+				</span>
+			</td>
+			<td>
+				<input type="radio" name="location3" value="正常" class="auto-style5" /><span class="auto-style15"> 正常</span><span class="auto-style12">
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style16">
+				<font color="#600000"><strong><span class="auto-style12">情緒</span></strong></font>
+				<img src="../../images/笑臉icon(紫).png" align="center" class="auto-style12" />
+				<span class="auto-style4"> </span>
+			</td>
+			<td class="auto-style13">
+				<input type="radio" name="location4" value="不正常" class="auto-style5" /><span class="auto-style15"> 不正常</span><span class="auto-style12">
+				</span>
+			</td>
+			<td>
+				<input type="radio" name="location4" value="正常" class="auto-style5" /><span class="auto-style15"> 正常</span><span class="auto-style12">
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<table align="center" class="auto-style14">
+		<tr>
+			<td class="auto-style7">
+				<font color="#600000"><strong><span class="auto-style12">家屬的叮嚀</span></strong></font>
+			</td>
+			<td>
+				<textarea id="TextArea1" class="auto-style6"></textarea>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="text-center">
+		<input type="submit" class="btn btn-primary btn-lg" value="送出" />
+	</div>
+	<br />
+	<br />
+	<br />
+	<Br />
+
+	<p class="auto-style8">
+		@Html.ActionLink("回首頁", "Home_attendant_index", "Home", new { @class = "btn btn-danger btn-lg" })
+	</p>
+</body>
+</html>

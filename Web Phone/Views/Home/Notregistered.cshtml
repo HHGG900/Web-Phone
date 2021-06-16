@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>尚未註冊</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			.auto-style2 {
+				font-family: 標楷體;
+				font-size: large;
+			}
+
+			.auto-style3 {
+				font-family: 標楷體;
+				font-size: x-large;
+				text-align: left;
+			}
+
+			.auto-style4 {
+				text-align: right;
+			}
+
+			.auto-style6 {
+				font-family: 標楷體;
+				font-size: x-large;
+				text-align: left;
+			}
+
+			.auto-style7 {
+				font-size: large;
+			}
+
+			.auto-style8 {
+				font-family: 標楷體;
+			}
+		</style>
+	</head>
+	<body style="background-color:#FFD4D4;">
+		<div class="auto-style4">
+			<p class="auto-style6"><strong>尚未註冊</strong></p>
+		</div>
+		<center>
+			<table class="auto-style2">
+				<tr>
+					<td class="auto-style3">
+						<span class="auto-style7">
+							聲明本系統為長期照顧專業管理系統
+
+							<br />
+							僅為內部使用，尚不開放外界使用，<br />
+							其使用對象如下:
+							<br />
+							1.家屬:長輩正式入學時，督導會給<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 予家屬一組帳號與密碼 ，以 <br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 資使用。若其他家屬也要使<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用系統的話，請向當初的家<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 屬問帳號與密碼。<br />
+
+							<br />
+							2.員工:正式上班時，督導會給予一<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 組帳號與密碼 ，以資使用。
+						</span>
+					</td>
+				</tr>
+			</table>
+		</center>
+		<div class="auto-style4">
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br class="auto-style8" />
+			<span class="auto-style8">
+				@Html.ActionLink("回登入", "Login", "Home", new { @class = "btn btn-danger btn-lg" })
+			</span>
+		</div>
+
+	</body>
+</html>

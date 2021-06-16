@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: large;
+		}
+		.auto-style2 {
+			width: 62px;
+			height: 79px;
+		}
+		.auto-style3 {
+			width: 15px;
+			height:15px;
+		}
+		.auto-style4 {
+			width: 250px;
+		}
+		.auto-style5 {
+			font-size: small ;
+		}
+		.auto-style6 {
+			width: 340px ;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; width: 357px; height:812px;">
+		<div class="auto-style1">
+			<marquee direction="up" scrollamount="1" class="auto-style6"><font color="#ff0099">公告：8/18(六)辦理員工體檢，相關注意事項請查閱公告</font></marquee>
+		</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="auto-style1">
+		<img src="~/images/到點成功icon.png" />
+		<br />
+		<table align="center" class="auto-style4">
+			<tr>
+				<td class="auto-style1">
+					<img src="../../images/自我檢核.png" class="auto-style2" />
+				</td>
+				<td class="auto-style1">
+					<input type="radio" class="auto-style3" /><br />
+					<strong><span class="auto-style5">量體溫 OK</span></strong>
+				</td>
+				<td class="auto-style1">
+					<input type="radio" class="auto-style3" /><br />
+					<strong><span class="auto-style5">手部清潔 OK</span></strong>
+				</td>
+				<td class="auto-style1">
+					<input type="radio" class="auto-style3" /><br />
+					<strong><span class="auto-style5">戴口罩 OK</span></strong>
+				</td>
+				<td class="auto-style1">
+					<input type="radio" class="auto-style3" /><br />
+					<strong><span class="auto-style5">戴手套 OK</span></strong>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<br />
+		<input type="button" class="btn btn-danger" value="存檔 進入" onclick="location.href='@Url.Action("Select_case_schedule", "Home")'" />
+		<br />
+		<hr style="border:4px dashed #46A3FF" />
+		<input type="image" src="~/images/再次進入icon.png" class="btn" onclick="location.href='@Url.Action("again_into", "Home")'" />
+		<br />
+		<br />
+		<br />
+		<input type="image" src="~/images/離點打卡icon.png" class="btn" onclick="location.href='@Url.Action("sign_out", "Home")'" />
+	</div>
+</body>
+</html>	

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-視力異常</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			height: 525px;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			width: 91px;
+			text-align: center;
+		}
+
+		.auto-style3 {
+			text-align: right;
+		}
+
+		.auto-style4 {
+			font-size: medium;
+			font-family: 標楷體;
+		}
+
+		.auto-style5 {
+			font-size: medium;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<table class="auto-style1">
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg" value="1級" />
+			</td>
+			<td class="auto-style4">
+				適當(能在書報中的標準字體)
+			</td>
+		</tr>
+				<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg" value="2級"/>
+			</td>
+			<td class="auto-style4">
+				輕度障礙(可以看清楚大字的印書體)
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg" value="3級"/>
+			</td>
+			<td class="auto-style4">
+				中度障礙(看不清楚報紙的標題，但能辨識物件)
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg" value="4級"/>
+			</td>
+			<td class="auto-style4">
+				重度障礙(辨識物件有困難，但眼睛能隨物件移動)
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg" value="5級"/>
+			</td>
+			<td class="auto-style4">
+				極重度障礙(僅能見到光、顏色或形狀，眼睛不能隨物件移動)
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg" value="6級"/>
+			</td>
+			<td class="auto-style4">
+				失明
+			</td>
+		</tr>
+
+	</table>
+	<div class="auto-style3">
+		<br />
+		<br />
+		<br />
+		<br />
+		@Html.ActionLink("上一頁", "Guardian_of_the_month_Home_attendant", "Home", new { @class = "btn btn-danger " })
+	</div>
+</body>
+</html>

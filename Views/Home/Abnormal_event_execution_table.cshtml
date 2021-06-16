@@ -1,0 +1,181 @@
+﻿@using Web_Phone.Models;
+@{
+	List<Exception_notification> exception_notifications = ViewBag.exception_notifications;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-異常事件執行表</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style1 {
+			font-family: 標楷體;
+			text-decoration: underline;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			width: 340px;
+			height: 273px;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			text-align: center;
+			height: 120px;
+		}
+
+		.auto-style6 {
+			color: #FF0000;
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+
+		.auto-style7 {
+			font-family: 標楷體;
+			font-size: medium;
+		}
+
+		.auto-style8 {
+			text-align: center;
+			height: 120px;
+			font-size: medium;
+			font-family: 標楷體;
+			width: 57px;
+		}
+
+		.auto-style9 {
+			font-size: medium;
+			font-family: 標楷體;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			text-align: center;
+			height: 120px;
+			width: 57px;
+		}
+
+		.auto-style11 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 57px;
+		}
+
+		.auto-style12 {
+			font-family: 標楷體;
+			text-align: center;
+			height: 120px;
+			width: 103px;
+		}
+
+		.auto-style13 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 103px;
+		}
+	</style>
+	<script>
+		$(function () {
+
+			$('#actButton2').click(function () {
+				alert('無異常事件執行事項！');
+				// $('#actButton2').removeClass(':hover');
+				return false;
+			});
+
+			$('#actButton3').click(function () {
+				location.href = "/unusual_notify/track";
+			});
+
+			$('#lastPage').click(function () {
+				// history.back();
+				location.href = "/home/index";
+			});
+		});
+	</script>
+</head>
+
+<body style="background-color:#FAF4FF; ">
+	<div class="auto-style2">
+		<span class="auto-style1">
+			<span class="auto-style6">異常事件執行表</span>
+		</span>
+		<br />
+	</div>
+	<br />
+	<br />
+	<table style="background-color: white;" border="1" align="center" class="auto-style3">
+		<tr>
+			<th class="auto-style8">
+				<font face="標楷體" size="5" class="auto-style7">
+					異常<br />
+					時間
+				</font>
+			</th>
+			<th class="auto-style10">
+				<font face="標楷體" size="5" class="auto-style7">
+					服務<br />
+					人員<br />
+					姓名
+				</font>
+			</th>
+			<th class="auto-style12">
+				<font face="標楷體"><span class="auto-style7">事件描述</span></font><span class="auto-style9"> </span>
+			</th>
+
+			<th class="auto-style5">
+				<font face="標楷體"><span class="auto-style7">執行</span></font><span class="auto-style9"> </span>
+			</th>
+			<th class="auto-style5">
+				<font face="標楷體"><span class="auto-style7">追蹤</span></font><span class="auto-style9"> </span>
+			</th>
+		</tr>
+		<tbody>
+			@foreach (Exception_notification exception_Notification in exception_notifications)
+			{
+
+				<tr>
+					<td class="auto-style11">
+						@exception_Notification.tim
+					</td>
+					<td class="auto-style11">
+						@exception_Notification.working_name
+					</td>
+					<td class="auto-style13">
+						@exception_Notification.event_description
+					</td>
+					<td bgcolor="#5772EE" class="auto-style2">
+						@Html.ActionLink("1", "Abnormal_event_execution", "Home")
+					</td>
+					<td bgcolor="#5772EE" class="auto-style2">
+						@Html.ActionLink("1", "Abnormal_event_tracking", "Home")
+					</td>
+				</tr>
+			}
+			</tbody>
+		</table>
+	<div class="text-right">
+		<br />
+		<br />
+		@Html.ActionLink("回首頁", "Home_attendant_index", "Home", new { @class = "btn btn-danger btn-lg" })<br />
+		<br />
+	</div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>每次守護紀錄</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			width: 345px;
+			height: 214px;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+		.auto-style3 {
+			width: 343px;
+			height: 166px;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			width: 350px;
+			height: 100px;
+		}
+
+		.auto-style6 {
+			font-family: 標楷體;
+			text-align: left;
+		}
+
+		.auto-style7 {
+			font-family: 標楷體;
+			width: 320px;
+			height: 156px;
+		}
+
+		.auto-style8 {
+			font-family: 標楷體;
+			text-align: right;
+		}
+
+		.auto-style11 {
+			font-family: 標楷體;
+			font-size: xx-large;
+			width: 390px;
+			text-align: center;
+			color:#FFFFFF;
+		}
+		.auto-style12 {
+			font-family:標楷體;
+			font-size: large;
+		}
+		.auto-style13 {
+			font-family:標楷體;
+			font-size: medium;
+		}
+		.auto-style14 {
+			font-size: large;
+		}
+		.auto-style15 {
+			font-family: 標楷體;
+			font-size: large;
+			width: 168px;
+		}
+		.auto-style16 {
+			font-family: 標楷體;
+			font-size: x-large;
+			text-align: left;
+		}
+v
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<div style="background-color:#FF5F5F;" class="auto-style11">
+		每次守護紀錄
+	</div>
+	<br />
+	<table align="center" class="auto-style1">
+		<tr>
+			<td bgcolor="#F5F5F5" align="center" valign="center" class="auto-style15">
+				<font color="0000EB">個案姓名:林XX</font>
+			</td>
+			<td bgcolor="#F5F5F5" align="center" valign="center" class="auto-style16">
+				<font color="0000EB"><span class="auto-style14">服務日期 @DateTime.Now </span></font><span class="auto-style14"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" colspan="2" align="center" valign="center" class="auto-style2">
+				<img src="../../images/服務人員icon.png" /><font color="0000EB">&nbsp;&nbsp; <span class="auto-style14">服務人員:&nbsp;&nbsp; 黃阿花 </span> </font>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<div class="auto-style2">
+		<font color="#D60000" size="5"><strong>家屬簽名區</strong></font>
+		<br />
+		<br />
+	</div>
+	<form action="/Home/Every_guardian" method="post">
+
+		<table align="center" class="auto-style3">
+			<tr>
+				<td bgcolor="#FFFFFF">
+					<label>
+					</label>
+				</td>
+
+			</tr>
+		</table>
+
+		<br />
+		<br />
+		<br />
+		<table align="center">
+			<tr>
+				<td>
+					&nbsp;<input type="button" value="儲存" class="btn btn-primary btn-lg" />
+
+				</td>
+			</tr>
+		</table>
+
+		<br />
+		<br />
+
+	</form>
+	<p><font color="#0000EB "><span class="auto-style12"><strong>生命跡象</strong></span></font><img src="../../images/聽診器icon.png" /></p>
+	<table align="center" class="auto-style5">
+		<tr>
+			<td>
+				<font color="#FF1493"><span class="auto-style13">體溫:</span></font>
+			</td>
+			<td>
+				<font color="#FF1493"><span class="auto-style13">脈搏:</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<font color="#FF1493"><span class="auto-style13">血壓:</span></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \
+			</td>
+		</tr>
+	</table>
+	<p>&nbsp;</p>
+	<p><font color="#0000EB"> <span class="auto-style12"><strong>皮膚評估</strong><img src="../../images/評估icon.png" /></span></font></p>
+	<div class="auto-style6">
+		<font color="#FF1493">
+			<span class="auto-style13">
+				&nbsp;&nbsp;&nbsp;&nbsp;是否出現傷口、壓傷瘀青等&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="radio" /> 是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" /> 否<br />
+			</span>
+		</font>
+	</div>
+	<font color="#0000EB">
+		<br />
+		<span class="auto-style12"><strong>異常</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><font color="#FF1493"><span class="auto-style13">部位:</span></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF1493"><span class="auto-style13">狀況:</span></font>
+	</font>
+	<br />
+	<font color="#0000EB">
+		<br />
+		<br />
+		<span class="auto-style12"><strong>疼痛評估&nbsp;</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	</font>
+	<br />
+	<br />
+	<br />
+	<font color="#0000EB"><span class="auto-style12"><strong>情緒評估</strong>&nbsp;&nbsp;&nbsp;&nbsp;</span></font>
+	<font color="#FF1493"><span class="auto-style13">有時:</span></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<font color="#FF1493"><span class="auto-style13">有時:</span></font>
+	<br />
+	<br />
+	<br />
+	<font color="#0000EB"><span class="auto-style12"><strong>服藥檢查</strong> <img src="../../images/評估icon.png" /></span></font>
+	<font color="#FF1493">
+		<span class="auto-style13">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<br />
+			&nbsp;有無增加藥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<input type="radio" />無&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" />有<br />
+			&nbsp;檢查藥袋藥數量 有無正常服藥&nbsp;&nbsp; <input type="radio" />無&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" />有<br />
+		</span>
+	</font>
+	<br />
+	<font color="#0000EB"><span class="auto-style12"><strong>照顧交代/注意事項</strong></span></font>
+	<br />
+	<br />
+	<table align="center" class="auto-style7">
+		<tr>
+			<td bgcolor="#FFFFFF"></td>
+		</tr>
+	</table>
+    <div class="auto-style8">
+        <br>
+        <br />
+        @Html.ActionLink("上一頁", "Familindex", "Home", new { @class = "btn btn-danger btn-lg" })
+
+        <br />
+        &nbsp;
+    </div>
+</body>
+</html>

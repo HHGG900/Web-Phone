@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-異常事件執行追蹤</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			.auto-style1 {
+				font-family: 標楷體;
+				text-align: center;
+			}
+
+
+			.auto-style5 {
+				font-family: 標楷體;
+				text-align: left;
+			}
+
+
+			.auto-style6 {
+				font-family: 標楷體;
+				width: 23px;
+				height: 29px;
+			}
+
+			textarea {
+				font-family: 標楷體;
+				resize: none;
+			}
+
+			.auto-style12 {
+				font-family: 標楷體;
+				height: 171px;
+				width: 357px;
+			}
+
+			.auto-style13 {
+				font-family: 標楷體;
+				text-align: left;
+				width: 357px;
+			}
+
+			.auto-style15 {
+				font-family: 標楷體;
+				width: 357px;
+				height: 210px;
+			}
+
+			.auto-style17 {
+				font-family: 標楷體;
+				width: 123px;
+			}
+
+			.auto-style18 {
+				text-align: right;
+				font-family: 標楷體;
+			}
+
+			.auto-style21 {
+				font-family: 標楷體;
+				font-size: large;
+			}
+
+			.auto-style23 {
+				text-align: right;
+				font-size: large;
+				font-family: 標楷體;
+			}
+
+			.auto-style24 {
+				font-family: 標楷體;
+				height: 170px;
+				width: 310px;
+			}
+			.auto-style25 {
+				color: #ff0099;
+				font-family: 標楷體;
+				font-size: large;
+			}
+		</style>
+	</head>
+	<body style="background-color:#FAF4FF; ">
+		<div class="auto-style1">
+			<marquee direction="up" scrollamount="1" class="auto-style25">
+				公告:8/18(六)辦理員工體檢,相關注意事項請查閱公告
+			</marquee>
+			<div class="auto-style5">
+				<br />
+				&nbsp;<img src="~/images/服務人員icon.png" class="auto-style6" /><span class="auto-style21">服務人員 :&nbsp;黃阿花</span>
+				<br />
+			</div>
+			<div class="auto-style23">
+				記錄時間 @DateTime.Now
+			</div>
+			<br />
+			<table align="center">
+				<tr>
+					<td class="auto-style13">
+						<font face="標楷體" size="5">事件描述<br />
+						</font>
+						&nbsp;<br />
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style24" bgcolor="#FFFFFF">
+						<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style13">
+						<font face="標楷體" size="5">
+							<br />
+							跨專業處理措施<br />
+&nbsp;</font><br />
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" bgcolor="#FFFFFF">
+						<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style13">
+						<font face="標楷體" size="5">
+							<br />
+							執行紀錄<br />
+&nbsp;</font><br />
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style12" bgcolor="#FFFFFF">
+						<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+						<br />
+					</td>
+				</tr>
+			</table>
+			<table align="center">
+				<tr>
+					<td class="auto-style5">
+						<font face="標楷體">
+							<span class="auto-style16">
+								<br />
+								<span class="auto-style25">追蹤紀錄&nbsp; 關鍵字&nbsp; </span>
+							</span>
+						</font>
+						<input type="search" name="text" class="auto-style17" /> &nbsp;<input type="button" class="btn btn-primary bnt-lg" value="搜尋" />
+						<br />
+						<br />
+					</td>
+				</tr>
+				<tr>
+					<td class="auto-style1">
+						<textarea class="auto-style15"></textarea>
+					</td>
+				</tr>
+			</table>
+			<div class="auto-style1">
+				<br />
+				<input type="submit" class="btn btn-primary btn-lg" value="存檔" />
+			</div>
+			<div class="auto-style18">
+				<br />
+				<br />
+				<br />
+				@Html.ActionLink("回首頁", "Abnormal_event_execution_table", "Home", new { @class = "btn btn-danger btn-lg" })<br />
+&nbsp;</div>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>督導-(複評)壓力照顧量表</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style1 {
+			font-family: 標楷體;
+			font-size: 25px;
+			text-align: right;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			font-size: 25px;
+			text-align: center;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			width: 19px;
+			height: 20px;
+		}
+
+		.auto-style4 {
+			font-family: 標楷體;
+			text-align: right;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<div class="text-right">
+	<table style="border:5px #000000 solid; color:#F67377" border="1">
+		<tr>
+			<td>
+				&nbsp;
+			</td>
+			<td class="auto-style2">
+				從<br />
+				來<br />
+				沒<br />
+				有<br />
+				<font color="#000000">0分</font>
+
+			</td>
+			<td class="auto-style2">
+				很<br />
+				少<br />
+				如<br />
+				此<br />
+				<font color="#000000">1分</font>
+			</td>
+			<td class="auto-style2">
+				有<br />
+				時<br />
+				如<br />
+				此<br />
+				<font color="#000000">2分</font>
+			</td>
+			<td class="auto-style2">
+				常<br />
+				常<br />
+				如<br />
+				此<br />
+				<font color="#000000">3分</font>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				身體不舒服(不爽快)時還是要照顧他
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				感到疲倦
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location1" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location1" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location1" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location1" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				體力上負擔重
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location2" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location2" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location2" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location2" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				會受到他的情緒影響
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location3" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location3" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location3" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location3" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				睡眠被干擾(因為他在夜裡無法安睡)
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location4" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location4" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location4" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location4" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				因為照顧他讓您的健康變壞了
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location5" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location5" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location5" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location5" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				感到心力交瘁
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location6" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location6" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location6" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location6" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				照顧他讓您精神上覺得痛苦
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location7" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location7" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location7" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location7" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				當您和他在一起時,會感到生氣
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location8" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location8" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location8" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location8" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				因為照顧他影響到您原先的外出計畫
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location9" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location9" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location9" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location9" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				與親朋好友交往受到影響
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location10" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location10" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location10" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location10" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				您必須時時刻刻都要注意他
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location11" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location11" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location11" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location11" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				照顧他的花費大,造成負擔
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location12" value="0分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location12" value="1分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location12" value="2分" class="auto-style3" />
+			</td>
+			<td class="auto-style2">
+				<input type="radio" name="location12" value="3分" class="auto-style3" />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				總分
+			</td>
+			<td colspan="4" class="auto-style1">
+				分
+			</td>
+		</tr>
+	</table>
+	<br />
+	<input type="button" class="btn btn-success btn-lg" value="計分" />
+
+	<div class="auto-style4">
+		<br />
+		<br />
+		@Html.ActionLink("上一頁", "Guardian_of_the_month_Home_attendant", "Home", new { @class = "btn btn-warning btn-lg " })
+	</div>
+	</div>
+</body>
+</html>

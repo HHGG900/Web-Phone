@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-異常事件執行</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+
+		.auto-style5 {
+			font-family: 標楷體;
+			text-align: left;
+		}
+
+
+		.auto-style6 {
+			font-family: 標楷體;
+			width: 23px;
+			height: 29px;
+		}
+
+		textarea {
+			font-family: 標楷體;
+			resize: none;
+		}
+
+		.auto-style7 {
+			font-family: 標楷體;
+			width: 357px;
+			height: 121px;
+		}
+
+		.auto-style12 {
+			font-family: 標楷體;
+			height: 171px;
+		}
+
+		.auto-style14 {
+			font-family: 標楷體;
+			font-size: large;
+		}
+
+		.auto-style15 {
+			text-align: right;
+			font-size: large;
+			font-family: 標楷體;
+		}
+
+		.auto-style16 {
+			font-family: 標楷體;
+			font-size: x-large;
+			color :#ff0099;
+		}
+
+		.auto-style17 {
+			font-family: 標楷體;
+			width: 106px;
+			height: 25px;
+		}
+		.auto-style18 {
+			font-family: 標楷體;
+			width: 73px;
+			height: 44px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<div class="auto-style1">
+
+		<div class="auto-style1">
+		<marquee direction="up" scrollamount="1" class="auto-style16">
+			公告:8/18(六)辦理員工體檢,相關注意事項請查閱公告
+		</marquee>
+		</div>
+		<div class="auto-style5">
+			<br />
+			&nbsp;<img src="~/images/服務人員icon.png" class="auto-style6" /><span class="auto-style14">服務人員 :&nbsp;黃阿花</span>
+			<br />
+		</div>
+		<div class="auto-style15">
+			記錄時間 @DateTime.Now
+		</div>
+
+		<br />
+		<table align="center">
+			<tr>
+				<td class="auto-style5">
+					<font face="標楷體" size="5">事件描述</font>
+					<br />
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style12" bgcolor="#FFFFFF">
+					<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style5">
+					<font face="標楷體" size="5">
+						<br />
+						跨專業處理措施<br />
+&nbsp;</font><br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style12" bgcolor="#FFFFFF">
+					<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style5">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style5">
+					<font face="標楷體"><span class="auto-style16">執行紀錄 關鍵字</span></font>&nbsp;
+					<input type="search" name="text" class="auto-style17" />&nbsp;&nbsp;&nbsp; <input type="button" class="btn btn-primary btn-lg" value="搜尋" style="width: 73px" />
+					<br />
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style1">
+					<textarea class="auto-style7"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="auto-style1">
+			<br />
+			<font face="標楷體" size="5">追蹤期間設定 : </font>
+
+
+			&nbsp;<select class="auto-style18" name="D1">
+				<option><font face="標楷體" size="5">十分鐘</font></option>
+				<option><font face="標楷體" size="5">半小時</font></option>
+				<option><font face="標楷體" size="5">一小時</font></option>
+				<option><font face="標楷體" size="5">三小時</font></option>
+				<option><font face="標楷體" size="5">一天</font></option>
+				<option><font face="標楷體" size="5">一周</font></option>
+				<option><font face="標楷體" size="5">半個月</font></option>
+				<option><font face="標楷體" size="5">一個月</font></option>
+				<option><font face="標楷體" size="5">三個月</font></option>
+				<option><font face="標楷體" size="5">半年</font></option>
+				<option><font face="標楷體" size="5">一年</font></option>
+			</select>
+		</div>
+		<br />
+		<br />
+		<input type="submit" class="btn btn-primary btn-lg" value="存檔" />
+		<br />
+		<br />
+		<br />
+		<div class="text-right">
+			@Html.ActionLink("上一頁", "Abnormal_event_execution_table", "Home", new { @class = "btn btn-danger btn-lg" })<br />
+			<br />
+		</div>
+		</div>
+</body>
+</html>

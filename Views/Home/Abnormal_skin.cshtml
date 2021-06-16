@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-皮膚異常</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			width: 16px;
+			height: 18px;
+		}
+
+		.auto-style4 {
+			font-family: 標楷體;
+			width: 90px;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			width: 340px;
+		}
+
+		.auto-style6 {
+			font-family: 標楷體;
+			text-align: left;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			width: 113px;
+			text-align: center;
+		}
+
+		.auto-style11 {
+			font-family: 標楷體;
+			width: 248px;
+			height: 210px;
+		}
+
+		.auto-style13 {
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+
+		.auto-style14 {
+			font-family: 標楷體;
+			font-size: large;
+		}
+
+		.auto-style15 {
+			font-family: 標楷體;
+			font-size: xx-large;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF;">
+
+			<div class="auto-style1">
+
+			<div style="background-color:#0D62C3;" class="auto-style6">
+				&nbsp;&nbsp;
+				<input type="image" src="~/images/側欄按鈕.png" onclick="location.href=' @Url.Action("Transitions", "Home")'" />
+				<Font color="#FFFFFF" face="標楷體" size="5">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;每日守護紀錄
+				</Font>
+			</div>
+			<br />
+			<table align="center">
+				<tr>
+					<td bgcolor="#8E8A8A">
+						<font face="標楷體" color="#FFFFFF"><span class="auto-style15">皮膚評估</span></font>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table align="center" class="auto-style5">
+				<tr>
+					<td class="auto-style10">
+						<font face="標楷體" color="#B43438"><span class="auto-style14">異常部位:</span></font>
+					</td>
+					<td class="auto-style6">
+						<br />
+						<font face="標楷體" size="5" color="#B43438">
+							<input type="checkbox" value="頭部" class="auto-style3" />頭部
+							<input type="checkbox" value="肩頰骨" class="auto-style3" />肩頰骨
+							<input type="checkbox" value="手肘" class="auto-style3" />手肘<br />
+							<input type="checkbox" value="胸部" class="auto-style3" />胸部
+
+							<input type="checkbox" value="腹部" class="auto-style3" />腹部
+							<input type="checkbox" value="髖關節" class="auto-style3" />髖關節<br />
+							<input type="checkbox" value="膝蓋" class="auto-style3" />膝蓋
+							<input type="checkbox" value="足踝" class="auto-style3" />足踝
+							<input type="checkbox" value="足跟" class="auto-style3" />足跟
+						</font>
+						<br />
+					</td>
+				</tr>
+			</table>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td class="auto-style10">
+						<font face="標楷體" color="#B43438"><span class="auto-style14">異常狀況:</span></font>
+					</td>
+					<td class="auto-style6">
+						<font face="標楷體" size="5" color="#B43438">
+							<br />
+							<input type="checkbox" value="發紅" class="auto-style3" />發紅
+							<input type="checkbox" value="腫脹" class="auto-style3" />腫脹
+							<input type="checkbox" value="挫傷" class="auto-style3" />挫傷<br />
+							<input type="checkbox" value="瘀傷" class="auto-style3" />瘀傷
+
+							<input type="checkbox" value="疥瘡" class="auto-style3" />疥瘡
+							<input type="checkbox" value="水腫" class="auto-style3" />水腫
+							<br />
+							<input type="checkbox" value="壓傷" class="auto-style3" />壓傷
+							<input type="checkbox" value="燒燙傷" class="auto-style3" />燒燙傷
+							 
+						<br />
+							<input type="checkbox" value="手術傷口" class="auto-style3" />手術傷口
+						</font>
+						<br />
+					</td>
+				</tr>
+			</table>
+			<div class="auto-style6">
+				<font face="標楷體" size="4" color="#B43438">
+					<br />
+					大小:
+				</font>
+				<input type="text" name="text1" class="auto-style4" size="20" /> <font face="標楷體" size="4" color="#B43438">(長) X </font><input type="text" name="text2" class="auto-style4" size="20" /><font face="標楷體" size="4" color="#B43438">
+					(寬) X
+				</font><input type="text" name="text" class="auto-style4" /> <font face="標楷體" size="4" color="#B43438">(深)cm</font>
+				<br />
+			</div>
+			<div class="auto-style6">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br />
+				<font face="標楷體"><span class="auto-style13">拍照為證</span></font> <br />
+				<br />
+			</div>
+				<input type="file" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+			<br />
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="~/images/照片1.jpg" id="blah" alt="your image" class="auto-style11" />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="location.href='https://webphone20201109.azurewebsites.net/Home/Every_guardian_the_record'" />
+			<br />
+			<br />
+			<br />
+			</div>
+</body>
+</html>

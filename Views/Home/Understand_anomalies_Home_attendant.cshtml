@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-理解異常</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			height: 525px;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			width: 91px;
+			text-align: center;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			text-align: right;
+		}
+
+		.auto-style4 {
+			font-family: 標楷體;
+			font-size: medium;
+		}
+
+		.auto-style5 {
+			font-size: medium;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<table class="auto-style1">
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg " value="1級" />
+			</td>
+			<td class="auto-style5">
+				良好
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg " value="2級" />
+			</td>
+			<td class="auto-style5">
+				僅可理解簡單的句子
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg " value="3級" />
+			</td>
+			<td>
+				<span class="auto-style5">僅可理解</span><span class="auto-style4">關鍵的字詞</span><span class="auto-style5"> </span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<input type="submit" class="btn btn-primary btn-lg " value="4級" />
+			</td>
+			<td class="auto-style5">
+				無法理解
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style2">
+				<<input type="submit" class="btn btn-primary btn-lg " value="5級" />
+			</td>
+			<td class="auto-style5">
+				無法判斷理解能力
+			</td>
+		</tr>
+	</table>
+	<div class="auto-style3">
+		<br />
+		<br />
+		<br />
+		<br />
+		@Html.ActionLink("上一頁", "Guardian_of_the_month_Home_attendant", "Home", new { @class = "btn btn-danger" })
+	</div>
+</body>
+</html>

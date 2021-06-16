@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-員工申訴</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			width: 39px;
+			height: 36px;
+		}
+
+		.auto-style3 {
+			width: 320px;
+		}
+
+		.auto-style4 {
+			text-align: left;
+			width: 64px;
+		}
+
+		.auto-style5 {
+			text-align: right;
+			font-family: 標楷體;
+		}
+
+		.auto-style7 {
+			height: 357px;
+		}
+
+		.auto-style9 {
+			font-family: 標楷體;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			width: 347px;
+			height: 41px;
+			text-align: left;
+			font-size: large;
+		}
+
+		.auto-style11 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 222px;
+		}
+
+		.auto-style12 {
+			font-family: 標楷體;
+			width: 241px;
+			height: 130px;
+		}
+
+		.auto-style13 {
+			text-align: center;
+		}
+
+		.auto-style14 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 222px;
+			height: 107px;
+			font-size: large;
+		}
+
+		.auto-style15 {
+			text-align: left;
+			height: 107px;
+		}
+
+		.auto-style16 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 222px;
+			height: 78px;
+			font-size: large;
+		}
+
+		.auto-style17 {
+			text-align: left;
+			height: 78px;
+		}
+
+		.auto-style18 {
+			font-family: 標楷體;
+			width: 261px;
+			height: 100px;
+		}
+
+		.auto-style19 {
+			font-size: large;
+		}
+
+		.auto-style20 {
+			font-family: 標楷體;
+			text-align: center;
+			width: 222px;
+			font-size: large;
+		}
+
+		.auto-style21 {
+			font-family: 標楷體;
+			font-size: large;
+		}
+	</style>
+
+	<!--	<script>
+			$(function () {
+				$('#homepageBtn').click(function () {
+					location.href = "/home/index";
+				});
+
+				$('#lastPage').click(function () {
+					history.back();
+				});
+
+				$('#send').click(function () {
+					var appellant_identity = $("input[name='appellant_identity']:checked").val();
+					var category = $('input[type="radio"][name="category"]:checked').val()
+
+					if ($('#appellant_name').val() == '') {
+						alert('請輸入申訴者姓名！');
+						$('#appellant_name').focus();
+						return false;
+					}
+					else if (typeof (appellant_identity) == 'undefined') {
+						alert('請輸入申訴者身份！');
+						$('#appellant_identity1').focus();
+						return false;
+					}
+					else if ($('#phone').val() == '') {
+						alert('請輸入申訴人聯絡電話！');
+						$('#phone').focus();
+						return false;
+					}
+					else if (typeof (category) == 'undefined') {
+						alert('請輸入申訴類別！');
+						$('#category1').focus();
+						return false;
+					}
+					else if ($('#reason').val() == '') {
+						alert('請輸入申訴事由！');
+						$('#reason').focus();
+						return false;
+					}
+					else {
+						$('#wait_content').show();
+						$('#wait').show();
+
+						$('#form1').submit();
+					}
+				});
+
+			});
+		</script>-->
+
+</head>
+<body style="background-color:#FAF4FF; ">
+	<div class="auto-style1">
+			<marquee direction="up" scrollamount="1" class="auto-style10"><font color="#ff0099">
+				公告：8/18(六)辦理員工體檢，相關注意事項請查閱公告
+			</font></marquee>
+	</div>
+	<form action="/Home/Employee_complaint_Home_attendant" method="post" enctype="multipart/form-data">
+		<br class="auto-style9" />
+		<table class="auto-style3" align="center">
+			<tr>
+				<td class="auto-style4">
+					&nbsp;
+					<input type="image" src="~/images/側欄符號.png" onclick="location.href='@Url.Action("Transitions", "Home")'" class="auto-style2" /><span class="auto-style9"> </span>
+				</td>
+				<td class="auto-style1">
+					<label for="inputtim">
+						<strong><span class="auto-style19">申訴日期 : @DateTime.Today <input type="date" id="inputtim" name="tim" value="@DateTime.Today" placeholder="@DateTime.Today" readonly="readonly" required hidden="hidden" /> </span> </strong>
+						
+					</label>
+					<br />
+				</td>
+	</table>
+	<table class="auto-style7">
+		<tr>
+			<td class="auto-style20">
+				<strong>
+					申訴者姓名
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<label for="inputUS_name">
+					<input type="text" id="inputUS_name" name="US_name" class="auto-style9" /><span class="auto-style9"> </span>
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style16">
+				<strong>
+					申訴者身分
+				</strong>
+			</td>
+			<td class="auto-style17">
+				<label for="inputusr_status">
+					<input type="radio" id="inputusr_status" name="usr_status" value="個案本人" class="auto-style9" /><span class="auto-style9"><span class="auto-style19"> 個案本人</span> </span> 
+					<input type="radio"id="inputusr_status" name="usr_status" value="個案家屬" class="auto-style9" /><span class="auto-style9"><span class="auto-style19"> 個案家屬</span> </span>
+					<input type="radio" id="inputusr_status" name="usr_status" value="員工" class="auto-style9" /><span class="auto-style21">&nbsp; 員工</span>
+				</label>
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style20">
+				<strong>
+					申訴者<br />
+					連絡電話				
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<label for="inputphone">
+					<input type="text" id="inputphone" name="phone"  class="auto-style9" /><span class="auto-style9">
+						<br />
+					</span>
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style14">
+				<strong>
+					申訴類別
+				</strong>
+			</td>
+			<td class="auto-style15">
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class" value="受傷" class="auto-style9" /><span class="auto-style9"><span class="auto-style19"> 受傷</span>&nbsp; </span>
+				</label>
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class1" value="不當處置" class="auto-style9" /><span class="auto-style9"><span class="auto-style19"> 不當處置</span>&nbsp;&nbsp;&nbsp; </span>
+				</label>
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class2" value="權益損" class="auto-style9" /><span class="auto-style9"><span class="auto-style19">&nbsp; 權益損</span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+				</label>
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class3" value="忽略" class="auto-style9" /><span class="auto-style21"> 忽略 </span>
+				</label>
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class4" value="被欺" class="auto-style9" /><span class="auto-style9"><span class="auto-style19"> 被欺</span>&nbsp; </span>
+				</label>
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class5" value="性騷擾" class="auto-style9" /><span class="auto-style9"><span class="auto-style19"> 性騷擾</span>&nbsp;<br /></span>
+				</label>
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class6" value="職霸凌" class="auto-style9" /><span class="auto-style9"><span class="auto-style19">&nbsp; 職霸凌</span>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+				</label>
+				<label for="inputfall_class">
+					<input type="radio" id="inputfall_class" name="fall_class7" value="誤判" class="auto-style9" /><span class="auto-style9">
+						<span class="auto-style19"> 誤判</span>
+						<br />
+					</span>
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style20">
+				<strong>
+					申訴事由
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<label for="inputconten">
+					<textarea id="inputconten" name="conten" class="auto-style18"></textarea>
+						<br />
+						&nbsp;
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style11">
+				<strong>
+					<span class="auto-style19">
+						證據照片<br />
+						(若無則免)
+					</span>
+				</strong>
+			</td>
+			<td class="auto-style13">
+				<label for="inputpic_one">
+					<input type="file" id="inputpic_one" name="pic_one" onchange="document.getElementById('appeal').src = window.URL.createObjectURL(this.files[0])" class="auto-style9" value="file.name">
+					<br class="auto-style9" />
+					<img  src="~/images/照片1.jpg" id="appeal" alt="your image" class="auto-style12" /><span class="auto-style9"> </span>
+				</label>
+			</td>
+		</tr>
+	</table>
+	<div class="auto-style1">
+		<br />
+		<br />
+		<input type="submit" class="auto-style9;btn btn-primary btn-lg" value="提交" onclick="window.alert('已送出');" />
+		<br />
+	</div>
+	</form>
+	<p class="auto-style9">
+		&nbsp;
+	</p>
+	<p class="auto-style5">
+		@Html.ActionLink("上一頁", "Home_attendant_index", "Home", new { @class = "btn btn-danger btn-lg" })
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+﻿<html>
+<head>
+	<style type="text/css">
+		.auto-style1 {
+			text-align: center;
+		}
+
+		.auto-style3 {
+			width: 16px;
+			height: 18px;
+		}
+
+		.auto-style4 {
+			width: 90px;
+		}
+
+		.auto-style5 {
+			width: 332px;
+		}
+
+		.auto-style6 {
+			text-align: left;
+		}
+		.auto-style10 {
+			width: 113px;
+			text-align: center;
+		}
+
+		.auto-style11 {
+			width: 217px;
+			height: 201px;
+		}
+
+		.auto-style13 {
+			font-size: x-large;
+		}
+		
+
+
+	</style>
+</head>
+<body style="background-color:#FAF4FF; width: 357px; height:812px;">
+	<div class="auto-style1">
+		<div class="auto-style1">
+			<div style="background-color:#0D62C3;" class="auto-style6">
+				&nbsp;&nbsp;
+				<input type="image" src="~/images/側欄按鈕.png" onclick="location.href=' @Url.Action("Transitions", "Home")'" />
+				<Font color="#FFFFFF" face="標楷體" size="5">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					每日守護紀錄
+				</Font>
+			</div>
+			<br />
+			<table align="center">
+				<tr>
+					<td bgcolor="#8E8A8A">
+						<font face="標楷體" color="#FFFFFF"><span class="auto-style13">皮膚評估</span></font>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table align="center" class="auto-style5">
+				<tr>
+					<td class="auto-style10">
+						<font face="標楷體" color="#B43438"><span class="auto-style13">異常部位:</span></font>
+					</td>
+					<td class="auto-style6">
+						<br />
+						<font face="標楷體" size="5" color="#B43438">
+							<input type="checkbox" value="頭部" class="auto-style3" />頭部<input type="checkbox" value="肩頰骨" class="auto-style3" />肩頰骨<input type="checkbox" value="手肘" class="auto-style3" />手肘<br />
+						<input type="checkbox" value="胸部" class="auto-style3" />胸部
+
+							<input type="checkbox" value="腹部" class="auto-style3" />腹部<input type="checkbox" value="髖關節" class="auto-style3" />髖關節<br />
+						<input type="checkbox" value="膝蓋" class="auto-style3" />膝蓋 <input type="checkbox" value="足踝" class="auto-style3" />足踝
+							<input type="checkbox" value="足跟" class="auto-style3" />足跟
+						</font>
+						<br />
+					</td>
+				</tr>
+			</table>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td class="auto-style10">
+						<font face="標楷體"  color="#B43438"><span class="auto-style13">異常狀況:</span></font>
+					</td>
+					<td class="auto-style6">
+						<font face="標楷體" size="5" color="#B43438">
+							<br />
+							<input type="checkbox" value="發紅" class="auto-style3" />發紅<input type="checkbox" value="腫脹" class="auto-style3" />腫脹<input type="checkbox" value="挫傷" class="auto-style3" />挫傷<br />
+						<input type="checkbox" value="瘀傷" class="auto-style3" />瘀傷
+
+							<input type="checkbox" value="疥瘡" class="auto-style3" />疥瘡 <input type="checkbox" value="水腫" class="auto-style3" />水腫 
+						<br />
+						<input type="checkbox" value="壓傷" class="auto-style3" />壓傷 <input type="checkbox" value="燒燙傷" class="auto-style3" />燒燙傷
+							<input type="checkbox" value="手術傷口" class="auto-style3" />手術傷口
+						</font>
+						<br />
+					</td>
+				</tr>
+			</table>
+			<div class="auto-style6">
+				<font face="標楷體" size="4" color="#B43438">
+					<br />
+					大小: </font>
+				<input type="text" name="text1" class="auto-style4" size="20" /> <font face="標楷體" size="4" color="#B43438">(長)X</font><input type="text" name="text2" class="auto-style4" size="20" /><font face="標楷體" size="4" color="#B43438"> (寬)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; X </font><input type="text" name="text" class="auto-style4" /> <font face="標楷體" size="4" color="#B43438">(深)cm</font>
+					<br />
+			</div>
+			<div class="auto-style1">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="標楷體" size="5">拍照為證</font> <br />
+			</div>
+			<br />
+			&nbsp;<input type="file"
+						 onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+			<br />
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="../../images/拍照icon.png" id="blah" alt="your image" class="auto-style11" />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<input type="button" class="btn btn-primary" value="存檔" />
+			<br />
+			<br />
+			<br />
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>

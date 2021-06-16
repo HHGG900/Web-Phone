@@ -1,0 +1,117 @@
+﻿@using Web_Phone.Models
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" />
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: left;
+		}
+
+		.auto-style2 {
+
+			font-family: 標楷體;
+			text-align: right;
+			font-weight: bold;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: x-large;
+			color: #FF0000;
+		}
+
+		.auto-style6 {
+			font-family: 標楷體;
+			width: 357px;
+			height: 472px;
+		}
+
+		.auto-style7 {
+			font-family: 標楷體;
+			width: 23px;
+			height: 22px;
+		}
+
+		.auto-style8 {
+			height: 60px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; width: 357px; height:812px;">
+	<p class="auto-style1"><font color="#940094" size="5"><strong><b>台灣長照大聯盟智慧型</b></strong></font></p>
+	<p class="auto-style2"><font color="#940094" size="5"><strong>居家服務管理系統</strong></font></p>
+	<br />
+	<br />
+	<center><img src="../../images/長照專利證書.png" width="250" height="260" /></center>
+	<br />
+	<br />
+	<p class="auto-style3"><font color="#940094" size="4">用心呵護更加關愛我們致力於專業照顧</font></p>
+	<br />
+	<br />
+	<table border="0" class="auto-style6" align="center">
+		<tr>
+			<td bgcolor="#F5F5F5" colspan="3" align="center">
+				<form action="@Url.Action("Login")" method="post">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<font color="#0000EB" size="5"><strong>單位代號:</strong>&nbsp;</font>
+							<input type="text" id="UserId" name="UserId" required="required" />
+						</div>
+					</div>
+					<div class="form-group">
+						<font color="#0000EB" size="5"><strong>帳號:</strong>&nbsp;&nbsp;&nbsp;</font>
+						<input type="text" id="UserName" name="UserName" required="required" />
+					</div>
+					<div class="form-group">
+						<font color="#0000EB" size="5"><strong>密碼:</strong>&nbsp;&nbsp;&nbsp;</font>
+						<input type="password" id="Password" name="Password" required="required" />
+					</div>
+					<div class="auto-style5"> @ViewBag.Message</div>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" align="center" rowspan="2">
+				<input type="checkbox" class="auto-style7" />
+				<font color="#0000EB" size="3"><strong>&nbsp;&nbsp;自動登入</strong></font>
+			</td>
+			<div class="form-group">
+
+				<td bgcolor="#F5F5F5" align="center" colspan="2">
+					<input type="submit" class="btn btn-primary btn-lg" value="家屬登入"/>
+				</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" align="center">
+				<input type="submit" class="btn btn-primary btn-lg" value="督導登入"  onclick="location.href='@Url.Action("Workbook", "Home")'"/>
+			</td>
+			<td bgcolor="#F5F5F5" align="center">
+				<input type="submit" class="btn btn-primary btn-lg" value="照服員登入" />
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#F5F5F5" align="center" colspan="3" class="auto-style8">
+				<font size="5">
+					@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp;&nbsp;&nbsp;
+					@Html.ActionLink("忘記密碼", "forgetpassword", "Home")
+				</font>
+			</td>
+		</tr>
+		</div>
+		</form>
+	</table>
+</body>
+</html>

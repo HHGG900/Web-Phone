@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>督導-(複評)個案個別化照顧</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style1 {
+			width: 32px;
+			height: 40px;
+		}
+
+		.auto-style4 {
+			text-align: right;
+		}
+
+		.auto-style5 {
+			width: 390px;
+			height: 34px;
+		}
+
+		.auto-style6 {
+			font-family: 標楷體;
+		}
+
+		.auto-style7 {
+			text-align: center;
+		}
+
+		.auto-style8 {
+			width: 24px;
+			height: 22px;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			width: 130px;
+		}
+
+		.auto-style12 {
+			font-family: 標楷體;
+			width: 98px;
+		}
+
+		.auto-style14 {
+			text-align: left;
+		}
+
+		.auto-style16 {
+			width: 126px;
+			text-align: center;
+		}
+
+		.auto-style17 {
+			font-family: 標楷體;
+			width: 126px;
+			text-align: center;
+		}
+
+		.auto-style18 {
+			font-family: 標楷體;
+			width: 107px;
+			text-align: center;
+		}
+
+		.auto-style20 {
+			font-family: 標楷體;
+			width: 130px;
+			text-align: center;
+		}
+
+		.auto-style21 {
+			font-family: 標楷體;
+			width: 109px;
+			text-align: center;
+		}
+
+		.auto-style22 {
+			width: 59px;
+		}
+
+		.auto-style23 {
+			width: 103px;
+		}
+
+		.auto-style24 {
+			font-family: 標楷體;
+			width: 130px;
+			height: 96px;
+		}
+		.auto-style25 {
+			width: 147px;
+		}
+	</style>
+	</head>
+	<body style="background-color:#FAF4FF; ">
+			<div>
+				<input type="image" src="~/images/大於按鈕.png" class="auto-style1" /> <font color="#0d62c3" size="5">
+					&nbsp;<br />
+				</font>
+				&nbsp;
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style17">
+							<font color="#0d62c3" size="5" face="標楷體">現在個性</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								<input type="checkbox" name="location1" value="老實" class="auto-style8" />老實
+								<input type="checkbox" name="location2" value="仁慈" class="auto-style8" />仁慈
+								<input type="checkbox" name="location3" value="開朗" class="auto-style8" />開朗
+								<input type="checkbox" name="location4" value="溫柔" class="auto-style8" />溫柔
+								<br />
+								<input type="checkbox" name="location5" value="溫順" class="auto-style8" />溫順
+								<input type="checkbox" name="location6" value="溫暖" class="auto-style8" />溫暖
+								<input type="checkbox" name="location7" value="合群" class="auto-style8" />合群
+								<input type="checkbox" name="location8" value="謙遜" class="auto-style8" />謙遜
+								<br />
+								<input type="checkbox" name="location9" value="大方" class="auto-style8" />大方
+								<input type="checkbox" name="location10" value="正義" class="auto-style8" />正義
+								<input type="checkbox" name="location11" value="忠誠" class="auto-style8" />忠誠
+								<input type="checkbox" name="location12" value="自律直率" class="auto-style8" />自律直率
+								<br />
+								<input type="checkbox" name="location13" value="固執" class="auto-style8" />固執
+								<input type="checkbox" name="location14" value="幻想" class="auto-style8" />幻想
+								<input type="checkbox" name="location15" value="穩重" class="auto-style8" />穩重
+								<input type="checkbox" name="location16" value="無理取鬧" class="auto-style8" />無理取鬧
+								<br />
+								<input type="checkbox" name="location17" value="幽默" class="auto-style8" />幽默
+								<input type="checkbox" name="location18" value="衝動" class="auto-style8" />衝動
+								<input type="checkbox" name="location19" value="脆弱" class="auto-style8" />脆弱
+								<input type="checkbox" name="location20" value="尋求刺激" class="auto-style8" />尋求刺激
+								<br />
+								<input type="checkbox" name="location21" value="多慮" class="auto-style8" />多慮
+								<input type="checkbox" name="location22" value="冷淡" class="auto-style8" />冷淡
+								<input type="checkbox" name="location23" value="嚴肅" class="auto-style8" />嚴肅
+								<input type="checkbox" name="location24" value="膽小" class="auto-style8" />膽小
+								<br />
+								<input type="checkbox" name="location25" value="敏感" class="auto-style8" />敏感
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					&nbsp;
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style16">
+							<font color="#0d62c3" size="5">
+								<span class="auto-style6">
+									<br />
+									禁忌
+								</span></font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<br />
+							<input type="text" name="text" placeholder="單行輸入" />
+							<br />
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" colspan="2" class="auto-style7">
+							<font size="3" face="標楷體">
+								(例如提到哪些人、事、物時會出現負向情緒)
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					&nbsp;
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style18">
+							<font color="#0d62c3" size="5">易接受方式</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								<input type="checkbox" name="location26" value="示範" class="auto-style8" />示範
+								<input type="checkbox" name="location27" value="鼓勵、培養自信" class="auto-style8" />鼓勵、培養自信
+								<input type="checkbox" name="location28" value="撒嬌" class="auto-style8" />撒嬌<br />
+								<input type="checkbox" name="location29" value="溝通、講道理、說教" class="auto-style8" />溝通、講道理、說教
+								<input type="checkbox" name="location30" value="拜託(姑情)" class="auto-style8" />拜託(姑情)<br />
+								<input type="checkbox" name="location31" value="命令" class="auto-style8" />命令
+								<input type="checkbox" name="location32" value="半推半就" class="auto-style8" />半推半就
+								<input type="checkbox" name="location33" value="正義" class="auto-style8" />正義
+								<input type="checkbox" name="location34" value="忠誠" class="auto-style8" />忠誠<br />
+								<input type="checkbox" name="location35" value="固執" class="auto-style8" />固執
+								<input type="checkbox" name="location36" value="無理取鬧" class="auto-style8" />無理取鬧
+								<input type="checkbox" name="location37" value="強迫" class="auto-style8" />強迫
+								<input type="checkbox" name="location38" value="碎念" class="auto-style8" />碎念<br />
+								<input type="checkbox" name="location39" value="威脅" class="auto-style8" />威脅
+								<input type="checkbox" name="location40" value="交換條件、商量" class="auto-style8" />交換條件、商量
+								<input type="checkbox" name="location41" value="講反話" class="auto-style8" />講反話<br />
+								<input type="checkbox" name="location42" value="激將法" class="auto-style8" />激將法
+								<input type="checkbox" name="location43" value="懲罰" class="auto-style8" />懲罰
+								<input type="checkbox" name="location44" value="同儕影響" class="auto-style8" />同儕影響
+								<input type="checkbox" name="location45" value="比賽" class="auto-style8" />比賽<br />
+								<input type="checkbox" name="location46" value="專業介入" class="auto-style8" />專業介入
+								<input type="checkbox" name="location47" value="推崇、請教他人" class="auto-style8" />推崇、請教他人<br />
+								<input type="checkbox" name="location48" value="自己選擇" class="auto-style8" />自己選擇
+								<input type="checkbox" name="location49" value="關鍵影響的人" class="auto-style8" />關鍵影響力的人
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					<br />
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style21" rowspan="2">
+							<font color="#0d62c3" size="5">照顧期待</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								&nbsp; 個案期待 <input type="text" name="test" placeholder="多行輸入" class="auto-style25" />
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								&nbsp; 家屬期待 <input type="text" name="test" placeholder="多行輸入"  class="auto-style25" />
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					<br />
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style20" rowspan="3">
+							<font color="#0d62c3" size="5">緊急連絡人</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								&nbsp;
+								姓名&nbsp;&nbsp;&nbsp; <input type="text" name="text" placeholder="單行輸入"   class="auto-style25"/>
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								&nbsp;
+								手機&nbsp;&nbsp;&nbsp; <input type="text" name="text" placeholder="單行輸入" class="auto-style25"/>
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								Line ID <input type="text" name="text" placeholder="單行輸入" class="auto-style25"/>
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					<br />
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style12" rowspan="5">
+							<font color="#0d62c3" size="5">主要照顧者</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								關係 <input type="text" name="text" placeholder="單行" class="auto-style22" /> 年紀 <input type="number" name="number" class="auto-style22" /> 姓名 <input type="text" name="text" placeholder="單行" class="auto-style23" />
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								照顧時間是否充足 <input type="radio" name="location" value="是" /> 是 <input type="radio" name="location" value="否" /> 否
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								對個案慢性疾病了解嗎<br />
+								<input type="radio" name="location1" value="了解" /> 了解 <input type="radio" name="location1" value="不了解" /> 不了解
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								是否知道如何預防個案疾病惡化
+								<br />
+								<input type="radio" name="location2" value="是" /> 是 <input type="radio" name="location2" value="否" /> 否
+							</font>
+						</td>
+					</tr>
+					<tr>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							是否知道個案疾病如何照顧 <input type="radio" name="location3" value="是" /> 是 <input type="radio" name="location3" value="否" /> 否
+						</font>
+					</td>
+					</tr>
+
+				</table>
+				<p>
+					<br />
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#0d62c3" class="auto-style10">
+							<font color="#F0F0F0" size="5">@Html.ActionLink("照顧壓力", "Care_Stress_Scale_Home_Service_Supervisor", "Home", new { @class = "btn btn-primary" })</font>
+						</td>
+						<td bgcolor="#0d62c3" class="auto-style4">
+							<font color="#F0F0F0" size="4">分</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style24" colspan="2">
+							&nbsp;
+						</td>
+					</tr>
+				</table>
+				<p>
+					<br />
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#0d62c3" class="auto-style10">
+							<font color="#F0F0F0" size="5">@Html.ActionLink("照顧資源", "Care_Stress_Scale_Home_Service_Supervisor", "Home", new { @class = "btn btn-primary" })</font>
+						</td>
+						<td bgcolor="#0d62c3" class="auto-style4">
+							<font color="#F0F0F0" size="4">分</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style24" colspan="2">
+							&nbsp;
+						</td>
+					</tr>
+				</table>
+
+
+				<div class="auto-style7">
+					<nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="'@Url.Action("Reopen_Case_basic_information_Home_Service_Supervisor", "Home")'">1</a></li>
+                            <li class="page-item"><a class="page-link" href="'@Url.Action("Reopen_Single_case_care_Home_Service_Supervisor", "Home")'">2</a></li>
+                            <li class="page-item"><a class="page-link" href="'@Url.Action("Reopen_Case_history_Home_Service_Supervisor", "Home")'">3</a></li>
+                            <li class="page-item"><a class="page-link" href="'@Url.Action("Reopen_Other_assessments_Home_Service_Supervisor", "Home")'">4</a></li>
+                            <li class="page-item"><a class="page-link" href="'@Url.Action("Reopen_Information_upload_Home_Service_Supervisor", "Home")'">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+					</nav>
+				</div>
+				<div class="auto-style4">
+					<br />
+					<a href="'@Url.Action("Reopen_Case_history_Home_Service_Supervisor", "Home")'" class="btn btn-warning">下一頁</a>
+				</div>
+			</div>
+		</body>
+</html>

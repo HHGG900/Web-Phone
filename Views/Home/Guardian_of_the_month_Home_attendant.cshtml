@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-每月守護紀錄</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+		<style type="text/css" >
+		.auto-style1 {
+			font-family:標楷體;
+			text-align: center;
+		}
+
+		.auto-style2 {font-family:標楷體;
+			font-family: 標楷體;
+			width: 332px;
+			height: 71px;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			font-size: medium;
+		}
+
+		.auto-style9 {
+			font-family: 標楷體;
+			width: 330px;
+			height: 62px;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			width: 212px;
+			text-align: justify;
+		}
+
+		.auto-style11 {
+			font-family: 標楷體;
+			width: 330px;
+			height: 150px;
+		}
+
+		.auto-style13 {
+			font-family: 標楷體;
+			width: 330px;
+			height: 39px;
+		}
+
+		.auto-style14 {
+			font-family: 標楷體;
+			width: 330px;
+			height: 120px;
+		}
+
+		.auto-style15 {
+			font-family: 標楷體;
+			margin-left: 45px;
+            text-align: right;
+        }
+
+		.auto-style17 {
+			font-family: 標楷體;
+			width: 75px;
+			text-align: center;
+		}
+
+		.auto-style18 {
+			font-family: 標楷體;
+			width: 330px;
+			height: 43px;
+		}
+
+		.auto-style19 {
+			font-family: 標楷體;
+			width: 112px;
+			text-align: center;
+		}
+
+		.auto-style22 {
+			font-family: 標楷體;
+			width: 212px;
+			text-align: right;
+		}
+
+		.auto-style24 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: medium;
+		}
+
+		.auto-style27 {
+			font-family: 標楷體;
+		}
+
+		.auto-style28 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style29 {
+			font-family: 標楷體;
+			width: 80px;
+			text-align: center;
+		}
+
+		.auto-style30 {
+			font-family: 標楷體;
+			text-align: left;
+			color:#F67377;
+			font-size:medium;
+		}
+
+		.auto-style31 {
+			font-family: 標楷體;
+			font-size: large;
+			color:#FFFFFF;
+		}
+
+		.auto-style35 {
+			font-family: 標楷體;
+			width: 51px;
+			text-align: center;
+		}
+
+		.auto-style36 {
+			font-family: 標楷體;
+			text-align: left;
+		}
+
+		.auto-style37 {
+			font-family: 標楷體;
+			font-size: x-small;
+		}
+
+		.auto-style39 {
+			font-family: 標楷體;
+			text-align: right;
+		}
+
+		.auto-style40 {
+			font-family: 標楷體;
+			font-size: small;
+		}
+
+		.auto-style41 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+		.auto-style42 {
+			font-family: 標楷體;
+			font-size: medium;
+			width: 216px;
+		}
+		.auto-style43 {
+			font-family: 標楷體;
+			font-size: medium;
+			width: 172px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<div class="auto-style41">
+		<div class="auto-style1">
+			<div style="background-color:#FF5F5F;" class="auto-style41">
+					 <span class="auto-style31">每月守護紀錄</span>
+			</div>
+		</div>
+		<br />
+		<table align="center" class="auto-style2">
+			<tr>
+				<td bgcolor="#F5F5F5" align="right" valign="center" class="auto-style43">
+					<font color="0000EB" face="標楷體">個案姓名:林XX</font>
+				</td>
+				<td bgcolor="#F5F5F5" align="center" valign="center" class="auto-style42">
+					<font color="0000EB" face="標楷體">服務日期 @DateTime.Now</font>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#F5F5F5" colspan="2" align="center" valign="center" class="auto-style3">
+					<img src="../../images/服務人員icon.png" / ><font color="0000EB" face="標楷體">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; 黃阿花 </font>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<table align="center" class="auto-style9">
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style10">
+					&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FFFFFF" size="4">
+						<strong>
+							@Html.ActionLink("照顧壓力", "Care_Stress_Scale_Home_Service_Supervisor", "Home", new { @class = "btn btn-primary" })
+						</strong>
+					</font>
+				</td>
+				<td bgcolor="#F5F5F5" class="auto-style22">
+					<font color="#0000EB" size="4"><strong>分</strong></font>
+				</td>
+			</tr>
+		</table>
+		<p>
+			<br />
+		</p>
+		<table align="center" class="auto-style9">
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style10">
+					&nbsp;&nbsp;&nbsp;&nbsp; <font color="#FFFFFF" size="4">
+						<strong>
+							@Html.ActionLink("照顧資源", "Care_Resource_Scale_Home_Service_Supervisor", "Home", new { @class = "btn btn-primary" })
+						</strong>
+					</font>
+				</td>
+				<td bgcolor="#F5F5F5" class="auto-style22">
+					<font color="#0000EB" size="4"><strong>分</strong></font>
+				</td>
+			</tr>
+		</table>
+
+		<br />
+		<table class="auto-style11" align="center">
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style35" rowspan="4">
+					<font color="#0000EB" size="4"><strong>溝通能力</strong></font>
+				</td>
+				<td bgcolor="#DEEEFF" class="auto-style24"><font color="#0D62C3">@Html.ActionLink("視力", "Abnormal_vision_Home_attendant", "Home", new { @class = "btn btn-primary" })</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style27">自動帶入</td>
+				<td bgcolor="#F5F5F5" class="auto-style28"><font color="#F67377">異常</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style1" >
+					<font color="#F67377">
+						<input type="radio" name="location" value="無法評估" />無法<br />
+						&nbsp;&nbsp;&nbsp; 評估
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#DEEEFF" class="auto-style24"><font color="#0D62C3">@Html.ActionLink("聽力", "Abnormal_hearing_Home_attendant", "Home", new { @class = "btn btn-primary" })</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style27">自動帶入</td>
+				<td bgcolor="#F5F5F5" class="auto-style28"><font color="#F67377">異常</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style1">
+					<font color="#F67377">
+						<input type="radio" name="location1" value="無法評估" />無法<br />
+						&nbsp;&nbsp;&nbsp; 評估
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#DEEEFF" class="auto-style24"><font color="#0D62C3">@Html.ActionLink("語言", "Language_anomalies_Home_attendant", "Home", new { @class = "btn btn-primary" })</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style27">自動帶入</td>
+				<td bgcolor="#F5F5F5" class="auto-style28"><font color="#F67377">異常</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style1">
+					<font color="#F67377">
+						<input type="radio" name="location2" value="無法評估" />無法<br />
+						&nbsp;&nbsp;&nbsp; 評估
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#DEEEFF" class="auto-style24"><font color="#0D62C3">@Html.ActionLink("理解", "Understand_anomalies_Home_attendant", "Home", new { @class = "btn btn-primary" })</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style27">自動帶入</td>
+				<td bgcolor="#F5F5F5" class="auto-style28"><font color="#F67377">異常</font></td>
+				<td bgcolor="#F5F5F5" class="auto-style1">
+					<font color="#F67377">
+						<input type="radio" name="location3" value="無法評估" />無法<br />
+						&nbsp;&nbsp;&nbsp; 評估
+					</font>
+				</td>
+			</tr>
+
+		</table>
+		<p class="auto-style39"><font size="2">(異常代表與平常不同)&nbsp;</font></p>
+		<table align="center" class="auto-style13">
+			<tr>
+				<td bgcolor="#F5F5F5">
+					<font color="#0000EB" size="4"><strong>輔具合宜性</strong></font>
+				</td>
+				<td bgcolor="#F5F5F5">
+					<font color="#F67377" size="3">目前輔具是否合宜&nbsp; <input type="radio" name="location4" value="是" />是&nbsp; <input type="radio" name="location4" value="否" />否</font>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<table align="center" class="auto-style14">
+			<tr>
+				<td bgcolor="#F5F5F5" rowspan="2" class="auto-style29"><font color="#0000EB" size="3"><strong>肌力</strong></font> </td>
+				<td bgcolor="#F5F5F5" class="auto-style30">
+					<span color="#F67377" >
+					說明 : 可使用輔具下，從椅子上站起，向前走5公尺，轉180度走回椅子，坐下。
+						</span>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style30">
+					行走測試: 完成度<br />
+					<input type="radio" name="1" value="100%" />100% 
+					<input type="radio" name="1" value="75%" />75%
+					<input type="radio" name="1" value="50%" />50%
+					<input type="radio" name="1" value="25%" />25%
+					<br />
+					<input type="radio" name="1" value="無法行走" />無法行走
+				</td>
+			</tr>
+		</table>
+		<p class="auto-style39"><font size="2">(異常代表與平常不同)&nbsp;</font></p>
+		<table align="center" class="auto-style13">
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style17">
+					<font color="#F67377" size="4"><strong>@Html.ActionLink("受虐", "Battered_assessment_Home_attendant", "Home", new { @class = "btn btn-primary " })</strong></font>
+				</td>
+				<td bgcolor="#F5F5F5" class="auto-style36">
+					<font color="#F67377" size="3">
+						是否出現疑似受虐
+					</font> 
+					<font  size="3">
+					自動帶入 
+					</font>
+					<font color="#F67377" size="3">
+						個&nbsp;
+
+					</font><br />
+					
+				</td>
+			</tr>
+		</table>
+		<br />
+
+		<table align="center" class="auto-style18">
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style19" rowspan="2">
+					<font color="#0000EB" size="4"><strong>安全認知</strong></font>
+				</td>
+				<td bgcolor="#F5F5F5" class="auto-style36" valign="center">
+					<font color="#F67377" size="3">@Html.ActionLink("反應", "Safety_awareness", "Home", new { @class = "btn btn-primary " })&nbsp;&nbsp;<input type="radio" name="location7" value="正常" />&nbsp;正常&nbsp;<input type="radio" name="location7" value="異常" />&nbsp;異常</font><span class="auto-style37">
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</span>
+				</td>
+			</tr>
+		</table>
+		<p class="auto-style39">
+				<span class="auto-style40">(異常代表與平常不同)</span>
+		</p>
+		<br />
+		<br />
+		<br />
+		<input type="submit" class="btn btn-primary btn-lg" value="存檔" />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="auto-style15">
+			@Html.ActionLink("上一頁", "Home_attendant_index", "Home", new { @class = "btn btn-danger btn-lg" })
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-BA14 陪同就醫</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+			font-size: x-large;
+			color: #FFFFFF;
+		}
+
+
+		.auto-style2 {
+			font-family: 標楷體;
+			text-align: left;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			width: 37px;
+			height: 29px;
+		}
+
+		.auto-style4 {
+			font-family: 標楷體;
+			width: 357px;
+			text-align: center;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			width: 114px;
+			text-align: center;
+		}
+
+		.auto-style6 {
+			font-family: 標楷體;
+			width: 320px;
+		}
+
+		.auto-style7 {
+			font-family: 標楷體;
+			font-size: large;
+		}
+
+		.auto-style8 {
+			font-family: 標楷體;
+			width: 150px;
+			height: 150px;
+		}
+
+
+		.auto-style12 {
+			font-family: 標楷體;
+			width: 276px;
+			height: 156px;
+		}
+
+		.auto-style13 {
+			font-family: 標楷體;
+			text-decoration: underline;
+		}
+		.auto-style14 {
+			font-family: 標楷體;
+			font-size: medium;
+		}
+		.auto-style15 {
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+		.auto-style16 {
+			font-family: 標楷體;
+			width: 343px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+    <div style="background-color:#0d62c3;" class="auto-style1">
+        每次工作紀錄
+    </div>
+    <br />
+    <table align="center">
+        <tr>
+            <td bgcolor="#FF4081">
+                <font color="#FFFFFF" size="5" face="標楷體">&nbsp;&nbsp; <span class="auto-style15">BA014 陪同就醫</span> <img src="../../images/陪同就醫.png" class="auto-style3" />&nbsp;&nbsp;&nbsp; </font>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <p>
+        <br />
+    </p>
+    <table style="border:2px #0d62c3" border="1" align="center" class="auto-style6">
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <font color="0d62c3" size="5" face="標楷體">
+                    <span class="auto-style14">
+                        1.內容包括: <span class="auto-style13">協助掛號(含預約)、長照需要者準備、陪同就診、聽取及轉知醫囑與注意事項</span>。<br />
+                        <br />
+                        2.本組合價格不包括長照需要者及陪同之照顧服務員之就醫交通工具費用。<br />
+                        <br />
+                        3.本組合不適用定期式復健或洗腎。<br />
+                        <br />
+                        4.本組合以陪同長照需要者就醫為主,陪同時間自案家出門起算1.5小時內,適用本組合。超過1.5小時,得依實際陪同就醫時數使用BA13。
+                    </span><span class="auto-style13">
+                        <br />
+                    </span>
+                </font>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <table align="center" class="auto-style7">
+        <tr>
+            <td class="auto-style7">
+                第一步 : 請點選"選擇檔案"。<br />
+                第二步 : 進行拍照。<br />
+                第三步 : 存檔。
+
+            </td>
+        </tr>
+    </table>
+
+    <br />
+    <br />
+    <form action="@Url.Action("BA014")" enctype="multipart/form-data" method="post">
+
+        <div class="text-center">
+            <input type="file" name="BA014loc" onchange="document.getElementById('BA014').src = window.URL.createObjectURL(this.files[0])">
+            <div class="text-center">
+                &nbsp;<br />
+                <img src="~/images/照片1.jpg" id="BA014" alt="your image" class="auto-style8" />
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <!--
+        <p>
+            &nbsp;
+        </p>
+        <p>
+            &nbsp;
+        </p>
+        <table align="center" class="auto-style16">
+            <tr>
+                <td class="auto-style5">
+                    <font face="標楷體" color="#8d2c4d" size="5">
+                        <strong>
+                            <span class="auto-style14">
+                                服務
+                                <br />
+                                紀錄
+                            </span>
+                        </strong>
+                    </font>
+                </td>
+                <td class="auto-style4">
+                    <input type="file" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                    <br />
+                    <img src="../../images/照片icon.png" id="blah" alt="your image" class="auto-style12" />
+                </td>
+            </tr>
+        </table>
+        <p>
+            &nbsp;
+        </p>
+        <p>
+            <br />
+        </p>
+            -->
+        <div class="auto-style1">
+            <br />
+            <br />
+            <input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="location.href = window.alert('已存檔');" />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+    <div class="text-right">
+        <input type="button" class="btn btn-danger btn-lg" value="上一頁" onclick="location.href = '@Url.Action("Daily_care_record_Home_attendant", "Home")'" />
+
+    </div>
+
+</body>
+</html>

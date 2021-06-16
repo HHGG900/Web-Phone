@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照服員-疼痛評估</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+
+		.auto-style1 {
+			width: 90px;
+			height: 90px
+		}
+
+		.auto-style2 {
+			text-align: right;
+		}
+
+		.auto-style3 {
+			text-align: center;
+		}
+
+		.auto-style4 {
+			font-family: 標楷體;
+		}
+
+		.auto-style5 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		</style>
+</head>
+
+<body style="background-color:#FAF4FF;">
+	<form action="/Home/Pain_assessment_Home_attendant" method="post">
+		<div class="text-center">
+			
+			&nbsp;<input type="image" src="../../images/愉快.png" class="auto-style1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="image" src="../../images/正常.png" class="auto-style1" />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="image" src="../../images/一點都不舒服.png" class="auto-style1" />
+			<br />
+		</div>
+		<div class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style4"> 愉快&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 正常&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一點都不舒服</span></div>
+		<div class="text-center">
+			<br />
+			<input type="image" src="../../images/很不舒服.png" class="auto-style1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+			<input type="image" src="../../images/蠻痛的.png" class="auto-style1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+			<input type="image" src="../../images/大痛不已.png" class="auto-style1" />
+			<br />
+		</div>
+		<div class="auto-style5">&nbsp;&nbsp;&nbsp; 很不舒服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 蠻痛的&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 大痛不已 </div>
+        <div class="auto-style2">
+            <br />
+            <div class="auto-style3">
+                <input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="location.href=window.alert('已存檔');" />
+            </div>
+            <br />
+            <input type="button"  onclick="location.href='@Url.Action("Every_guardian_the_record", "Home")'" class="auto-style3" />
+
+        </div>
+	</form>
+</body>
+</html>

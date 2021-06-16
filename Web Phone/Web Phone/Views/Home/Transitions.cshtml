@@ -1,0 +1,68 @@
+﻿<html>
+<head>
+
+	<style type="text/css">
+		.auto-style1 {
+			width: 161px;
+			height: 58px;
+		}
+
+		.auto-style2 {
+			width: 234px;
+			height: 1440px;
+		}
+
+		.auto-style5 {
+			height: 42px;
+		}
+
+		.auto-style6 {
+			height: 1255px;
+		}
+	</style>
+
+</head>
+	<body style="background-color:#C4E1FF; width: 357px; height:812px;">
+	<table class="auto-style2">
+		<tr>
+			<td  valign="top" class="auto-style5">
+				<input type="image" src="../../images/側欄符號.png" onclick="history.back()" />
+				<br />
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color:#C4E1FF	" valign="top" align="center" class="auto-style6">
+				<input type="image" src="../../images/主頁面-轉場.png" class="auto-style1" onclick="location.href=' @Url.Action("Home_attendant_index", "Home")'" /><br />
+				<br />
+				<br />
+				<br />
+				<input type="image" src="../../images/異常事件通報-轉場.png" class="auto-style1" onclick="location.href='@Url.Action("Abnormal_events_reactions_Home_attendant", "Home")'" /><br />
+				<br />
+				<br />
+				<br />
+				<input type="image" src="../../images/每日守護工作-轉場.png" class="auto-style1" onclick="location.href='@Url.Action("Every_guardian_the_record", "Home")'" /><br />
+				<br />
+				<br />
+				<br />
+				<input type="image" src="../../images/核定照顧工作-轉場.png" class="auto-style1" onclick="location.href=' @Url.Action("Daily_care_record_Home_attendant", "Home")'" /><br />
+				<br />
+				<br />
+				<br />
+				<input type="image" src="../../images/藥事記錄--轉場.png" class="auto-style1" onclick="location.href='#'" /><br />
+				<br />
+				<br />
+				<br />
+				<input type="image" src="../../images/離點打卡-轉場.png" class="auto-style1" onclick="location.href='@Url.Action("sign_out", "Home")'" /><br />
+				<br />
+				<br />
+				<br />
+				@Html.ActionLink("登出", "Login", "Home", new { @class = "btn btn-danger btn-lg" })
+				<br />
+			</td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

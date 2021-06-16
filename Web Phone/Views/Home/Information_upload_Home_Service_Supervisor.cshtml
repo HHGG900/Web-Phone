@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>督導-(開案)個案資料上傳</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style1 {
+			width: 32px;
+			height: 40px;
+		}
+		.auto-style2 {
+			text-align: right;
+		}
+		.auto-style3 {
+			text-align: center;
+		}
+		.auto-style4 {
+			width: 150px;
+			text-align: center;
+		}
+		.auto-style5 {
+			width: 150px;
+			height: 100px;
+		}
+		.auto-style6 {
+			width: 350px;
+		}
+
+
+		.auto-style7 {
+			width: 350px;
+		}
+		.auto-style8 {
+			text-align: left;
+		}
+
+
+		.auto-style9 {
+			width: 200px;
+		}
+
+		.auto-style10 {
+			font-family: 標楷體;
+			font-size: x-large;
+		}
+		.auto-style11 {
+			font-family: 標楷體;
+			font-size: xx-large;
+		}
+		.auto-style12 {
+			text-align: center;
+			width: 390px;
+		}
+
+	</style>
+</head>
+<body style="background-color:#FAF4FF;">
+		<input type="image" src="~/images/大於按鈕.png" class="auto-style1" /> 
+		<font color="#0d62c3" size="5">
+			&nbsp;<br />
+		</font>
+		<div class="auto-style12">
+		&nbsp;
+		<font color="#0d62c3" ><span class="auto-style10">&nbsp;</span><span class="auto-style11">個案資料上傳</span></font>
+		</div>
+	<table align="center" class="auto-style9">
+		<tr>
+			<td class="auto-style3">
+				<br />
+				<img  src="~/images/照片1.jpg" id="契約書" alt="your image" class="auto-style5" />
+				<br />
+				<br />
+			</td>
+			<td class="auto-style3">
+				<input type="file" onchange="document.getElementById('契約書').src = window.URL.createObjectURL(this.files[0])"class="auto-style9"><br />
+&nbsp;<span class="auto-style10"><font color="#0d62c3" >契約書</font></span>
+			</td>
+		</tr>
+				<tr>
+			<td class="auto-style4">
+				<br />
+				<img  src="~/images/照片1.jpg" id="重大傷病卡正面" alt="your image" class="auto-style5" />
+				<br />
+				<br />
+			</td>
+			<td class="auto-style3">
+				<input type="file" onchange="document.getElementById('重大傷病卡正面').src = window.URL.createObjectURL(this.files[0])" class="auto-style9"><br />
+&nbsp;<span class="auto-style10"><font color="#0d62c3" >重大傷病卡正面</font></span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style4">
+				<br />
+				<img  src="~/images/照片1.jpg" id="身心障礙手冊正面" alt="your image" class="auto-style5" />
+				<br />
+				<br />
+			</td>
+			<td class="auto-style3">
+				<input type="file" onchange="document.getElementById('身心障礙手冊正面').src = window.URL.createObjectURL(this.files[0])" class="auto-style9"><br />
+&nbsp;<span class="auto-style10"><font color="#0d62c3">身心障礙手冊正面</font></span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style4">
+				<br />
+				<img  src="~/images/照片1.jpg" id="身分證正面" alt="your image" class="auto-style5" />
+				<br />
+				<br />
+			</td>
+			<td class="auto-style3">
+				<input type="file" onchange="document.getElementById('身分證正面').src = window.URL.createObjectURL(this.files[0])"class="auto-style9"><br />
+&nbsp;<span class="auto-style10"><font color="#0d62c3" >身分證正面</font></span>
+			</td>
+		</tr>
+		<tr>
+			<td class="auto-style4">
+				<br />
+				<img  src="~/images/照片1.jpg" id="身分證反面" alt="your image" class="auto-style5" />
+				<br />
+				<br />
+			</td>
+			<td class="auto-style3">
+				<input type="file" onchange="document.getElementById('身分證反面').src = window.URL.createObjectURL(this.files[0])" class="auto-style9"><br />
+&nbsp;<span class="auto-style10"><font color="#0d62c3" >身分證反面</font></span>
+			</td>
+		</tr>
+
+	</table>
+	<table  class="auto-style6">
+		<tr>
+			<td class="auto-style7">
+		<div class="auto-style3">
+			<nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="auto-style2">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="/Home/Case_basic_information_Home_Service_Supervisor">1</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/Single_case_care_Home_Service_Supervisor">2</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/Other_assessments_Home_Service_Supervisor">4</a></li>
+                    <li class="page-item"><a class="page-link" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
+                </ul>
+				<p>
+					&nbsp;</p>
+			</nav>
+		</div>
+
+			</td>
+			<td>
+		<div class="auto-style8">
+			<input type="submit" value="存檔" class="btn btn-primary btn-lg" onclick="location.href='/Home/Case_selection_page_Home_Service_Supervisor'" />
+			<br />
+		</div>
+
+			</td>
+		</tr>
+	</table>
+	
+</body>
+</html>

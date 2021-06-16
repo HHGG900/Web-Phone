@@ -1,0 +1,142 @@
+﻿<html>
+<head>
+<style type="text/css">
+	.auto-style1 {
+		text-align: center;
+	}
+
+
+	.auto-style5 {
+		text-align: left;
+	}
+
+
+	.auto-style6 {
+		width: 23px;
+		height: 29px;
+	}
+
+	textarea {
+		resize: none;
+	}
+
+	.auto-style12 {
+		height: 171px;
+		width: 357px;
+	}
+	.auto-style13 {
+		text-align: left;
+		width: 357px;
+	}
+	.auto-style15 {
+		width:357px;
+		height: 210px;
+	}
+	.auto-style17 {
+		width: 137px;
+	}
+
+	.auto-style18 {
+		text-align: right;
+	}
+	.auto-style21 {
+		font-family: 標楷體;
+		font-size: medium;
+	}
+	.auto-style23 {
+		text-align: right;
+		font-size: medium;
+		font-family: 標楷體;
+	}
+	.auto-style24 {
+		height: 170px;
+		width: 310px;
+	}
+</style>
+</head>
+<body style="background-color:#FAF4FF; width: 357px; height:812px;">
+	<div class="auto-style1">
+
+			<div class="auto-style1">
+					<font color="#ff0099" size="5" face="標楷體">公告:8/18(六)辦理員工體檢,相關注意事項請查閱公告</font>
+			</div>
+			<div class="auto-style5" >
+						&nbsp;<img src="~/images/服務人員icon.png" class="auto-style6" /><span class="auto-style21">服務人員 :&nbsp;黃阿花</span>
+						<br />
+			</div>
+			<div class="auto-style23" >
+						記錄時間 @DateTime.Now
+		</div>
+		<br />
+		<table align="center">
+			<tr>
+				<td class="auto-style13">
+					<font face="標楷體" size="5">事件描述</font>
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style24" bgcolor="#FFFFFF">
+					<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style13">
+					<font face="標楷體" size="5">
+						<br />
+						跨專業處理措施
+					</font>
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style12" bgcolor="#FFFFFF">
+					<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style13">
+					<font face="標楷體" size="5">
+						<br />
+						執行紀錄</font><br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style12" bgcolor="#FFFFFF">
+					<font color="#BEBEBE" face="標楷體" size="5">自動帶入</font>
+					<br />
+				</td>
+			</tr>
+		</table>
+		<table align="center">
+			<tr>
+				<td class="auto-style5">
+					<font face="標楷體"><span class="auto-style16">
+					<br />
+					追蹤紀錄 關鍵字</span></font>
+					<input type="text" name="text" class="auto-style17" />&nbsp;<input type="button" value="搜尋" />
+					<br />
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="auto-style1">
+					<textarea class="auto-style15"></textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="auto-style1">
+			<br />
+			<input type="button" class="btn btn-primary" value="存檔" />
+		</div>
+		<div class="auto-style18" >
+			<br />
+			@Html.ActionLink("回首頁", "Home_attendant_index", "Home", new { @class = "btn btn-danger btn-lg" })
+		</div>
+	</div>
+
+</body>
+</html>

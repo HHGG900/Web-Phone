@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>督導-(複評)個案選擇頁</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			text-align: center;
+		}
+
+		.auto-style2 {
+			width: 390px;
+			text-align: center;
+			font-size: x-large;
+		}
+
+		.auto-style4 {
+			width: 390px;
+			height: 1325px;
+		}
+
+		.auto-style5 {
+			font-size: x-large;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+    <br />
+    <table>
+        <tr>
+            <td class="auto-style2">
+                個案選擇頁面
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table class="auto-style4" width: 390px; height:800px>
+        <tr>
+            <td class="auto-style1" valign="top">
+                @Html.ActionLink("林XX", "Case_basic_information_Home_Service_Supervisor", "Home", new { @class = "btn btn-default btn-lg" })
+            </td>
+            <td class="auto-style1" valign="top">
+                @Html.ActionLink("王XX", "Case_basic_information_Home_Service_Supervisor", "Home", new { @class = "btn btn-default btn-lg" })
+            </td>
+        </tr>
+    </table>
+    <div class="text-right">
+        @Html.ActionLink("上一頁", "Home_Service_Supervisor_index", "Home", new { @class = "btn btn-danger btn-lg" })
+    </div>
+</body>
+</html>

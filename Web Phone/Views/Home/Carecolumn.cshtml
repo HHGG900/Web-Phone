@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>照顧專欄</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+
+		.auto-style2 {
+			font-family: 標楷體;
+			text-align: right;
+			width: 30px;
+			height: 25px;
+		}
+
+		.auto-style3 {
+			font-family: 標楷體;
+			font-size: x-large;
+			text-align: center;
+		}
+
+		.auto-style4 {
+			width: 77px;
+		}
+
+		.auto-style6 {
+			font-family: 標楷體;
+			font-size: xx-large;
+			width: 330px;
+			height: 128px;
+			text-align: center;
+		}
+
+		.auto-style7 {
+			height: 1px;
+			width: 227px;
+			text-align: left;
+		}
+
+		.auto-style8 {
+			text-align: left;
+		}
+
+		.auto-style9 {
+			width: 60px;
+			height: 58px;
+		}
+
+		.auto-style12 {
+			text-decoration: none;
+		}
+
+		.auto-style13 {
+			font-family: 標楷體;
+			font-size: x-large;
+			text-align: right;
+		}
+
+		.auto-style14 {
+			font-family: 標楷體;
+			font-size: xx-large;
+			width: 381px;
+			text-align: center;
+		}
+
+		.auto-style18 {
+			font-size: x-large;
+		}
+
+		.auto-style19 {
+			width: 341px
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF;">
+	<div style="background-color:#0000C2;" class="auto-style14">
+		<Font color="#FFFFFF">
+			照&nbsp;&nbsp;顧&nbsp;&nbsp;專&nbsp;&nbsp;欄
+		</Font>
+		</div>
+	<br />
+	<div class="auto-style3">
+		<marquee direction="up" scrollamount="1" class="auto-style19"><font color="#ff0099">9/1(六)辦理家屬座談會，提供免費監測血糖、尿酸</font></marquee>
+	</div>
+	<br />
+	<table class="auto-style6" align="center">
+		<tr>
+			<td class="auto-style4" valign="middle">
+				<img src="../../images/政府長照消息icon.png" class="auto-style9" />
+			</td>
+			<td valign="middle" class="auto-style8">
+				<div class="auto-style8">
+					<a href="https://1966.gov.tw/LTC/lp-4108-201.html" class="auto-style12" target="_blank"><font color="#0000EB"> <span class="auto-style18">政府長照消息</span></font></a> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+					<input type="image" src="../../images/照顧專欄的傳送點icon.png" class="auto-style2" onclick="location.href='https://1966.gov.tw/LTC/lp-4108-201.html'" /><br />
+				</div>
+				<hr color=#DDDDDD class="auto-style7" size="10" />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style6" align="center">
+		<tr>
+			<td class="auto-style4" valign="middle">
+				<img src="~/images/精進照顧技巧icon.png" class="auto-style9" />
+			</td>
+			<td valign="middle" class="auto-style8">
+				<font color="#0000EB"><span class="auto-style18">@Html.ActionLink("精進照顧技巧", "Careskills", "Home")</span></font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="image" src="../../images/照顧專欄的傳送點icon.png" class="auto-style2" onclick="location.href='@Url.Action("Careskills", "Home")'" />
+				<hr color=#DDDDDD class="auto-style7" size="10" />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style6" align="center">
+		<tr>
+			<td class="auto-style4" valign="middle">
+				<img src="~/images/打氣區icon.png" class="auto-style9" />
+			</td>
+			<td valign="middle" class="auto-style8">
+				<font color="#0000EB"><span class="auto-style18">@Html.ActionLink("打氣區", "Cheeruparea", "Home")</span></font>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<input type="image" src="../../images/照顧專欄的傳送點icon.png" class="auto-style2" onclick="location.href='@Url.Action("Cheeruparea", "Home")'" />
+				<hr color=#DDDDDD class="auto-style7" size="10" />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style6" align="center">
+		<tr>
+			<td class="auto-style4" valign="middle">
+				<img src="../../images/課程資訊icon.png" class="auto-style9" />
+			</td>
+			<td valign="middle" class="auto-style8">
+				<font color="#0000EB"><span class="auto-style18">@Html.ActionLink("課程資訊", "CourseInformation", "Home")</span></font>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+				<input type="image" src="../../images/照顧專欄的傳送點icon.png" class="auto-style2" onclick="location.href='@Url.Action("CourseInformation", "Home")'" />
+				<hr color=#DDDDDD class="auto-style7" size="10" />
+			</td>
+		</tr>
+	</table>
+	<br />
+	<br />
+	<div class="auto-style13">
+		@Html.ActionLink("回首頁", "Familindex", "Home", new { @class = "btn btn-danger btn-lg" })
+	</div>
+</body>
+</html>

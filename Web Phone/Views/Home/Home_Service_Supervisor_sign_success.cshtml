@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>督導-上班打卡</title>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/jquery.validate.min.js"></script>
+	<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.auto-style1 {
+			font-family: 標楷體;
+			text-align: center;
+		}
+
+		.auto-style2 {
+			font-family: 標楷體;
+			width: 249px;
+			height: 85px;
+		}
+	</style>
+</head>
+<body style="background-color:#FAF4FF; ">
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="auto-style1">
+        <font color="#FFFFFF" face="標楷體" size="5">
+            <img src="../../images/打卡成功.png" class="auto-style2" /><br />
+            <br />
+			<form method="post" action="/Home/Home_Service_Supervisor_sign_success">
+				<input type="submit" class = "btn btn-danger btn-lg" value="進入"/>
+				</form>
+</font>
+		<br />
+		<br />
+		<br />
+		<br />
+        <font color="#FFFFFF" face="標楷體" size="5">
+            @Html.ActionLink("下班打卡", "Home_Service_Supervisor_sign_out", "Home", new { @class = "btn btn-primary btn-lg" })
+        </font>
+	</div>
+</body>
+</html>
