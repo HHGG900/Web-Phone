@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Web_Phone.Models;
+@{
+	List<Roster> Roser = ViewBag.roser;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -54,9 +59,10 @@
 			width: 347px;
 			height: 41px;
 		}
-		.auto-style8{
-			font-family:標楷體;
-			font-size:larger;
+
+		.auto-style8 {
+			font-family: 標楷體;
+			font-size: larger;
 		}
 	</style>
 </head>
@@ -105,191 +111,194 @@
 				六
 			</td>
 		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				8之前
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				8-9
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				9-10
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				10-11
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				11-12
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				14-15
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				16-17
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-		<tr>
-			<td bgcolor="#FFAF60" class="auto-style4">
-				17之後
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-			<td bgcolor="#FFAF60" class="auto-style1">
-				1
-			</td>
-		</tr>
-	</table>
+		@foreach (Roster roser in Roser)
+		{
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					8之前
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_one
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_one
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_one
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_one
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_one
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_one
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					8-9
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_two
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_two
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_two
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_two
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_two
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_two
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					9-10
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_three
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_three
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_three
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_three
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_three
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_three
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					10-11
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_four
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_four
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_four
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_four
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_four
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_four
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					11-12
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_five
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_five
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_five
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_five
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_five
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_five
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					14-15
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_six
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_six
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_six
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_six
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_six
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_six
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					16-17
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_seven
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_seven
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_seven
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_seven
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_seven
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_seven
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#FFAF60" class="auto-style4">
+					17之後
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.one_eight
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.two_eight
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.three_eight
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.four_eight
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.five_eight
+				</td>
+				<td bgcolor="#FFAF60" class="auto-style1">
+					@roser.six_eight
+				</td>
+			</tr>
+		}
+		</table>
 	<br />
 	<br />
 	<div class="text-center">
@@ -303,6 +312,7 @@
 			<option value="555">555</option>
 			<option value="666">666</option>
 		</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="submit" class="btn btn-danger btn-lg" value="進入班表"  onclick="location.href='@Url.Action("Home_attendant_index", "Home")'"/>
-	</div></body>
+		<input type="submit" class="btn btn-danger btn-lg" value="進入班表" onclick="location.href='@Url.Action("Home_attendant_index", "Home")'" />
+	</div>
+</body>
 </html>

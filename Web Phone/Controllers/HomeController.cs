@@ -397,8 +397,12 @@ namespace Web_Phone.Controllers
 		//照服員-個案班表
 		public ActionResult Select_case_schedule()
 		{
-			ViewBag.name = TempData["name"];
+			string name = TempData["name"] as string;
+			Roster_db roster_Db = new Roster_db();
+			List<Roster> rosters = roster_Db.Roster_select(name);
+			ViewBag.name = name;
 			ViewBag.index = TempData["index"];
+			ViewBag.roser = rosters;
 			TempData.Keep();
 			return View();
 		}

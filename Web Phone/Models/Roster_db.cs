@@ -9,7 +9,7 @@ namespace Web_Phone.Models
 {
 	public class Roster_db
 	{
-		private readonly string ConnStr = "Data Source=webphone20201109.database.windows.net;Initial Catalog=webphone1109;Persist Security Info=True;User ID=oa123;Password=OOaa12345;MultipleActiveResultSets=True;Application Name=EntityFramework";
+		private readonly string ConnStr = "Data Source=WIN-6M12QM5R44F;Initial Catalog=webphone;Persist Security Info=True;User ID=sa;Password=1qaz!QAZ;MultipleActiveResultSets=True;Application Name=EntityFramework";
 
 		public void Roster_insert(Roster Roster)
 		{
@@ -83,11 +83,11 @@ namespace Web_Phone.Models
 			sqlConnection.Close();
 		}
 
-		public Roster Roster_select(string UserId)
+		public List<Roster> Roster_select(string UserId)
 		{
-			Roster Roster = new Roster();
+			List<Roster> Roster = new List<Roster>();
 			SqlConnection sqlConnection = new SqlConnection(ConnStr);
-			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Roster_db WHERE worker_name = @worker_name");
+			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Roster WHERE worker_name = @worker_name");
 			sqlCommand.Connection = sqlConnection;
 			sqlCommand.Parameters.Add(new SqlParameter("@worker_name", UserId));
 			sqlConnection.Open();
@@ -97,71 +97,83 @@ namespace Web_Phone.Models
 			{
 				while (reader.Read())
 				{
-					Roster = new Roster
+					Roster roster = new Roster
 					{
 						worker_name = reader.GetString(reader.GetOrdinal("worker_name")),
-						one_one = reader.GetString(reader.GetOrdinal("one_one")),
-						one_two = reader.GetString(reader.GetOrdinal("one_two")),
-						one_three = reader.GetString(reader.GetOrdinal("one_three")),
-						one_four = reader.GetString(reader.GetOrdinal("one_four")),
-						one_five = reader.GetString(reader.GetOrdinal("one_five")),
-						one_six = reader.GetString(reader.GetOrdinal("one_six")),
-						one_seven = reader.GetString(reader.GetOrdinal("one_seven")),
-						one_eight = reader.GetString(reader.GetOrdinal("one_eight")),
-						two_one = reader.GetString(reader.GetOrdinal("two_one")),
-						two_two = reader.GetString(reader.GetOrdinal("two_two")),
-						two_three = reader.GetString(reader.GetOrdinal("two_three")),
-						two_four = reader.GetString(reader.GetOrdinal("two_four")),
-						two_five = reader.GetString(reader.GetOrdinal("two_five")),
-						two_six = reader.GetString(reader.GetOrdinal("two_six")),
-						two_seven = reader.GetString(reader.GetOrdinal("two_seven")),
-						two_eight = reader.GetString(reader.GetOrdinal("two_eight")),
-						three_one = reader.GetString(reader.GetOrdinal("three_one")),
-						three_two = reader.GetString(reader.GetOrdinal("three_two")),
-						three_three = reader.GetString(reader.GetOrdinal("three_three")),
-						three_four = reader.GetString(reader.GetOrdinal("three_four")),
-						three_five = reader.GetString(reader.GetOrdinal("three_five")),
-						three_six = reader.GetString(reader.GetOrdinal("three_six")),
-						three_seven = reader.GetString(reader.GetOrdinal("three_seven")),
-						three_eight = reader.GetString(reader.GetOrdinal("three_eight")),
-						four_one = reader.GetString(reader.GetOrdinal("four_one")),
-						four_two = reader.GetString(reader.GetOrdinal("four_two")),
-						four_three = reader.GetString(reader.GetOrdinal("four_three")),
-						four_four = reader.GetString(reader.GetOrdinal("four_four")),
-						four_five = reader.GetString(reader.GetOrdinal("four_five")),
-						four_six = reader.GetString(reader.GetOrdinal("four_six")),
-						four_seven = reader.GetString(reader.GetOrdinal("four_seven")),
-						four_eight = reader.GetString(reader.GetOrdinal("four_eight")),
-						five_one = reader.GetString(reader.GetOrdinal("five_one")),
-						five_two = reader.GetString(reader.GetOrdinal("five_two")),
-						five_three = reader.GetString(reader.GetOrdinal("five_three")),
-						five_four = reader.GetString(reader.GetOrdinal("five_four")),
-						five_five = reader.GetString(reader.GetOrdinal("five_five")),
-						five_six = reader.GetString(reader.GetOrdinal("five_six")),
-						five_seven = reader.GetString(reader.GetOrdinal("five_seven")),
-						five_eight = reader.GetString(reader.GetOrdinal("five_eight")),
-						six_one = reader.GetString(reader.GetOrdinal("six_one")),
-						six_two = reader.GetString(reader.GetOrdinal("six_two")),
-						six_three = reader.GetString(reader.GetOrdinal("six_three")),
-						six_four = reader.GetString(reader.GetOrdinal("six_four")),
-						six_five = reader.GetString(reader.GetOrdinal("six_five")),
-						six_six = reader.GetString(reader.GetOrdinal("six_six")),
-						six_seven = reader.GetString(reader.GetOrdinal("six_seven")),
-						six_eight = reader.GetString(reader.GetOrdinal("six_eight")),
-						seven_one = reader.GetString(reader.GetOrdinal("seven_one")),
-						seven_two = reader.GetString(reader.GetOrdinal("seven_two")),
-						seven_three = reader.GetString(reader.GetOrdinal("seven_three")),
-						seven_four = reader.GetString(reader.GetOrdinal("seven_four")),
-						seven_five = reader.GetString(reader.GetOrdinal("seven_five")),
-						seven_six = reader.GetString(reader.GetOrdinal("seven_six")),
-						seven_seven = reader.GetString(reader.GetOrdinal("seven_seven")),
-						seven_eight = reader.GetString(reader.GetOrdinal("seven_eight")),
+						one_one = iii(reader, "one_one"),
+						one_two = iii(reader, "one_two"),
+						one_three = iii(reader, "one_three"),
+						one_four = iii(reader, "one_four"),
+						one_five = iii(reader, "one_five"),
+						one_six = iii(reader, "one_six"),
+						one_seven = iii(reader, "one_seven"),
+						one_eight = iii(reader, "one_eight"),
+						two_one = iii(reader, "two_one"),
+						two_two = iii(reader, "two_two"),
+						two_three = iii(reader, "two_three"),
+						two_four = iii(reader, "two_four"),
+						two_five = iii(reader, "two_five"),
+						two_six = iii(reader, "two_six"),
+						two_seven = iii(reader, "two_seven"),
+						two_eight = iii(reader, "two_eight"),
+						three_one = iii(reader, "three_one"),
+						three_two = iii(reader, "three_two"),
+						three_three = iii(reader, "three_three"),
+						three_four = iii(reader, "three_four"),
+						three_five = iii(reader, "three_five"),
+						three_six = iii(reader, "three_six"),
+						three_seven = iii(reader, "three_seven"),
+						three_eight = iii(reader, "three_eight"),
+						four_one = iii(reader, "four_one"),
+						four_two = iii(reader, "four_two"),
+						four_three = iii(reader, "four_three"),
+						four_four = iii(reader, "four_four"),
+						four_five = iii(reader, "four_five"),
+						four_six = iii(reader, "four_six"),
+						four_seven = iii(reader, "four_seven"),
+						four_eight = iii(reader, "four_eight"),
+						five_one = iii(reader, "five_one"),
+						five_two = iii(reader, "five_two"),
+						five_three = iii(reader, "five_three"),
+						five_four = iii(reader, "five_four"),
+						five_five = iii(reader, "five_five"),
+						five_six = iii(reader, "five_six"),
+						five_seven = iii(reader, "five_seven"),
+						five_eight = iii(reader, "five_eight"),
+						six_one = iii(reader, "six_one"),
+						six_two = iii(reader, "six_two"),
+						six_three = iii(reader, "six_three"),
+						six_four = iii(reader, "six_four"),
+						six_five = iii(reader, "six_five"),
+						six_six = iii(reader, "six_six"),
+						six_seven = iii(reader, "six_seven"),
+						six_eight = iii(reader, "six_eight"),
+						seven_one = iii(reader, "seven_one"),
+						seven_two = iii(reader, "seven_two"),
+						seven_three = iii(reader, "seven_three"),
+						seven_four = iii(reader, "seven_four"),
+						seven_five = iii(reader, "seven_five"),
+						seven_six = iii(reader, "seven_six"),
+						seven_seven = iii(reader, "seven_seven"),
+						seven_eight = iii(reader, "seven_eight"),
 
 					};
+					Roster.Add(roster);
 				}
 			}
 			sqlConnection.Close();
 			return Roster;
+		}
+		public string iii(SqlDataReader reader, string clas)
+		{
+			string aa = null;
+			if (!reader.IsDBNull(reader.GetOrdinal(clas)))
+			{
+				aa = reader.GetString(reader.GetOrdinal(clas));
+			}
+			else
+				aa = null;
+			return aa;
 		}
 	}
 }
