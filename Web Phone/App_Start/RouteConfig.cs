@@ -14,6 +14,7 @@ namespace Web_Phone
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                namespaces: new[] { "Web_Phone.Controllers" },
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Login", id = UrlParameter.Optional }
