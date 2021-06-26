@@ -334,6 +334,8 @@
     <Compile Include="Models\care_log_picture.cs" />
     <Compile Include="Models\Care_place.cs" />
     <Compile Include="Models\care_place_db.cs" />
+    <Compile Include="Models\Case_informatio.cs" />
+    <Compile Include="Models\case_information_db.cs" />
     <Compile Include="Models\CodeFile1.cs" />
     <Compile Include="Models\Daycheck.cs" />
     <Compile Include="Models\Daycheck_db.cs" />
@@ -352,6 +354,7 @@
     <Compile Include="Models\Guarding_records_every_moon_db.cs" />
     <Compile Include="Models\home_write.cs" />
     <Compile Include="Models\home_write_db.cs" />
+    <Compile Include="Models\list_index_class.cs" />
     <Compile Include="Models\pressure.cs" />
     <Compile Include="Models\pressure_db.cs" />
     <Compile Include="Models\reply_db.cs" />
@@ -361,6 +364,7 @@
     <Compile Include="Models\resources_db.cs" />
     <Compile Include="Models\Roster.cs" />
     <Compile Include="Models\Roster_db.cs" />
+    <Compile Include="Models\select_indect.cs" />
     <Compile Include="Models\Sign_in.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

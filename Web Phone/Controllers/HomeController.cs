@@ -402,25 +402,20 @@ namespace Web_Phone.Controllers
 			List<Roster> rosters = roster_Db.Roster_select(name);
 			ViewBag.name = name;
 			ViewBag.index = TempData["index"];
+			Case_information_db case_Information_Db = new Case_information_db();
+			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio(name);
+			ViewBag.case_s = case_s;
 			ViewBag.roser = rosters;
 			TempData.Keep();
 			return View();
 		}
-		/*	[HttpPost]
-			public ActionResult Select_case_schedule(Roster_db Roster_db)
+			[HttpPost]
+			public ActionResult Select_case_schedule(string case_name)
 			{
-				Roster_db dbmanager = new Roster_db();
-				try
-				{
-		//			dbmanager.Roster_db_select(Roster_db);
-				}
-				catch (Exception e)
-				{	
-					Console.WriteLine(e.ToString());
-				}
-				return View();
+				TempData["case_name"] = case_name;
+				return Json(Url.Action("Home_attendant_index"));
 			}
-		*/
+		
 
 		//照服員主頁面
 		public ActionResult Home_attendant_index()
