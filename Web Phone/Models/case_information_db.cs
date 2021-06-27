@@ -141,11 +141,12 @@ namespace Web_Phone.Models
 			sqlConnection.Close();
 		}
 
-		public List<Case_informatio> Get_Case_informatio(string status)
+		public List<Case_informatio> Get_Case_informatio(string w_name)
 		{
 			List<Case_informatio> case_information = new List<Case_informatio>();
 			SqlConnection sqlConnection = new SqlConnection(ConnStr);
-			SqlCommand sqlCommand = new SqlCommand("SELECT name FROM case_informatio where class = (select class from organization_account where name = @name)");
+			SqlCommand sqlCommand = new SqlCommand("SELECT name FROM case_informatio where waiter = @name and class = (select class from organization_account where name = @name)");
+			sqlCommand.Parameters.Add(new SqlParameter("@name", w_name));
 			sqlCommand.Connection = sqlConnection;
 			sqlConnection.Open();
 			List<string> list = new List<string>();
@@ -155,8 +156,6 @@ namespace Web_Phone.Models
 			{
 				while (reader.Read())
 				{
-
-					
 					Case_informatio case_information1 = new Case_informatio
 					{
 						name = reader.GetString(reader.GetOrdinal("name")),

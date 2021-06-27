@@ -422,6 +422,7 @@ namespace Web_Phone.Controllers
 		{
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.case_name = TempData["case_name"];
 			TempData.Keep();
 			return View();
 		}
