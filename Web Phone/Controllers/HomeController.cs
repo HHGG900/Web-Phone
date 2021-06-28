@@ -403,7 +403,8 @@ namespace Web_Phone.Controllers
 			ViewBag.name = name;
 			ViewBag.index = TempData["index"];
 			Case_information_db case_Information_Db = new Case_information_db();
-			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio(name);
+			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_all(name);
+			TempData["case_data"] = case_s;
 			ViewBag.case_s = case_s;
 			ViewBag.roser = rosters;
 			TempData.Keep();
@@ -649,14 +650,19 @@ namespace Web_Phone.Controllers
 				}
 
 				else
+				{
 					TempData["time"] = ca.tim;
+					ViewBag.care_tm = ca.tim;
+				}
 			}
 			if (care_tim == false)
 			{
 				ViewBag.care_tm = "0";
 			}
+			ViewBag.case_data = TempData["case_data"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.case_name = TempData["case_name"];
 			TempData.Keep();
 			return View();
 

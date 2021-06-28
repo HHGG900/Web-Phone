@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Web_Phone.Models;
+@{
+	List<Case_informatio> case_ = ViewBag.case_data;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -94,7 +98,7 @@
 		<table align="center" class="auto-style2">
 			<tr>
 				<td bgcolor="#F5F5F5" align="right" valign="center" class="auto-style3">
-					<font color="0000EB">個案姓名:林XX</font>
+					<font color="0000EB">個案姓名:@ViewBag.case_name</font>
 				</td>
 				<td bgcolor="#F5F5F5" align="center" valign="center" class="auto-style3">
 					<font color="0000EB">服務日期 @DateTime.Now</font>
@@ -102,7 +106,7 @@
 			</tr>
 			<tr>
 				<td bgcolor="#F5F5F5" colspan="2" align="center" valign="center" class="auto-style3">
-					<img src="../../images/服務人員icon.png" /><font color="0000EB">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; 黃阿花 </font>
+					<img src="../../images/服務人員icon.png" /><font color="0000EB">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; @ViewBag.name </font>
 				</td>
 			</tr>
 		</table>
@@ -159,6 +163,42 @@
 	<p>
 		<br />
 	</p>
+
+@foreach(Case_informatio case_ in case_data)
+{
+	for(int @i = 0, @i <= @case_.BAnum, @i++)
+	{
+	<table align="left" class="auto-style17">
+		<tr>
+			<td bgcolor="#6679E3" class="auto-style6">
+
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA" + @i.ToString("D2") + " " + @case_.BAList[i], "BA"+@i.ToString("D2"), "Home", new { @style = "color:#FFFFFF;" })&nbsp;</span><img src="../../images/基本身體清潔.png" class="auto-style4" /></font>
+			</td>
+			<td class="auto-style5">
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 @ViewBag.care_tm 次</span></font>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="auto-style1">
+				<br />
+				<!--<input type="file" onchange="document.getElementById('BA01').src = window.URL.createObjectURL(this.files[0])">-->
+				<img src="~/images/照片1.jpg" id="BA01" alt="自動帶入" class="auto-style9" />
+				<br />
+				<br />
+			</td>
+		</tr>
+	</table>
+	<p>
+		<br />
+	</p>
+	}
+	
+}
+	
+<br/>
+<br/>
+<br/>
+
 	<table align="left" class="auto-style17">
 		<tr>
 			<td bgcolor="#6679E3" class="auto-style6">
@@ -166,7 +206,7 @@
 				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA01基本身體清潔", "BA01", "Home", new { @style = "color:#FFFFFF;" })&nbsp;</span><img src="../../images/基本身體清潔.png" class="auto-style4" /></font>
 			</td>
 			<td class="auto-style5">
-				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 @ViewBag.care_tm次</span></font>
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 @ViewBag.care_tm 次</span></font>
 			</td>
 		</tr>
 		<tr>
