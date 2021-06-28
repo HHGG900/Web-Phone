@@ -1,6 +1,6 @@
 ﻿@using Web_Phone.Models;
 @{
-	List<Case_informatio> case_ = ViewBag.case_data;
+	List<Case_informatio> case_data = ViewBag.case_data;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -166,8 +166,9 @@
 
 @foreach(Case_informatio case_ in case_data)
 {
-	for(int @i = 0, @i <= @case_.BAnum, @i++)
+	for(int @i = 0; @i <= Int32.Parse(@case_.BAnum); @i++)
 	{
+		
 	<table align="left" class="auto-style17">
 		<tr>
 			<td bgcolor="#6679E3" class="auto-style6">

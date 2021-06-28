@@ -9,7 +9,7 @@ namespace Web_Phone.Models
 {
 	public class care_place_db
 	{
-		private readonly string ConnStr = "Data Source=webphone20201109.database.windows.net;Initial Catalog=webphone1109;Persist Security Info=True;User ID=oa123;Password=OOaa12345;MultipleActiveResultSets=True;Application Name=EntityFramework";
+		private readonly string ConnStr = "Data Source=WIN-6M12QM5R44F;Initial Catalog=webphone;Persist Security Info=True;User ID=sa;Password=1qaz!QAZ;MultipleActiveResultSets=True;Application Name=EntityFramework";
 
 		public void Care_place_insert(Care_place care_place)
 		{
@@ -101,8 +101,8 @@ namespace Web_Phone.Models
 		{
 			List<Care_place> care_place = new List<Care_place>();
 			SqlConnection sqlConnection = new SqlConnection(ConnStr);
-			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Care_place_db WHERE usr_name = @usr_name " +
-													"and tim = SELECT MAX(tim) FROM Care_place_db ");
+			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Care_place WHERE usr_name = @usr_name " +
+													"and tim = (SELECT MAX(tim) FROM Care_place) ");
 			sqlCommand.Connection = sqlConnection;
 			sqlCommand.Parameters.Add(new SqlParameter("@usr_name", UserId));
 			sqlConnection.Open();
