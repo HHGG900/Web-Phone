@@ -62,7 +62,7 @@
 				window.alert("員工已離職");
 			else if ("@ViewBag.post1" == "帳密錯誤")
 				window.alert("請重新輸入帳密");
-			else if ("@ViewBag.post1" == "督導" & "@ViewBag.post2" == "居家照服員") {
+			else if ("@ViewBag.post1" == "督導" & "@ViewBag.post2" == "居家服務員") {
 				var log2 = "location.href='/Home/Workbook_Home_Service_Supervisor'";
 				var log1 = "location.href='/Home/Workbook'";
 				s2 = "<button  class='btn - w btn - info' onclick = " + log2 + "><font style='vertical - align: inherit; '><font style='vertical - align: inherit;'>督導登入</font></font></button>";
@@ -71,7 +71,7 @@
 			else if (("@ViewBag.post1" == "督導") | ("@ViewBag.post2" == "督導")) {
 				window.location.href='/Home/SuperviseHandbook';
 			}
-			else if (("@ViewBag.post1" == "居家照服員") | ("@ViewBag.post2" == "居家照服員"))
+			else if (("@ViewBag.post1" == "居家服務員") | ("@ViewBag.post2" == "居家服務員"))
 				window.location.href = '/Home/Workbook';
 			log.innerHTML = s + s2;
 		}
