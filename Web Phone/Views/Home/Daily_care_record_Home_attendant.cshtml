@@ -166,14 +166,13 @@
 
 @foreach(Case_informatio case_ in case_data)
 {
-	for(int @i = 0; @i <= Int32.Parse(@case_.BAnum); @i++)
+	for(int @i = 0; @i < Int32.Parse(@case_.BAnum); @i++)
 	{
-		
+		string @path = @case_.BAList[i] + ".png";
 	<table align="left" class="auto-style17">
 		<tr>
 			<td bgcolor="#6679E3" class="auto-style6">
-
-				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("BA" + @case_.BAList[i+10] + " " + @case_.BAList[i].ToString("D2"), "BA"+@case_.BAList[i+10], "Home", new { @style = "color:#FFFFFF;" })&nbsp;</span><img src=("../../images/"+@case_.BAList[i]+".png") class="auto-style4" /></font>
+				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink( @case_.BAList[i+10] + " " + @case_.BAList[i], @case_.BAList[i+10], "Home", new { @style = "color:#FFFFFF;" })&nbsp;</span><img src="../../images/@path" class="auto-style4" /></font>
 			</td>
 			<td class="auto-style5">
 				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 @ViewBag.care_tm 次</span></font>

@@ -638,7 +638,9 @@ namespace Web_Phone.Controllers
 		{
 			bool care_tim = true;
 			care_place_db Care_db = new care_place_db();
+			Case_information_db case_Information_Db = new Case_information_db();
 			List<Care_place> care = Care_db.Care_place_select(TempData["name"] as string);
+			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_one(TempData["name"] as string, TempData["case_name"] as string);
 			foreach (Care_place ca in care)
 			{
 				DateTime dt1 = DateTime.Now;
@@ -659,7 +661,8 @@ namespace Web_Phone.Controllers
 			{
 				ViewBag.care_tm = "0";
 			}
-			ViewBag.case_data = TempData["case_data"];
+
+			ViewBag.case_data = case_s;
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			ViewBag.case_name = TempData["case_name"];
