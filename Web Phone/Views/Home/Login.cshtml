@@ -62,7 +62,7 @@
 				window.alert("員工已離職");
 			else if ("@ViewBag.post1" == "帳密錯誤")
 				window.alert("請重新輸入帳密");
-			else if ("@ViewBag.post1" == "督導" & "@ViewBag.post2" == "居家服務員") {
+			else if ("@ViewBag.post1" == "督導" & "@ViewBag.post2" == "照服員") {
 				var log2 = "location.href='/Home/Workbook_Home_Service_Supervisor'";
 				var log1 = "location.href='/Home/Workbook'";
 				s2 = "<button  class='btn - w btn - info' onclick = " + log2 + "><font style='vertical - align: inherit; '><font style='vertical - align: inherit;'>督導登入</font></font></button>";
@@ -71,7 +71,7 @@
 			else if (("@ViewBag.post1" == "督導") | ("@ViewBag.post2" == "督導")) {
 				window.location.href='/Home/SuperviseHandbook';
 			}
-			else if (("@ViewBag.post1" == "居家服務員") | ("@ViewBag.post2" == "居家服務員"))
+			else if (("@ViewBag.post1" == "照服員") | ("@ViewBag.post2" == "照服員"))
 				window.location.href = '/Home/Workbook';
 			log.innerHTML = s + s2;
 		}
@@ -139,10 +139,11 @@
 				<div class="auto-style5"> @ViewBag.Message</div>
 				<br />
 				<input type="button" class="btn btn-primary btn-lg" onclick="location.href='/Home/Familyobligations'" value="家屬" /><br />
-				<input type="submit" value="登入"/>
+				<input type="submit" class="btn btn-primary btn-lg" value="登入" /><br />
+				
+
 				<div id="login"></div>
-				<!--<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Workbook'" value="照服員" /><br />
-				<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Workbook_Home_Service_Supervisor'" value="督導" /><br />-->
+				<!--<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Workbook'" value="照服員" /><br />-->
 				<br />
 				&nbsp;<span class="auto-style8">
 					@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp; @Html.ActionLink("忘記密碼", "Forgetpassword", "Home")

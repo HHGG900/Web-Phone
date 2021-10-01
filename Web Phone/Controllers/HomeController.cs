@@ -466,6 +466,8 @@ namespace Web_Phone.Controllers
 		{
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.case_name = TempData["case_name"];
+			ViewBag.ls = TempData["BAls"];
 			TempData.Keep();
 			return View();
 		}
@@ -661,7 +663,19 @@ namespace Web_Phone.Controllers
 			{
 				ViewBag.care_tm = "0";
 			}
-
+			List<string> list = new List<string>();
+			string num = "";
+			foreach (Case_informatio ca in case_s)
+			{
+				for (int i = 0; i < Int32.Parse(ca.BAnum); i++)
+				{
+					list.Add(ca.BAList[i + 10] + " " + ca.BAList[i]);
+				}
+				num = ca.BAnum;	
+				
+			}
+			TempData["BAnum"] = num;
+			TempData["BAls"] = list;
 			ViewBag.case_data = case_s;
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
@@ -1150,36 +1164,36 @@ namespace Web_Phone.Controllers
 		//督導-上班打卡
 		public ActionResult Home_Service_Supervisor_sign_success()
 		{
-			return View();
+			return View("Home_Service_Supervisor_index");
 		}
-		[HttpPost]
-		public ActionResult Home_Service_Supervisor_sign_success(Daycheck daycheck)
-		{
-			worker_arrive_db worker_db = new worker_arrive_db();
+		//[HttpPost]
+		//public ActionResult Home_Service_Supervisor_sign_success(Daycheck daycheck)
+		//{
+		//	worker_arrive_db worker_db = new worker_arrive_db();
 
-			worker_db.worker_arrive_insert(TempData["name"] as string);
-			TempData.Keep();
+		//	worker_db.worker_arrive_insert(TempData["name"] as string);
+		//	TempData.Keep();
 
-			return RedirectToAction("Select_case_schedule");
-		}
+		//	return RedirectToAction("Select_case_schedule");
+		//}
 		//督導-下班打卡
 		public ActionResult Home_Service_Supervisor_sign_out()
 		{
 			return View();
 		}
-		[HttpPost]
-		public ActionResult Home_Service_Supervisor_sign_out(worker_arrive worker_arrive)
-		{
-			worker_arrive_db dbmanager = new worker_arrive_db();
-			dbmanager.worker_arrive_update(TempData["name"] as string);
+		//[HttpPost]
+		//public ActionResult Home_Service_Supervisor_sign_out(worker_arrive worker_arrive)
+		//{
+		//	worker_arrive_db dbmanager = new worker_arrive_db();
+		//	dbmanager.worker_arrive_update(TempData["name"] as string);
 			
-			return RedirectToAction("Login");
-		}
+		//	return RedirectToAction("Login");
+		//}
 
 		//督導-居督平板主頁面
 		public ActionResult Home_Service_Supervisor_index()
 		{
-			return View();
+			return View("Case_selection_page_Home_Service_Supervisor");
 		}
 
 		//督導-(開案)個案選擇頁
@@ -1398,5 +1412,6 @@ namespace Web_Phone.Controllers
 			return View();
 
 		}
+
 	}
 }

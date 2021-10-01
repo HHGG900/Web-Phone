@@ -127,7 +127,6 @@ namespace Web_Phone.Models
 						BA07 = reader.GetString(reader.GetOrdinal("BA07")),
 						BA08 = reader.GetString(reader.GetOrdinal("BA08")),
 						BA09 = reader.GetString(reader.GetOrdinal("BA09")),
-						BA10 = reader.GetString(reader.GetOrdinal("BA10")),
 						BA01_tem = reader.GetInt16(reader.GetOrdinal("BA01_tem")),
 						BA02_tem = reader.GetInt16(reader.GetOrdinal("BA02_tem")),
 						BA03_tem = reader.GetInt16(reader.GetOrdinal("BA03_tem")),
