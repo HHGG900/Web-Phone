@@ -2,6 +2,7 @@
 @{
 	List<Case_informatio> case_data = ViewBag.case_data;
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,25 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		window.onload = function () {
+			console.log('@ViewBag.BAList');
+		}
+
+		function pos() {
+
+			var list = {
+				worker_name: '@ViewBag.case_name',
+				}
+
+			$.post('@Url.Action("Daily_care_record_Home_attendant")',
+				{ care_place: list },
+					function (result) {
+						window.alert("儲存成功");
+						window.location.href = result;
+					});
+		}
+	</script>
 	<style type="text/css">
 		.auto-style1 {
 			font-family: 標楷體;
@@ -98,7 +118,7 @@
 		<table align="center" class="auto-style2">
 			<tr>
 				<td bgcolor="#F5F5F5" align="right" valign="center" class="auto-style3">
-					<font color="0000EB">個案姓名:@ViewBag.case_name</font>
+					<font id="worker_name" color="0000EB">個案姓名:@ViewBag.case_name</font>
 				</td>
 				<td bgcolor="#F5F5F5" align="center" valign="center" class="auto-style3">
 					<font color="0000EB">服務日期 @DateTime.Now</font>
@@ -175,7 +195,7 @@
 				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink( @case_.BAList[i+10] + " " + @case_.BAList[i], @case_.BAList[i+10], "Home", new { @style = "color:#FFFFFF;" })&nbsp;</span><img src="../../images/@path" class="auto-style4" /></font>
 			</td>
 			<td class="auto-style5">
-				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 @ViewBag.care_tm 次</span></font>
+				<font color="#0D62C3"><span class="auto-style15">應做23次>已做 @ViewBag.BAList[i] 次</span></font>
 			</td>
 		</tr>
 		<tr>
@@ -205,7 +225,7 @@
 	<table align="left" class="auto-style17">
 		<tr>
 			<td bgcolor="#6679E3" class="auto-style6">
-				<font color="#FFFFFF" size="5"><span class="auto-style15">@Html.ActionLink("每次守護紀錄", "Every_guardian_the_record", "Home", new { @style = "color:#FFFFFF;" })</span></font>
+				<font color="#FFFFFF" size="5"><button class="auto-style15" bgcolor="#6679E3" color="#FFFFFF" value="每次守護紀錄" onclick="pos();">每次守護紀錄</button></font>
 			</td>
 			<td>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

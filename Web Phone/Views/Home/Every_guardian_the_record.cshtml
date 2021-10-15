@@ -12,6 +12,143 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function sendmessage() {
+			var caser_name  = $('#caser_name').val();
+			var worker_name  = $('#worker_name').val();
+			var signatur = $('#signatur').val();
+			var temperature  = $('#temperature').val();
+			var pulse_low  = $('#pulse_low').val();
+			var pulse_high  = $('#pulse_high').val();
+			var odd_place_yes_no  = $('#odd_place_yes_no').val();
+			var odd_range  = $('#odd_range').val();
+			var odd_pic = $('#odd_pic').val();
+			var pain_assess  = $('#pain_assess').val();
+			var feel_assess_one  = $('#feel_assess_one').val();
+			var feel_assess_twe  = $('#feel_assess_twe').val();
+			var medicine_one  = $('#medicine_one').val();
+			var medicine_twe = $('#medicine_twe').val();
+			var Precautions  = $('#Precautions').val();
+
+			if (caser_name == '') {
+				alert('請輸入個案姓名！');
+				$('#caser_name').focus();
+				return false;
+			}
+			else if (worker_name == '') {
+				alert('請選擇性別！');
+				$('#worker_name').focus();
+				return false;
+			}
+			else if (signatur == '') {
+				alert('請填寫個案生日！');
+				$('#signatur').focus();
+				return false;
+			}
+			else if (temperature.search(/^[0-9]+$/) < 0) {
+				alert("「聯絡手機」欄位僅限數入數字");
+				$('#temperature').focus();
+				return false;
+			}
+			else if (pulse_low.search(/^[0-9]+$/) < 0) {
+				alert("「聯絡手機」欄位僅限數入數字");
+				$('#v').focus();
+				return false;
+			}
+
+			else if (pulse_high.search(/^[0-9]+$/) < 0) {
+				alert("「聯絡手機」欄位僅限數入數字");
+				$('#pulse_high').focus();
+				return false;
+			}
+
+			else if (odd_place_yes_no == '') {
+				alert('請輸入聯絡手機！');
+				$('#odd_place_yes_no').focus();
+				return false;
+			}
+
+			else if (odd_range == '') {
+				alert('請輸入照會日期！');
+				$('#odd_range').focus();
+				return false;
+			}
+			else if (odd_pic == '') {
+				alert('請輸入照會單位！');
+				$('#odd_pic').focus();
+				return false;
+			}
+			else if (pain_assess == '') {
+				alert('請選擇CMS等級！');
+				$('#pain_assess').focus();
+				return false;
+			}
+			else if (feel_assess_one == '') {
+				alert('請選擇小家別！');
+				$('#feel_assess_one').focus();
+				return false;
+			}
+			else if (feel_assess_twe == '') {
+				alert('請選擇個案狀態！');
+				$('#feel_assess_twe').focus();
+				return false;
+			}
+			else if (medicine_one == '') {
+				alert('請選擇個案狀態！');
+				$('#medicine_one').focus();
+				return false;
+			}
+			else if (medicine_twe == '') {
+				alert('請選擇個案狀態！');
+				$('#status').focus();
+				return false;
+			}
+			else if (Precautions == '') {
+				alert('請選擇個案狀態！');
+				$('#Precautions').focus();
+				return false;
+			}
+			else {
+				// $('#addModal').hide();
+				// $('#wait_content').show();
+				// $('#wait').show();
+				var BAlist = [];
+				@for (int i = 0; i < @Int32.Parse(TempData["BAnum"] as string); i++)
+				{
+					try {
+						@:BAlist.push(document.getElementById('@ViewBag.ls[i].Substring(0, 5)_tim').value);
+					} catch {
+						@:BAlist.push("");
+					}
+						}
+						var list = {
+					caser_name: caser_name,
+					worker_name: worker_name,
+					signatur:signatur,
+					temperature:temperature,
+					pulse_low:pulse_low,
+					pulse_high:pulse_high,
+					odd_place_yes_no:odd_place_yes_no,
+					odd_range:odd_range,
+					odd_pic:odd_pic,
+					pain_assess:pain_assess,
+					feel_assess_one:feel_assess_one,
+					feel_assess_twe:feel_assess_twe,
+					medicine_one:medicine_one,
+					medicine_twe:medicine_twe,
+					Precautions:Precautions
+				}
+
+					console.log(list);
+				$.post('@Url.Action("Every_guardian_the_record")',
+					{ guarding_records_every: list, BAList: BAlist},
+					function (result) {
+						window.alert("儲存成功");
+						window.location.href = result;
+					});
+			}
+			}
+	</script>
 	<style type="text/css">
 
 		.auto-style2 {
@@ -112,18 +249,20 @@
 			<tr>
 				<td bgcolor="#F5F5F5" align="right" class="auto-style3">
 					<label for="inputcaser_name"></label>
-					<font color="0000EB" face="標楷體">個案姓名:<input type="text" id="inputcaser_name" name="caser_name" placeholder="阿賢" value="@ViewBag.case_name" hidden="hidden" />@ViewBag.case_name &nbsp;&nbsp; </font>
+					<font color="0000EB" face="標楷體">個案姓名:<input type="text" id="caser_name" name="caser_name" placeholder="阿賢" value="@ViewBag.case_name" hidden="hidden" />@ViewBag.case_name &nbsp;&nbsp; </font>
 					&nbsp;
 				</td>
 				<td bgcolor="#F5F5F5" align="center" class="auto-sxtyle3">
-					<font color="0000EB" face="標楷體"><span class="auto-style3"> 服務日期:<input type="date" id="inputtim" name="tim" placeholder="@DateTime.UtcNow" value="@DateTime.UtcNow" hidden="hidden" /></span>@DateTime.UtcNow.AddHours(8)</font><span class="auto-style3"> </span>
-</td>
+					<font color="0000EB" face="標楷體"><span class="auto-style3"> 服務日期:<input type="date" id="tim" name="tim" placeholder="@DateTime.UtcNow.AddHours(8)" value="@DateTime.UtcNow.AddHours(8)" hidden="hidden" /></span>@DateTime.UtcNow.AddHours(8)</font><span class="auto-style3"> </span>
+				</td>
 			</tr>
 			<tr>
 				<td bgcolor="#F5F5F5" colspan="2" align="center" class="auto-style3">
 					<label for="inputworker_name ">
-						<img src="../../images/服務人員icon.png" /> <font color="0000EB" face="標楷體">&nbsp;&nbsp; 服務人員:&nbsp;@ViewBag.name
-						<input type="text" id="inputworker_name" name="worker_name" placeholder="黃阿花" value="黃阿花" required hidden="hidden" /></font>
+						<img src="../../images/服務人員icon.png" /> <font color="0000EB" face="標楷體">
+							&nbsp;&nbsp; 服務人員:&nbsp;@ViewBag.name
+							<input type="text" id="worker_name" name="worker_name" placeholder="黃阿花" value="@ViewBag.name" required hidden="hidden" />
+						</font>
 					</label>
 				</td>
 			</tr>
@@ -139,7 +278,7 @@
 				<div class="auto-style23">
 					<label for="inputtemperature ">
 						<font color="#FF1493" size="4" face="標楷體"><span class="auto-style17">&nbsp; </span><span class="auto-style3">&nbsp; 體溫:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
-						<input type="number" name="temperature" id="inputtemperature" class="auto-style9" required />
+						<input type="number" name="temperature" id="temperature" class="auto-style9" required />
 					</label>
 					<label for="inputpulse">
 						<font color="#FF1493" face="標楷體"><span class="auto-style14">&nbsp; </span><span class="auto-style3">脈搏:</span><span class="auto-style14">&nbsp;&nbsp;&nbsp;&nbsp; </span></font>&nbsp;
@@ -154,11 +293,11 @@
 				<div class="auto-style23">
 					<label for="inputpulse_low">
 						<span class="auto-style3">&nbsp;&nbsp; 血壓:</span></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-						<input type="number" name=" pulse_low" id="inputpulse_low" class="auto-style9" required />
+						<input type="number" name=" pulse_low" id="pulse_low" class="auto-style9" required />
 						&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
 					</label>
 					<label for="inputpulse_high">
-						<input type="number" name="pulse_high" id="inputpulse_high" class="auto-style9" required />
+						<input type="number" name="pulse_high" id="pulse_high" class="auto-style9" required />
 					</label>
 				</div>
 				<p class="auto-style6"><font color="#0000EB" size="5" face="標楷體"><strong><span class="auto-style17">皮膚</span></strong><img src="../../images/評估icon.png" /></font></p>
@@ -166,9 +305,9 @@
 					<label for="inputodd_place_yes_no">
 						<font color="#FF1493" size="4" face="標楷體">
 							&nbsp;&nbsp; <span class="auto-style3">是否出現傷口、壓傷瘀青等</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="odd_place_yes_no" value="是" id="inputodd_place_yes_no" class="auto-style16" required /><span class="auto-style3">是</span>
+							<input type="radio" name="odd_place_yes_no" value="是" id="odd_place_yes_no" class="auto-style16" required /><span class="auto-style3">是</span>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="odd_place_yes_no" id="inputodd_place_yes_no" value="否" class="auto-style16" required /><span class="auto-style3">否</span>
+							<input type="radio" name="odd_place_yes_no" id="odd_place_yes_no" value="否" class="auto-style16" required /><span class="auto-style3">否</span>
 						</font>
 					</label>
 				</div>
@@ -177,13 +316,13 @@
 					<label for="inputodd_range">
 						<font color="#FF1493" size="4" face="標楷體">
 							&nbsp;&nbsp;<span class="auto-style3">部位: </span>
-							<input type="text" id="inputodd_range" name="odd_range" placeholder="頭部" value="頭部" class="auto-style21" required readonly />
+							<input type="text" id="odd_range" name="odd_range" placeholder="頭部" value="頭部" class="auto-style21" required readonly />
 						</font>&nbsp;&nbsp;&nbsp;
 					</label>
 					<label for="inputodd_pic">
 						<font color="#FF1493" face="標楷體">
 							<span class="auto-style3">狀況:</span>
-							<input type="text" id="inputodd_pic" name="odd_pic" placeholder="發紅" value="發紅" class="auto-style21" required readonly />
+							<input type="text" id="odd_pic" name="odd_pic" placeholder="發紅" value="發紅" class="auto-style21" required readonly />
 						</font>
 					</label>
 					<br />
@@ -191,19 +330,19 @@
 					<a href="#" onclick="window.open('/Home/Pain_assessment_Home_attendant', '疼痛評估', config='height=500,width=500');"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">疼痛評估</span></a>
 					<span class="auto-style3">
 						<label for="inputpain_assess">
-							感覺到 <input type="text" id="inputpain_assess" name="pain_assess" value="很不舒服" placeholder="很不舒服" class="auto-style20" required readonly />
+							感覺到 <input type="text" id="pain_assess" name="pain_assess" value="很不舒服" placeholder="很不舒服" class="auto-style20" required readonly />
 							<br />
 						</label>
 						<br />
 						<a href="#" onclick="window.open('/Home/Emotional_assessment_Home_attendant', '情緒評估', config='height=500,width=500');"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">情緒評估</span></a>
 						<font color="#FF1493" size="4" face="標楷體"><span class="auto-style3">有時: </span></font>
 						<label for="inputfeel_assess_one">
-							<input type="text" id="inputfeel_assess_one" name="feel_assess_one" value="高興" placeholder="高興" class="auto-style25" required readonly />&nbsp;&nbsp;
+							<input type="text" id="feel_assess_one" name="feel_assess_one" value="高興" placeholder="高興" class="auto-style25" required readonly />&nbsp;&nbsp;
 						</label>
 						<font color="#FF1493" face="標楷體">
 							<span class="auto-style3">有時: </span>
 							<label for="inputfeel_assess_twe">
-								<input type="text" id="inputfeel_assess_twe" name="feel_assess_twe" value="生氣" placeholder="生氣" class="auto-style25" required readonly />
+								<input type="text" id="feel_assess_twe" name="feel_assess_twe" value="生氣" placeholder="生氣" class="auto-style25" required readonly />
 							</label>
 						</font>
 						<br />
@@ -222,13 +361,13 @@
 					<br />
 					<span class="auto-style3">有無分藥</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
 					<label for="inputmedicine_one">
-						<input type="radio" name="medicine_one" id="inputmedicine_one" value="無" class="auto-style16" required /><span class="auto-style3"> 無</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="radio" name="medicine_one" value="有" id="inputmedicine_one" class="auto-style16" required /><span class="auto-style3"> 有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br />
+						<input type="radio" name="medicine_one" id="medicine_one" value="無" class="auto-style16" required /><span class="auto-style3"> 無</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="medicine_one" value="有" id="medicine_one" class="auto-style16" required /><span class="auto-style3"> 有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br />
 					</label>
 					<span class="auto-style3">&nbsp;&nbsp; 有無剩藥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </span>
 					<label for="inputmedicine_twe">
-						<input type="radio" name="medicine_twe" value="無" id="inputmedicine_twe" class="auto-style16" required /><span class="auto-style3"> 無&nbsp;&nbsp; </span>&nbsp;&nbsp;&nbsp;
-						<input type="radio" name="medicine_twe" value="有" id="inputmedicine_twe" class="auto-style16" required /><span class="auto-style3"> 有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br />
+						<input type="radio" name="medicine_twe" value="無" id="medicine_twe" class="auto-style16" required /><span class="auto-style3"> 無&nbsp;&nbsp; </span>&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="medicine_twe" value="有" id="medicine_twe" class="auto-style16" required /><span class="auto-style3"> 有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><br />
 					</label>
 				</div>
 				<div class="auto-style24">
@@ -245,10 +384,10 @@
 			<div class="auto-style23">
 				<label for="inputPrecautions">
 
-					<textarea class="auto-style15" name="Precautions" id="inputPrecautions" required></textarea>
+					<textarea class="auto-style15" name="Precautions" id="Precautions" required></textarea>
 				</label>
 			</div>
-			<br/>
+			<br />
 			<div class="auto-style24">
 				<br />
 				<font color="#0000EB" face="標楷體"><strong><span class="auto-style17">照顧次數</span></strong></font>
@@ -257,22 +396,22 @@
 			</div>
 			<div>
 				@*@List<string> list = @TempData["BAls"] as @List<string>();*@
-						@for (int @i = 0; @i < Int32.Parse(TempData["BAnum"] as string); @i++)
-						{
-							<label for="inputodd_pic">
-								<font color="#FF1493" face="標楷體">
-									<span class="auto-style3">@ViewBag.ls[@i]  :</span>
-									<input type="number" name="temperature" id="inputtemperature" class="auto-style9" required />
-								</font>
-							</label>
-						}
+				@for (int @i = 0; @i < Int32.Parse(TempData["BAnum"] as string); @i++)
+				{
+					<label for="inputodd_pic">
+						<font color="#FF1493" face="標楷體">
+							<span class="auto-style3">@ViewBag.ls[@i]  :</span>
+							<input type="number" id="@ViewBag.ls[@i].Substring(0, 5)_tim" class="auto-style9" required />
+						</font>
+					</label>
+				}
 			</div>
 			<br />
 			<br />
 			<br />
-			<input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="window.alert('已存檔');" />
+			<input type="button" class="btn btn-primary btn-lg" value="存檔" onclick="sendmessage();" />
 
-</form>
+	</form>
 	<div class="auto-style8">
 		<br>
 		<br />

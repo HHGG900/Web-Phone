@@ -19,7 +19,7 @@ namespace Web_Phone.Models
 		[Required]
 		public string worker_name { get; set; }
 
-		[DisplayName("")]
+		
 		[Required]
 		public string signatur { get; set; }
 		

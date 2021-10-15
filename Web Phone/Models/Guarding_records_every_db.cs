@@ -9,7 +9,7 @@ namespace Web_Phone.Models
 {
 	public class Guarding_records_every_db
 	{
-		private readonly string ConnStr = "Data Source=webphone20201109.database.windows.net;Initial Catalog=webphone20101109_db;Persist Security Info=True;User ID=oa123 ;Password=OOaa12345;MultipleActiveResultSets=True;Application Name=EntityFramework";
+		private readonly string ConnStr = "Data Source=WIN-6M12QM5R44F;Initial Catalog=webphone;Persist Security Info=True;User ID=sa;Password=1qaz!QAZ;MultipleActiveResultSets=True;Application Name=EntityFramework";
 
 		public void Guarding_records_every_insert(Guarding_records_every guarding_records_every)
 		{
@@ -20,17 +20,32 @@ namespace Web_Phone.Models
 			sqlCommand.Connection = sqlConnection;
 			sqlCommand.Parameters.Add(new SqlParameter("@caser_name", guarding_records_every.caser_name));
 			sqlCommand.Parameters.Add(new SqlParameter("@worker_name", guarding_records_every.worker_name));
-			sqlCommand.Parameters.Add(new SqlParameter("@signatur", guarding_records_every.signatur));
-			sqlCommand.Parameters.Add(new SqlParameter("@time_m", guarding_records_every.time_m));
+			if(guarding_records_every.signatur != null)
+				sqlCommand.Parameters.Add(new SqlParameter("@signatur", guarding_records_every.signatur));
+			else
+				sqlCommand.Parameters.Add(new SqlParameter("@signatur", DBNull.Value));
+			sqlCommand.Parameters.Add(new SqlParameter("@time_m",DateTime.Now.AddHours(8)));
 			sqlCommand.Parameters.Add(new SqlParameter("@temperature", guarding_records_every.temperature));
 			sqlCommand.Parameters.Add(new SqlParameter("@pulse_low", guarding_records_every.pulse_low));
 			sqlCommand.Parameters.Add(new SqlParameter("@pulse_high", guarding_records_every.pulse_high));
-			sqlCommand.Parameters.Add(new SqlParameter("@skin_assess", guarding_records_every.skin_assess));
+			if (guarding_records_every.skin_assess != null)
+				sqlCommand.Parameters.Add(new SqlParameter("@skin_assess", guarding_records_every.skin_assess));
+			else
+				sqlCommand.Parameters.Add(new SqlParameter("@skin_assess", DBNull.Value));
 			sqlCommand.Parameters.Add(new SqlParameter("@odd_place_yes_no", guarding_records_every.odd_place_yes_no));
-			sqlCommand.Parameters.Add(new SqlParameter("@odd_place", guarding_records_every.odd_place));
-			sqlCommand.Parameters.Add(new SqlParameter("@odd_status", guarding_records_every.odd_status));
+			if (guarding_records_every.odd_place != null)
+				sqlCommand.Parameters.Add(new SqlParameter("@odd_place", guarding_records_every.odd_pic));
+			else
+				sqlCommand.Parameters.Add(new SqlParameter("@odd_place", DBNull.Value));
+			if (guarding_records_every.odd_status != null)
+				sqlCommand.Parameters.Add(new SqlParameter("@odd_status", guarding_records_every.odd_status));
+			else
+				sqlCommand.Parameters.Add(new SqlParameter("@odd_status", DBNull.Value));
 			sqlCommand.Parameters.Add(new SqlParameter("@odd_range", guarding_records_every.odd_range));
-			sqlCommand.Parameters.Add(new SqlParameter("@odd_pic", guarding_records_every.odd_pic));
+			if (guarding_records_every.odd_pic != null)
+				sqlCommand.Parameters.Add(new SqlParameter("@odd_pic", guarding_records_every.odd_pic));
+			else
+				sqlCommand.Parameters.Add(new SqlParameter("@odd_pic", DBNull.Value));
 			sqlCommand.Parameters.Add(new SqlParameter("@pain_assess", guarding_records_every.pain_assess));
 			sqlCommand.Parameters.Add(new SqlParameter("@feel_assess_one", guarding_records_every.feel_assess_one));
 			sqlCommand.Parameters.Add(new SqlParameter("@feel_assess_twe", guarding_records_every.feel_assess_twe));

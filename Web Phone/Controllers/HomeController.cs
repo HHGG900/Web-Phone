@@ -355,10 +355,10 @@ namespace Web_Phone.Controllers
 		{
 			Daycheck_db daycheck_db = new Daycheck_db();
 			worker_arrive_db worker_db = new worker_arrive_db();
-			
-				worker_db.worker_arrive_insert(daycheck.usr_name);
-				daycheck_db.NewDaycheck(daycheck);
-			
+
+			worker_db.worker_arrive_insert(daycheck.usr_name);
+			daycheck_db.NewDaycheck(daycheck);
+
 			return RedirectToAction("Select_case_schedule");
 		}
 
@@ -378,21 +378,21 @@ namespace Web_Phone.Controllers
 			TempData.Keep();
 			return View();
 		}
-			[HttpPost]
-			public ActionResult Sign_out(worker_arrive worker_arrive)
+		[HttpPost]
+		public ActionResult Sign_out(worker_arrive worker_arrive)
+		{
+			worker_arrive_db dbmanager = new worker_arrive_db();
+			try
 			{
-				worker_arrive_db dbmanager = new worker_arrive_db();
-				try
-				{
-					dbmanager.worker_arrive_update(TempData["name"] as string);
-				}
-				catch (Exception e)
-				{
-					Console.WriteLine(e.ToString());
-				}
-				return RedirectToAction("Login");
+				dbmanager.worker_arrive_update(TempData["name"] as string);
 			}
-		
+			catch (Exception e)
+			{
+				Console.WriteLine(e.ToString());
+			}
+			return RedirectToAction("Login");
+		}
+
 
 		//照服員-個案班表
 		public ActionResult Select_case_schedule()
@@ -404,23 +404,27 @@ namespace Web_Phone.Controllers
 			ViewBag.index = TempData["index"];
 			Case_information_db case_Information_Db = new Case_information_db();
 			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_all(name);
-			TempData["case_data"] = case_s;
 			ViewBag.case_s = case_s;
 			ViewBag.roser = rosters;
 			TempData.Keep();
 			return View();
 		}
-			[HttpPost]
-			public ActionResult Select_case_schedule(string case_name)
-			{
-				TempData["case_name"] = case_name;
-				return Json(Url.Action("Home_attendant_index"));
-			}
-		
+		[HttpPost]
+		public ActionResult Select_case_schedule(string case_name)
+		{
+			TempData["case_name"] = case_name;
+			return Json(Url.Action("Home_attendant_index"));
+		}
+
 
 		//照服員主頁面
 		public ActionResult Home_attendant_index()
 		{
+			Case_information_db case_Information_Db = new Case_information_db();
+			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_one(TempData["name"] as string, TempData["case_name"] as string);
+			TempData["case_data"] = case_s;
+			foreach (Case_informatio case_ in case_s)
+				TempData["BAnum"] = case_.BAnum;
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			ViewBag.case_name = TempData["case_name"];
@@ -464,25 +468,23 @@ namespace Web_Phone.Controllers
 		//照服員-每次守護紀錄
 		public ActionResult Every_guardian_the_record()
 		{
+			ViewBag.case_name = TempData["case_name"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
-			ViewBag.case_name = TempData["case_name"];
 			ViewBag.ls = TempData["BAls"];
 			TempData.Keep();
 			return View();
 		}
 		[HttpPost]
-		public ActionResult Every_guardian_the_record(Guarding_records_every guarding_records_every)
+		public ActionResult Every_guardian_the_record(Guarding_records_every guarding_records_every , List<int> BAList)
 		{
 			Guarding_records_every_db guarding_records_every_db = new Guarding_records_every_db();
-			//	try
-			//	{
-			//		guarding_records_every_db.Guarding_records_every_insert(guarding_records_every);
-			//	}
-			//	catch (Exception e)
-			//	{
-			//	//	Console.WriteLine(e.ToString());
-			//	}
+			care_place_db care_Place = new care_place_db();
+
+			Case_informatio case_Informatio = new Case_informatio();
+			guarding_records_every_db.Guarding_records_every_insert(guarding_records_every);
+			care_Place.Care_place_update_tem(BAList, TempData["case_name"] as string, TempData["name"] as string, TempData["care_plase"] as List<Care_place>);
+			TempData.Keep();
 			return RedirectToAction("Every_guardian_the_record");
 		}
 
@@ -638,45 +640,52 @@ namespace Web_Phone.Controllers
 		//照服員-每次照顧紀錄
 		public ActionResult Daily_care_record_Home_attendant()
 		{
-			bool care_tim = true;
 			care_place_db Care_db = new care_place_db();
 			Case_information_db case_Information_Db = new Case_information_db();
-			List<Care_place> care = Care_db.Care_place_select(TempData["name"] as string);
+			//try
+			//{
+			List<int> int_ls = new List<int>();
+				List<Care_place> care = Care_db.Care_place_select(TempData["name"] as string, TempData["case_name"] as string);
+				foreach (Care_place ca in care)
+				{
+				int_ls.Add(ca.BA01_tem);
+				int_ls.Add(ca.BA02_tem);
+				int_ls.Add(ca.BA03_tem);
+				int_ls.Add(ca.BA04_tem);
+				int_ls.Add(ca.BA05_tem);
+				int_ls.Add(ca.BA06_tem);
+				int_ls.Add(ca.BA07_tem);
+				int_ls.Add(ca.BA08_tem);
+				int_ls.Add(ca.BA09_tem);
+				TempData["time"] = ca.tim_m;
+					TempData["time1"] = ca.usr_name;
+			}
+			//}
+			//catch
+			//{
+			//	TempData["time"] = 0;
+			//}
+			
 			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_one(TempData["name"] as string, TempData["case_name"] as string);
-			foreach (Care_place ca in care)
-			{
-				DateTime dt1 = DateTime.Now;
-				TimeSpan time = DateTime.Now - ca.tim;
-				if (time.TotalDays >= 30)
-				{
-					care_tim = false;
-					TempData["time"] = DateTime.UtcNow.AddHours(08).AddMinutes(03);
-				}
+			
 
-				else
-				{
-					TempData["time"] = ca.tim;
-					ViewBag.care_tm = ca.tim;
-				}
-			}
-			if (care_tim == false)
-			{
-				ViewBag.care_tm = "0";
-			}
 			List<string> list = new List<string>();
-			string num = "";
 			foreach (Case_informatio ca in case_s)
 			{
 				for (int i = 0; i < Int32.Parse(ca.BAnum); i++)
 				{
 					list.Add(ca.BAList[i + 10] + " " + ca.BAList[i]);
 				}
-				num = ca.BAnum;	
 				
+
 			}
-			TempData["BAnum"] = num;
+			List<Case_informatio> case_infor = TempData["case_data"] as List<Case_informatio>;
+			TempData["care_plase"] = care;
+			ViewBag.BAList = int_ls;
+			ViewBag.num = TempData["time"];
+			ViewBag.ii = TempData["time1"];
 			TempData["BAls"] = list;
-			ViewBag.case_data = case_s;
+			ViewBag.case_data = TempData["case_data"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			ViewBag.case_name = TempData["case_name"];
@@ -689,67 +698,29 @@ namespace Web_Phone.Controllers
 		public ActionResult Daily_care_record_Home_attendant(Care_place care_place)
 		{
 			care_place.usr_name = TempData["name"] as string;
-			care_place.worker_name = "1";
-			care_place.BA01 = TempData["BA01"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA01) == 1)
-				care_place.BA01_tem += 1;
-			care_place.BA02 = TempData["BA02"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA02) == 1)
-				care_place.BA02_tem += 1;
-			care_place.BA03 = TempData["BA03"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA03) == 1)
-				care_place.BA03_tem += 1;
-			care_place.BA04 = TempData["BA04"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA04) == 1)
-				care_place.BA04_tem += 1;
-			care_place.BA05 = TempData["BA05"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA05) == 1)
-				care_place.BA05_tem += 1;
-			care_place.BA06 = TempData["BA07"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA06) == 1)
-				care_place.BA06_tem += 1;
-			care_place.BA07 = TempData["BA08"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA07) == 1)
-				care_place.BA07_tem += 1;
-			care_place.BA08 = TempData["BA010"] as string;
-			if (Daily_care_record_Home_attendant_BA(care_place.BA08) == 1)
-				care_place.BA08_tem += 1;
-			care_place.BA09 = "";
-			if (Daily_care_record_Home_attendant_BA(care_place.BA09) == 1)
-				care_place.BA09_tem += 1;
-			care_place.BA10 = "";
-			if (Daily_care_record_Home_attendant_BA(care_place.BA10) == 1)
-				care_place.BA10_tem += 1;
-			care_place.tim = (DateTime)TempData["time"];
-			care_place.usr_name = (string)TempData["name"];
-			care_place_db Care_db = new care_place_db();
-			if (care_place.BA01_tem == 0 || (care_place.BA01 != null && care_place.BA01_tem == 1))
+			List<Case_informatio> case_infor = new List<Case_informatio>();
+			case_infor = TempData["case_data"] as List<Case_informatio>;
+			foreach (Case_informatio case_ in case_infor)
 			{
-				Care_db.Care_place_insert(care_place);
+				for (int i = 0; i < Int32.Parse(case_.BAnum); i++)
+				{
+					case_.BAList[i] = TempData[case_.BAList[i+10]] as string;
+				}
+
+
+				care_place.tim_m = TempData["time"] as string;
+				care_place.usr_name = (string)TempData["name"];
+				care_place_db Care_db = new care_place_db();
+
+
+				if (care_place.tim_m != DateTime.Now.ToString("MM"))
+					Care_db.Care_place_insert(care_place, case_);
+				else
+					Care_db.Care_place_update_pic(care_place, case_);
 			}
-			else
-				Care_db.Care_place_update(care_place, care_place.tim);
-			//care_place.BA09 = TempData["BA011"] as string;
-			//care_place.BA10 = TempData["BA012"] as string;
-			//care_place.BA011 = TempData["BA013"] as string;
-			//care_place.BA01 = TempData["BA014"] as string;
-			//care_place.BA01 = TempData["BA017"] as string;
-			//care_place.BA01 = TempData["BA018"] as string;
-			//care_place.BA01 = TempData["BA020"] as string;
-			//care_place.BA01 = TempData["BA022"] as string;
-			//care_place.BA01 = TempData["BA023"] as string;
-			//care_place.BA01 = TempData["BA024"] as string;
 			TempData.Keep();
-			//care_place_db dbmanager = new care_place_db();
-			//try
-			//{
-			//	dbmanager.Care_place_insert(care_place);
-			//}
-			//catch (Exception e)
-			//{
-			//	Console.WriteLine(e.ToString());
-			//}
-			return View();
+
+			return Json(Url.Action("Every_guardian_the_record"));
 		}
 		public int Daily_care_record_Home_attendant_BA(string BA)
 		{
@@ -934,7 +905,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA10loc.SaveAs(path);
 			}
-			TempData["BA10"] = picname;
+			TempData["BA010"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA11 肢體關節活動
@@ -951,7 +922,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA11loc.SaveAs(path);
 			}
-			TempData["BA11"] = picname;
+			TempData["BA011"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA12 協助上(下)樓梯
@@ -968,7 +939,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA12loc.SaveAs(path);
 			}
-			TempData["BA12"] = picname;
+			TempData["BA012"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA13 陪同外出
@@ -985,7 +956,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA13loc.SaveAs(path);
 			}
-			TempData["BA13"] = picname;
+			TempData["BA013"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA14 陪同就醫
@@ -1002,7 +973,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA14loc.SaveAs(path);
 			}
-			TempData["BA14"] = picname;
+			TempData["BA014"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA17 協助輔助性醫療
@@ -1014,12 +985,13 @@ namespace Web_Phone.Controllers
 		public ActionResult BA017(HttpPostedFileBase BA17loc)
 		{
 			string picname = string.Format("{0}-BA17.jpg", DateTime.Now.ToString("yyyyMMddHmm"));
+			if (BA17loc!= null)
 			if (BA17loc.ContentLength > 0)
 			{
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA17loc.SaveAs(path);
 			}
-			TempData["BA17"] = picname;
+			TempData["BA017"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA18 安全看視
@@ -1036,7 +1008,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA18loc.SaveAs(path);
 			}
-			TempData["BA18"] = picname;
+			TempData["BA018"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA20 陪伴服務
@@ -1053,7 +1025,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA20loc.SaveAs(path);
 			}
-			TempData["BA20"] = picname;
+			TempData["BA020"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA22 巡視服務
@@ -1070,7 +1042,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA22loc.SaveAs(path);
 			}
-			TempData["BA22"] = picname;
+			TempData["BA022"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA23 協助洗頭
@@ -1087,7 +1059,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA23loc.SaveAs(path);
 			}
-			TempData["BA23"] = picname;
+			TempData["BA023"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-BA24 協助排泄
@@ -1104,7 +1076,7 @@ namespace Web_Phone.Controllers
 				var path = Path.Combine(Server.MapPath("~/Photos"), picname);
 				BA24loc.SaveAs(path);
 			}
-			TempData["BA24"] = picname;
+			TempData["BA024"] = picname;
 			return RedirectToAction("Daily_care_record_Home_attendant");
 		}
 		//照服員-照顧交辦單
@@ -1164,36 +1136,36 @@ namespace Web_Phone.Controllers
 		//督導-上班打卡
 		public ActionResult Home_Service_Supervisor_sign_success()
 		{
-			return View("Home_Service_Supervisor_index");
+			return View();
 		}
-		//[HttpPost]
-		//public ActionResult Home_Service_Supervisor_sign_success(Daycheck daycheck)
-		//{
-		//	worker_arrive_db worker_db = new worker_arrive_db();
+		[HttpPost]
+		public ActionResult Home_Service_Supervisor_sign_success(Daycheck daycheck)
+		{
+			worker_arrive_db worker_db = new worker_arrive_db();
 
-		//	worker_db.worker_arrive_insert(TempData["name"] as string);
-		//	TempData.Keep();
+			worker_db.worker_arrive_insert(TempData["name"] as string);
+			TempData.Keep();
 
-		//	return RedirectToAction("Select_case_schedule");
-		//}
+			return RedirectToAction("Select_case_schedule");
+		}
 		//督導-下班打卡
 		public ActionResult Home_Service_Supervisor_sign_out()
 		{
 			return View();
 		}
-		//[HttpPost]
-		//public ActionResult Home_Service_Supervisor_sign_out(worker_arrive worker_arrive)
-		//{
-		//	worker_arrive_db dbmanager = new worker_arrive_db();
-		//	dbmanager.worker_arrive_update(TempData["name"] as string);
-			
-		//	return RedirectToAction("Login");
-		//}
+		[HttpPost]
+		public ActionResult Home_Service_Supervisor_sign_out(worker_arrive worker_arrive)
+		{
+			worker_arrive_db dbmanager = new worker_arrive_db();
+			dbmanager.worker_arrive_update(TempData["name"] as string);
+
+			return RedirectToAction("Login");
+		}
 
 		//督導-居督平板主頁面
 		public ActionResult Home_Service_Supervisor_index()
 		{
-			return View("Case_selection_page_Home_Service_Supervisor");
+			return View();
 		}
 
 		//督導-(開案)個案選擇頁
@@ -1412,6 +1384,5 @@ namespace Web_Phone.Controllers
 			return View();
 
 		}
-
 	}
 }
