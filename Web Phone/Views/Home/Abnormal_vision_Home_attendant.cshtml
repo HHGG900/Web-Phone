@@ -12,6 +12,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function on(num) {
+			$.post('@Url.Action("Abnormal_vision_Home_attendant")',
+				{ num: num },
+				function (url) {
+					window.location.href = url;
+				}
+				);
+		}
+	</script>
 	<style type="text/css">
 		.auto-style1 {
 			height: 525px;
@@ -41,7 +51,7 @@
 	<table class="auto-style1">
 		<tr>
 			<td class="auto-style2">
-				<input type="submit" class="btn btn-primary btn-lg" value="1級" />
+				<input type="submit" class="btn btn-primary btn-lg" onclick="on('1級');" value="1級" />
 			</td>
 			<td class="auto-style4">
 				適當(能在書報中的標準字體)
@@ -49,7 +59,7 @@
 		</tr>
 				<tr>
 			<td class="auto-style2">
-				<input type="submit" class="btn btn-primary btn-lg" value="2級"/>
+				<input type="submit" class="btn btn-primary btn-lg" onclick="on('2級');" value="2級"/>
 			</td>
 			<td class="auto-style4">
 				輕度障礙(可以看清楚大字的印書體)
@@ -57,7 +67,7 @@
 		</tr>
 		<tr>
 			<td class="auto-style2">
-				<input type="submit" class="btn btn-primary btn-lg" value="3級"/>
+				<input type="submit" class="btn btn-primary btn-lg" onclick="on('3級');" value="3級"/>
 			</td>
 			<td class="auto-style4">
 				中度障礙(看不清楚報紙的標題，但能辨識物件)
@@ -65,7 +75,7 @@
 		</tr>
 		<tr>
 			<td class="auto-style2">
-				<input type="submit" class="btn btn-primary btn-lg" value="4級"/>
+				<input type="submit" class="btn btn-primary btn-lg" onclick="on(4);" value="4級"/>
 			</td>
 			<td class="auto-style4">
 				重度障礙(辨識物件有困難，但眼睛能隨物件移動)
@@ -73,7 +83,7 @@
 		</tr>
 		<tr>
 			<td class="auto-style2">
-				<input type="submit" class="btn btn-primary btn-lg" value="5級"/>
+				<input type="submit" class="btn btn-primary btn-lg" onclick="on('5級');" value="5級"/>
 			</td>
 			<td class="auto-style4">
 				極重度障礙(僅能見到光、顏色或形狀，眼睛不能隨物件移動)
@@ -81,7 +91,7 @@
 		</tr>
 		<tr>
 			<td class="auto-style2">
-				<input type="submit" class="btn btn-primary btn-lg" value="6級"/>
+				<input type="submit" class="btn btn-primary btn-lg" onclick="on('6級');" value="6級"/>
 			</td>
 			<td class="auto-style4">
 				失明

@@ -12,11 +12,44 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		var tatol = 0
+		function save() {
+			if ($('input[name="location"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location1"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location2"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location3"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location4"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location5"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location6"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location7"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location8"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location9"]:checked').val() == '是')
+				tatol += 1;
+			if ($('input[name="location10"]:checked').val() == '是')
+				tatol += 1;
+			$.post('@Url.Action("Battered_assessment_Home_attendant")',
+				{ num: tatol },
+				function (url) {
+					window.location.href = url;
+				}
+				);
+		}
+	</script>
 	<style type="text/css">
 
 		.auto-style3 {
 			font-family: 標楷體;
-			text-align: right;
+			text-align: center;
 		}
 
 		.auto-style6 {
@@ -181,11 +214,13 @@
 			</td>
 		</tr>
 	</Table>
+	<br />
+	<br />
+	<br />
+	<br />
 	<div class="auto-style3">
-		<br />
-		<br />
-		<br />
-		<br />
+		<button class="btn btn-warning btn-lg " onclick="save();">上傳</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		@Html.ActionLink("上一頁", "Guardian_of_the_month_Home_attendant", "Home", new { @class = "btn btn-danger btn-lg" })
 	</div>
 </body>

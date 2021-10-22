@@ -12,6 +12,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function on(num) {
+			$.post('@Url.Action("Abnormal_hearing_Home_attendant")',
+				{ num: num },
+				function (url) {
+					window.location.href = url;
+				}
+				);
+		}
+	</script>
 	<style type="text/css">
 		.auto-style1 {
 			font-family: 標楷體;
@@ -39,7 +49,7 @@
 		<table class="auto-style1">
 			<tr>
 				<td class="auto-style2">
-					<input type="submit" class="btn btn-primary btn-lg" value="1級" />
+					<input type="submit" class="btn btn-primary btn-lg" onclick="on('1級');" value="1級" />
 				</td>
 				<td class="auto-style4">
 					適當(能正常交談、看電視、接電話)
@@ -47,7 +57,7 @@
 			</tr>
 			<tr>
 				<td class="auto-style2">
-					<input type="submit" class="btn btn-primary btn-lg" value="2級" />
+					<input type="submit" class="btn btn-primary btn-lg" onclick="on('2級');" value="2級" />
 				</td>
 				<td class="auto-style4">
 					輕度障礙(在吵雜的環境下有障礙)
@@ -55,7 +65,7 @@
 			</tr>
 			<tr>
 				<td class="auto-style2">
-					<input type="submit" class="btn btn-primary btn-lg" value="3級" />
+					<input type="submit" class="btn btn-primary btn-lg" onclick="on('3級');"  value="3級" />
 				</td>
 				<td class="auto-style4">
 					中度障礙(在安靜的環境下，需要說話者調整音量才可聽見)
@@ -63,7 +73,7 @@
 			</tr>
 			<tr>
 				<td class="auto-style2">
-					<input type="submit" class="btn btn-primary btn-lg" value="4級" />
+					<input type="submit" class="btn btn-primary btn-lg" onclick="on('4級');" value="4級" />
 				</td>
 				<td class="auto-style4">
 					重度障礙(喪失聽覺)

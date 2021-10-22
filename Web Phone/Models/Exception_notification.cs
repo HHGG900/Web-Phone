@@ -12,6 +12,7 @@ namespace Web_Phone.Models
 		[DisplayName("服務姓名")]
 		[Required]
 		public string working_name { get; set; }
+		public string id { get; set; }
 
 		[DisplayName("事件敘述")]
 		[Required]
@@ -28,6 +29,8 @@ namespace Web_Phone.Models
 		[DisplayName("時間")]
 		[DataType(DataType.Text)]
 		public DateTime tim { get; set; }
+		public string execution { get; set; }
+		public string tracking { get; set; }
 		//已完成項目有幾項
 	}
 }

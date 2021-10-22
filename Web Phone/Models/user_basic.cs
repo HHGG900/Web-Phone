@@ -18,11 +18,11 @@ namespace Web_Phone.Models
 		[Required]
 		public string usr_anonymous { get; set; }
 
-		[DisplayName("習慣語言")]
+		[DisplayName("習慣語言")]//1-5
 		[Required]
 		public string usr_icustom_languagendex { get; set; }
 
-		[DisplayName("母語")]
+		[DisplayName("母語")]//6-10
 		[Required]
 		public string mom_language { get; set; }
 
@@ -30,7 +30,7 @@ namespace Web_Phone.Models
 		[Required]
 		public string like_topic { get; set; }
 
-		[DisplayName("興趣")]
+		[DisplayName("興趣")]//14
 		[Required]
 		public string interest { get; set; }
 

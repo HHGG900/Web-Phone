@@ -92,6 +92,20 @@
 		}
 	</style>
 	<script>
+		function execute(id) {
+			$.post('@Url.Action("Abnormal_event_execution_table")',
+				{ id: id },
+					function (result) {
+						window.location.href = result;
+					});
+		}
+		function tracking(id) {
+			$.post('@Url.Action("Abnormal_event_execution_table1")',
+				{ id: id },
+					function (result) {
+						window.location.href = result;
+					});
+		}
 		$(function () {
 
 			$('#actButton2').click(function () {
@@ -162,10 +176,10 @@
 						@exception_Notification.event_description
 					</td>
 					<td bgcolor="#5772EE" class="auto-style2">
-						@Html.ActionLink("1", "Abnormal_event_execution", "Home")
+						<a style="color:#FFFFFF" href="javascript:void(0);" onclick="execute(@exception_Notification.id)">執行</a>
 					</td>
 					<td bgcolor="#5772EE" class="auto-style2">
-						@Html.ActionLink("1", "Abnormal_event_tracking", "Home")
+						<a style="color:#FFFFFF" href="javascript:void(0);" onclick="tracking(@exception_Notification.id)">追蹤</a>
 					</td>
 				</tr>
 			}

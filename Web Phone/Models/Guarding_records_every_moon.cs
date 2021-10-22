@@ -29,35 +29,32 @@ namespace Web_Phone.Models
 
 		[DisplayName("壓力總數")]
 		[Required]
-		public int pressure_all { get; set; }
+		public string pressure_all { get; set; }
 
 		[DisplayName("資源總數")]
 		[Required]
-		public int resources_all { get; set; }
+		public string resources_all { get; set; }
 
 		[DisplayName("視力")]
 		[Required]
-		public int sight { get; set; }
+		public string sight { get; set; }
 
 		[DisplayName("聽力")]
 		[Required]
-		public int listen { get; set; }
+		public string listen { get; set; }
 
 		[DisplayName("語言")]
 		[Required]
-		public int languag { get; set; }
+		public string languag { get; set; }
 
 		[DisplayName("理解")]
 		[Required]
-		public int understand { get; set; }
+		public string understand { get; set; }
 
 		[DisplayName("輔具合宜性")]
 		[Required]
 		public string assistive { get; set; }
 
-		[DisplayName("肌力")]
-		[Required]
-		public string muscle_foot { get; set; }
 
 		[DisplayName("肌力1")]
 		[Required]

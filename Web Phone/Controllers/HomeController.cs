@@ -375,13 +375,16 @@ namespace Web_Phone.Controllers
 		public ActionResult Sign_out()
 		{
 			ViewBag.ii = TempData["name"];
-			TempData.Keep();
+			ViewBag.i = TempData["index"];
 			return View();
 		}
 		[HttpPost]
 		public ActionResult Sign_out(worker_arrive worker_arrive)
 		{
 			worker_arrive_db dbmanager = new worker_arrive_db();
+			TempData["post1"] = "";
+			TempData["post2"] = "";
+			Session.Abandon();
 			try
 			{
 				dbmanager.worker_arrive_update(TempData["name"] as string);
@@ -551,26 +554,39 @@ namespace Web_Phone.Controllers
 		//照服員-每月守護紀錄
 		public ActionResult Guardian_of_the_month_Home_attendant()
 		{
+			ViewBag.caser = TempData["case_name"] as string;
+			ViewBag.name = TempData["name"] as string;
+			ViewBag.Resource = TempData["Resource"];
+			ViewBag.Understand = TempData["Understand"];
+			ViewBag.hearing = TempData["hearing"];
+			ViewBag.anomalies = TempData["anomalies"];
+			ViewBag.Battered = TempData["Battered"];
+			ViewBag.vision = TempData["vision"];
+			ViewBag.stress = TempData["Stress"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
 		}
-		/*	[HttpPost]
+			[HttpPost]
 			public ActionResult Guardian_of_the_month_Home_attendant(Guarding_records_every_moon Guarding_records_every_moon)
 			{
-				DBmanager dbmanager = new DBmanager();
-				try
-				{
-		//			dbmanager.Guarding_records_every_moon_insert(Guarding_records_every_moon);
-				}
-				catch (Exception e)
-				{
-					Console.WriteLine(e.ToString());
-				}
-				return View();
+			Guarding_records_every_moon.caser_name = TempData["case_name"] as string;
+			Guarding_records_every_moon.worker_name = TempData["name"] as string;
+			Guarding_records_every_moon.resources_all = TempData["Resource"].ToString();
+			Guarding_records_every_moon.understand = TempData["Understand"] as string;
+			Guarding_records_every_moon.listen = TempData["hearing"] as string;
+			Guarding_records_every_moon.languag = TempData["anomalies"] as string;
+			Guarding_records_every_moon.abuse = TempData["Battered"] as string;
+			Guarding_records_every_moon.sight = TempData["vision"] as string;
+			Guarding_records_every_moon.pressure_all = TempData["Stress"].ToString();
+			TempData.Keep();
+			Guarding_records_every_moon_db guarding_records_every_moon = new Guarding_records_every_moon_db();
+			guarding_records_every_moon.Guarding_records_every_moon_insert(Guarding_records_every_moon);
+				
+				return Json("Home_attendant_index");
 			}
-		*/
+		
 
 		//照服員-視力異常
 		public ActionResult Abnormal_vision_Home_attendant()
@@ -581,6 +597,12 @@ namespace Web_Phone.Controllers
 			return View();
 		}
 
+		[HttpPost]
+		public ActionResult Abnormal_vision_Home_attendant(string num)
+		{
+			TempData["vision"] = num;
+			return Json("Guardian_of_the_month_Home_attendant");
+		}
 		//>照服員-聽力異常
 		public ActionResult Abnormal_hearing_Home_attendant()
 		{
@@ -588,6 +610,12 @@ namespace Web_Phone.Controllers
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
+		}
+		[HttpPost]
+		public ActionResult Abnormal_hearing_Home_attendant(string num)
+		{
+			TempData["hearing"] = num;
+			return Json("Guardian_of_the_month_Home_attendant");
 		}
 
 		//照服員-語言異常
@@ -598,6 +626,12 @@ namespace Web_Phone.Controllers
 			TempData.Keep();
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Language_anomalies_Home_attendant(string num)
+		{
+			TempData["anomalies"] = num;
+			return Json("Guardian_of_the_month_Home_attendant");
+		}
 
 		//照服員-理解異常
 		public ActionResult Understand_anomalies_Home_attendant()
@@ -607,6 +641,12 @@ namespace Web_Phone.Controllers
 			TempData.Keep();
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Understand_anomalies_Home_attendant(string num)
+		{
+			TempData["Understand"] = num;
+			return Json("Guardian_of_the_month_Home_attendant");
+		}
 
 		//照服員-受虐評估
 		public ActionResult Battered_assessment_Home_attendant()
@@ -615,6 +655,12 @@ namespace Web_Phone.Controllers
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
+		}
+		[HttpPost]
+		public ActionResult Battered_assessment_Home_attendant(string num)
+		{
+			TempData["Battered"] = num;
+			return Json("Guardian_of_the_month_Home_attendant");
 		}
 		/*[HttpPost]
 		public ActionResult Battered_assessment_Home_attendant(abuse_db abuse_db)
@@ -719,6 +765,7 @@ namespace Web_Phone.Controllers
 					Care_db.Care_place_update_pic(care_place, case_);
 			}
 			TempData.Keep();
+			
 
 			return Json(Url.Action("Every_guardian_the_record"));
 		}
@@ -1099,20 +1146,52 @@ namespace Web_Phone.Controllers
 			ViewBag.exception_notifications = exception_notifications;
 			return View();
 		}
-
-
+		[HttpPost]
+		public ActionResult Abnormal_event_execution_table(string id)
+		{
+			TempData["event_id"] = id;
+			return Json("Abnormal_event_execution");
+		}
+		[HttpPost]
+		public ActionResult Abnormal_event_execution_table1(string id)
+		{
+			TempData["event_id"] = id;
+			return Json("Abnormal_event_tracking");
+		}
 		//照服員-異常事件執行
 		public ActionResult Abnormal_event_execution()
 		{
+			Exception_notification_db exception_notification_db = new Exception_notification_db();
+			List<Exception_notification> exception_notifications = exception_notification_db.GetException_notification_one(TempData["event_id"] as string);
+			TempData.Keep();
+			ViewBag.exception_notifications = exception_notifications;
 			return View();
 		}
-
+		[HttpPost]
+		public ActionResult Abnormal_event_execution(Exception_notification exception_Notification )
+		{
+			exception_Notification.id = TempData["event_id"] as string;
+			Exception_notification_db exception_Notification_ = new Exception_notification_db();
+			exception_Notification_.exception_notification_update(0, exception_Notification);
+			return Json("Abnormal_event_execution_table");
+		}
 		//照服員-異常事件執行追蹤
 		public ActionResult Abnormal_event_tracking()
 		{
+			Exception_notification_db exception_notification_db = new Exception_notification_db();
+			List<Exception_notification> exception_notifications = exception_notification_db.GetException_notification_one(TempData["event_id"] as string);
+			TempData.Keep();
+			ViewBag.exception_notifications = exception_notifications;
 			return View();
 		}
-
+		[HttpPost]
+		public ActionResult Abnormal_event_tracking(Exception_notification exception_Notification)
+		{
+			exception_Notification.id = TempData["event_id"] as string;
+			Exception_notification_db exception_Notification_ = new Exception_notification_db();
+			exception_Notification_.exception_notification_update(1, exception_Notification);
+			return Json("Abnormal_event_execution_table");
+		}
 
 
 		//督導-工作手冊
@@ -1171,6 +1250,10 @@ namespace Web_Phone.Controllers
 		//督導-(開案)個案選擇頁
 		public ActionResult Case_selection_page_Home_Service_Supervisor()
 		{
+			string name = TempData["name"] as string;
+			Case_information_db case_Information_Db = new Case_information_db();
+			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_all(name);
+			ViewBag.case_s = case_s;
 			return View();
 		}
 
@@ -1191,13 +1274,26 @@ namespace Web_Phone.Controllers
 		{
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Care_Stress_Scale_Home_Service_Supervisor(int tatol)
+		{
+			TempData["Stress"] = tatol;
+			return Json("Guardian_of_the_month_Home_attendant");
+
+		}
 
 		//督導-(開案)壓力資源量表
 		public ActionResult Care_Resource_Scale_Home_Service_Supervisor()
 		{
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Care_Resource_Scale_Home_Service_Supervisor(int tatol)
+		{
+			TempData["Resource"] = tatol;
+			return Json("Guardian_of_the_month_Home_attendant");
 
+		}
 		//督導-(開案)個案疾病史
 		public ActionResult Case_history_Home_Service_Supervisor()
 		{
@@ -1365,15 +1461,14 @@ namespace Web_Phone.Controllers
 		public ActionResult Abnormal_events_reactions_Home_attendant(Exception_notification exception_notification)
 		{
 			Exception_notification_db exception_notification_db = new Exception_notification_db();
-			try
-			{
+			
+			
 				exception_notification_db.sign_in_db_insert(exception_notification);
-			}
-			catch (Exception e)
-			{
-				;
+			
+			
+				
 				//	Console.WriteLine(e.ToString());
-			}
+			
 			return RedirectToAction("Index");
 		}
 		public ActionResult Index()

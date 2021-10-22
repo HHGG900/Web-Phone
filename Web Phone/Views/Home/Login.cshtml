@@ -65,8 +65,8 @@
 			else if ("@ViewBag.post1" == "督導" & "@ViewBag.post2" == "照服員") {
 				var log2 = "location.href='/Home/Workbook_Home_Service_Supervisor'";
 				var log1 = "location.href='/Home/Workbook'";
-				s2 = "<button  class='btn - w btn - info' onclick = " + log2 + "><font style='vertical - align: inherit; '><font style='vertical - align: inherit;'>督導登入</font></font></button>";
-				s = "<button  class='btn - w btn - info' onclick = " + log1 + "><font style='vertical - align: inherit; '><font style='vertical - align: inherit;'>照服員登入</font></font></button>";
+				s2 = "<input type='button' class='btn btn-primary btn-lg' onclick = " + log2 + " value = '督導登入'>";
+				s = "<input type='button' class='btn btn-primary btn-lg'  onclick = " + log1 + " value = '照服員登入'>&nbsp;&nbsp;";
 			}
 			else if (("@ViewBag.post1" == "督導") | ("@ViewBag.post2" == "督導")) {
 				window.location.href='/Home/SuperviseHandbook';
@@ -116,64 +116,71 @@
 	<p class="auto-style9"><font color="#940094"><strong>用心呵護更加關愛我們致力於專業照顧</strong></font></p>
 	<br />
 	<br />
-		<form method="post" action="/Home/Login">
-	<table border="0" class="auto-style6" align="center">
-		<tr>
-			<td bgcolor="#F5F5F5" colspan="3" align="center">
-				<div class="form-horizontal">
-					<div class="form-group">
-						<font color="#0000EB" size="5"><strong>單位代號 :</strong>&nbsp;</font>
-						<input type="text" id="usr_index" name="usr_index" required="required" />
-					</div>
-				</div>
-				<div class="form-group">
-					<span class="glyphicon glyphicon-user"></span>
-					<font color="#0000EB" size="5"><strong>帳號 :</strong>&nbsp;&nbsp;&nbsp;</font>
-					<input type="text" id="usr_name" name="usr_name" required="required" />
-				</div>
-				<div class="form-group">
-					<span class="glyphicon glyphicon-lock"></span>
-					<font color="#0000EB" size="5"><strong>密碼 :</strong>&nbsp;&nbsp;&nbsp;</font>
-					<input type="password" id="usr_key" name="usr_key" required="required" />
-				</div>
-				<div class="auto-style5"> @ViewBag.Message</div>
-				<br />
-				<input type="button" class="btn btn-primary btn-lg" onclick="location.href='/Home/Familyobligations'" value="家屬" /><br />
-				<input type="submit" class="btn btn-primary btn-lg" value="登入" /><br />
-				
-
-				<div id="login"></div>
-				<!--<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Workbook'" value="照服員" /><br />-->
-				<br />
-				&nbsp;<span class="auto-style8">
-					@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp; @Html.ActionLink("忘記密碼", "Forgetpassword", "Home")
-
-				</span>
-
-			</td>
-		</tr>
-		<!--	<tr>
-			<td bgcolor="#F5F5F5" align="center" colspan="2">
-				<input type="submit" class="btn btn-primary btn-lg" value="家屬登入" onclick="location.href='@Url.Action("Familyobligations", "Home")'" />
-			</td>
-		</tr>
+	<form method="post" action="/Home/Login">
+		<table border="0" class="auto-style6" align="center">
 			<tr>
-						<td bgcolor="#F5F5F5" align="center">
-						<input type="submit" class="btn btn-primary btn-lg" value="督導登入" onclick="location.href='@Url.Action("Workbook_Home_Service_Supervisor", "Home")'" />
-					</td>
-				<td bgcolor="#F5F5F5" align="center">
-					<input type="submit" class="btn btn-primary btn-lg" value="照服員登入" onclick="location.href='@Url.Action("Workbook", "Home")'" />
+				<td bgcolor="#F5F5F5" colspan="3" align="center">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<font color="#0000EB" size="5"><strong>單位代號 :</strong>&nbsp;</font>
+							<input type="text" id="usr_index" name="usr_index" required="required" />
+						</div>
+					</div>
+					<div class="form-group">
+						<span class="glyphicon glyphicon-user"></span>
+						<font color="#0000EB" size="5"><strong>帳號 :</strong>&nbsp;&nbsp;&nbsp;</font>
+						<input type="text" id="usr_name" name="usr_name" required="required" />
+					</div>
+					<div class="form-group">
+						<span class="glyphicon glyphicon-lock"></span>
+						<font color="#0000EB" size="5"><strong>密碼 :</strong>&nbsp;&nbsp;&nbsp;</font>
+						<input type="password" id="usr_key" name="usr_key" required="required" />
+					</div>
+					<div class="auto-style5"> @ViewBag.Message</div>
+					<br />
+					<input type="button" class="btn btn-primary btn-lg" onclick="location.href='/Home/Familyobligations'" value="家屬" /><br />
+					 <br />
+					<input type="submit" class="btn btn-primary btn-lg" value="登入" /><br />
+
+					<br />
+					<div id="login"></div>
+					<!--<input type="submit" class="btn btn-primary btn-lg" onclick="location.href='/Home/Workbook'" value="照服員" /><br />-->
+					<br />
+					&nbsp;<span class="auto-style8">
+
+						@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp; @Html.ActionLink("忘記密碼", "Forgetpassword", "Home")
+
+					</span>
+
 				</td>
-				</tr>
+			</tr>
 
-
+			<!--	<tr>
+				<td bgcolor="#F5F5F5" align="center" colspan="2">
+					<input type="submit" class="btn btn-primary btn-lg" value="家屬登入" onclick="location.href='@Url.Action("Familyobligations", "Home")'" />
+				</td>
+			</tr>
 				<tr>
-					<td bgcolor="#F5F5F5" align="center" colspan="3" class="auto-style8">
-						<font size="5">
-							@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("忘記密碼", "Forgetpassword", "Home")
-						</font>
+							<td bgcolor="#F5F5F5" align="center">
+							<input type="submit" class="btn btn-primary btn-lg" value="督導登入" onclick="location.href='@Url.Action("Workbook_Home_Service_Supervisor", "Home")'" />
+						</td>
+					<td bgcolor="#F5F5F5" align="center">
+						<input type="submit" class="btn btn-primary btn-lg" value="照服員登入" onclick="location.href='@Url.Action("Workbook", "Home")'" />
 					</td>
-				</tr>-->
-	</table>	</form>
+					</tr>
+
+
+					<tr>
+						<td bgcolor="#F5F5F5" align="center" colspan="3" class="auto-style8">
+							<font size="5">
+								@Html.ActionLink("尚未註冊", "Notregistered", "Home")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("忘記密碼", "Forgetpassword", "Home")
+							</font>
+						</td>
+					</tr>-->
+		</table>
+	</form>
+	<br />
+	<br />
+	<br />
 </body>
 	</html>

@@ -150,7 +150,7 @@
 					<label for="inputtim">
 						<span class="auto-style17">
 							<br />
-							記錄時間:@DateTime.UtcNow <input type="datetime" id="inputtim" name="tim" value="@DateTime.UtcNow.TimeOfDay" placeholder="@DateTime.UtcNow" hidden="hidden" />
+							記錄時間:@DateTime.UtcNow.AddHours(08) <input type="datetime" id="inputtim" name="tim" value="@DateTime.UtcNow.AddHours(08)" placeholder="@DateTime.UtcNow" hidden="hidden" />
 						</span><br class="auto-style16" />
 					</label>
 				</div>
@@ -290,7 +290,7 @@
 									</span><br class="auto-style16" />
 									<input type="radio" id="inputten_index" name="ten_index" value="非計畫住院" class="auto-style5" /><span class="auto-style16">
 										非計畫住院
-										<input type="radio" id="inputten_index" name="ten_index" vocab="憂鬱" class="auto-style5" />
+										<input type="radio" id="inputten_index" name="ten_index" value="憂鬱" class="auto-style5" />
 										憂鬱<br />
 									</span><input type="radio" id="inputten_index" name="ten_index" value="多重用藥" class="auto-style5" /><span class="auto-style16">
 										多重用藥&nbsp;

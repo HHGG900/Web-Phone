@@ -12,6 +12,32 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		var total = 0;
+		function count() {
+			total = 0;
+			total += parseInt($('input[name="location"]:checked').val());
+			total += parseInt($('input[name="location1"]:checked').val());
+			total += parseInt($('input[name="location2"]:checked').val());
+			total += parseInt($('input[name="location3"]:checked').val());
+			total += parseInt($('input[name="location4"]:checked').val());
+			total += parseInt($('input[name="location5"]:checked').val());
+			total += parseInt($('input[name="location6"]:checked').val());
+			total += parseInt($('input[name="location7"]:checked').val());
+			total += parseInt($('input[name="location8"]:checked').val());
+			total += parseInt($('input[name="location9"]:checked').val());
+			document.getElementById("total").innerHTML = total + '分';
+			console.log(total);
+		}
+		function save() {
+			$.post('@Url.Action("Care_Resource_Scale_Home_Service_Supervisor")',
+				{ tatol: total },
+				function (url) {
+					window.location.href = url;
+				}
+				);
+		}
+	</script>
 	<style type="text/css">
 
 		.auto-style1 {
@@ -48,28 +74,28 @@
 				來<br />
 				沒<br />
 				有<br />
-				<font color="#000000">3分</font>
+				<font color="#000000">0分</font>
 			</td>
 			<td class="auto-style2">
 				很<br />
 				少<br />
 				如<br />
 				此<br />
-				<font color="#000000">2分</font>
+				<font color="#000000">1分</font>
 			</td>
 			<td class="auto-style2">
 				有<br />
 				時<br />
 				如<br />
 				此<br />
-				<font color="#000000">1分</font>
+				<font color="#000000">2分</font>
 			</td>
 			<td class="auto-style2">
 				常<br />
 				常<br />
 				如<br />
 				此<br />
-				<font color="#000000">0分</font>
+				<font color="#000000">3分</font>
 			</td>
 		</tr>
 		<tr>
@@ -249,17 +275,17 @@
 			<td class="auto-style2">
 				總分
 			</td>
-			<td colspan="4" class="auto-style1">
+			<td colspan="4"id="total" class="auto-style1">
 				分
 			</td>
 		</tr>
 	</table><br />
-	<input type="button" class="btn btn-success btn-lg" value="計分" />
+	<input type="button" class="btn btn-success btn-lg" value="計分" onclick="count();" />
 
 	<div class="auto-style4">
 		<br />
 		<br />
-		@Html.ActionLink("上一頁", "Guardian_of_the_month_Home_attendant", "Home", new { @class = "btn btn-warning btn-lg" })
+		<button class="btn btn-warning btn-lg " onclick="save();">上傳</button>
 	</div>
 	</div>
 </body>

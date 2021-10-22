@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Web_Phone.Models;
+@{
+	List<Case_informatio> case_s = ViewBag.case_s;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -30,31 +34,36 @@
 			width: 370px;
 			height: 479px;
 		}
-
-		</style>
+	</style>
 </head>
 <body style="background-color:#FAF4FF; ">
-    <br />
-    <table>
-        <tr>
-            <td class="auto-style2">
-                <strong>個案選擇頁面</strong>
-            </td>
-        </tr>
-    </table>
-    <br />
-    <table class="auto-style4" width: 410px; align="center">
-        <tr>
-            <td class="auto-style1" valign="top">
-                @Html.ActionLink("林XX", "Case_basic_information_Home_Service_Supervisor", "Home", new { @class = "btn btn-default btn-lg" })
-            </td>
-            <td class="auto-style1" valign="top">
-                @Html.ActionLink("王XX", "Case_basic_information_Home_Service_Supervisor", "Home", new { @class = "btn btn-default btn-lg" })
-            </td>
-        </tr>
-    </table>
-    <div class="text-right">
-    @Html.ActionLink("上一頁", "Home_Service_Supervisor_index", "Home", new { @class = "btn btn-danger btn-lg" })
-    </div>
+	<br />
+	<table>
+		<tr>
+			<td class="auto-style2">
+				<strong>個案選擇頁面</strong>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<table class="auto-style4" width: 410px; align="center">
+		<tr>
+			@foreach (Case_informatio case_ in case_s)
+			{
+				<td class="auto-style1" valign="top">
+					@Html.ActionLink(@case_.name, "Case_basic_information_Home_Service_Supervisor", "Home", new { @class = "btn btn-default btn-lg" })
+				</td>
+			}
+			<td class="auto-style1" valign="top">
+				@Html.ActionLink("林XX", "Case_basic_information_Home_Service_Supervisor", "Home", new { @class = "btn btn-default btn-lg" })
+			</td>
+			<td class="auto-style1" valign="top">
+				@Html.ActionLink("王XX", "Case_basic_information_Home_Service_Supervisor", "Home", new { @class = "btn btn-default btn-lg" })
+			</td>
+		</tr>
+	</table>
+	<div class="text-right">
+		@Html.ActionLink("上一頁", "Home_Service_Supervisor_index", "Home", new { @class = "btn btn-danger btn-lg" })
+	</div>
 </body>
 </html>

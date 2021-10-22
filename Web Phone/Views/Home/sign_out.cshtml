@@ -16,6 +16,14 @@
 		window.onload = function () {
 			console.log('@ViewBag.ii');
 		}
+		function sign_out() {
+			$.post('@Url.Action("Daily_care_record_Home_attendant")',
+				{ care_place: list },
+					function (result) {
+						window.alert("儲存成功");
+						window.location.href = result;
+					});
+		}
 	</script>
 	<style type="text/css">
 		.auto-style1 {
@@ -120,7 +128,7 @@
 		<br />
 		<div class="auto-style3">
 			<form method="post" action="/Home/Sign_out">
-				<input type="submit" class="btn btn-light" value="離開" style="width: 189px; height: 57px ;font-size:30px;" />
+				<input type="submit" class="btn btn-light" value="離開" onclick="" style="width: 189px; height: 57px ;font-size:30px;" />
 		</form>
 				</div>
 </body>
