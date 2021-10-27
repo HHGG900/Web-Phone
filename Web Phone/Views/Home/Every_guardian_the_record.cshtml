@@ -217,7 +217,6 @@
 
 		.auto-style21 {
 			font-family: 標楷體;
-			width: 54px;
 		}
 
 		.auto-style23 {
@@ -312,37 +311,37 @@
 					</label>
 				</div>
 				<div class="auto-style24">
-					<a href="#" onclick="window.open('/Home/Abnormal_skin' , '異常', config='height=500,width=500');"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">異常</span></a>
+					<a href="#" onclick="window.location.href = '/Home/Abnormal_skin'"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">異常</span></a>
 					<label for="inputodd_range">
 						<font color="#FF1493" size="4" face="標楷體">
 							&nbsp;&nbsp;<span class="auto-style3">部位: </span>
-							<input type="text" id="odd_range" name="odd_range" placeholder="頭部" value="頭部" class="auto-style21" required readonly />
+							<input type="text" id="odd_range" name="odd_range" placeholder="頭部" value=@ViewBag.skin_place class="auto-style21" required readonly />
 						</font>&nbsp;&nbsp;&nbsp;
 					</label>
 					<label for="inputodd_pic">
 						<font color="#FF1493" face="標楷體">
 							<span class="auto-style3">狀況:</span>
-							<input type="text" id="odd_pic" name="odd_pic" placeholder="發紅" value="發紅" class="auto-style21" required readonly />
+							<input type="text" id="odd_pic" name="odd_pic" placeholder="發紅" value=@ViewBag.skin_status class="auto-style21" required readonly />
 						</font>
 					</label>
 					<br />
 					<br />
-					<a href="#" onclick="window.open('/Home/Pain_assessment_Home_attendant', '疼痛評估', config='height=500,width=500');"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">疼痛評估</span></a>
+					<a href="#" onclick="window.location.href='/Home/Pain_assessment_Home_attendant'"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">疼痛評估</span></a>
 					<span class="auto-style3">
 						<label for="inputpain_assess">
-							感覺到 <input type="text" id="pain_assess" name="pain_assess" value="很不舒服" placeholder="很不舒服" class="auto-style20" required readonly />
+							感覺到 <input type="text" id="pain_assess" name="pain_assess" value=@ViewBag.Pain placeholder="很不舒服" class="auto-style20" required readonly />
 							<br />
 						</label>
 						<br />
-						<a href="#" onclick="window.open('/Home/Emotional_assessment_Home_attendant', '情緒評估', config='height=500,width=500');"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">情緒評估</span></a>
+						<a href="#" onclick="window.location.href = '/Home/Emotional_assessment_Home_attendant'"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">情緒評估</span></a>
 						<font color="#FF1493" size="4" face="標楷體"><span class="auto-style3">有時: </span></font>
 						<label for="inputfeel_assess_one">
-							<input type="text" id="feel_assess_one" name="feel_assess_one" value="高興" placeholder="高興" class="auto-style25" required readonly />&nbsp;&nbsp;
+							<input type="text" id="feel_assess_one" name="feel_assess_one" value=@ViewBag.Emotional_front placeholder="高興" class="auto-style25" required readonly />&nbsp;&nbsp;
 						</label>
 						<font color="#FF1493" face="標楷體">
 							<span class="auto-style3">有時: </span>
 							<label for="inputfeel_assess_twe">
-								<input type="text" id="feel_assess_twe" name="feel_assess_twe" value="生氣" placeholder="生氣" class="auto-style25" required readonly />
+								<input type="text" id="feel_assess_twe" name="feel_assess_twe" value=@ViewBag.Emotional_Negative placeholder="生氣" class="auto-style25" required readonly />
 							</label>
 						</font>
 						<br />

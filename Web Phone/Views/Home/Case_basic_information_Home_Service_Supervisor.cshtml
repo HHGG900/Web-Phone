@@ -12,6 +12,27 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		window.onbeforeunload = function (e) {
+			var name = document.getElementById("name").value;
+			var name2 = document.getElementById("name2").value;
+			var location = document.getElementById("location").value;
+			var location1 = document.getElementById("location1").value;
+			var topic = document.getElementById("topic").value;
+			var location2 = document.getElementById("location2").value;
+			var occupation = document.getElementById("occupation").value;
+			var location3 = document.getElementById("location3").value;
+			var location4 = document.getElementById("location4").value;
+			
+				$.post('@Url.Action("Every_guardian_the_record")',
+					{ guarding_records_every: list, BAList: BAlist},
+					function (result) {
+						window.alert("儲存成功");
+						window.location.href = result;
+					});
+			}
+	</script>
+	
 	<style type="text/css">
 
 		.auto-style1 {
@@ -62,14 +83,17 @@
 		.auto-style14 {
 			text-align: left;
 		}
+
 		.auto-style15 {
 			width: 81px;
 			height: 17px;
 		}
+
 		.auto-style16 {
 			font-family: 標楷體;
 			width: 53px;
 		}
+
 		.auto-style17 {
 			font-family: 標楷體;
 			width: 67px;
@@ -79,7 +103,8 @@
 <body style="background-color:#FAF4FF; ">
 	&nbsp;&nbsp;
 	<input type="image" src="~/images/大於按鈕.png" class="auto-style1" /> <font color="#0d62c3" size="5">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style6">個案評估</span></font>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style6">個案評估</span>
+	</font>
 	&nbsp;<br />
 	<br />
 	<br />
@@ -112,8 +137,10 @@
 	<table align="center" class="auto-style5">
 		<tr>
 			<td bgcolor="#F0F0F0" class="auto-style16">
-				<font color="#0d62c3" size="5">慣用<br />
-				語言</font>
+				<font color="#0d62c3" size="5">
+					慣用<br />
+					語言
+				</font>
 			</td>
 			<td bgcolor="#F0F0F0" class="auto-style7">
 				<font color="#F67377" size="4" face="標楷體">
@@ -132,9 +159,9 @@
 			</td>
 			<td bgcolor="#F0F0F0" class="text-left">
 				<font color="#F67377" size="4" face="標楷體">
-					<input type="checkbox" id="language6" name="location" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language7" name="location" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language8" name="location" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language9" name="location" value="客語" class="auto-style8" />客語  
-				<br />
-				<input type="checkbox" id="language10" name="location" value="日語" class="auto-style8" />日語
+					<input type="checkbox" id="language6" name="location1" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language7" name="location1" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language8" name="location1" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language9" name="location1" value="客語" class="auto-style8" />客語
+					<br />
+					<input type="checkbox" id="language10" name="location1" value="日語" class="auto-style8" />日語
 				</font>
 			</td>
 		</tr>
@@ -145,8 +172,10 @@
 	<table align="center" class="auto-style5">
 		<tr>
 			<td bgcolor="#F0F0F0" class="auto-style10">
-				<font color="#0d62c3" size="5">喜歡的<br />
-				話題</font>
+				<font color="#0d62c3" size="5">
+					喜歡的<br />
+					話題
+				</font>
 			</td>
 			<td bgcolor="#F0F0F0" class="text-left">
 				<font color="#F67377" size="4" face="標楷體">
@@ -157,7 +186,8 @@
 	</table>
 	<div class="text-left">
 		<font size="3" face="標楷體">
-			(最近談論過的事情或常講的事情)</font>
+			(最近談論過的事情或常講的事情)
+		</font>
 	</div>
 	<table align="center" class="auto-style5">
 		<tr>
@@ -166,57 +196,65 @@
 			</td>
 			<td bgcolor="#F0F0F0" class="auto-style14">
 				<font color="#F67377" size="4" face="標楷體">
-					<input type="checkbox" id="interest1" name="location" value="散步" class="auto-style8" />散步 <input type="checkbox" id="interest2" name="location" value="打拳" class="auto-style8" />打拳 <input type="checkbox" id="interest3" name="location" value="園藝" class="auto-style8" />園藝 <input type="checkbox" id="interest4" name="location" value="慢跑" class="auto-style8" />慢跑
+					<input type="checkbox" id="interest1" name="location2" value="散步" class="auto-style8" />散步 <input type="checkbox" id="interest2" name="location2" value="打拳" class="auto-style8" />打拳 <input type="checkbox" id="interest3" name="location2" value="園藝" class="auto-style8" />園藝 <input type="checkbox" id="interest4" name="location2" value="慢跑" class="auto-style8" />慢跑
 					<br />
-					<input type="checkbox" id="interest5" name="location" value="旅行" class="auto-style8" />
+					<input type="checkbox" id="interest5" name="location2" value="旅行" class="auto-style8" />
 				</font>
 				<span class="auto-style13">
 					<font color="#F67377" size="4" face="標楷體">
-						旅行</font>
-							<font color="#F67377" size="4" face="標楷體">
-								<input type="checkbox" id="interest6" name="location0" value="看電影、電視" class="auto-style8" />
-							</font>
-							<font color="#F67377" size="4" face="標楷體">
-								看電影、電視</font>
-									<font color="#F67377" size="4" face="標楷體">
-										<input type="checkbox" id="interest7" name="location1" value="閱讀" class="auto-style8" />
-									</font>
-										<font color="#F67377" size="4" face="標楷體">
-										閱讀</font>
-										<br />
-											<font color="#F67377" size="4" face="標楷體">
-												<input type="checkbox" id="interest8" name="location2" value="手工藝" class="auto-style8" />
-											</font>
-												<font color="#F67377" size="4" face="標楷體">
-												手工藝</font>
-													<font color="#F67377" size="5" face="標楷體">
-														<input type="checkbox" id="interest9" name="location3" value="繪畫" class="auto-style8" />
-													</font>
-														<font color="#F67377" size="4" face="標楷體">
-														繪畫</font>
-															<font color="#F67377" size="5" face="標楷體">
-																<input type="checkbox" id="interest10" name="location4" value="寫書法" class="auto-style8" />
-															</font>
-																<font color="#F67377" size="4" face="標楷體">
-																寫書法
-																		<br />
-																		<input type="checkbox" id="interest11" name="location5" value="跳舞" class="auto-style8" />
-																	</font>
-																		<font color="#F67377" size="4" face="標楷體">
-																		跳舞											</font>
-																			<font color="#F67377" size="5" face="標楷體">
-																				<input type="checkbox" id="interest12" name="location6" value="下廚" class="auto-style8" />
-																			
-																			<font color="#F67377" size="4" face="標楷體">
-																				下廚</font>
-																					<font color="#F67377" size="5" face="標楷體">
-																						<input type="checkbox" id="interest13" name="location7" value="音樂、唱歌" class="auto-style8" />
-																					</font>
-																						<font color="#F67377" size="4" face="標楷體">
-																						音樂、唱歌</font>
-																								<br />
-																								<input type="checkbox" id="interest14" name="location8" value="玩遊戲(如:桌遊.麻將.下棋.撲克等)" class="auto-style8" />
-																							</font><font color="#F67377" size="4" face="標楷體">玩遊戲(如:桌遊.麻將.下棋.撲克等)</font>
+						旅行
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="checkbox" id="interest6" name="location2" value="看電影、電視" class="auto-style8" />
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						看電影、電視
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="checkbox" id="interest7" name="location2" value="閱讀" class="auto-style8" />
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						閱讀
+					</font>
+					<br />
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="checkbox" id="interest8" name="location2" value="手工藝" class="auto-style8" />
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						手工藝
+					</font>
+					<font color="#F67377" size="5" face="標楷體">
+						<input type="checkbox" id="interest9" name="location2" value="繪畫" class="auto-style8" />
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						繪畫
+					</font>
+					<font color="#F67377" size="5" face="標楷體">
+						<input type="checkbox" id="interest10" name="location2" value="寫書法" class="auto-style8" />
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						寫書法
+						<br />
+						<input type="checkbox" id="interest11" name="location2" value="跳舞" class="auto-style8" />
+					</font>
+					<font color="#F67377" size="4" face="標楷體">
+						跳舞
+					</font>
+					<font color="#F67377" size="5" face="標楷體">
+						<input type="checkbox" id="interest12" name="location2" value="下廚" class="auto-style8" />
+
+						<font color="#F67377" size="4" face="標楷體">
+							下廚
+						</font>
+						<font color="#F67377" size="5" face="標楷體">
+							<input type="checkbox" id="interest13" name="location2" value="音樂、唱歌" class="auto-style8" />
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							音樂、唱歌
+						</font>
+						<br />
+						<input type="checkbox" id="interest14" name="location2" value="玩遊戲(如:桌遊.麻將.下棋.撲克等)" class="auto-style8" />
+					</font><font color="#F67377" size="4" face="標楷體">玩遊戲(如:桌遊.麻將.下棋.撲克等)</font>
 
 				</span>
 			</td>
@@ -232,28 +270,31 @@
 			</td>
 			<td bgcolor="#F0F0F0" class="text-left">
 				<font color="#F67377" size="4" face="標楷體">
-					<input type="text" name="text" placeholder="單行輸入" class="auto-style11" />
+					<input type="text" id="occupation" name="text" placeholder="單行輸入" class="auto-style11" />
 				</font>
 			</td>
 		</tr>
 	</table>
 	<div class="text-left">
 		<font size="3" face="標楷體">
-			(過去做的所有職業)</font>
+			(過去做的所有職業)
+		</font>
 	</div>
 	<table align="center" class="auto-style5">
 		<tr>
 			<td bgcolor="#F0F0F0" class="auto-style6">
-				<font color="#0d62c3" size="5">經濟<br />
-				狀況</font>
+				<font color="#0d62c3" size="5">
+					經濟<br />
+					狀況
+				</font>
 			</td>
 			<td bgcolor="#F0F0F0" class="auto-style14">
 				<font color="#F67377" size="4" face="標楷體">
 					&nbsp;照顧經費來源
-					<input type="checkbox" name="location" value="儲蓄" class="auto-style8" /> 儲蓄 <input type="checkbox" name="location" value="配偶" class="auto-style8" /> 配偶<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="checkbox" name="location" value="政府補助" class="auto-style8" /> 政府補助 <input type="checkbox" name="location" value="家人支付" class="auto-style8" /> 家人支付
+					<input type="checkbox" name="location4" value="儲蓄" class="auto-style8" /> 儲蓄 <input type="checkbox" name="location4" value="配偶" class="auto-style8" /> 配偶<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="checkbox" name="location4" value="政府補助" class="auto-style8" /> 政府補助 <input type="checkbox" name="location4" value="家人支付" class="auto-style8" /> 家人支付
 					<br />
-					&nbsp;經濟是否困難 <input type="checkbox" name="location9" value="否" class="auto-style8" /> 否 <input type="checkbox" name="location10" value="是" class="auto-style8" /> 是
+					&nbsp;經濟是否困難 <input type="radio" name="location4" value="否" class="auto-style8" /> 否 <input type="radio" name="location4" value="是" class="auto-style8" /> 是
 				</font>
 			</td>
 		</tr>
@@ -263,25 +304,25 @@
 			<p>
 				&nbsp;
 			</p>
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="/Home/Case_basic_information_Home_Service_Supervisor">1</a></li>
-                <li class="page-item"><a class="page-link" href="/Home/Single_case_care_Home_Service_Supervisor">2</a></li>
-                <li class="page-item"><a class="page-link" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
-                <li class="page-item"><a class="page-link" href="/Home/Other_assessments_Home_Service_Supervisor">4</a></li>
-                <li class="page-item"><a class="page-link" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>
+			<ul class="pagination">
+				<li class="page-item"><a class="page-link" href="/Home/Case_basic_information_Home_Service_Supervisor">1</a></li>
+				<li class="page-item"><a class="page-link" href="/Home/Single_case_care_Home_Service_Supervisor">2</a></li>
+				<li class="page-item"><a class="page-link" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
+				<li class="page-item"><a class="page-link" href="/Home/Other_assessments_Home_Service_Supervisor">4</a></li>
+				<li class="page-item"><a class="page-link" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+				</li>
+			</ul>
 		</nav>
 	</div>
-    <div class="auto-style4">
-        <br />
+	<div class="auto-style4">
+		<br />
 
-        @Html.ActionLink("下一頁", "Single_case_care_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })
-    </div>
+		@Html.ActionLink("下一頁", "Single_case_care_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })
+	</div>
 </body>
 </html>

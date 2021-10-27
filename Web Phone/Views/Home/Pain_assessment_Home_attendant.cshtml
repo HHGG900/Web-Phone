@@ -12,6 +12,30 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function save(i) {
+			var tip = "";
+			if (i == "0") {
+				tip = "愉快";
+			} else if (i == 1) {
+				tip = "正常";
+			} else if (i == 2) {
+				tip = "一點都不舒服";
+			} else if (i == 3) {
+				tip = "很不舒服";
+			} else if (i == 4) {
+				tip = "蠻痛的";
+			} else if (i == 5) {
+				tip = "大痛不已";
+			}
+			$.post('@Url.Action("Pain_assessment_Home_attendant")',
+				{ Pain: tip},
+					function (result) {
+						window.alert("儲存成功");
+						window.location.href = result;
+					});
+		}
+	</script>
 	<style>
 
 		.auto-style1 {
@@ -43,17 +67,17 @@
 	<form action="/Home/Pain_assessment_Home_attendant" method="post">
 		<div class="text-center">
 			
-			&nbsp;<input type="image" src="../../images/愉快.png" class="auto-style1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="image" src="../../images/正常.png" class="auto-style1" />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="image" src="../../images/一點都不舒服.png" class="auto-style1" />
+			&nbsp;<input type="image" src="../../images/愉快.png" class="auto-style1" onclick="save(0);"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="image" src="../../images/正常.png" class="auto-style1" onclick="save(1);" />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="image" src="../../images/一點都不舒服.png" class="auto-style1" onclick="save(2);" />
 			<br />
 		</div>
 		<div class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style4"> 愉快&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 正常&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一點都不舒服</span></div>
 		<div class="text-center">
 			<br />
-			<input type="image" src="../../images/很不舒服.png" class="auto-style1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-			<input type="image" src="../../images/蠻痛的.png" class="auto-style1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-			<input type="image" src="../../images/大痛不已.png" class="auto-style1" />
+			<input type="image" src="../../images/很不舒服.png" class="auto-style1" onclick="save(3);"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+			<input type="image" src="../../images/蠻痛的.png" class="auto-style1" onclick="save(4);"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+			<input type="image" src="../../images/大痛不已.png" class="auto-style1" onclick="save(5);"/>
 			<br />
 		</div>
 		<div class="auto-style5">&nbsp;&nbsp;&nbsp; 很不舒服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 蠻痛的&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 大痛不已 </div>

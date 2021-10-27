@@ -12,6 +12,37 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		function save() {
+			var arr = [];
+			var place = $("input[name='place']:checked").each(function () {
+				arr.push($(this).val());
+			});
+			var arr2 = [];
+			var status = $("input[name='status']:checked").each(function () {
+				arr2.push($(this).val());
+			});
+			place = arr.toString();
+			status = arr2.toString();
+			console.log(arr.toString());
+			console.log(arr2.toString());
+			$.post('@Url.Action("Abnormal_skin")',
+				{ place: place, status: status},
+					function (result) {
+						window.alert("儲存成功");
+						window.location.href = result;
+					});
+		}
+		function save1() {
+			
+			$.post('@Url.Action("Abnormal_skin")',
+				{ place: "無", status: "無"},
+					function (result) {
+						window.alert("儲存成功");
+						window.location.href = result;
+					});
+		}
+	</script>
 	<style type="text/css">
 		.auto-style1 {
 			font-family: 標楷體;
@@ -87,6 +118,7 @@
 				</tr>
 			</table>
 			<br />
+				<button onclick="save1();">沒異常</button>
 			<table align="center" class="auto-style5">
 				<tr>
 					<td class="auto-style10">
@@ -95,16 +127,16 @@
 					<td class="auto-style6">
 						<br />
 						<font face="標楷體" size="5" color="#B43438">
-							<input type="checkbox" value="頭部" class="auto-style3" />頭部
-							<input type="checkbox" value="肩頰骨" class="auto-style3" />肩頰骨
-							<input type="checkbox" value="手肘" class="auto-style3" />手肘<br />
-							<input type="checkbox" value="胸部" class="auto-style3" />胸部
+							<input type="checkbox" name="place" value="頭部" class="auto-style3" />頭部
+							<input type="checkbox" name="place" value="肩頰骨" class="auto-style3" />肩頰骨
+							<input type="checkbox" name="place" value="手肘" class="auto-style3" />手肘<br />
+							<input type="checkbox" name="place" value="胸部" class="auto-style3" />胸部
 
-							<input type="checkbox" value="腹部" class="auto-style3" />腹部
-							<input type="checkbox" value="髖關節" class="auto-style3" />髖關節<br />
-							<input type="checkbox" value="膝蓋" class="auto-style3" />膝蓋
-							<input type="checkbox" value="足踝" class="auto-style3" />足踝
-							<input type="checkbox" value="足跟" class="auto-style3" />足跟
+							<input type="checkbox" name="place" value="腹部" class="auto-style3" />腹部
+							<input type="checkbox" name="place" value="髖關節" class="auto-style3" />髖關節<br />
+							<input type="checkbox" name="place" value="膝蓋" class="auto-style3" />膝蓋
+							<input type="checkbox" name="place" value="足踝" class="auto-style3" />足踝
+							<input type="checkbox" name="place" value="足跟" class="auto-style3" />足跟
 						</font>
 						<br />
 					</td>
@@ -118,19 +150,19 @@
 					<td class="auto-style6">
 						<font face="標楷體" size="5" color="#B43438">
 							<br />
-							<input type="checkbox" value="發紅" class="auto-style3" />發紅
-							<input type="checkbox" value="腫脹" class="auto-style3" />腫脹
-							<input type="checkbox" value="挫傷" class="auto-style3" />挫傷<br />
-							<input type="checkbox" value="瘀傷" class="auto-style3" />瘀傷
+							<input type="checkbox" name="status" value="發紅" class="auto-style3" />發紅
+							<input type="checkbox" name="status" value="腫脹" class="auto-style3" />腫脹
+							<input type="checkbox" name="status" value="挫傷" class="auto-style3" />挫傷<br />
+							<input type="checkbox" name="status" value="瘀傷" class="auto-style3" />瘀傷
 
-							<input type="checkbox" value="疥瘡" class="auto-style3" />疥瘡
-							<input type="checkbox" value="水腫" class="auto-style3" />水腫
+							<input type="checkbox" name="status" value="疥瘡" class="auto-style3" />疥瘡
+							<input type="checkbox" name="status" value="水腫" class="auto-style3" />水腫
 							<br />
-							<input type="checkbox" value="壓傷" class="auto-style3" />壓傷
-							<input type="checkbox" value="燒燙傷" class="auto-style3" />燒燙傷
+							<input type="checkbox" name="status" value="壓傷" class="auto-style3" />壓傷
+							<input type="checkbox" name="status" value="燒燙傷" class="auto-style3" />燒燙傷
 							 
 						<br />
-							<input type="checkbox" value="手術傷口" class="auto-style3" />手術傷口
+							<input type="checkbox" name="status" value="手術傷口" class="auto-style3" />手術傷口
 						</font>
 						<br />
 					</td>
@@ -163,7 +195,7 @@
 			<br />
 			<br />
 
-			<input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="location.href='https://webphone20201109.azurewebsites.net/Home/Every_guardian_the_record'" />
+			<input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="save();" />
 			<br />
 			<br />
 			<br />

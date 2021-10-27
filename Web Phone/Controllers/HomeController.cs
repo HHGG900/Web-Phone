@@ -471,6 +471,11 @@ namespace Web_Phone.Controllers
 		//照服員-每次守護紀錄
 		public ActionResult Every_guardian_the_record()
 		{
+			ViewBag.skin_place = TempData["skin_place"];
+			ViewBag.skin_status = TempData["skin_status"];
+			ViewBag.Emotional_front = TempData["Emotional_front"];
+			ViewBag.Emotional_Negative = TempData["Emotional_Negative"];
+			ViewBag.Pain = TempData["Pain"];
 			ViewBag.case_name = TempData["case_name"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
@@ -494,10 +499,19 @@ namespace Web_Phone.Controllers
 		//照服員-皮膚異常
 		public ActionResult Abnormal_skin()
 		{
+
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
+		}
+		[HttpPost]
+		public ActionResult Abnormal_skin(string place, string status)
+		{
+			TempData["skin_place"] = place;
+			TempData["skin_status"] = status;
+			TempData.Keep();
+			return Json("Every_guardian_the_record");
 		}
 
 		//照服員-疼痛評估
@@ -507,6 +521,13 @@ namespace Web_Phone.Controllers
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
+		}
+		[HttpPost]
+		public ActionResult Pain_assessment_Home_attendant(string Pain)
+		{
+			TempData["Pain"] = Pain;
+			TempData.Keep();
+			return Json("Every_guardian_the_record");
 		}
 		/*	[HttpPost]
 			public ActionResult Pain_assessment_Home_attendant(Pain_assessment_Home_attendant pain_assessment_Home_attendant)
@@ -550,7 +571,14 @@ namespace Web_Phone.Controllers
 			TempData.Keep();
 			return View();
 		}
-
+		[HttpPost]
+		public ActionResult Emotional_assessment_Home_attendant(string front, string Negative)
+		{
+			TempData["Emotional_front"] = front;
+			TempData["Emotional_Negative"] = Negative;
+			TempData.Keep();
+			return Json("Every_guardian_the_record");
+		}
 		//照服員-每月守護紀錄
 		public ActionResult Guardian_of_the_month_Home_attendant()
 		{
@@ -569,18 +597,36 @@ namespace Web_Phone.Controllers
 			return View();
 		}
 			[HttpPost]
-			public ActionResult Guardian_of_the_month_Home_attendant(Guarding_records_every_moon Guarding_records_every_moon)
+			public ActionResult Guardian_of_the_month_Home_attendant(Guarding_records_every_moon Guarding_records_every_moon,string loc, string loc1, string loc2, string loc3)
 			{
 			Guarding_records_every_moon.caser_name = TempData["case_name"] as string;
 			Guarding_records_every_moon.worker_name = TempData["name"] as string;
 			Guarding_records_every_moon.resources_all = TempData["Resource"].ToString();
-			Guarding_records_every_moon.understand = TempData["Understand"] as string;
-			Guarding_records_every_moon.listen = TempData["hearing"] as string;
-			Guarding_records_every_moon.languag = TempData["anomalies"] as string;
+			if (loc3 == "無")
+				Guarding_records_every_moon.understand = TempData["Understand"] as string;
+			else
+				Guarding_records_every_moon.understand = loc3;
+
+			if (loc1 == "無")
+				Guarding_records_every_moon.listen = TempData["hearing"] as string;
+			else
+				Guarding_records_every_moon.listen = loc1;
+
+			if (loc2 == "無")
+				Guarding_records_every_moon.languag = TempData["anomalies"] as string;
+			else
+				Guarding_records_every_moon.languag = loc2;
+
 			Guarding_records_every_moon.abuse = TempData["Battered"] as string;
-			Guarding_records_every_moon.sight = TempData["vision"] as string;
+
+			if (loc == "無")
+				Guarding_records_every_moon.sight = TempData["vision"] as string;
+			else
+				Guarding_records_every_moon.sight = loc;
+
 			Guarding_records_every_moon.pressure_all = TempData["Stress"].ToString();
 			TempData.Keep();
+
 			Guarding_records_every_moon_db guarding_records_every_moon = new Guarding_records_every_moon_db();
 			guarding_records_every_moon.Guarding_records_every_moon_insert(Guarding_records_every_moon);
 				

@@ -17,15 +17,40 @@
 			var Muscle = $('input[name=Muscle]:checked').val();
 			var Safety = $('input[name=Safety]:checked').val();
 			var Assistive = $('input[name=Assistive]:checked').val();
+			var location = $('input[name=location]:checked').val();
+			var location1 = $('input[name=location1]:checked').val();
+			var location2 = $('input[name=location2]:checked').val();
+			var location3 = $('input[name=location3]:checked').val();
+			if (location != "無法評估") {
+				location = "無";
+			}
+			if (location1 != "無法評估") {
+				location1 = "無";
+			}
+			if (location2 != "無法評估") {
+				location2 = "無";
+			}
+			if (location3 != "無法評估") {
+				location3 = "無";
+			}
+			console.log(location);
+			console.log(location1);
+			console.log(location2);
+			console.log(location3);
 			var list = {
 				muscle_status: Muscle,
 				safet: Safety,
 				assistive:Assistive
 			}
 			$.post('@Url.Action("Guardian_of_the_month_Home_attendant")',
-				{ Guarding_records_every_moon: list },
+				{
+					Guarding_records_every_moon: list,
+					loc: location,
+					loc1: location1,
+					loc2: location2,
+					loc3: location3, },
 				function (url) {
-					window.alert("'已存檔");
+					window.alert("已存檔");
 					window.location.href = url;
 				}
 				);
