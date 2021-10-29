@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Web_Phone.Models;
+@{ 
+	List<user_basic> user_Basics = ViewBag.usr;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -13,26 +17,90 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
-		window.onbeforeunload = function (e) {
-			var name = document.getElementById("name").value;
-			var name2 = document.getElementById("name2").value;
-			var location = document.getElementById("location").value;
-			var location1 = document.getElementById("location1").value;
-			var topic = document.getElementById("topic").value;
-			var location2 = document.getElementById("location2").value;
-			var occupation = document.getElementById("occupation").value;
-			var location3 = document.getElementById("location3").value;
-			var location4 = document.getElementById("location4").value;
-			
-				$.post('@Url.Action("Every_guardian_the_record")',
-					{ guarding_records_every: list, BAList: BAlist},
-					function (result) {
-						window.alert("儲存成功");
-						window.location.href = result;
-					});
+		window.onload = function () {
+			@try
+			{
+				foreach (user_basic user_ in user_Basics)
+				{
+					@:console.log(@user_.usr_anonymous);
+				
+					@:document.getElementById('bclick').disabled = false;
+		}
+
+
 			}
+			catch {
+				@:var event = document.getElementsByClassName('page-link');
+				@: for (var i = 0; i < event.length; i++) {
+				@: event[i].href = "javascript:;";
+				@:}
+				@:document.getElementById('bclick').disabled = true;
+				@:console.log("123");
+			}
+			}
+	function get_value(a){
+
+		var arr2 = [];
+		$(a).each(function () {
+				arr2.push($(this).val());
+			});
+		return arr2.toString();
+
+		}
+		function unload() {
+			var name = document.getElementById("name").value;
+			if (name == '')
+				name = "";
+			var name2 = document.getElementById("name2").value;
+			if (name2 == '')
+				name2 = "";
+
+			var location = get_value("input[name='location']:checked");
+			if (location == '')
+				location = "";
+			var location1 = get_value("input[name='location1']:checked");
+			if (location1 == '')
+				location1 = "";
+			var topic = document.getElementById("topic").value;
+			if (topic == '')
+				topic = "";
+			var location2 = get_value("input[name='location2']:checked");
+			if (location2 == '')
+				location2 = "";
+
+			var occupation = document.getElementById("occupation").value;
+			if (occupation == '')
+				occupation = "";
+			var location4 = get_value("input[name='location4']:checked");
+			if (location4 == '')
+				location4 = "";
+			var location5 = get_value("input[name='location5']:checked");
+			if (location5 == '')
+				location5 = "";
+
+			var list = {
+				usr_name:name,
+				usr_anonymous:name2,
+				usr_icustom_languagendex:location,
+				mom_language:location1,
+				like_topic:topic,
+				interest:location2,
+				occupation:occupation,
+				economic_status_one:location4,
+				economic_status_twe:location5
+			}
+			console.log(list);
+			$.post('@Url.Action("Case_basic_information_Home_Service_Supervisor")',
+				{ user_: list }, function (loc) {
+					window.location.href = loc;
+					window.alert("暫存成功");
+			});
+		}
+
+
+
 	</script>
-	
+
 	<style type="text/css">
 
 		.auto-style1 {
@@ -108,208 +176,413 @@
 	&nbsp;<br />
 	<br />
 	<br />
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0" class="auto-style6">
-				<font color="#0d62c3" size="5">姓名</font>
-			</td>
-			<td bgcolor="#F0F0F0" class="text-left">
-				<input type="text" id="name" name="text" placeholder="單行輸入" />
-			</td>
-		</tr>
-	</table>
-	<p>
-		<br />
-	</p>
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0">
-				<font color="#0d62c3" size="5"><span class="auto-style6">暱稱</span></font>
-			</td>
-			<td bgcolor="#F0F0F0" class="text-left">
-				<input type="text" id="name2" name="text" placeholder="單行輸入" />
-			</td>
-		</tr>
-	</table>
-	<p>
-		<br />
-	</p>
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0" class="auto-style16">
-				<font color="#0d62c3" size="5">
-					慣用<br />
-					語言
-				</font>
-			</td>
-			<td bgcolor="#F0F0F0" class="auto-style7">
-				<font color="#F67377" size="4" face="標楷體">
-					<input type="checkbox" id="language1" name="location" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language2" name="location" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language3" name="location" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language4" name="location" value="客語" class="auto-style8" />客語 <input type="checkbox" id="language5" name="location" value="日語" class="auto-style8" />日語
-				</font>
-			</td>
-		</tr>
-	</table>
-	<p>
-		<br />
-	</p>
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0" class="auto-style17">
-				<font color="#0d62c3" size="5">母語</font>
-			</td>
-			<td bgcolor="#F0F0F0" class="text-left">
-				<font color="#F67377" size="4" face="標楷體">
-					<input type="checkbox" id="language6" name="location1" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language7" name="location1" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language8" name="location1" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language9" name="location1" value="客語" class="auto-style8" />客語
-					<br />
-					<input type="checkbox" id="language10" name="location1" value="日語" class="auto-style8" />日語
-				</font>
-			</td>
-		</tr>
-	</table>
-	<p>
-		<br />
-	</p>
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0" class="auto-style10">
-				<font color="#0d62c3" size="5">
-					喜歡的<br />
-					話題
-				</font>
-			</td>
-			<td bgcolor="#F0F0F0" class="text-left">
-				<font color="#F67377" size="4" face="標楷體">
-					<input type="text" id="topic" name="text" placeholder="單行輸入" class="auto-style11" />
-				</font>
-			</td>
-		</tr>
-	</table>
-	<div class="text-left">
-		<font size="3" face="標楷體">
-			(最近談論過的事情或常講的事情)
-		</font>
-	</div>
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0" class="auto-style12">
-				<font color="#0d62c3" size="5">興趣/喜好</font>
-			</td>
-			<td bgcolor="#F0F0F0" class="auto-style14">
-				<font color="#F67377" size="4" face="標楷體">
-					<input type="checkbox" id="interest1" name="location2" value="散步" class="auto-style8" />散步 <input type="checkbox" id="interest2" name="location2" value="打拳" class="auto-style8" />打拳 <input type="checkbox" id="interest3" name="location2" value="園藝" class="auto-style8" />園藝 <input type="checkbox" id="interest4" name="location2" value="慢跑" class="auto-style8" />慢跑
-					<br />
-					<input type="checkbox" id="interest5" name="location2" value="旅行" class="auto-style8" />
-				</font>
-				<span class="auto-style13">
-					<font color="#F67377" size="4" face="標楷體">
-						旅行
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" id="interest6" name="location2" value="看電影、電視" class="auto-style8" />
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						看電影、電視
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" id="interest7" name="location2" value="閱讀" class="auto-style8" />
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						閱讀
-					</font>
-					<br />
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" id="interest8" name="location2" value="手工藝" class="auto-style8" />
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						手工藝
-					</font>
-					<font color="#F67377" size="5" face="標楷體">
-						<input type="checkbox" id="interest9" name="location2" value="繪畫" class="auto-style8" />
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						繪畫
-					</font>
-					<font color="#F67377" size="5" face="標楷體">
-						<input type="checkbox" id="interest10" name="location2" value="寫書法" class="auto-style8" />
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						寫書法
-						<br />
-						<input type="checkbox" id="interest11" name="location2" value="跳舞" class="auto-style8" />
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						跳舞
-					</font>
-					<font color="#F67377" size="5" face="標楷體">
-						<input type="checkbox" id="interest12" name="location2" value="下廚" class="auto-style8" />
+	@try
+	{
+		foreach (user_basic user_ in user_Basics)
+		{
 
+
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style6">
+						<font color="#0d62c3" size="5">姓名</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="text-left">
+						<input type="text" id="name" name="text" placeholder="單行輸入" />
+					</td>
+				</tr>
+			</table>
+			<p>
+				@user_.usr_name
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0">
+						<font color="#0d62c3" size="5"><span class="auto-style6">暱稱</span></font>
+					</td>
+					<td bgcolor="#F0F0F0" class="text-left">
+						<input type="text" id="name2" name="text" placeholder="單行輸入" />
+					</td>
+				</tr>
+			</table>
+			<p>
+				@user_.usr_anonymous
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style16">
+						<font color="#0d62c3" size="5">
+							慣用<br />
+							語言
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style7">
 						<font color="#F67377" size="4" face="標楷體">
-							下廚
+							<input type="checkbox" id="language1" name="location" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language2" name="location" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language3" name="location" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language4" name="location" value="客語" class="auto-style8" />客語 <input type="checkbox" id="language5" name="location" value="日語" class="auto-style8" />日語
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				@user_.usr_icustom_languagendex
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style17">
+						<font color="#0d62c3" size="5">母語</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="text-left">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" id="language6" name="location1" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language7" name="location1" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language8" name="location1" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language9" name="location1" value="客語" class="auto-style8" />客語
+							<br />
+							<input type="checkbox" id="language10" name="location1" value="日語" class="auto-style8" />日語
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				@user_.mom_language
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style10">
+						<font color="#0d62c3" size="5">
+							喜歡的<br />
+							話題
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="text-left">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="text" id="topic" name="text" placeholder="單行輸入" class="auto-style11" />
+						</font>
+					</td>
+				</tr>
+			</table>
+			<div class="text-left">
+				<font size="3" face="標楷體">
+					(最近談論過的事情或常講的事情)
+				</font>@user_.like_topic
+			</div>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style12">
+						<font color="#0d62c3" size="5">興趣/喜好</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" id="interest1" name="location2" value="散步" class="auto-style8" />散步 <input type="checkbox" id="interest2" name="location2" value="打拳" class="auto-style8" />打拳 <input type="checkbox" id="interest3" name="location2" value="園藝" class="auto-style8" />園藝 <input type="checkbox" id="interest4" name="location2" value="慢跑" class="auto-style8" />慢跑
+							<br />
+							<input type="checkbox" id="interest5" name="location2" value="旅行" class="auto-style8" />
+						</font>
+						<span class="auto-style13">
+							<font color="#F67377" size="4" face="標楷體">
+								旅行
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" id="interest6" name="location2" value="看電影、電視" class="auto-style8" />
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								看電影、電視
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" id="interest7" name="location2" value="閱讀" class="auto-style8" />
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								閱讀
+							</font>
+							<br />
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" id="interest8" name="location2" value="手工藝" class="auto-style8" />
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								手工藝
+							</font>
+							<font color="#F67377" size="5" face="標楷體">
+								<input type="checkbox" id="interest9" name="location2" value="繪畫" class="auto-style8" />
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								繪畫
+							</font>
+							<font color="#F67377" size="5" face="標楷體">
+								<input type="checkbox" id="interest10" name="location2" value="寫書法" class="auto-style8" />
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								寫書法
+								<br />
+								<input type="checkbox" id="interest11" name="location2" value="跳舞" class="auto-style8" />
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								跳舞
+							</font>
+							<font color="#F67377" size="5" face="標楷體">
+								<input type="checkbox" id="interest12" name="location2" value="下廚" class="auto-style8" />
+
+								<font color="#F67377" size="4" face="標楷體">
+									下廚
+								</font>
+								<font color="#F67377" size="5" face="標楷體">
+									<input type="checkbox" id="interest13" name="location2" value="音樂、唱歌" class="auto-style8" />
+								</font>
+								<font color="#F67377" size="4" face="標楷體">
+									音樂、唱歌
+								</font>
+								<br />
+								<input type="checkbox" id="interest14" name="location2" value="玩遊戲(如:桌遊.麻將.下棋.撲克等)" class="auto-style8" />
+							</font><font color="#F67377" size="4" face="標楷體">玩遊戲(如:桌遊.麻將.下棋.撲克等)</font>
+
+						</span>
+					</td>
+				</tr>
+			</table>
+			<p>
+				@user_.interest
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style10">
+						<font color="#0d62c3" size="5">過去職業</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="text-left">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="text" id="occupation" name="text" placeholder="單行輸入" class="auto-style11" />
+						</font>
+					</td>
+				</tr>
+			</table>
+			<div class="text-left">
+				<font size="3" face="標楷體">
+					(過去做的所有職業)
+				</font>@user_.occupation
+			</div>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style6">
+						<font color="#0d62c3" size="5">
+							經濟<br />
+							狀況
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							&nbsp;照顧經費來源&nbsp;&nbsp;
+							<input type="checkbox" name="location4" value="儲蓄" class="auto-style8" /> 儲蓄 <input type="checkbox" name="location4" value="配偶" class="auto-style8" /> 配偶<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="checkbox" name="location4" value="政府補助" class="auto-style8" /> 政府補助 <input type="checkbox" name="location4" value="家人支付" class="auto-style8" /> 家人支付
+							<br />
+							&nbsp;經濟是否困難&nbsp;&nbsp; &nbsp;<input type="radio" name="location5" value="否" class="auto-style8" /> 否 <input type="radio" name="location5" value="是" class="auto-style8" /> 是
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>照顧經費來源 @user_.economic_status_one   經濟是否困難: @user_.economic_status_twe</p>
+			<button class="btn btn-warning btn-lg" onclick="unload()">暫存</button>
+		}
+	}
+	catch
+	{
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0" class="auto-style6">
+					<font color="#0d62c3" size="5">姓</font>
+				</td>
+				<td bgcolor="#F0F0F0" class="text-left">
+					<input type="text" id="name" name="text" placeholder="單行輸入" />
+				</td>
+			</tr>
+		</table>
+		<p>
+			<br />
+		</p>
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0">
+					<font color="#0d62c3" size="5"><span class="auto-style6">暱稱</span></font>
+				</td>
+				<td bgcolor="#F0F0F0" class="text-left">
+					<input type="text" id="name2" name="text" placeholder="單行輸入" />
+				</td>
+			</tr>
+		</table>
+		<p>
+			<br />
+		</p>
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0" class="auto-style16">
+					<font color="#0d62c3" size="5">
+						慣用<br />
+						語言
+					</font>
+				</td>
+				<td bgcolor="#F0F0F0" class="auto-style7">
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="checkbox" id="language1" name="location" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language2" name="location" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language3" name="location" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language4" name="location" value="客語" class="auto-style8" />客語 <input type="checkbox" id="language5" name="location" value="日語" class="auto-style8" />日語
+					</font>
+				</td>
+			</tr>
+		</table>
+		<p>
+			<br />
+		</p>
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0" class="auto-style17">
+					<font color="#0d62c3" size="5">母語</font>
+				</td>
+				<td bgcolor="#F0F0F0" class="text-left">
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="checkbox" id="language6" name="location1" value="國語" class="auto-style8" />國語 <input type="checkbox" id="language7" name="location1" value="台語" class="auto-style8" />台語 <input type="checkbox" id="language8" name="location1" value="英語" class="auto-style8" />英語 <input type="checkbox" id="language9" name="location1" value="客語" class="auto-style8" />客語
+						<br />
+						<input type="checkbox" id="language10" name="location1" value="日語" class="auto-style8" />日語
+					</font>
+				</td>
+			</tr>
+		</table>
+		<p>
+			<br />
+		</p>
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0" class="auto-style10">
+					<font color="#0d62c3" size="5">
+						喜歡的<br />
+						話題
+					</font>
+				</td>
+				<td bgcolor="#F0F0F0" class="text-left">
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="text" id="topic" name="text" placeholder="單行輸入" class="auto-style11" />
+					</font>
+				</td>
+			</tr>
+		</table>
+		<div class="text-left">
+			<font size="3" face="標楷體">
+				(最近談論過的事情或常講的事情)
+			</font>
+		</div>
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0" class="auto-style12">
+					<font color="#0d62c3" size="5">興趣/喜好</font>
+				</td>
+				<td bgcolor="#F0F0F0" class="auto-style14">
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="checkbox" id="interest1" name="location2" value="散步" class="auto-style8" />散步 <input type="checkbox" id="interest2" name="location2" value="打拳" class="auto-style8" />打拳 <input type="checkbox" id="interest3" name="location2" value="園藝" class="auto-style8" />園藝 <input type="checkbox" id="interest4" name="location2" value="慢跑" class="auto-style8" />慢跑
+						<br />
+						<input type="checkbox" id="interest5" name="location2" value="旅行" class="auto-style8" />
+					</font>
+					<span class="auto-style13">
+						<font color="#F67377" size="4" face="標楷體">
+							旅行
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" id="interest6" name="location2" value="看電影、電視" class="auto-style8" />
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							看電影、電視
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" id="interest7" name="location2" value="閱讀" class="auto-style8" />
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							閱讀
+						</font>
+						<br />
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" id="interest8" name="location2" value="手工藝" class="auto-style8" />
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							手工藝
 						</font>
 						<font color="#F67377" size="5" face="標楷體">
-							<input type="checkbox" id="interest13" name="location2" value="音樂、唱歌" class="auto-style8" />
+							<input type="checkbox" id="interest9" name="location2" value="繪畫" class="auto-style8" />
 						</font>
 						<font color="#F67377" size="4" face="標楷體">
-							音樂、唱歌
+							繪畫
 						</font>
-						<br />
-						<input type="checkbox" id="interest14" name="location2" value="玩遊戲(如:桌遊.麻將.下棋.撲克等)" class="auto-style8" />
-					</font><font color="#F67377" size="4" face="標楷體">玩遊戲(如:桌遊.麻將.下棋.撲克等)</font>
+						<font color="#F67377" size="5" face="標楷體">
+							<input type="checkbox" id="interest10" name="location2" value="寫書法" class="auto-style8" />
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							寫書法
+							<br />
+							<input type="checkbox" id="interest11" name="location2" value="跳舞" class="auto-style8" />
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							跳舞
+						</font>
+						<font color="#F67377" size="5" face="標楷體">
+							<input type="checkbox" id="interest12" name="location2" value="下廚" class="auto-style8" />
 
-				</span>
-			</td>
-		</tr>
-	</table>
-	<p>
-		<br />
-	</p>
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0" class="auto-style10">
-				<font color="#0d62c3" size="5">過去職業</font>
-			</td>
-			<td bgcolor="#F0F0F0" class="text-left">
-				<font color="#F67377" size="4" face="標楷體">
-					<input type="text" id="occupation" name="text" placeholder="單行輸入" class="auto-style11" />
-				</font>
-			</td>
-		</tr>
-	</table>
-	<div class="text-left">
-		<font size="3" face="標楷體">
-			(過去做的所有職業)
-		</font>
-	</div>
-	<table align="center" class="auto-style5">
-		<tr>
-			<td bgcolor="#F0F0F0" class="auto-style6">
-				<font color="#0d62c3" size="5">
-					經濟<br />
-					狀況
-				</font>
-			</td>
-			<td bgcolor="#F0F0F0" class="auto-style14">
-				<font color="#F67377" size="4" face="標楷體">
-					&nbsp;照顧經費來源
-					<input type="checkbox" name="location4" value="儲蓄" class="auto-style8" /> 儲蓄 <input type="checkbox" name="location4" value="配偶" class="auto-style8" /> 配偶<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="checkbox" name="location4" value="政府補助" class="auto-style8" /> 政府補助 <input type="checkbox" name="location4" value="家人支付" class="auto-style8" /> 家人支付
-					<br />
-					&nbsp;經濟是否困難 <input type="radio" name="location4" value="否" class="auto-style8" /> 否 <input type="radio" name="location4" value="是" class="auto-style8" /> 是
-				</font>
-			</td>
-		</tr>
-	</table>
+							<font color="#F67377" size="4" face="標楷體">
+								下廚
+							</font>
+							<font color="#F67377" size="5" face="標楷體">
+								<input type="checkbox" id="interest13" name="location2" value="音樂、唱歌" class="auto-style8" />
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								音樂、唱歌
+							</font>
+							<br />
+							<input type="checkbox" id="interest14" name="location2" value="玩遊戲(如:桌遊.麻將.下棋.撲克等)" class="auto-style8" />
+						</font><font color="#F67377" size="4" face="標楷體">玩遊戲(如:桌遊.麻將.下棋.撲克等)</font>
+
+					</span>
+				</td>
+			</tr>
+		</table>
+		<p>
+			<br />
+		</p>
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0" class="auto-style10">
+					<font color="#0d62c3" size="5">過去職業</font>
+				</td>
+				<td bgcolor="#F0F0F0" class="text-left">
+					<font color="#F67377" size="4" face="標楷體">
+						<input type="text" id="occupation" name="text" placeholder="單行輸入" class="auto-style11" />
+					</font>
+				</td>
+			</tr>
+		</table>
+		<div class="text-left">
+			<font size="3" face="標楷體">
+				(過去做的所有職業)
+			</font>
+		</div>
+		<table align="center" class="auto-style5">
+			<tr>
+				<td bgcolor="#F0F0F0" class="auto-style6">
+					<font color="#0d62c3" size="5">
+						經濟<br />
+						狀況
+					</font>
+				</td>
+				<td bgcolor="#F0F0F0" class="auto-style14">
+					<font color="#F67377" size="4" face="標楷體">
+						&nbsp;照顧經費來源&nbsp;&nbsp;
+						<input type="checkbox" name="location4" value="儲蓄" class="auto-style8" /> 儲蓄 <input type="checkbox" name="location4" value="配偶" class="auto-style8" /> 配偶<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <input type="checkbox" name="location4" value="政府補助" class="auto-style8" /> 政府補助 <input type="checkbox" name="location4" value="家人支付" class="auto-style8" /> 家人支付
+						<br />
+						&nbsp;經濟是否困難&nbsp;&nbsp; <input type="radio" name="location5" value="否" class="auto-style8" /> 否 <input type="radio" name="location5" value="是" class="auto-style8" /> 是
+					</font>
+		</table>
+		<button class="btn btn-warning btn-lg" onclick="unload()">暫存</button>
+	}
+
+
 	<div class="auto-style7">
 		<nav aria-label="Page navigation example">
 			<p>
 				&nbsp;
 			</p>
 			<ul class="pagination">
-				<li class="page-item"><a class="page-link" href="/Home/Case_basic_information_Home_Service_Supervisor">1</a></li>
-				<li class="page-item"><a class="page-link" href="/Home/Single_case_care_Home_Service_Supervisor">2</a></li>
-				<li class="page-item"><a class="page-link" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
-				<li class="page-item"><a class="page-link" href="/Home/Other_assessments_Home_Service_Supervisor">4</a></li>
-				<li class="page-item"><a class="page-link" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
+				<li class="page-item"><a id="click" class="page-link" href="/Home/Case_basic_information_Home_Service_Supervisor">1</a></li>
+				<li class="page-item"><a id="click" class="page-link" href="/Home/Single_case_care_Home_Service_Supervisor">2</a></li>
+				<li class="page-item"><a id="click" class="page-link" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
+				<li class="page-item"><a id="click" class="page-link" href="/Home/Other_assessments_Home_Service_Supervisor">4</a></li>
+				<li class="page-item"><a id="click" class="page-link" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
 				<li class="page-item">
 					<a class="page-link" href="#" aria-label="Next">
 						<span aria-hidden="true">&raquo;</span>
@@ -321,8 +594,8 @@
 	</div>
 	<div class="auto-style4">
 		<br />
-
-		@Html.ActionLink("下一頁", "Single_case_care_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })
+		<button id="bclick" class="btn btn-warning btn-lg" onclick="window.location.href = '/Home/Single_case_care_Home_Service_Supervisor'">下一頁</button>
+		@*@Html.ActionLink("下一頁", "Single_case_care_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })*@
 	</div>
 </body>
 </html>

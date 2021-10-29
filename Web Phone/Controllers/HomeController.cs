@@ -1306,9 +1306,37 @@ namespace Web_Phone.Controllers
 		//督導-(開案)個案基本資料
 		public ActionResult Case_basic_information_Home_Service_Supervisor()
 		{
+			ViewBag.usr = TempData["usr_basic"];
 			return View();
 		}
-
+		[HttpPost]
+		public ActionResult Case_basic_information_Home_Service_Supervisor(user_basic user_)
+		{
+			List<user_basic> user_Basics = new List<user_basic>();
+			user_basic user_Basic = new user_basic();
+			if (user_.usr_name != "")
+				user_Basic.usr_name = user_.usr_name;
+			if (user_.usr_anonymous != "")
+				user_Basic.usr_anonymous = user_.usr_anonymous;
+			if (user_.usr_icustom_languagendex != "")
+				user_Basic.usr_icustom_languagendex = user_.usr_icustom_languagendex;
+			if (user_.mom_language != "")
+				user_Basic.mom_language= user_.mom_language;
+			if (user_.like_topic != "")
+				user_Basic.like_topic = user_.like_topic;
+			if (user_.interest != "")
+				user_Basic.interest = user_.interest;
+			if (user_.occupation != "")
+				user_Basic.occupation = user_.occupation;
+			if (user_.economic_status_one != "")
+				user_Basic.economic_status_one = user_.economic_status_one;
+			if (user_.economic_status_twe != "")
+				user_Basic.economic_status_twe = user_.economic_status_twe;
+			user_Basics.Add(user_Basic);
+			TempData["usr_basic"] = user_Basics;
+			
+			return Json("Case_basic_information_Home_Service_Supervisor");
+		}
 		//督導-(開案)個案個別化照顧
 		public ActionResult Single_case_care_Home_Service_Supervisor()
 		{
