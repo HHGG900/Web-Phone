@@ -493,7 +493,7 @@ namespace Web_Phone.Controllers
 			guarding_records_every_db.Guarding_records_every_insert(guarding_records_every);
 			care_Place.Care_place_update_tem(BAList, TempData["case_name"] as string, TempData["name"] as string, TempData["care_plase"] as List<Care_place>);
 			TempData.Keep();
-			return RedirectToAction("Every_guardian_the_record");
+			return Json("Home_attendant_index");
 		}
 
 		//照服員-皮膚異常
@@ -526,7 +526,6 @@ namespace Web_Phone.Controllers
 		public ActionResult Pain_assessment_Home_attendant(string Pain)
 		{
 			TempData["Pain"] = Pain;
-			TempData.Keep();
 			return Json("Every_guardian_the_record");
 		}
 		/*	[HttpPost]
@@ -593,6 +592,7 @@ namespace Web_Phone.Controllers
 			ViewBag.stress = TempData["Stress"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			TempData["tip"] = "0";
 			TempData.Keep();
 			return View();
 		}
@@ -1302,57 +1302,227 @@ namespace Web_Phone.Controllers
 			ViewBag.case_s = case_s;
 			return View();
 		}
-
+		
 		//督導-(開案)個案基本資料
 		public ActionResult Case_basic_information_Home_Service_Supervisor()
 		{
 			ViewBag.usr = TempData["usr_basic"];
+			TempData.Keep();
 			return View();
 		}
+		static public int i = 0;
 		[HttpPost]
 		public ActionResult Case_basic_information_Home_Service_Supervisor(user_basic user_)
 		{
 			List<user_basic> user_Basics = new List<user_basic>();
-			user_basic user_Basic = new user_basic();
-			if (user_.usr_name != "")
-				user_Basic.usr_name = user_.usr_name;
-			if (user_.usr_anonymous != "")
-				user_Basic.usr_anonymous = user_.usr_anonymous;
-			if (user_.usr_icustom_languagendex != "")
-				user_Basic.usr_icustom_languagendex = user_.usr_icustom_languagendex;
-			if (user_.mom_language != "")
-				user_Basic.mom_language= user_.mom_language;
-			if (user_.like_topic != "")
-				user_Basic.like_topic = user_.like_topic;
-			if (user_.interest != "")
-				user_Basic.interest = user_.interest;
-			if (user_.occupation != "")
-				user_Basic.occupation = user_.occupation;
-			if (user_.economic_status_one != "")
-				user_Basic.economic_status_one = user_.economic_status_one;
-			if (user_.economic_status_twe != "")
-				user_Basic.economic_status_twe = user_.economic_status_twe;
-			user_Basics.Add(user_Basic);
-			TempData["usr_basic"] = user_Basics;
 			
+				if (i != 0) {
+					List<user_basic> user_Basics1 = new List<user_basic>();
+					user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+					foreach (user_basic user_Basic in user_Basics1)
+				{
+					if (user_.usr_name != "no")
+						user_Basic.usr_name = user_.usr_name;
+					
+					if (user_.usr_anonymous != "no")
+						user_Basic.usr_anonymous = user_.usr_anonymous;
+					
+					if (user_.usr_icustom_languagendex != "no")
+						user_Basic.usr_icustom_languagendex = user_.usr_icustom_languagendex;
+					
+					if (user_.mom_language != "no")
+						user_Basic.mom_language = user_.mom_language;
+					
+					if (user_.like_topic != "no")
+						user_Basic.like_topic = user_.like_topic;
+					
+					if (user_.interest != "no")
+						user_Basic.interest = user_.interest;
+					
+					if (user_.occupation != "no")
+						user_Basic.occupation = user_.occupation;
+					
+					if (user_.economic_status_one != "no")
+						user_Basic.economic_status_one = user_.economic_status_one;
+					
+					if (user_.economic_status_twe != "no")
+						user_Basic.economic_status_twe = user_.economic_status_twe;
+					
+					user_Basics.Add(user_Basic);
+					
+				}
+				
+			}
+			else
+			{
+				user_basic user_Basic = new user_basic();
+				if (user_.usr_name != "no")
+					user_Basic.usr_name = user_.usr_name;
+				else
+					user_Basic.usr_name = " ";
+				if (user_.usr_anonymous != "no")
+					user_Basic.usr_anonymous = user_.usr_anonymous;
+				
+				if (user_.usr_icustom_languagendex != "no")
+					user_Basic.usr_icustom_languagendex = user_.usr_icustom_languagendex;
+				
+				if (user_.mom_language != "no")
+					user_Basic.mom_language = user_.mom_language;
+				
+				if (user_.like_topic != "no")
+					user_Basic.like_topic = user_.like_topic;
+				
+				if (user_.interest != "no")
+					user_Basic.interest = user_.interest;
+				
+				if (user_.occupation != "no")
+					user_Basic.occupation = user_.occupation;
+				
+				if (user_.economic_status_one != "no")
+					user_Basic.economic_status_one = user_.economic_status_one;
+				
+				if (user_.economic_status_twe != "no")
+					user_Basic.economic_status_twe = "123";
+				
+				user_Basics.Add(user_Basic);
+				
+				i = 2;
+			}
+			TempData["usr_basic"] = user_Basics;
 			return Json("Case_basic_information_Home_Service_Supervisor");
 		}
 		//督導-(開案)個案個別化照顧
 		public ActionResult Single_case_care_Home_Service_Supervisor()
 		{
+			ViewBag.usr = TempData["usr_basic"];
+			TempData.Keep();
+			ViewBag.Resource = TempData["Resource"];
+			ViewBag.Stress = TempData["Stress"];
+			TempData["tip"] = "1";
 			return View();
+		}
+		[HttpPost]
+		public ActionResult Single_case_care_Home_Service_Supervisor(user_basic user_)
+		{
+			List<user_basic> user_Basics = new List<user_basic>();
+
+			if (i != 0)
+			{
+				List<user_basic> user_Basics1 = new List<user_basic>();
+				user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+				foreach (user_basic user_Basic in user_Basics1)
+				{
+					if (user_.new_identity != "no")
+						user_Basic.new_identity = user_.new_identity;
+
+					if (user_.usr_anonymous != "no")
+						user_Basic.ban = user_.ban;
+
+					if (user_.accept_topic != "no")
+						user_Basic.accept_topic = user_.accept_topic;
+
+					if (user_.usr_expect != "no")
+						user_Basic.usr_expect = user_.usr_expect;
+
+					if (user_.family_expect != "no")
+						user_Basic.family_expect = user_.family_expect;
+
+					if (user_.family_name != "no")
+						user_Basic.family_name = user_.family_name;
+
+					if (user_.family_phone != "no")
+						user_Basic.family_phone = user_.family_phone;
+
+					if (user_.family_Line != "no")
+						user_Basic.family_Line = user_.family_Line;
+
+					if (user_.care_bind != "no")
+						user_Basic.care_bind = user_.care_bind;
+					if (user_.care_year != "no")
+						user_Basic.care_year = user_.care_year;
+					if (user_.care_name != "no")
+						user_Basic.care_name = user_.care_name;
+					if (user_.care_one != "no")
+						user_Basic.care_one = user_.care_one;
+					if (user_.care_twe != "no")
+						user_Basic.care_twe = user_.care_twe;
+					if (user_.care_three != "no")
+						user_Basic.care_three = user_.care_three;
+					if (user_.care_four != "no")
+						user_Basic.care_four = user_.care_four;
+					user_Basics.Add(user_Basic);
+
+				}
+
+			}
+			else
+			{
+				user_basic user_Basic = new user_basic();
+				if (user_.new_identity != "no")
+					user_Basic.new_identity = user_.new_identity;
+				else
+					user_Basic.usr_name = " ";
+				if (user_.ban != "no")
+					user_Basic.ban = user_.ban;
+
+				if (user_.accept_topic != "no")
+					user_Basic.accept_topic = user_.accept_topic;
+
+				if (user_.usr_expect != "no")
+					user_Basic.usr_expect = user_.usr_expect;
+
+				if (user_.family_expect != "no")
+					user_Basic.family_expect = user_.family_expect;
+
+				if (user_.family_name != "no")
+					user_Basic.family_name = user_.family_name;
+
+				if (user_.family_phone != "no")
+					user_Basic.family_phone = user_.family_phone;
+
+				if (user_.family_Line != "no")
+					user_Basic.family_Line = user_.family_Line;
+				if (user_.care_bind != "no")
+					user_Basic.care_bind = user_.care_bind;
+				if (user_.care_year != "no")
+					user_Basic.care_year = user_.care_year;
+				if (user_.care_name != "no")
+					user_Basic.care_name = user_.care_name;
+				if (user_.care_one != "no")
+					user_Basic.care_one = user_.care_one;
+				if (user_.care_twe != "no")
+					user_Basic.care_twe = user_.care_twe;
+				if (user_.care_three != "no")
+					user_Basic.care_three = user_.care_three;
+				if (user_.care_four != "no")
+					user_Basic.care_four = user_.care_four;
+				user_Basics.Add(user_Basic);
+
+				i = 2;
+			}
+			TempData["usr_basic"] = user_Basics;
+			return Json("Single_case_care_Home_Service_Supervisor");
 		}
 
 		//督導-(開案)壓力照顧量表
 		public ActionResult Care_Stress_Scale_Home_Service_Supervisor()
 		{
+			
 			return View();
 		}
 		[HttpPost]
 		public ActionResult Care_Stress_Scale_Home_Service_Supervisor(int tatol)
 		{
+
 			TempData["Stress"] = tatol;
-			return Json("Guardian_of_the_month_Home_attendant");
+			if(TempData["tip"].ToString() == "0")
+			{
+				TempData.Keep();
+				return Json("Guardian_of_the_month_Home_attendant");
+			}
+			else
+				return Json("Single_case_care_Home_Service_Supervisor");
+
 
 		}
 
@@ -1365,7 +1535,13 @@ namespace Web_Phone.Controllers
 		public ActionResult Care_Resource_Scale_Home_Service_Supervisor(int tatol)
 		{
 			TempData["Resource"] = tatol;
-			return Json("Guardian_of_the_month_Home_attendant");
+			if (TempData["tip"].ToString() == "0")
+			{
+				TempData.Keep();
+				return Json("Guardian_of_the_month_Home_attendant");
+			}
+			else
+				return Json("Single_case_care_Home_Service_Supervisor");
 
 		}
 		//督導-(開案)個案疾病史

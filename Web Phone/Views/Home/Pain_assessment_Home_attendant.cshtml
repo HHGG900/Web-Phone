@@ -17,22 +17,22 @@
 			var tip = "";
 			if (i == "0") {
 				tip = "愉快";
-			} else if (i == 1) {
+			} else if (i == "1") {
 				tip = "正常";
-			} else if (i == 2) {
+			} else if (i == "2") {
 				tip = "一點都不舒服";
-			} else if (i == 3) {
+			} else if (i == "3") {
 				tip = "很不舒服";
-			} else if (i == 4) {
+			} else if (i == "4") {
 				tip = "蠻痛的";
-			} else if (i == 5) {
+			} else if (i == "5") {
 				tip = "大痛不已";
 			}
 			$.post('@Url.Action("Pain_assessment_Home_attendant")',
 				{ Pain: tip},
 					function (result) {
 						window.alert("儲存成功");
-						window.location.href = result;
+						location.href = '@Url.Action("Every_guardian_the_record", "Home")';
 					});
 		}
 	</script>
@@ -64,32 +64,44 @@
 </head>
 
 <body style="background-color:#FAF4FF;">
-	<form action="/Home/Pain_assessment_Home_attendant" method="post">
 		<div class="text-center">
+			<div class="row">
+			<div class="col-sm-3"><input type="image" src="../../images/愉快.png" class="auto-style1" onclick="save(0);" /><br><p>愉快</div>
 			
-			&nbsp;<input type="image" src="../../images/愉快.png" class="auto-style1" onclick="save(0);"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="image" src="../../images/正常.png" class="auto-style1" onclick="save(1);" />&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="image" src="../../images/一點都不舒服.png" class="auto-style1" onclick="save(2);" />
-			<br />
-		</div>
-		<div class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style4"> 愉快&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 正常&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一點都不舒服</span></div>
+			<div class="col-sm-3">
+				<input type="image" src="../../images/正常.png" class="auto-style1" onclick="save(1);" /><br><p>正常
+</div>
+			<div class="col-sm-3">
+				<input type="image" src="../../images/一點都不舒服.png" class="auto-style1" onclick="save(2);" />
+				<br /><p>一點都不舒服
+			</div>
+			</div>
+			</div>
 		<div class="text-center">
 			<br />
-			<input type="image" src="../../images/很不舒服.png" class="auto-style1" onclick="save(3);"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-			<input type="image" src="../../images/蠻痛的.png" class="auto-style1" onclick="save(4);"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-			<input type="image" src="../../images/大痛不已.png" class="auto-style1" onclick="save(5);"/>
-			<br />
+			<div class="col-sm-3">
+				<input type="image" src="../../images/很不舒服.png" class="auto-style1" onclick="save(3);" />
+				<br /><p>很不舒服
+</div>
+			<div class="col-sm-3">
+				<input type="image" src="../../images/蠻痛的.png" class="auto-style1" onclick="save(4);" />
+				<br /><p>蠻痛的
+</div>
+			<div class="col-sm-3">
+				<input type="image" src="../../images/大痛不已.png" class="auto-style1" onclick="save(5);" />
+				<br /><p>大痛不已
+</div>
+						<br />
 		</div>
-		<div class="auto-style5">&nbsp;&nbsp;&nbsp; 很不舒服&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 蠻痛的&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 大痛不已 </div>
-        <div class="auto-style2">
-            <br />
-            <div class="auto-style3">
-                <input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="location.href=window.alert('已存檔');" />
-            </div>
-            <br />
-            <input type="button"  onclick="location.href='@Url.Action("Every_guardian_the_record", "Home")'" class="auto-style3" />
+			<div class="auto-style2">
+				<br />
+				<div class="auto-style3">
+					<input type="submit" class="btn btn-primary btn-lg" value="存檔" onclick="location.href=window.alert('已存檔');" />
+				</div>
+				<br />
+				<input type="button" value="上一頁" onclick="location.href='@Url.Action("Every_guardian_the_record", "Home")'" class="auto-style3" />
 
-        </div>
-	</form>
+			</div>
+
 </body>
 </html>

@@ -24,6 +24,10 @@
 			});
 			front = arr.toString();
 			Negative = arr2.toString();
+			if (front == '')
+				front = "無";
+			if (Negative == '')
+				Negative = "無";
 			console.log(arr.toString());
 			console.log(arr2.toString());
 			$.post('@Url.Action("Emotional_assessment_Home_attendant")',
@@ -76,7 +80,7 @@
 	<div class="auto-style1">
 		<font color="#E51C23" face="標楷體">
 			<span class="auto-style7">
-				不管上下一定要<br />
+				一定要<br />
 				複選二項喔!!
 			</span>
 		</font>

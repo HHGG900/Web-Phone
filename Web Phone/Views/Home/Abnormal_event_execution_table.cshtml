@@ -176,10 +176,18 @@
 						@exception_Notification.event_description
 					</td>
 					<td bgcolor="#5772EE" class="auto-style2">
-						<a style="color:#FFFFFF" href="javascript:void(0);" onclick="execute(@exception_Notification.id)">執行</a>
+						@if (exception_Notification.execution != null)
+						{<a style="color:#FFFFFF" href="javascript:void(0);">已執行</a>;}
+
+						else
+						{<a style = "color:#FFFFFF" href = "javascript:void(0);" onclick = "execute(@exception_Notification.id)"> 執行 </a>;}
 					</td>
 					<td bgcolor="#5772EE" class="auto-style2">
-						<a style="color:#FFFFFF" href="javascript:void(0);" onclick="tracking(@exception_Notification.id)">追蹤</a>
+						@if (exception_Notification.tracking != null)
+						{<a style="color:#FFFFFF" href="javascript:void(0);">已追蹤</a>}
+
+						else
+						{<a style="color:#FFFFFF" href="javascript:void(0);" onclick="tracking(@exception_Notification.id)">追蹤</a>}
 					</td>
 				</tr>
 			}

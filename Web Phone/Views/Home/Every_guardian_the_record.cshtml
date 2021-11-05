@@ -243,7 +243,6 @@
 		</Font>
 	</div>
 	<br />
-	<form action="/Home/Every_guardian_the_record" method="post">
 		<table align="center" class="auto-style2">
 			<tr>
 				<td bgcolor="#F5F5F5" align="right" class="auto-style3">
@@ -273,43 +272,7 @@
 		<br />
 		<div class="auto-style23">
 			<div class="auto-style23">
-				<p class="auto-style6"><font color="#0000EB" face="標楷體"><strong><span class="auto-style17">生命跡象</span></strong></font><img src="../../images/聽診器icon.png" /></p>
-				<div class="auto-style23">
-					<label for="inputtemperature ">
-						<font color="#FF1493" size="4" face="標楷體"><span class="auto-style17">&nbsp; </span><span class="auto-style3">&nbsp; 體溫:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
-						<input type="number" name="temperature" id="temperature" class="auto-style9" required />
-					</label>
-					<label for="inputpulse">
-						<font color="#FF1493" face="標楷體"><span class="auto-style14">&nbsp; </span><span class="auto-style3">脈搏:</span><span class="auto-style14">&nbsp;&nbsp;&nbsp;&nbsp; </span></font>&nbsp;
-						<input type="number" id="inputpulse" name="pulse" class="auto-style9" required />
-						<font color="#FF1493" face="標楷體">
-							<span class="auto-style14">&nbsp; </span>
-					</label>
-					</font>
-					<br />
-				</div>
-
-				<div class="auto-style23">
-					<label for="inputpulse_low">
-						<span class="auto-style3">&nbsp;&nbsp; 血壓:</span></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-						<input type="number" name=" pulse_low" id="pulse_low" class="auto-style9" required />
-						&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-					</label>
-					<label for="inputpulse_high">
-						<input type="number" name="pulse_high" id="pulse_high" class="auto-style9" required />
-					</label>
-				</div>
-				<p class="auto-style6"><font color="#0000EB" size="5" face="標楷體"><strong><span class="auto-style17">皮膚</span></strong><img src="../../images/評估icon.png" /></font></p>
-				<div class="auto-style6 form-group row">
-					<label for="inputodd_place_yes_no">
-						<font color="#FF1493" size="4" face="標楷體">
-							&nbsp;&nbsp; <span class="auto-style3">是否出現傷口、壓傷瘀青等</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="odd_place_yes_no" value="是" id="odd_place_yes_no" class="auto-style16" required /><span class="auto-style3">是</span>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="odd_place_yes_no" id="odd_place_yes_no" value="否" class="auto-style16" required /><span class="auto-style3">否</span>
-						</font>
-					</label>
-				</div>
+				
 				<div class="auto-style24">
 					<a href="#" onclick="window.location.href = '/Home/Abnormal_skin'"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">異常</span></a>
 					<label for="inputodd_range">
@@ -334,21 +297,59 @@
 						</label>
 						<br />
 						<a href="#" onclick="window.location.href = '/Home/Emotional_assessment_Home_attendant'"><span style="background-color:blue;margin-right:10px;color:white;" class="auto-style14">情緒評估</span></a>
-						<font color="#FF1493" size="4" face="標楷體"><span class="auto-style3">有時: </span></font>
+						<font color="#FF1493" size="4" face="標楷體"><span class="auto-style3">正面情緒有時: </span></font>
 						<label for="inputfeel_assess_one">
 							<input type="text" id="feel_assess_one" name="feel_assess_one" value=@ViewBag.Emotional_front placeholder="高興" class="auto-style25" required readonly />&nbsp;&nbsp;
 						</label>
 						<font color="#FF1493" face="標楷體">
-							<span class="auto-style3">有時: </span>
+							<span class="auto-style3">負面情緒有時: </span>
 							<label for="inputfeel_assess_twe">
 								<input type="text" id="feel_assess_twe" name="feel_assess_twe" value=@ViewBag.Emotional_Negative placeholder="生氣" class="auto-style25" required readonly />
 							</label>
 						</font>
 						<br />
+						<p class="auto-style6"><font color="#0000EB" face="標楷體"><strong><span class="auto-style17">生命跡象</span></strong></font><img src="../../images/聽診器icon.png" /></p>
+						<div class="auto-style23">
+							<label for="inputtemperature ">
+								<font color="#FF1493" size="4" face="標楷體"><span class="auto-style17">&nbsp; </span><span class="auto-style3">&nbsp; 體溫:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+								<input type="number" name="temperature" id="temperature" class="auto-style9" required />
+							</label>
+							<label for="inputpulse">
+								<font color="#FF1493" face="標楷體"><span class="auto-style14">&nbsp; </span><span class="auto-style3">脈搏:</span><span class="auto-style14">&nbsp;&nbsp;&nbsp;&nbsp; </span></font>&nbsp;
+								<input type="number" id="inputpulse" name="pulse" class="auto-style9" required />
+								<font color="#FF1493" face="標楷體">
+									<span class="auto-style14">&nbsp; </span>
+								</font>
+							</label>
+							
+							<br />
+						</div>
+
+						<div class="auto-style23">
+							<label for="inputpulse_low">
+								<span class="auto-style3">&nbsp;&nbsp; 血壓:</span></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+								<input type="number" name=" pulse_low" id="pulse_low" class="auto-style9" required />
+								&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+							</label>
+							<label for="inputpulse_high">
+								<input type="number" name="pulse_high" id="pulse_high" class="auto-style9" required />
+							</label>
+						</div>
+						<p class="auto-style6"><font color="#0000EB" size="5" face="標楷體"><strong><span class="auto-style17">皮膚</span></strong><img src="../../images/評估icon.png" /></font></p>
+						<div class="auto-style6 form-group row">
+							<label for="inputodd_place_yes_no">
+								<font color="#FF1493" size="4" face="標楷體">
+									&nbsp;&nbsp; <span class="auto-style3">是否出現傷口、壓傷瘀青等</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" name="odd_place_yes_no" value="是" id="odd_place_yes_no" class="auto-style16" required /><span class="auto-style3">是</span>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" name="odd_place_yes_no" id="odd_place_yes_no" value="否" class="auto-style16" required /><span class="auto-style3">否</span>
+								</font>
+							</label>
+						</div>
 						<br />
 						<br />
 						<font color="#0000EB" size="5" face="標楷體"><strong><span class="auto-style17">服藥檢查</span></strong> <img src="../../images/評估icon.png" /></font>
-				</div>
+</div>
 				<div color="#FF1493" size="4" face="標楷體">
 					<label for="inputmedicine">
 						<span class="auto-style3">檢查藥袋藥數量有無正常服藥</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
@@ -409,8 +410,7 @@
 			<br />
 			<br />
 			<input type="button" class="btn btn-primary btn-lg" value="存檔" onclick="sendmessage();" />
-
-	</form>
+			</div>
 	<div class="auto-style8">
 		<br>
 		<br />

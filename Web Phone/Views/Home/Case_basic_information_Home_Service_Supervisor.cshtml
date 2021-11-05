@@ -22,7 +22,7 @@
 			{
 				foreach (user_basic user_ in user_Basics)
 				{
-					@:console.log(@user_.usr_anonymous);
+					@:console.log("@user_.usr_anonymous");
 				
 					@:document.getElementById('bclick').disabled = false;
 		}
@@ -50,33 +50,33 @@
 		function unload() {
 			var name = document.getElementById("name").value;
 			if (name == '')
-				name = "";
+				name = "no";
 			var name2 = document.getElementById("name2").value;
 			if (name2 == '')
-				name2 = "";
+				name2 = "no";
 
 			var location = get_value("input[name='location']:checked");
 			if (location == '')
-				location = "";
+				location = "no";
 			var location1 = get_value("input[name='location1']:checked");
 			if (location1 == '')
-				location1 = "";
+				location1 = "no";
 			var topic = document.getElementById("topic").value;
 			if (topic == '')
-				topic = "";
+				topic = "no";
 			var location2 = get_value("input[name='location2']:checked");
 			if (location2 == '')
-				location2 = "";
+				location2 = "no";
 
 			var occupation = document.getElementById("occupation").value;
 			if (occupation == '')
-				occupation = "";
+				occupation = "no";
 			var location4 = get_value("input[name='location4']:checked");
 			if (location4 == '')
-				location4 = "";
+				location4 = "no";
 			var location5 = get_value("input[name='location5']:checked");
 			if (location5 == '')
-				location5 = "";
+				location5 = "no";
 
 			var list = {
 				usr_name:name,
@@ -92,8 +92,9 @@
 			console.log(list);
 			$.post('@Url.Action("Case_basic_information_Home_Service_Supervisor")',
 				{ user_: list }, function (loc) {
-					window.location.href = loc;
 					window.alert("暫存成功");
+					window.location.href = loc;
+					
 			});
 		}
 
@@ -374,7 +375,7 @@
 				</tr>
 			</table>
 			<p>照顧經費來源 @user_.economic_status_one   經濟是否困難: @user_.economic_status_twe</p>
-			<button class="btn btn-warning btn-lg" onclick="unload()">暫存</button>
+			<button class="btn btn-warning btn-lg" onclick="unload();">暫存</button>
 		}
 	}
 	catch
@@ -568,7 +569,7 @@
 						&nbsp;經濟是否困難&nbsp;&nbsp; <input type="radio" name="location5" value="否" class="auto-style8" /> 否 <input type="radio" name="location5" value="是" class="auto-style8" /> 是
 					</font>
 		</table>
-		<button class="btn btn-warning btn-lg" onclick="unload()">暫存</button>
+		<button class="btn btn-warning btn-lg" onclick="unload();">暫存</button>
 	}
 
 

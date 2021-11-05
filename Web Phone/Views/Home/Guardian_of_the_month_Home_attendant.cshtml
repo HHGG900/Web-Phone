@@ -214,7 +214,7 @@
 	<div class="auto-style41">
 		<div class="auto-style1">
 			<div style="background-color:#FF5F5F;" class="auto-style41">
-					 <span class="auto-style31">每月守護紀錄</span>
+				<span class="auto-style31">每月守護紀錄</span>
 			</div>
 		</div>
 		<br />
@@ -229,7 +229,7 @@
 			</tr>
 			<tr>
 				<td bgcolor="#F5F5F5" colspan="2" align="center" valign="center" class="auto-style3">
-					<img src="../../images/服務人員icon.png" / ><font color="0000EB" face="標楷體">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; @ViewBag.name </font>
+					<img src="../../images/服務人員icon.png" /><font color="0000EB" face="標楷體">&nbsp;&nbsp; 服務人員:&nbsp;&nbsp; @ViewBag.name </font>
 				</td>
 			</tr>
 		</table>
@@ -267,6 +267,27 @@
 		</table>
 
 		<br />
+		<table align="center" class="auto-style13">
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style17">
+					<font color="#F67377" size="4"><strong>@Html.ActionLink("受虐", "Battered_assessment_Home_attendant", "Home", new { @class = "btn btn-primary " })</strong></font>
+				</td>
+				<td bgcolor="#F5F5F5" class="auto-style36">
+					<font color="#F67377" size="3">
+						是否出現疑似受虐
+					</font>
+					<font size="3">
+						@ViewBag.Battered
+					</font>
+					<font color="#F67377" size="3">
+						個&nbsp;
+
+					</font><br />
+
+				</td>
+			</tr>
+		</table>
+		<br />
 		<table class="auto-style11" align="center">
 			<tr>
 				<td bgcolor="#F5F5F5" class="auto-style35" rowspan="4">
@@ -292,7 +313,7 @@
 						&nbsp;&nbsp;&nbsp; 評估
 					</font>
 				</td>
-			</tr> 
+			</tr>
 			<tr>
 				<td bgcolor="#DEEEFF" class="auto-style24"><font color="#0D62C3">@Html.ActionLink("語言", "Language_anomalies_Home_attendant", "Home", new { @class = "btn btn-primary" })</font></td>
 				<td bgcolor="#F5F5F5" class="auto-style27">@ViewBag.anomalies</td>
@@ -318,60 +339,6 @@
 
 		</table>
 		<p class="auto-style39"><font size="2">(異常代表與平常不同)&nbsp;</font></p>
-		<table align="center" class="auto-style13">
-			<tr>
-				<td bgcolor="#F5F5F5">
-					<font color="#0000EB" size="4"><strong>輔具合宜性</strong></font>
-				</td>
-				<td bgcolor="#F5F5F5">
-					<font color="#F67377" size="3">目前輔具是否合宜&nbsp; <input type="radio" name="Assistive" value="是" />是&nbsp; <input type="radio" name="Assistive" value="否" />否</font>
-				</td>
-			</tr>
-		</table>
-		<br />
-		<table align="center" class="auto-style14">
-			<tr>
-				<td bgcolor="#F5F5F5" rowspan="2" class="auto-style29"><font color="#0000EB" size="3"><strong>肌力</strong></font> </td>
-				<td bgcolor="#F5F5F5" class="auto-style30">
-					<span color="#F67377" >
-					說明 : 可使用輔具下，從椅子上站起，向前走5公尺，轉180度走回椅子，坐下。
-						</span>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F5F5F5" class="auto-style30">
-					行走測試: 完成度<br />
-					<input type="radio" name="Muscle" value="100%" />100% 
-					<input type="radio" name="Muscle" value="75%" />75%
-					<input type="radio" name="Muscle" value="50%" />50%
-					<input type="radio" name="Muscle" value="25%" />25%
-					<br />
-					<input type="radio" name="Muscle" value="無法行走" />無法行走
-				</td>
-			</tr>
-		</table>
-		<p class="auto-style39"><font size="2">(異常代表與平常不同)&nbsp;</font></p>
-		<table align="center" class="auto-style13">
-			<tr>
-				<td bgcolor="#F5F5F5" class="auto-style17">
-					<font color="#F67377" size="4"><strong>@Html.ActionLink("受虐", "Battered_assessment_Home_attendant", "Home", new { @class = "btn btn-primary " })</strong></font>
-				</td>
-				<td bgcolor="#F5F5F5" class="auto-style36">
-					<font color="#F67377" size="3">
-						是否出現疑似受虐
-					</font> 
-					<font size="3">
-						@ViewBag.Battered
-					</font>
-					<font color="#F67377" size="3">
-						個&nbsp;
-
-					</font><br />
-					
-				</td>
-			</tr>
-		</table>
-		<br />
 
 		<table align="center" class="auto-style18">
 			<tr>
@@ -387,9 +354,45 @@
 			</tr>
 		</table>
 		<p class="auto-style39">
-				<span class="auto-style40">(異常代表與平常不同)</span>
+			<span class="auto-style40">(異常代表與平常不同)</span>
 		</p>
 		<br />
+		<table align="center" class="auto-style13">
+			<tr>
+				<td bgcolor="#F5F5F5">
+					<font color="#0000EB" size="4"><strong>輔具合宜性</strong></font>
+				</td>
+				<td bgcolor="#F5F5F5">
+					<font color="#F67377" size="3">目前輔具是否合宜&nbsp; <input type="radio" name="Assistive" value="是" />是&nbsp; <input type="radio" name="Assistive" value="否" />否</font>
+				</td>
+			</tr>
+		</table>
+		<br />
+		<table align="center" class="auto-style14">
+			<tr>
+				<td bgcolor="#F5F5F5" rowspan="2" class="auto-style29"><font color="#0000EB" size="3"><strong>肌力</strong></font> </td>
+				<td bgcolor="#F5F5F5" class="auto-style30">
+					<span color="#F67377">
+						說明 : 可使用輔具下，從椅子上站起，向前走5公尺，轉180度走回椅子，坐下。
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td bgcolor="#F5F5F5" class="auto-style30">
+					行走測試: 完成度<br />
+					<input type="radio" name="Muscle" value="100%" />100%
+					<input type="radio" name="Muscle" value="75%" />75%
+					<input type="radio" name="Muscle" value="50%" />50%
+					<input type="radio" name="Muscle" value="25%" />25%
+					<br />
+					<input type="radio" name="Muscle" value="無法行走" />無法行走
+				</td>
+			</tr>
+		</table>
+		<p class="auto-style39"><font size="2">(異常代表與平常不同)&nbsp;</font></p>
+
+
+
 		<br />
 		<br />
 		<input type="submit" class="btn btn-primary btn-lg" onclick="save();" value="存檔" />

@@ -31,7 +31,9 @@ namespace Web_Phone.Models
 						working_name = reader.GetString(reader.GetOrdinal("working_name")),
 						event_description = reader.GetString(reader.GetOrdinal("event_description")),
 						exception_class = reader.GetString(reader.GetOrdinal("exception_class")),
-						ten_index = reader.GetString(reader.GetOrdinal("ten_index")),
+						ten_index = tostring(reader, "ten_index"),
+						execution = tostring(reader, "execute"),
+						tracking = tostring(reader, "track"),
 						tim = reader.GetDateTime(reader.GetOrdinal("tim"))
 					
 				};
@@ -65,7 +67,7 @@ namespace Web_Phone.Models
 						working_name = reader.GetString(reader.GetOrdinal("working_name")),
 						event_description = reader.GetString(reader.GetOrdinal("event_description")),
 						exception_class = reader.GetString(reader.GetOrdinal("exception_class")),
-						ten_index = reader.GetString(reader.GetOrdinal("ten_index")),
+						ten_index = tostring(reader,"ten_index"),
 						execution = tostring(reader,"execute"),
 						tracking = tostring(reader, "track"),
 						tim = reader.GetDateTime(reader.GetOrdinal("tim"))
@@ -92,7 +94,10 @@ namespace Web_Phone.Models
 					sqlCommand.Parameters.Add(new SqlParameter("@working_name", exception_notification.working_name));
 					sqlCommand.Parameters.Add(new SqlParameter("@event_description", exception_notification.event_description));
 					sqlCommand.Parameters.Add(new SqlParameter("@exception_class", exception_notification.exception_class));
-					sqlCommand.Parameters.Add(new SqlParameter("@ten_index", exception_notification.ten_index));
+					if (exception_notification.ten_index == null)
+						sqlCommand.Parameters.Add(new SqlParameter("@ten_index", DBNull.Value));
+					else
+						sqlCommand.Parameters.Add(new SqlParameter("@ten_index", exception_notification.ten_index));
 					sqlCommand.Parameters.Add(new SqlParameter("@tim", exception_notification.tim));
 					sqlCommand.Parameters.Add(new SqlParameter("@id", id));
 					sqlConnection.Open();
