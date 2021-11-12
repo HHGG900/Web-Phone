@@ -110,21 +110,17 @@ namespace Web_Phone.Models
 		[Required]
 		public string medical_history { get; set; }
 
-		[DisplayName("疾病史")]
-		[Required]
-		public string Resource_scale { get; set; }
-
 		[DisplayName("用藥習慣")]
 		[Required]
 		public string medication_habits { get; set; }
-
-		[DisplayName("營養面相")]
+		
+		[DisplayName("用藥習慣2")]
 		[Required]
-		public string nutrition_face { get; set; }
+		public string medication_habits2 { get; set; }
 
 		[DisplayName("身高")]
 		[Required]
-		public int tell { get; set; }
+		public string tell { get; set; }
 
 		[DisplayName("體重")]
 		[Required]
@@ -132,7 +128,7 @@ namespace Web_Phone.Models
 
 		[DisplayName("中臀圍")]
 		[Required]
-		public int BMI { get; set; }
+		public string BMI { get; set; }
 
 		[DisplayName("飲食種類")]
 		[Required]
@@ -223,10 +219,6 @@ namespace Web_Phone.Models
 		[Required]
 		public string self_psychology_three { get; set; }
 
-		[DisplayName("自我心理4")]
-		[Required]
-		public string self_psychology_four { get; set; }
-
 		[DisplayName("他人心理1")]
 		[Required]
 		public string others_psychology_one { get; set; }
@@ -247,29 +239,33 @@ namespace Web_Phone.Models
 		[Required]
 		public string participate_religion { get; set; }
 
+		[DisplayName("珍愛事務")]
+		[Required]
+		public string participate_religion2 { get; set; }
+
 		[DisplayName("特殊習慣")]
 		[Required]
 		public string special_habits { get; set; }
 
 		[DisplayName("契約書")]
-		[Required]
+		
 		public string pic_contract { get; set; }
 
 		[DisplayName("重大傷患卡")]
-		[Required]
+		
 		public string urinapic_major_injuryte { get; set; }
 
 
 		[DisplayName("身心障礙手冊")]
-		[Required]
+		
 		public string pic_disability { get; set; }
 
 		[DisplayName("身分證-正面")]
-		[Required]
+		
 		public string pic_identity_card_correct { get; set; }
 
 		[DisplayName("身分證-反面")]
-		[Required]
+		
 		public string pic_identity_card_counter { get; set; }
 
 	}

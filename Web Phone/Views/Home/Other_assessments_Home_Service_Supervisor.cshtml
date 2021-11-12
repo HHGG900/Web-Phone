@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Web_Phone.Models;
+@{
+	List<user_basic> user_Basics = ViewBag.usr;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -12,6 +16,83 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+
+	function get_value(a){
+
+	var arr2 = [];
+	$(a).each(function () {
+	arr2.push($(this).val());
+	});
+	return arr2.toString();
+
+	}
+	function unload() {
+
+
+	var location = get_value("input[name='location']:checked");
+	if (location == '')
+		location = "no";
+
+
+	var location1 = get_value("input[name='location1']:checked");
+	if (location1 == '')
+			location1 = "no";
+
+	var location2 = get_value("input[name='location2']:checked");
+	if (location2 == '')
+		location2 = "no";
+	var location3 = get_value("input[name='location3']:checked");
+	if (location3 == '')
+		location3 = "no";
+
+	var location4 = get_value("input[name='location4']:checked");
+	if (location4 == '')
+		location4 = "no";
+	var location5 = get_value("input[name='location5']:checked");
+	if (location5 == '')
+	location5 = "no";
+	var location6 = get_value("input[name='location6']:checked");
+	if (location6 == '')
+		location6 = "no";
+	var location7 = get_value("input[name='location7']:checked");
+	if (location7 == '')
+		location7 = "no";
+	var location8 = get_value("input[name='location8']:checked");
+	if (location8 == '')
+		location8 = "no";
+	var location9 = get_value("input[name='location9']:checked");
+	if (location9 == '')
+		location9 = "no";
+	var special_habits = document.getElementById("special_habits").value;
+		if (special_habits == '')
+			special_habits = "no";
+
+	var list = {
+		environment: location,
+		self_psychology_one: location1,
+		self_psychology_twe: location2,
+		self_psychology_three: location3,
+		others_psychology_one: location4,
+		others_psychology_twe: location5,
+		religion: location6,
+		talk_status: location7,
+		participate_religion: location8,
+		participate_religion2: location9,
+		special_habits: special_habits
+	}
+	console.log(list);
+	$.post('@Url.Action("Other_assessments_Home_Service_Supervisor")',
+	{ user_: list }, function (loc) {
+	window.alert("暫存成功");
+	window.location.href = loc;
+
+	});
+	}
+
+
+
+	</script>
 	<style type="text/css">
 
 		.auto-style1 {
@@ -83,158 +164,359 @@
 			&nbsp;<br />
 		</font>
 		&nbsp;
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style17">
-					<font color="#0d62c3" size="4" face="標楷體">環境評估</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="5">
-						<input type="radio" name="location" value="正常" class="auto-style8" /> 正常
-						<input type="checkbox" name="location" value="髒亂" class="auto-style8" /> 髒亂<br />
-						<input type="checkbox" name="location" value="安全疑慮" class="auto-style8" />安全疑慮
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			&nbsp;
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style42" rowspan="2">
-					<font color="#0d62c3" size="4">
-						<span class="auto-style6">
-							心理評估
-						</span>
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style43">
-					<font color="#0d62c3" size="5">
-						與自我
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="5">
-						人生有什麼目標?目標有沒有達成?<br />
-						<input type="radio" name="location1" value="是" class="auto-style8" /> 是 <input type="radio" name="location1" value="否" class="auto-style8" /> 否
-						<br />
-						對於現在階段是否有什麼安排?
-						<br />
-						<input type="radio" name="location2" value="是" class="auto-style8" /> 是 <input type="radio" name="location2" value="否" class="auto-style8" /> 否
-						<br />
-						談話中是否出現否定自我的存在價值
-						<br />
-						<input type="radio" name="location3" value="是" class="auto-style8" /> 是 <input type="radio" name="location3" value="否" class="auto-style8" /> 否
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style43">
-					<font color="#0d62c3" size="5">
-						與他人
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="5">
-						是否有對親友感到不滿或不諒解
-						<br />
-						<input type="radio" name="location4" value="是" class="auto-style8" /> 是 <input type="radio" name="location4" value="否" class="auto-style8" /> 否
-						<br />
-						(觀察)能主動表現對他人關愛?
-						<br />
-						<input type="radio" name="location5" value="是" class="auto-style8" /> 是 <input type="radio" name="location5" value="否" class="auto-style8" /> 否
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			&nbsp;
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" rowspan="5" class="auto-style42">
-					<font color="#0d62c3" size="4">
-						<span class="auto-style6">
-							靈性評估
-						</span>
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style45">
-					<font color="#0d62c3" size="5">
-						與神祇
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0">
-					<font color="#F67377" size="5">
-						是否有宗教信仰<br />
-						<input type="radio" name="location6" value="基督教" class="auto-style8" /> 基督教
-						<input type="radio" name="location6" value="佛教" class="auto-style8" /> 佛教
+		@try
+		{
+			<p>123546</p>
+			foreach (user_basic user_ in user_Basics)
+			{
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style17">
+							<font color="#0d62c3" size="4" face="標楷體">環境評估</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="5">
+								<input type="checkbox" name="location" value="正常" class="auto-style8" /> 正常
+								<input type="checkbox" name="location" value="髒亂" class="auto-style8" /> 髒亂<br />
+								<input type="checkbox" name="location" value="安全疑慮" class="auto-style8" />安全疑慮
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					環境評估:@user_.environment
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style42" rowspan="2">
+							<font color="#0d62c3" size="4">
+								<span class="auto-style6">
+									心理評估
+								</span>
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style43">
+							<font color="#0d62c3" size="5">
+								與自我
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="5">
+								人生有什麼目標?目標有沒有達成?<br />
+								<input type="radio" name="location1" value="是" class="auto-style8" /> 是 <input type="radio" name="location1" value="否" class="auto-style8" /> 否
+								<br />
+								對於現在階段是否有什麼安排?
+								<br />
+								<input type="radio" name="location2" value="是" class="auto-style8" /> 是 <input type="radio" name="location2" value="否" class="auto-style8" /> 否
+								<br />
+								談話中是否出現否定自我的存在價值
+								<br />
+								<input type="radio" name="location3" value="是" class="auto-style8" /> 是 <input type="radio" name="location3" value="否" class="auto-style8" /> 否
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style43">
+							<font color="#0d62c3" size="5">
+								與他人
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="5">
+								是否有對親友感到不滿或不諒解
+								<br />
+								<input type="radio" name="location4" value="是" class="auto-style8" /> 是 <input type="radio" name="location4" value="否" class="auto-style8" /> 否
+								<br />
+								(觀察)能主動表現對他人關愛?
+								<br />
+								<input type="radio" name="location5" value="是" class="auto-style8" /> 是 <input type="radio" name="location5" value="否" class="auto-style8" /> 否
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					人生有什麼目標?目標有沒有達成?
+					<br />
+					@user_.self_psychology_one
+					<br />
+					對於現在階段是否有什麼安排?
+					<br />
+					@user_.self_psychology_twe
+					<br />
+					談話中是否出現否定自我的存在價值
+					<br />
+					@user_.self_psychology_three
+					<br /><br />
+					是否有對親友感到不滿或不諒解
+					<br />
+					@user_.others_psychology_one
+					<br />
+					(觀察)能主動表現對他人關愛?
+					<br />
+					@user_.others_psychology_twe
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" rowspan="5" class="auto-style42">
+							<font color="#0d62c3" size="4">
+								<span class="auto-style6">
+									靈性評估
+								</span>
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style45">
+							<font color="#0d62c3" size="5">
+								與神祇
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0">
+							<font color="#F67377" size="5">
+								是否有宗教信仰<br />
+								<input type="radio" name="location6" value="基督教" class="auto-style8" /> 基督教
+								<input type="radio" name="location6" value="佛教" class="auto-style8" /> 佛教
 
-						<br />
-						<input type="radio" name="location6" value="道教" class="auto-style8" /> 道教
-						<input type="radio" name="location6" value="天主教" class="auto-style8" /> 天主教
+								<br />
+								<input type="radio" name="location6" value="道教" class="auto-style8" /> 道教
+								<input type="radio" name="location6" value="天主教" class="auto-style8" /> 天主教
 
-						<br />
-						<input type="radio" name="location6" value="回教" class="auto-style8" /> 回教
+								<br />
+								<input type="radio" name="location6" value="回教" class="auto-style8" /> 回教
 
-						<input type="radio" name="location6" value="無" class="auto-style8" /> 無
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" rowspan="3" class="auto-style45" align="center">
-					<font color="#0d62c3" size="5">
-						與大<br />
-						自然
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0">
-					<font color="#F67377" size="5">
-						談話中是否出現怨天尤人情形<br />
-						<input type="radio" name="location7" value="是" class="auto-style8" /> 是
-						<input type="radio" name="location7" value="否" class="auto-style8" /> 否
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0">
-					<font color="#F67377" size="5">
-						能藉由宗教信仰或儀式帶來平靜<br />
-						<input type="radio" name="location8" value="是" class="auto-style8" /> 是
-						<input type="radio" name="location8" value="否" class="auto-style8" /> 否
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0">
-					<font color="#F67377" size="5">
-						透露出珍愛身邊的人、事、物<br />
-						<input type="radio" name="location9" value="是" class="auto-style8" /> 是
-						<input type="radio" name="location9" value="否" class="auto-style8" /> 否
-					</font>
-				</td>
-			</tr>
+								<input type="radio" name="location6" value="無" class="auto-style8" /> 無
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" rowspan="3" class="auto-style45" align="center">
+							<font color="#0d62c3" size="5">
+								與大<br />
+								自然
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0">
+							<font color="#F67377" size="5">
+								談話中是否出現怨天尤人情形<br />
+								<input type="radio" name="location7" value="是" class="auto-style8" /> 是
+								<input type="radio" name="location7" value="否" class="auto-style8" /> 否
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0">
+							<font color="#F67377" size="5">
+								能藉由宗教信仰或儀式帶來平靜<br />
+								<input type="radio" name="location8" value="是" class="auto-style8" /> 是
+								<input type="radio" name="location8" value="否" class="auto-style8" /> 否
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0">
+							<font color="#F67377" size="5">
+								透露出珍愛身邊的人、事、物<br />
+								<input type="radio" name="location9" value="是" class="auto-style8" /> 是
+								<input type="radio" name="location9" value="否" class="auto-style8" /> 否
+							</font>
+						</td>
+					</tr>
 
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style46">
-					<font color="#0d62c3" size="4">特殊生活習慣</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="5" face="標楷體">
-						<br />
-						<input type="text" name="text" placeholder="例如:吃飯前一定要禱告" class="auto-style47" /><br />
-						&nbsp;
-					</font>
-				</td>
-			</tr>
-		</table>
+				</table>
+				<p>
+					是否有宗教信仰
+					<br />
+					@user_.religion
+					<br />
+					談話中是否出現怨天尤人情形
+					<br />
+					@user_.talk_status
+					<br />
+					能藉由宗教信仰或儀式帶來平靜
+					<br />
+					@user_.participate_religion
+					<br />
+					透露出珍愛身邊的人、事、物
+					<br />
+					@user_.participate_religion2
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style46">
+							<font color="#0d62c3" size="4">特殊生活習慣</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="5" face="標楷體">
+								<br />
+								<input type="text" name="text" id="special_habits" placeholder="例如:吃飯前一定要禱告" class="auto-style47" /><br />
+								&nbsp;
+							</font>
+						</td>
+					</tr>
+
+				</table>
+				<p>
+					特殊生活習慣: @user_.special_habits
+				</p>
+				<button class="btn btn-warning btn-lg" onclick="unload();">暫存</button>
+			}
+		}
+		catch
+		{
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style17">
+						<font color="#0d62c3" size="4" face="標楷體">環境評估</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="5">
+							<input type="checkbox" name="location" value="正常" class="auto-style8" /> 正常
+							<input type="checkbox" name="location" value="髒亂" class="auto-style8" /> 髒亂<br />
+							<input type="checkbox" name="location" value="安全疑慮" class="auto-style8" />安全疑慮
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				&nbsp;
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style42" rowspan="2">
+						<font color="#0d62c3" size="4">
+							<span class="auto-style6">
+								心理評估
+							</span>
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style43">
+						<font color="#0d62c3" size="5">
+							與自我
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="5">
+							人生有什麼目標?目標有沒有達成?<br />
+							<input type="radio" name="location1" value="是" class="auto-style8" /> 是 <input type="radio" name="location1" value="否" class="auto-style8" /> 否
+							<br />
+							對於現在階段是否有什麼安排?
+							<br />
+							<input type="radio" name="location2" value="是" class="auto-style8" /> 是 <input type="radio" name="location2" value="否" class="auto-style8" /> 否
+							<br />
+							談話中是否出現否定自我的存在價值
+							<br />
+							<input type="radio" name="location3" value="是" class="auto-style8" /> 是 <input type="radio" name="location3" value="否" class="auto-style8" /> 否
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style43">
+						<font color="#0d62c3" size="5">
+							與他人
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="5">
+							是否有對親友感到不滿或不諒解
+							<br />
+							<input type="radio" name="location4" value="是" class="auto-style8" /> 是 <input type="radio" name="location4" value="否" class="auto-style8" /> 否
+							<br />
+							(觀察)能主動表現對他人關愛?
+							<br />
+							<input type="radio" name="location5" value="是" class="auto-style8" /> 是 <input type="radio" name="location5" value="否" class="auto-style8" /> 否
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				&nbsp;
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" rowspan="5" class="auto-style42">
+						<font color="#0d62c3" size="4">
+							<span class="auto-style6">
+								靈性評估
+							</span>
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style45">
+						<font color="#0d62c3" size="5">
+							與神祇
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0">
+						<font color="#F67377" size="5">
+							是否有宗教信仰<br />
+							<input type="radio" name="location6" value="基督教" class="auto-style8" /> 基督教
+							<input type="radio" name="location6" value="佛教" class="auto-style8" /> 佛教
+
+							<br />
+							<input type="radio" name="location6" value="道教" class="auto-style8" /> 道教
+							<input type="radio" name="location6" value="天主教" class="auto-style8" /> 天主教
+
+							<br />
+							<input type="radio" name="location6" value="回教" class="auto-style8" /> 回教
+
+							<input type="radio" name="location6" value="無" class="auto-style8" /> 無
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" rowspan="3" class="auto-style45" align="center">
+						<font color="#0d62c3" size="5">
+							與大<br />
+							自然
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0">
+						<font color="#F67377" size="5">
+							談話中是否出現怨天尤人情形<br />
+							<input type="radio" name="location7" value="是" class="auto-style8" /> 是
+							<input type="radio" name="location7" value="否" class="auto-style8" /> 否
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0">
+						<font color="#F67377" size="5">
+							能藉由宗教信仰或儀式帶來平靜<br />
+							<input type="radio" name="location8" value="是" class="auto-style8" /> 是
+							<input type="radio" name="location8" value="否" class="auto-style8" /> 否
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0">
+						<font color="#F67377" size="5">
+							透露出珍愛身邊的人、事、物<br />
+							<input type="radio" name="location9" value="是" class="auto-style8" /> 是
+							<input type="radio" name="location9" value="否" class="auto-style8" /> 否
+						</font>
+					</td>
+				</tr>
+
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style46">
+						<font color="#0d62c3" size="4">特殊生活習慣</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="5" face="標楷體">
+							<br />
+							<input type="text" name="text" id="special_habits" placeholder="例如:吃飯前一定要禱告" class="auto-style47" /><br />
+							&nbsp;
+						</font>
+					</td>
+				</tr>
+			</table>
+			<button class="btn btn-warning btn-lg" onclick="unload();">暫存</button>
+		}
 		<div class="auto-style7">
 			<nav aria-label="Page navigation example">
 				<ul class="pagination">
@@ -259,6 +541,8 @@
 			</nav>
 		</div>
 		<div class="auto-style4">
+			<br />
+			@Html.ActionLink("回首頁", "Case_selection_page_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })
 			<br />
 			@Html.ActionLink("下一頁", "Information_upload_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })
 			<br />

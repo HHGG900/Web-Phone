@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Web_Phone.Models;
+@{
+	List<user_basic> user_Basics = ViewBag.basic;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -14,14 +18,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style type="text/css">
 		.auto-style1 {
-			font-family:標楷體;
+			font-family: 標楷體;
 			text-align: center;
 			font-size: x-large;
 			color: #FFFFFF;
 			background-color: #0d62c3;
 		}
 
-		
+
 		.auto-style3 {
 			width: 300px;
 		}
@@ -30,10 +34,12 @@
 		.auto-style5 {
 			width: 325px;
 		}
+
 		.auto-style7 {
-			font-family:標楷體;
+			font-family: 標楷體;
 			font-size: medium;
 		}
+
 		.auto-style8 {
 			font-family: 標楷體;
 			font-size: large;
@@ -41,11 +47,12 @@
 			width: 35px;
 			height: 21px;
 		}
+
 		.auto-style9 {
-			font-family:標楷體;
+			font-family: 標楷體;
 			font-size: large;
 		}
-		</style>
+	</style>
 </head>
 
 <body style="background-color:#FAF4FF; ">
@@ -54,86 +61,128 @@
 	</div>
 	<br />
 	<br />
-	<table align="center" class="auto-style5" border="1">
-		<tr>
-			<td class="auto-style3">
-				<font face="標楷體" size="5">
-					<strong>
-						<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-						<span class="auto-style9">個別化照顧計畫 </span>
-					</strong>
-					<span class="auto-style7">
-						<br />
-						<br />
-					</span>
-					<span class="auto-style9">
-						核定項目:
+	@if (user_Basics.Count != 0)
+	{
+		foreach (user_basic user_ in user_Basics)
+		{
+			@*<table align="center" class="auto-style5" border="1">
+				<tr>
+					<td class="auto-style3">
+						<font face="標楷體" size="5">
+							<strong>
+								<span class="auto-style7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+								<span class="auto-style9">個別化照顧計畫 </span>
+							</strong>
+							<span class="auto-style7">
+								<br />
+								<br />
+							</span>
+							<span class="auto-style9">
+								核定項目:
 
-						<br />
-						<br />
-						照顧目標:&nbsp; 個案
-					</span><img src="../../images/箭頭.png" class="auto-style8" />
-					<span class="auto-style7">
-						<br class="auto-style9" />
-						<br class="auto-style9" />
-					</span>
-					<span class="auto-style9">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 家屬
-					</span><img src="../../images/箭頭.png" class="auto-style8" />
-					<span class="auto-style9">
-						<br />
-						<br />
+								<br />
+								<br />
+								照顧目標:&nbsp; 個案
+							</span><img src="../../images/箭頭.png" class="auto-style8" />
+							<span class="auto-style7">
+								<br class="auto-style9" />
+								<br class="auto-style9" />
+							</span>
+							<span class="auto-style9">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 家屬
+							</span><img src="../../images/箭頭.png" class="auto-style8" />
+							<span class="auto-style9">
+								<br />
+								<br />
 
-						溫度照顧(情緒):
+								溫度照顧(情緒):
 
-						<br />
-						<br />
-						活動照顧(生理):<br />
-						<br />
+								<br />
+								<br />
+								活動照顧(生理):<br />
+								<br />
 
-						生活照顧(代碼):<br />
-						<br />
+								生活照顧(代碼):<br />
+								<br />
 
-						守護照顧(變化):<br />
-						<br />
+								守護照顧(變化):<br />
+								<br />
 
-						照顧注意事項:
-					</span><span class="auto-style7">
-						<br />
-						<br />
-					</span>
-				</font>
-			</td>
-		</tr>
-	</table>
-	<br />
-	<br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" ace="標楷體">姓名:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">暱稱:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">慣用語言:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">母語:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">喜歡的話題:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">興趣/喜好:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">過去職業:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">經濟狀況:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">現在個性:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">禁忌:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">易接受方式:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">照顧期待:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">緊急聯絡人:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">主要照顧者:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">疾病史:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">用藥習慣:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">營養面相:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">飲食面相:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">口腔面相:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">排泄型態:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">循環狀況:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">環境評估:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">心理評估:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">靈性評估:</font></div><br />
-	<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">特殊生活習慣:</font></div>
-
+								照顧注意事項:
+							</span><span class="auto-style7">
+								<br />
+								<br />
+							</span>
+						</font>
+					</td>
+				</tr>
+			</table>*@
+			<br />
+			<br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" ace="標楷體">姓名:@user_.usr_name</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">暱稱:@user_.usr_anonymous</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">慣用語言:@user_.usr_icustom_languagendex</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">母語:@user_.mom_language</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">喜歡的話題:@user_.like_topic</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">興趣/喜好:@user_.interest</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">過去職業:@user_.occupation</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">經濟狀況:@user_.economic_status_one</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">現在個性:@user_.new_identity</font></div> <br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">禁忌:@user_.ban</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">易接受方式:@user_.accept_topic</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">照顧期待:@user_.usr_expect</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">緊急聯絡人:@user_.family_name</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">主要照顧者:@user_.care_name</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">疾病史:@user_.medical_history</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">用藥習慣:@user_.medication_habits</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">營養面相:身高(膝長): @user_.tell 體重(臂圍):@user_.usr_weight BMI(中臂圍):@user_.BMI</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">飲食面相:餐飲習慣: @user_.diet_face   飲水習慣: @user_.drink_face   水分攝取是否充足: @user_.drink_volume</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">口腔面相:咀嚼:@user_.chew   	吞嚥:@user_.swallow	   	清潔:@user_.oral_cleaning</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">排泄型態:排便頻率:@user_.defecation_tim   時間:@user_.defecation_time_period   排尿:@user_.urinate</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">循環狀況:@user_.circulation_status</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">環境評估:@user_.environment</font></div><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">心理評估:</font></div><p>
+				人生有什麼目標?目標有沒有達成?
+				<br />
+				@user_.self_psychology_one
+				<br />
+				對於現在階段是否有什麼安排?
+				<br />
+				@user_.self_psychology_twe
+				<br />
+				談話中是否出現否定自我的存在價值
+				<br />
+				@user_.self_psychology_three
+				<br /><br />
+				是否有對親友感到不滿或不諒解
+				<br />
+				@user_.others_psychology_one
+				<br />
+				(觀察)能主動表現對他人關愛?
+				<br />
+				@user_.others_psychology_twe
+			</p><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">靈性評估:</font></div>
+			<p>
+				是否有宗教信仰
+				<br />
+				@user_.religion
+				<br />
+				談話中是否出現怨天尤人情形
+				<br />
+				@user_.talk_status
+				<br />
+				能藉由宗教信仰或儀式帶來平靜
+				<br />
+				@user_.participate_religion
+				<br />
+				透露出珍愛身邊的人、事、物
+				<br />
+				@user_.participate_religion2
+			</p><br />
+			<div style="background-color:white" class="auto-style7"><font color="#0d62c3" size="5" face="標楷體">特殊生活習慣:@user_.special_habits</font></div>
+		}
+	}
 
 
 	<div class="text-right">

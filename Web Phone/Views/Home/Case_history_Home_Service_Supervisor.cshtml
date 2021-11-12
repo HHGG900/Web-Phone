@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Web_Phone.Models;
+@{
+	List<user_basic> user_Basics = ViewBag.usr;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -17,9 +21,9 @@
 		function BMI() {
 			var tell = document.getElementById("tell").value;
 			var weight = document.getElementById("usr_weight").value;
-			bmi = weight / (tell * tell);
+			bmi = (weight / (tell * tell)).toFixed(2);
 			document.getElementById("bmi").innerHTML = "<font onclick='BMI()' id='bmi' color='#FF0000' size='5'>"+
-				"BMI:" + bmi.toFixed(2)+ "     </font >"
+				"BMI:" + bmi+ "     </font >"
 		}
 
 	function get_value(a){
@@ -45,83 +49,111 @@
 		var location2 = get_value("input[name='location2']:checked");
 		if (location2 == '')
 			location2 = "no";
-		if (get_value("input[name='location9']:checked") == "體態") {
-			var tell = document.getElementById("tell").value;
-			var usr_weight = document.getElementById("usr_weight").value;
-			var BMI = bmi;
-		}
-		else {
-			BMI();
-			var tell = document.getElementById("tell2").value;
-			var usr_weight = document.getElementById("usr_weight2").value;
-			var BMI = document.getElementById("BMI").value;
-		}
-			
+			if (get_value("input[name='location9']:checked") == "體態") {
+				var tell = document.getElementById("tell").value;
+				var usr_weight = document.getElementById("usr_weight").value;
+				BMI();
+				var bmi_ = bmi;
+			}
+			else if (get_value("input[name='location9']:checked") == "體圍") {
+				var tell = document.getElementById("tell2").value;
+				var usr_weight = document.getElementById("usr_weight2").value;
+				var bmi_ = document.getElementById("BMI").value;
+			}
+			else {
+				var tell = "no";
+				var usr_weight = "no";
+				var bmi_ = "no";
+			}
+		if(tell == '')
+			tell ="no";
+		if(usr_weight == '')
+			usr_weight ="no";
+		
+
 		var location3 = get_value("input[name='location3']:checked");
 		if (location3 == '')
 			location3 = "no";
-	var ban = document.getElementById("ban").value;
-	if (ban == '')
-			ban = "no";
-	
-	var usr_expect = document.getElementById("usr_expect").value;
-	if (usr_expect == '')
-		usr_expect = "no";
-	
-	var family_expect = document.getElementById("family_expect").value;
-	if (family_expect == '')
-		family_expect = "no";
-	var family_name = document.getElementById("family_name").value;
-	if (family_name == '')
-		family_name = "no";
-	var family_phone = document.getElementById("family_phone").value;
-	if (family_phone == '')
-		family_phone = "no";
-		var family_Line = document.getElementById("family_Line").value;
-		if (family_Line == '')
-			family_Line = "no";
-		var care_bind = document.getElementById("care_bind").value;
-		if (care_bind == '')
-			care_bind = "no";
-		var care_year = document.getElementById("care_year").value;
-		if (care_year == '')
-			care_year = "no";
-		var care_name = document.getElementById("care_name").value;
-		if (care_name == '')
-			care_name = "no";
-		
 		var location4 = get_value("input[name='location4']:checked");
 		if (location4 == '')
 			location4 = "no";
 		var location5 = get_value("input[name='location5']:checked");
 		if (location5 == '')
 			location5 = "no";
-	var location4 = get_value("input[name='location4']:checked");
-	if (location4 == '')
-	location4 = "no";
-	var location5 = get_value("input[name='location5']:checked");
-	if (location5 == '')
-	location5 = "no";
-
+		var location6 = get_value("input[name='location6']:checked");
+		if (location6 == '')
+			location6 = "no";
+		var location7 = get_value("input[name='location7']:checked");
+		if (location7 == '')
+			location7 = "no";
+		var location8 = get_value("input[name='location8']:checked");
+		if (location8 == '')
+			location8 = "no";
+		var defecation_tim = document.getElementById("defecation_tim").value;
+		if (defecation_tim == '')
+				defecation_tim = "no";
+		var location10 = get_value("input[name='location10']:checked");
+		if (location10 == '')
+			location10 = "no";
+		var location11 = get_value("input[name='location11']:checked");
+		if (location11 == '')
+			location11 = "no";
+		var location12 = get_value("input[name='location12']:checked");
+		if (location12 == '')
+			location12 = "no";
+		var left_hand_power = document.getElementById("left_hand_power").value;
+		if (left_hand_power == '')
+				left_hand_power = "no";
+		var left_leg_power = document.getElementById("left_leg_power").value;
+		if (left_leg_power == '')
+				left_leg_power = "no";
+		var right_hand_power = document.getElementById("right_hand_power").value;
+		if (right_hand_power == '')
+				right_hand_power = "no";
+		var right_leg_power = document.getElementById("right_leg_power").value;
+		if (right_leg_power == '')
+				right_leg_power = "no";
+		var location13 = get_value("input[name='location13']:checked");
+		if (location13 == '')
+			location13 = "no";
+		var location14 = get_value("input[name='location14']:checked");
+		if (location14 == '')
+			location14 = "no";
+		var location15 = get_value("input[name='location15']:checked");
+		if (location15 == '')
+			location15 = "no";
+		var location16 = get_value("input[name='location16']:checked");
+		if (location16 == '')
+			location16 = "no";
+		
 	var list = {
-		new_identity: location,
-		ban: ban,
-		accept_topic: location1,
-		usr_expect: usr_expect,
-		family_expect: family_expect,
-		family_name: family_name,
-		family_phone: family_phone,
-		family_Line: family_Line,
-		care_bind: care_bind,
-		care_year: care_year,
-		care_name: care_name,
-		care_one: location2,
-		care_twe: location3,
-		care_three: location4,
-		care_four: location5
+		medical_history: location,
+		medication_habits: location1,
+		medication_habits2: location2,
+		tell: tell,
+		usr_weight: usr_weight,
+		BMI: bmi_,
+		diet_face: location3,
+		drink_face: location4,
+		drink_volume: location5,
+		chew: location6,
+		swallow: location7,
+		oral_cleaning: location8,
+		defecation_tim: defecation_tim,
+		defecation_time_period: location10,
+		urinate: location11,
+		circulation_status: location12,
+		left_hand_power: left_hand_power,
+		left_leg_power: left_leg_power,
+		right_hand_power: right_hand_power,
+		right_leg_power: right_leg_power,
+		pipeline: location13,
+		Skin_condition: location14,
+		sleep: location15,
+		substance_abuse: location16
 	}
 	console.log(list);
-	$.post('@Url.Action("Single_case_care_Home_Service_Supervisor")',
+	$.post('@Url.Action("Case_history_Home_Service_Supervisor")',
 	{ user_: list }, function (loc) {
 	window.alert("暫存成功");
 	window.location.href = loc;
@@ -258,472 +290,978 @@
 			&nbsp;<br />
 		</font>
 		&nbsp;
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style42">
-					<font color="#0d62c3" size="5" face="標楷體">疾病史</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4">
-						<input type="checkbox" name="location" value="高血壓" class="auto-style8" /> 高血壓
-						<input type="checkbox" name="location" value="糖尿病" class="auto-style8" /> 糖尿病
-						<input type="checkbox" name="location" value="骨骼系統" class="auto-style8" /> 骨骼系統<br />
-						<input type="checkbox" name="location" value="視覺退化" class="auto-style8" /> 視覺退化&nbsp;
-						<input type="checkbox" name="location" value="腦血管意外" class="auto-style8" /> 腦血管意外
-						<input type="checkbox" name="location" value="冠狀動脈病" class="auto-style8" /> 冠狀動脈病&nbsp;
-						<input type="checkbox" name="location" value="癌症" class="auto-style8" /> 癌症
-						<input type="checkbox" name="location" value="心房顫動/節律障礙" class="auto-style8" /> 心房顫動/節律障礙
-						<input type="checkbox" name="location" value="呼吸系統" class="auto-style8" /> 呼吸系統 					<input type="checkbox" name="location10" value="正義" class="auto-style8" /> 失智症
-						<input type="checkbox" name="location" value="消化系統" class="auto-style8" /> 消化系統
-						<input type="checkbox" name="location" value="營養不良" class="auto-style8" /> 營養不良
-						<input type="checkbox" name="location" value="泌尿系統" class="auto-style8" /> 泌尿系統
-						<br />
-						<input type="checkbox" name="location" value="帕金森氏症" class="auto-style8" /> 帕金森氏症
-						<input type="checkbox" name="location" value="脊髓損傷" class="auto-style8" /> 脊髓損傷
-						<input type="checkbox" name="location" value="腦性麻痺" class="auto-style8" /> 腦性麻痺
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			&nbsp;
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style43" rowspan="2">
-					<font color="#0d62c3" size="5">
-						<span class="auto-style6">
-							用藥<br />
-							習慣
-						</span>
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14" valign="top">
-					<font color="#F67377" size="4">
-						<input type="checkbox" name="location1" value="正常" />正常
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4">
-						<input type="checkbox" name="location1" value="不固定服藥" class="auto-style8" />不固定服藥
-						<input type="checkbox" name="location1" value="自行調藥" class="auto-style8" />自行調藥
+		@try
+		{
+			foreach (user_basic user_ in user_Basics)
+			{
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style42">
+							<font color="#0d62c3" size="5" face="標楷體">疾病史</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								<input type="checkbox" name="location" value="高血壓" class="auto-style8" /> 高血壓
+								<input type="checkbox" name="location" value="糖尿病" class="auto-style8" /> 糖尿病
+								<input type="checkbox" name="location" value="骨骼系統" class="auto-style8" /> 骨骼系統<br />
+								<input type="checkbox" name="location" value="視覺退化" class="auto-style8" /> 視覺退化&nbsp;
+								<input type="checkbox" name="location" value="腦血管意外" class="auto-style8" /> 腦血管意外
+								<input type="checkbox" name="location" value="冠狀動脈病" class="auto-style8" /> 冠狀動脈病&nbsp;
+								<input type="checkbox" name="location" value="癌症" class="auto-style8" /> 癌症
+								<input type="checkbox" name="location" value="心房顫動/節律障礙" class="auto-style8" /> 心房顫動/節律障礙
+								<input type="checkbox" name="location" value="呼吸系統" class="auto-style8" /> 呼吸系統 					<input type="checkbox" name="location10" value="正義" class="auto-style8" /> 失智症
+								<input type="checkbox" name="location" value="消化系統" class="auto-style8" /> 消化系統
+								<input type="checkbox" name="location" value="營養不良" class="auto-style8" /> 營養不良
+								<input type="checkbox" name="location" value="泌尿系統" class="auto-style8" /> 泌尿系統
+								<br />
+								<input type="checkbox" name="location" value="帕金森氏症" class="auto-style8" /> 帕金森氏症
+								<input type="checkbox" name="location" value="脊髓損傷" class="auto-style8" /> 脊髓損傷
+								<input type="checkbox" name="location" value="腦性麻痺" class="auto-style8" /> 腦性麻痺
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					@user_.medical_history
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style43" rowspan="2">
+							<font color="#0d62c3" size="5">
+								<span class="auto-style6">
+									用藥<br />
+									習慣
+								</span>
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14" valign="top">
+							<font color="#F67377" size="4">
+								<input type="checkbox" name="location1" value="正常" />正常
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								<input type="checkbox" name="location1" value="不固定服藥" class="auto-style8" />不固定服藥
+								<input type="checkbox" name="location1" value="自行調藥" class="auto-style8" />自行調藥
 
-						<br />
-						<input type="checkbox" name="location1" value="使用非醫囑藥物" class="auto-style8" />使用非醫囑藥物
+								<br />
+								<input type="checkbox" name="location1" value="使用非醫囑藥物" class="auto-style8" />使用非醫囑藥物
 
-						<br />
-						<input type="checkbox" name="location1" value="拒絕服藥" class="auto-style8" />拒絕服藥
-						<input type="checkbox" name="location1" value="囤藥" class="auto-style8" />囤藥
+								<br />
+								<input type="checkbox" name="location1" value="拒絕服藥" class="auto-style8" />拒絕服藥
+								<input type="checkbox" name="location1" value="囤藥" class="auto-style8" />囤藥
 
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4">
-						藥物過敏
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4">
-						<input type="checkbox" name="location2" value="否" class="auto-style8" /> 否
-						<input type="checkbox" name="location2" value="是" class="auto-style8" /> 是
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			&nbsp;
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style18" rowspan="3">
-					<font color="#0d62c3" size="5">營養面相</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4">
-						<input type="radio" name="location9" value="體態" />體態:&nbsp;
-						身高 <input id="tell" type="text" name="text" placeholder="單行" class="auto-style25" />&nbsp;&nbsp;&nbsp;
-						體重 <input id="usr_weight" type="text" name="text" placeholder="單行" class="auto-style25" />
-						<br />
-						&nbsp;&nbsp;
-					</font>
-					(可量測時)
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4">
-						<input type="radio" name="location9" value="體圍" />體圍:&nbsp;&nbsp;
-						膝長 <input id="tell2" type="text" name="text" placeholder="單行" class="auto-style25" />&nbsp;&nbsp;
-						臂圍 <input id="usr_weight2" type="text" name="text" placeholder="單行" class="auto-style25" />
-						<br />
-						&nbsp;&nbsp;
-					</font>
-					(不可量測時)<font color="#F67377" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 中臂圍 </font><input id="BMI" name="text" placeholder="單行" class="auto-style25" />
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style4">
-					<font onclick="BMI()" id="bmi" color="#FF0000" size="5">
-						BMI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					</font>
-				</td>
-			</tr>
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								藥物過敏
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								<input type="checkbox" name="location2" value="否" class="auto-style8" /> 否
+								<input type="checkbox" name="location2" value="是" class="auto-style8" /> 是
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					用藥習慣: @user_.medication_habits
+					<br />
+					藥物過敏: @user_.medication_habits2
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style18" rowspan="3">
+							<font color="#0d62c3" size="5">營養面相</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								<input type="radio" name="location9" value="體態" />體態:&nbsp;
+								身高 <input id="tell" type="text" name="text" placeholder="單行" class="auto-style25" />&nbsp;&nbsp;&nbsp;
+								體重 <input id="usr_weight" type="text" name="text" placeholder="單行" class="auto-style25" />
+								<br />
+								&nbsp;&nbsp;
+							</font>
+							(可量測時)
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4">
+								<input type="radio" name="location9" value="體圍" />體圍:&nbsp;&nbsp;
+								膝長 <input id="tell2" type="text" name="text" placeholder="單行" class="auto-style25" />&nbsp;&nbsp;
+								臂圍 <input id="usr_weight2" type="text" name="text" placeholder="單行" class="auto-style25" />
+								<br />
+								&nbsp;&nbsp;
+							</font>
+							(不可量測時)<font color="#F67377" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 中臂圍 </font><input id="BMI" name="text" placeholder="單行" class="auto-style25" />
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style4">
+							<font onclick="BMI()" id="bmi" color="#FF0000" size="5">
+								BMI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</font>
+						</td>
+					</tr>
 
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style44" rowspan="3">
-					<font color="#0d62c3" size="5">飲食面相</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style26">
-					<font color="#F67377" size="4" face="標楷體">
-						餐飲種類:
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location3" value="一般乾飯" class="auto-style8" /> 一般乾飯
-						<input type="checkbox" name="location3" value="軟質" class="auto-style8" /> 軟質
+				</table>
+				<p>
+					身高(膝長):@user_.tell 體重(臂圍):@user_.usr_weight BMI(中臂圍):@user_.BMI
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style44" rowspan="3">
+							<font color="#0d62c3" size="5">飲食面相</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style26">
+							<font color="#F67377" size="4" face="標楷體">
+								餐飲種類:
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location3" value="一般乾飯" class="auto-style8" /> 一般乾飯
+								<input type="checkbox" name="location3" value="軟質" class="auto-style8" /> 軟質
 
-						<br />
-						<input type="checkbox" name="location3" value="剁碎" class="auto-style8" /> 剁碎
-						<input type="checkbox" name="location3" value="水狀" class="auto-style8" /> 水狀
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style26">
-					<font color="#F67377" size="4" face="標楷體">
-						飲水習慣:
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location4" value="自動" class="auto-style8" /> 自動
-						<input type="checkbox" name="location4" value="須提醒" class="auto-style8" /> 須提醒
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style14" colspan="2">
-					<font color="#F67377" size="4" face="標楷體">
-						水分攝取是否充足
-						<input type="checkbox" name="location5" value="是" class="auto-style8" /> 是
-						<input type="checkbox" name="location5" value="否" class="auto-style8" /> 否
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style27" rowspan="2">
-					<font color="#0d62c3" size="5">口腔面相</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#FF0000" size="4" face="標楷體">
-						<strong>咀嚼</strong>
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="radio" name="location2" value="正常" />正常
-						<input type="radio" name="location2" value="異常" />異常
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#FF0000" size="4" face="標楷體">
-						<strong>吞嚥</strong>
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="radio" name="location3" value="正常" />正常
-						<input type="radio" name="location3" value="異常" />異常
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style14" colspan="2">
-					<font color="#FF0000" size="4" face="標楷體">
-						<strong>清潔</strong>
-					</font>
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="radio" name="location4" value="正常" />正常
-						<input type="radio" name="location4" value="須提醒" />須提醒
-						<input type="radio" name="location4" value="須協助" />須協助
-						<input type="radio" name="location4" value="異常" />異常
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" rowspan="2" class="auto-style30">
-					<font color="#0d62c3" size="5">
-						排泄型態
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style29">
-					<font color="#FF0000" size="4" face="標楷體">
-						排便:
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0">
-					<font color="#F67377" size="4">
-						頻率一天&nbsp; <input type="number" name="number" class="auto-style25" />&nbsp; 次
+								<br />
+								<input type="checkbox" name="location3" value="剁碎" class="auto-style8" /> 剁碎
+								<input type="checkbox" name="location3" value="水狀" class="auto-style8" /> 水狀
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style26">
+							<font color="#F67377" size="4" face="標楷體">
+								飲水習慣:
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location4" value="自動" class="auto-style8" /> 自動
+								<input type="checkbox" name="location4" value="須提醒" class="auto-style8" /> 須提醒
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14" colspan="2">
+							<font color="#F67377" size="4" face="標楷體">
+								水分攝取是否充足
+								<input type="checkbox" name="location5" value="是" class="auto-style8" /> 是
+								<input type="checkbox" name="location5" value="否" class="auto-style8" /> 否
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					餐飲習慣: @user_.diet_face
+					<br />
+					飲水習慣: @user_.drink_face
+					<br />
+					水分攝取是否充足: @user_.drink_volume
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style27" rowspan="2">
+							<font color="#0d62c3" size="5">口腔面相</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#FF0000" size="4" face="標楷體">
+								<strong>咀嚼</strong>
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="radio" name="location6" value="正常" />正常
+								<input type="radio" name="location6" value="異常" />異常
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#FF0000" size="4" face="標楷體">
+								<strong>吞嚥</strong>
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="radio" name="location7" value="正常" />正常
+								<input type="radio" name="location7" value="異常" />異常
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style14" colspan="2">
+							<font color="#FF0000" size="4" face="標楷體">
+								<strong>清潔</strong>
+							</font>
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="radio" name="location8" value="正常" />正常
+								<input type="radio" name="location8" value="須提醒" />須提醒
+								<input type="radio" name="location8" value="須協助" />須協助
+								<input type="radio" name="location8" value="異常" />異常
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					咀嚼:@user_.chew
+					<br />
+					吞嚥:@user_.swallow
+					<br />
+					清潔:@user_.oral_cleaning
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" rowspan="2" class="auto-style30">
+							<font color="#0d62c3" size="5">
+								排泄型態
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style29">
+							<font color="#FF0000" size="4" face="標楷體">
+								排便:
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0">
+							<font color="#F67377" size="4">
+								頻率一天&nbsp; <input type="number" name="number" id="defecation_tim" class="auto-style25" />&nbsp; 次
 
-						<br />
-						時間:&nbsp; <input type="checkbox" name="location6" value="早上" class="auto-style8" /> 早上
-						<input type="checkbox" name="location6" value="下午" class="auto-style8" /> 下午
+								<br />
+								時間:&nbsp; <input type="checkbox" name="location10" value="早上" class="auto-style8" /> 早上
+								<input type="checkbox" name="location10" value="下午" class="auto-style8" /> 下午
 
-						<br />
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="checkbox" name="location6" value="晚上" class="auto-style8" /> 晚上
-						<input type="checkbox" name="location6" value="半夜" class="auto-style8" /> 半夜
-					</font>
-				</td>
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" ] class="auto-style31">
-					<font color="#FF0000" size="4" face="標楷體">
-						排尿:
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0">
-					<font color="#F67377" size="4" face="標楷體">
-						&nbsp;
-						<input type="radio" name="location5" value="正常" /> 正常&nbsp;&nbsp;
-						<input type="radio" name="location5" value="須提醒如廁" /> 須提醒如廁
-						<br />
-						&nbsp;
-						<input type="radio" name="location5" value="尿失禁" /> 尿失禁
-						<input type="radio" name="location5" value="尿布" /> 尿布
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style27">
-					<font color="#0d62c3" size="5">循環狀況</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="radio" name="location6" value="正常" /> 正常&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="radio" name="location6" value="皮膚冰冷、蒼白" /> 皮膚冰冷、蒼白
+								<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" name="location10" value="晚上" class="auto-style8" /> 晚上
+								<input type="checkbox" name="location10" value="半夜" class="auto-style8" /> 半夜
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" ] class="auto-style31">
+							<font color="#FF0000" size="4" face="標楷體">
+								排尿:
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0">
+							<font color="#F67377" size="4" face="標楷體">
+								&nbsp;
+								<input type="radio" name="location11" value="正常" /> 正常&nbsp;&nbsp;
+								<input type="radio" name="location11" value="須提醒如廁" /> 須提醒如廁
+								<br />
+								&nbsp;
+								<input type="radio" name="location11" value="尿失禁" /> 尿失禁
+								<input type="radio" name="location11" value="尿布" /> 尿布
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					排便頻率:@user_.defecation_tim
+					<br />
+					時間:@user_.defecation_time_period
+					<br />
+					排尿:@user_.urinate
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style27">
+							<font color="#0d62c3" size="5">循環狀況</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="radio" name="location12" value="正常" /> 正常&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="location12" value="皮膚冰冷、蒼白" /> 皮膚冰冷、蒼白
 
-						<br />
-						<input type="radio" name="location6" value="皮膚發紺" /> 皮膚發紺
-						<input type="radio" name="location6" value="皮膚腫脹" /> 皮膚腫脹
-						<input type="radio" name="location6" value="水腫" /> 水腫
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#3F51B5" class="auto-style33">
-					<font color="#FFFFFF" size="5"><a href="@Url.Action("Fall_assessment_Home_Service_Supervisor", "Home")">跌倒危險</a> </font>
-				</td>
-				<td bgcolor="#3F51B5">
-					<font color="#F67377" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 跌倒危險因子&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<font color="#FFFFFF" size="4">項</font>
+								<br />
+								<input type="radio" name="location12" value="皮膚發紺" /> 皮膚發紺
+								<input type="radio" name="location12" value="皮膚腫脹" /> 皮膚腫脹
+								<input type="radio" name="location12" value="水腫" /> 水腫
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					循環狀況: @user_.circulation_status
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#3F51B5" class="auto-style33">
+							<font color="#FFFFFF" size="5"><a href="@Url.Action("Fall_assessment_Home_Service_Supervisor", "Home")">跌倒危險</a> </font>
+						</td>
+						<td bgcolor="#3F51B5">
+							<font color="#F67377" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 跌倒危險因子&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<font color="#FFFFFF" size="4">項</font>
 
-				</td>
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" rowspan="2" class="auto-style34">
-					<font color="#0d62c3" size="5">四肢肌肉力量</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style38">
-					<font color="#F67377" size="4" face="標楷體">
-						<form>
-							<select name="location" class="auto-style39">
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-							分
-						</form>
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" rowspan="2" class="auto-style37">
-					<img src="../../images/個案疾病史照片.png" class="auto-style36" />
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style38">
-					<font color="#F67377" size="4" face="標楷體">
-						<form>
-							<select name="location" class="auto-style39">
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-							分
-						</form>
-					</font>
-				</td>
+						</td>
+					</tr>
+				</table>
+				<p>
+					<br />
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" rowspan="2" class="auto-style34">
+							<font color="#0d62c3" size="5">四肢肌肉力量</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style38">
+							<font color="#F67377" size="4" face="標楷體">
+								<form>
+									<select id="left_hand_power" name="left_hand_power" class="auto-style39">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+									分
+								</form>
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" rowspan="2" class="auto-style37">
+							<img src="../../images/個案疾病史照片.png" class="auto-style36" />
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style38">
+							<font color="#F67377" size="4" face="標楷體">
+								<form>
+									<select id="left_leg_power" name="left_leg_power" class="auto-style39">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+									分
+								</form>
+							</font>
+						</td>
 
-			</tr>
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style38">
-					<font color="#F67377" size="4" face="標楷體">
-						<form>
-							<select name="location" class="auto-style39">
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-							分
-						</form>
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style38">
-					<font color="#F67377" size="4" face="標楷體">
-						<form>
-							<select name="location" class="auto-style39">
-								<option value="0">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-							分
-						</form>
-					</font>
-				</td>
+					</tr>
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style38">
+							<font color="#F67377" size="4" face="標楷體">
+								<form>
+									<select id="right_hand_power" name="right_hand_power" class="auto-style39">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+									分
+								</form>
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style38">
+							<font color="#F67377" size="4" face="標楷體">
+								<form>
+									<select id="right_leg_power" name="right_leg_power" class="auto-style39">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+									分
+								</form>
+							</font>
+						</td>
 
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style30">
-					<font color="#0d62c3" size="5">
-						管路
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location6" value="無" />無
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location6" class="auto-style8" value="鼻胃管" />鼻胃管
-						<input type="checkbox" name="location6" class="auto-style8" value="尿管" />尿管
-						<input type="checkbox" name="location6" class="auto-style8" value="氣切" />氣切
-						<br />
-						<input type="checkbox" name="location6" class="auto-style8" value="胃造口" />胃造口
-						<input type="checkbox" name="location6" class="auto-style8" value="腸造口" />腸造口
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style30">
-					<font color="#0d62c3" size="5">
-						皮膚狀況
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location7" value="正常" />正常
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location7" class="auto-style8" value="乾燥" />乾燥
-						<input type="checkbox" name="location7" class="auto-style8" value="皮薄" />皮薄
-						<input type="checkbox" name="location7" class="auto-style8" value="敏感" />敏感
-						<br />
-						<input type="checkbox" name="location7" class="auto-style8" value="濕疹" />濕疹
-						<input type="checkbox" name="location7" class="auto-style8" value="癬" />癬
-					</font>
-				</td>
-			</tr>
-		</table>
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style30">
-					<font color="#0d62c3" size="5">
-						睡眠狀況
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location8" value="正常" />正常
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location8" class="auto-style8" value="難入睡" />難入睡
-						<input type="checkbox" name="location8" class="auto-style8" value="睡眠中斷" />睡眠中斷
-						<input type="checkbox" name="location8" class="auto-style8" value="失眠" />失眠
-					</font>
-				</td>
-			</tr>
-		</table>
+					</tr>
+				</table>
+				<p>
+					左手力量:@user_.left_hand_power
+					<br />
+					左腿力量:@user_.left_leg_power
+					<br />
+					右手力量:@user_.right_hand_power
+					<br />
+					右腿力量:@user_.right_leg_power
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style30">
+							<font color="#0d62c3" size="5">
+								管路
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location13" value="無" />無
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location13" class="auto-style8" value="鼻胃管" />鼻胃管
+								<input type="checkbox" name="location13" class="auto-style8" value="尿管" />尿管
+								<input type="checkbox" name="location13" class="auto-style8" value="氣切" />氣切
+								<br />
+								<input type="checkbox" name="location13" class="auto-style8" value="胃造口" />胃造口
+								<input type="checkbox" name="location13" class="auto-style8" value="腸造口" />腸造口
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					管路: @user_.pipeline
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style30">
+							<font color="#0d62c3" size="5">
+								皮膚狀況
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location14" value="正常" />正常
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location14" class="auto-style8" value="乾燥" />乾燥
+								<input type="checkbox" name="location14" class="auto-style8" value="皮薄" />皮薄
+								<input type="checkbox" name="location14" class="auto-style8" value="敏感" />敏感
+								<br />
+								<input type="checkbox" name="location14" class="auto-style8" value="濕疹" />濕疹
+								<input type="checkbox" name="location14" class="auto-style8" value="癬" />癬
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p>
+					皮膚狀況: @user_.Skin_condition
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style30">
+							<font color="#0d62c3" size="5">
+								睡眠狀況
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location15" value="正常" />正常
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location15" class="auto-style8" value="難入睡" />難入睡
+								<input type="checkbox" name="location15" class="auto-style8" value="睡眠中斷" />睡眠中斷
+								<input type="checkbox" name="location15" class="auto-style8" value="失眠" />失眠
+							</font>
+						</td>
+					</tr>
+				</table>
 
-		<p>
-			<br />
-		</p>
-		<table align="center" class="auto-style5">
-			<tr>
-				<td bgcolor="#F0F0F0" class="auto-style30">
-					<font color="#0d62c3" size="5">
-						物質濫用
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location9" value="無" />無
-					</font>
-				</td>
-				<td bgcolor="#F0F0F0" class="auto-style14">
-					<font color="#F67377" size="4" face="標楷體">
-						<input type="checkbox" name="location9" class="auto-style8" value="抽菸" />抽菸
-						<input type="checkbox" name="location9" class="auto-style8" value="酗酒" />酗酒
-						<input type="checkbox" name="location9" class="auto-style8" value="藥物" />藥物
-					</font>
-				</td>
-			</tr>
-		</table>
+				<p>
+					睡眠狀況:@user_.sleep
+				</p>
+				<table align="center" class="auto-style5">
+					<tr>
+						<td bgcolor="#F0F0F0" class="auto-style30">
+							<font color="#0d62c3" size="5">
+								物質濫用
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location16" value="無" />無
+							</font>
+						</td>
+						<td bgcolor="#F0F0F0" class="auto-style14">
+							<font color="#F67377" size="4" face="標楷體">
+								<input type="checkbox" name="location16" class="auto-style8" value="抽菸" />抽菸
+								<input type="checkbox" name="location16" class="auto-style8" value="酗酒" />酗酒
+								<input type="checkbox" name="location16" class="auto-style8" value="藥物" />藥物
+							</font>
+						</td>
+					</tr>
+
+				</table>
+				<p>
+					物質濫用:@user_.substance_abuse
+				</p>
+				<br />
+				<br />
+				<br />
+				<button class="btn btn-warning btn-lg" onclick="unload()">
+					暫存
+				</button>}
+		}
+		catch
+		{<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style42">
+						<font color="#0d62c3" size="5" face="標楷體">疾病史</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4">
+							<input type="checkbox" name="location" value="高血壓" class="auto-style8" /> 高血壓
+							<input type="checkbox" name="location" value="糖尿病" class="auto-style8" /> 糖尿病
+							<input type="checkbox" name="location" value="骨骼系統" class="auto-style8" /> 骨骼系統<br />
+							<input type="checkbox" name="location" value="視覺退化" class="auto-style8" /> 視覺退化&nbsp;
+							<input type="checkbox" name="location" value="腦血管意外" class="auto-style8" /> 腦血管意外
+							<input type="checkbox" name="location" value="冠狀動脈病" class="auto-style8" /> 冠狀動脈病&nbsp;
+							<input type="checkbox" name="location" value="癌症" class="auto-style8" /> 癌症
+							<input type="checkbox" name="location" value="心房顫動/節律障礙" class="auto-style8" /> 心房顫動/節律障礙
+							<input type="checkbox" name="location" value="呼吸系統" class="auto-style8" /> 呼吸系統 					<input type="checkbox" name="location10" value="正義" class="auto-style8" /> 失智症
+							<input type="checkbox" name="location" value="消化系統" class="auto-style8" /> 消化系統
+							<input type="checkbox" name="location" value="營養不良" class="auto-style8" /> 營養不良
+							<input type="checkbox" name="location" value="泌尿系統" class="auto-style8" /> 泌尿系統
+							<br />
+							<input type="checkbox" name="location" value="帕金森氏症" class="auto-style8" /> 帕金森氏症
+							<input type="checkbox" name="location" value="脊髓損傷" class="auto-style8" /> 脊髓損傷
+							<input type="checkbox" name="location" value="腦性麻痺" class="auto-style8" /> 腦性麻痺
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				&nbsp;
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style43" rowspan="2">
+						<font color="#0d62c3" size="5">
+							<span class="auto-style6">
+								用藥<br />
+								習慣
+							</span>
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14" valign="top">
+						<font color="#F67377" size="4">
+							<input type="checkbox" name="location1" value="正常" />正常
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4">
+							<input type="checkbox" name="location1" value="不固定服藥" class="auto-style8" />不固定服藥
+							<input type="checkbox" name="location1" value="自行調藥" class="auto-style8" />自行調藥
+
+							<br />
+							<input type="checkbox" name="location1" value="使用非醫囑藥物" class="auto-style8" />使用非醫囑藥物
+
+							<br />
+							<input type="checkbox" name="location1" value="拒絕服藥" class="auto-style8" />拒絕服藥
+							<input type="checkbox" name="location1" value="囤藥" class="auto-style8" />囤藥
+
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4">
+							藥物過敏
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4">
+							<input type="checkbox" name="location2" value="否" class="auto-style8" /> 否
+							<input type="checkbox" name="location2" value="是" class="auto-style8" /> 是
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				&nbsp;
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style18" rowspan="3">
+						<font color="#0d62c3" size="5">營養面相</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4">
+							<input type="radio" name="location9" value="體態" />體態:&nbsp;
+							身高 <input id="tell" type="text" name="text" placeholder="單行" class="auto-style25" />&nbsp;&nbsp;&nbsp;
+							體重 <input id="usr_weight" type="text" name="text" placeholder="單行" class="auto-style25" />
+							<br />
+							&nbsp;&nbsp;
+						</font>
+						(可量測時)
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4">
+							<input type="radio" name="location9" value="體圍" />體圍:&nbsp;&nbsp;
+							膝長 <input id="tell2" type="text" name="text" placeholder="單行" class="auto-style25" />&nbsp;&nbsp;
+							臂圍 <input id="usr_weight2" type="text" name="text" placeholder="單行" class="auto-style25" />
+							<br />
+							&nbsp;&nbsp;
+						</font>
+						(不可量測時)<font color="#F67377" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; 中臂圍 </font><input id="BMI" name="text" placeholder="單行" class="auto-style25" />
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style4">
+						<font onclick="BMI()" id="bmi" color="#FF0000" size="5">
+							BMI:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</font>
+					</td>
+				</tr>
+
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style44" rowspan="3">
+						<font color="#0d62c3" size="5">飲食面相</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style26">
+						<font color="#F67377" size="4" face="標楷體">
+							餐飲種類:
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location3" value="一般乾飯" class="auto-style8" /> 一般乾飯
+							<input type="checkbox" name="location3" value="軟質" class="auto-style8" /> 軟質
+
+							<br />
+							<input type="checkbox" name="location3" value="剁碎" class="auto-style8" /> 剁碎
+							<input type="checkbox" name="location3" value="水狀" class="auto-style8" /> 水狀
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style26">
+						<font color="#F67377" size="4" face="標楷體">
+							飲水習慣:
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location4" value="自動" class="auto-style8" /> 自動
+							<input type="checkbox" name="location4" value="須提醒" class="auto-style8" /> 須提醒
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style14" colspan="2">
+						<font color="#F67377" size="4" face="標楷體">
+							水分攝取是否充足
+							<input type="checkbox" name="location5" value="是" class="auto-style8" /> 是
+							<input type="checkbox" name="location5" value="否" class="auto-style8" /> 否
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style27" rowspan="2">
+						<font color="#0d62c3" size="5">口腔面相</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#FF0000" size="4" face="標楷體">
+							<strong>咀嚼</strong>
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="radio" name="location6" value="正常" />正常
+							<input type="radio" name="location6" value="異常" />異常
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#FF0000" size="4" face="標楷體">
+							<strong>吞嚥</strong>
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="radio" name="location7" value="正常" />正常
+							<input type="radio" name="location7" value="異常" />異常
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style14" colspan="2">
+						<font color="#FF0000" size="4" face="標楷體">
+							<strong>清潔</strong>
+						</font>
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="radio" name="location8" value="正常" />正常
+							<input type="radio" name="location8" value="須提醒" />須提醒
+							<input type="radio" name="location8" value="須協助" />須協助
+							<input type="radio" name="location8" value="異常" />異常
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" rowspan="2" class="auto-style30">
+						<font color="#0d62c3" size="5">
+							排泄型態
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style29">
+						<font color="#FF0000" size="4" face="標楷體">
+							排便:
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0">
+						<font color="#F67377" size="4">
+							頻率一天&nbsp; <input type="number" name="number" id="defecation_tim" class="auto-style25" />&nbsp; 次
+
+							<br />
+							時間:&nbsp; <input type="checkbox" name="location10" value="早上" class="auto-style8" /> 早上
+							<input type="checkbox" name="location10" value="下午" class="auto-style8" /> 下午
+
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="location10" value="晚上" class="auto-style8" /> 晚上
+							<input type="checkbox" name="location10" value="半夜" class="auto-style8" /> 半夜
+						</font>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" ] class="auto-style31">
+						<font color="#FF0000" size="4" face="標楷體">
+							排尿:
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0">
+						<font color="#F67377" size="4" face="標楷體">
+							&nbsp;
+							<input type="radio" name="location11" value="正常" /> 正常&nbsp;&nbsp;
+							<input type="radio" name="location11" value="須提醒如廁" /> 須提醒如廁
+							<br />
+							&nbsp;
+							<input type="radio" name="location11" value="尿失禁" /> 尿失禁
+							<input type="radio" name="location11" value="尿布" /> 尿布
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style27">
+						<font color="#0d62c3" size="5">循環狀況</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="radio" name="location12" value="正常" /> 正常&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="location12" value="皮膚冰冷、蒼白" /> 皮膚冰冷、蒼白
+
+							<br />
+							<input type="radio" name="location12" value="皮膚發紺" /> 皮膚發紺
+							<input type="radio" name="location12" value="皮膚腫脹" /> 皮膚腫脹
+							<input type="radio" name="location12" value="水腫" /> 水腫
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#3F51B5" class="auto-style33">
+						<font color="#FFFFFF" size="5"><a href="@Url.Action("Fall_assessment_Home_Service_Supervisor", "Home")">跌倒危險</a> </font>
+					</td>
+					<td bgcolor="#3F51B5">
+						<font color="#F67377" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 跌倒危險因子&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>&nbsp;<font color="#FFFFFF" size="4">項</font>
+
+					</td>
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" rowspan="2" class="auto-style34">
+						<font color="#0d62c3" size="5">四肢肌肉力量</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style38">
+						<font color="#F67377" size="4" face="標楷體">
+							<form>
+								<select name="left_hand_power" class="auto-style39">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+								分
+							</form>
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" rowspan="2" class="auto-style37">
+						<img src="../../images/個案疾病史照片.png" class="auto-style36" />
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style38">
+						<font color="#F67377" size="4" face="標楷體">
+							<form>
+								<select name="left_leg_power" class="auto-style39">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+								分
+							</form>
+						</font>
+					</td>
+
+				</tr>
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style38">
+						<font color="#F67377" size="4" face="標楷體">
+							<form>
+								<select name="right_hand_power" class="auto-style39">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+								分
+							</form>
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style38">
+						<font color="#F67377" size="4" face="標楷體">
+							<form>
+								<select name="right_leg_power" class="auto-style39">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+								分
+							</form>
+						</font>
+					</td>
+
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style30">
+						<font color="#0d62c3" size="5">
+							管路
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location13" value="無" />無
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location13" class="auto-style8" value="鼻胃管" />鼻胃管
+							<input type="checkbox" name="location13" class="auto-style8" value="尿管" />尿管
+							<input type="checkbox" name="location13" class="auto-style8" value="氣切" />氣切
+							<br />
+							<input type="checkbox" name="location13" class="auto-style8" value="胃造口" />胃造口
+							<input type="checkbox" name="location13" class="auto-style8" value="腸造口" />腸造口
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style30">
+						<font color="#0d62c3" size="5">
+							皮膚狀況
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location14" value="正常" />正常
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location14" class="auto-style8" value="乾燥" />乾燥
+							<input type="checkbox" name="location14" class="auto-style8" value="皮薄" />皮薄
+							<input type="checkbox" name="location14" class="auto-style8" value="敏感" />敏感
+							<br />
+							<input type="checkbox" name="location14" class="auto-style8" value="濕疹" />濕疹
+							<input type="checkbox" name="location14" class="auto-style8" value="癬" />癬
+						</font>
+					</td>
+				</tr>
+			</table>
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style30">
+						<font color="#0d62c3" size="5">
+							睡眠狀況
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location15" value="正常" />正常
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location15" class="auto-style8" value="難入睡" />難入睡
+							<input type="checkbox" name="location15" class="auto-style8" value="睡眠中斷" />睡眠中斷
+							<input type="checkbox" name="location15" class="auto-style8" value="失眠" />失眠
+						</font>
+					</td>
+				</tr>
+			</table>
+
+			<p>
+				<br />
+			</p>
+			<table align="center" class="auto-style5">
+				<tr>
+					<td bgcolor="#F0F0F0" class="auto-style30">
+						<font color="#0d62c3" size="5">
+							物質濫用
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style41" valign="top">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location16" value="無" />無
+						</font>
+					</td>
+					<td bgcolor="#F0F0F0" class="auto-style14">
+						<font color="#F67377" size="4" face="標楷體">
+							<input type="checkbox" name="location16" class="auto-style8" value="抽菸" />抽菸
+							<input type="checkbox" name="location16" class="auto-style8" value="酗酒" />酗酒
+							<input type="checkbox" name="location16" class="auto-style8" value="藥物" />藥物
+						</font>
+					</td>
+				</tr>
+
+			</table>
+			<button class="btn btn-warning btn-lg" onclick="unload()">
+				暫存
+			</button>}
 		<div class="auto-style7">
 			<nav aria-label="Page navigation example">
 				<ul class="pagination">
@@ -746,6 +1284,10 @@
 					</li>
 				</ul>
 			</nav>
+		</div>
+		<div class="auto-style4">
+			<br />
+			@Html.ActionLink("回首頁", "Case_selection_page_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })
 		</div>
 		<div class="auto-style4">
 			<br />

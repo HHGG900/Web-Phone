@@ -1175,6 +1175,16 @@ namespace Web_Phone.Controllers
 		//照服員-照顧交辦單
 		public ActionResult Take_care_of_page()
 		{
+			user_basic_db user_ = new user_basic_db();
+
+			try
+			{
+				List<user_basic> users = user_.user_basic_select(TempData["case_name"] as string);
+
+				ViewBag.basic = users;
+			}
+			catch { ViewBag.basic = ""; }
+			TempData.Keep();
 			return View();
 		}
 
@@ -1283,6 +1293,7 @@ namespace Web_Phone.Controllers
 		{
 			worker_arrive_db dbmanager = new worker_arrive_db();
 			dbmanager.worker_arrive_update(TempData["name"] as string);
+			Session.Abandon();
 
 			return RedirectToAction("Login");
 		}
@@ -1299,10 +1310,24 @@ namespace Web_Phone.Controllers
 			string name = TempData["name"] as string;
 			Case_information_db case_Information_Db = new Case_information_db();
 			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_all(name);
+			TempData.Keep();
 			ViewBag.case_s = case_s;
 			return View();
 		}
-		
+		[HttpPost]
+		public ActionResult Case_selection_page_Home_Service_Supervisor(string tip)
+		{
+			user_basic_db user_ = new user_basic_db();
+			
+				try {
+					List<user_basic> users = user_.user_basic_select(tip);
+				
+					TempData["usr_basic"] = users;
+				}
+				catch { TempData["usr_basic"] = ""; }
+				
+			return Json("Case_basic_information_Home_Service_Supervisor");
+		}
 		//督導-(開案)個案基本資料
 		public ActionResult Case_basic_information_Home_Service_Supervisor()
 		{
@@ -1316,7 +1341,7 @@ namespace Web_Phone.Controllers
 		{
 			List<user_basic> user_Basics = new List<user_basic>();
 			
-				if (i != 0) {
+				try{
 					List<user_basic> user_Basics1 = new List<user_basic>();
 					user_Basics1 = TempData["usr_basic"] as List<user_basic>;
 					foreach (user_basic user_Basic in user_Basics1)
@@ -1353,7 +1378,7 @@ namespace Web_Phone.Controllers
 				}
 				
 			}
-			else
+			catch
 			{
 				user_basic user_Basic = new user_basic();
 				if (user_.usr_name != "no")
@@ -1405,9 +1430,7 @@ namespace Web_Phone.Controllers
 		public ActionResult Single_case_care_Home_Service_Supervisor(user_basic user_)
 		{
 			List<user_basic> user_Basics = new List<user_basic>();
-
-			if (i != 0)
-			{
+			try { 
 				List<user_basic> user_Basics1 = new List<user_basic>();
 				user_Basics1 = TempData["usr_basic"] as List<user_basic>;
 				foreach (user_basic user_Basic in user_Basics1)
@@ -1455,8 +1478,7 @@ namespace Web_Phone.Controllers
 				}
 
 			}
-			else
-			{
+			catch { 
 				user_basic user_Basic = new user_basic();
 				if (user_.new_identity != "no")
 					user_Basic.new_identity = user_.new_identity;
@@ -1547,9 +1569,143 @@ namespace Web_Phone.Controllers
 		//督導-(開案)個案疾病史
 		public ActionResult Case_history_Home_Service_Supervisor()
 		{
+			ViewBag.usr = TempData["usr_basic"];
+			TempData.Keep();
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Case_history_Home_Service_Supervisor(user_basic user_)
+		{
+			List<user_basic> user_Basics = new List<user_basic>();
 
+			try { 
+				List<user_basic> user_Basics1 = new List<user_basic>();
+				user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+				foreach (user_basic user_Basic in user_Basics1)
+				{
+					if (user_.medical_history != "no")
+						user_Basic.medical_history = user_.medical_history;
+					if (user_.medication_habits != "no")
+						user_Basic.medication_habits = user_.medication_habits;
+
+					if (user_.medication_habits2 != "no")
+						user_Basic.medication_habits2 = user_.medication_habits2;
+
+					if (user_.tell != "no")
+						user_Basic.tell = user_.tell;
+
+					if (user_.usr_weight != "no")
+						user_Basic.usr_weight = user_.usr_weight;
+
+					if (user_.BMI != "no")
+						user_Basic.BMI = user_.BMI;
+
+					if (user_.diet_face != "no")
+						user_Basic.diet_face = user_.diet_face;
+
+					if (user_.drink_face != "no")
+						user_Basic.drink_face = user_.drink_face;
+
+					if (user_.drink_volume != "no")
+						user_Basic.drink_volume = user_.drink_volume;
+					if (user_.chew != "no")
+						user_Basic.chew = user_.chew;
+					if (user_.swallow != "no")
+						user_Basic.swallow = user_.swallow;
+					if (user_.oral_cleaning != "no")
+						user_Basic.oral_cleaning = user_.oral_cleaning;
+					if (user_.defecation_tim != "no")
+						user_Basic.defecation_tim = user_.defecation_tim;
+					if (user_.defecation_time_period != "no")
+						user_Basic.defecation_time_period = user_.defecation_time_period;
+					if (user_.urinate != "no")
+						user_Basic.urinate = user_.urinate;
+					if (user_.circulation_status != "no")
+						user_Basic.circulation_status = user_.circulation_status;
+					if (user_.left_hand_power != "no")
+						user_Basic.left_hand_power = user_.left_hand_power;
+					if (user_.left_leg_power != "no")
+						user_Basic.left_leg_power = user_.left_leg_power;
+					if (user_.right_hand_power != "no")
+						user_Basic.right_hand_power = user_.right_hand_power;
+					if (user_.right_leg_power != "no")
+						user_Basic.right_leg_power = user_.right_leg_power;
+					if (user_.pipeline != "no")
+						user_Basic.pipeline = user_.pipeline;
+					if (user_.Skin_condition != "no")
+						user_Basic.Skin_condition = user_.Skin_condition;
+					if (user_.sleep != "no")
+						user_Basic.sleep = user_.sleep;
+					if (user_.care_four != "no")
+						user_Basic.substance_abuse = user_.substance_abuse;
+					user_Basics.Add(user_Basic);
+
+				}
+
+			}
+			catch
+			{
+				user_basic user_Basic = new user_basic();
+				if (user_.medication_habits != "no")
+						user_Basic.medication_habits = user_.medication_habits;
+
+					if (user_.medication_habits2 != "no")
+						user_Basic.medication_habits2 = user_.medication_habits2;
+
+					if (user_.tell != "no")
+						user_Basic.tell = user_.tell;
+
+					if (user_.usr_weight != "no")
+						user_Basic.usr_weight = user_.usr_weight;
+
+					if (user_.BMI != "no")
+						user_Basic.BMI = user_.BMI;
+
+					if (user_.diet_face != "no")
+						user_Basic.diet_face = user_.diet_face;
+
+					if (user_.drink_face != "no")
+						user_Basic.drink_face = user_.drink_face;
+
+					if (user_.drink_volume != "no")
+						user_Basic.drink_volume = user_.drink_volume;
+					if (user_.chew != "no")
+						user_Basic.chew = user_.chew;
+					if (user_.swallow != "no")
+						user_Basic.swallow = user_.swallow;
+					if (user_.oral_cleaning != "no")
+						user_Basic.oral_cleaning = user_.oral_cleaning;
+					if (user_.defecation_tim != "no")
+						user_Basic.defecation_tim = user_.defecation_tim;
+					if (user_.defecation_time_period != "no")
+						user_Basic.defecation_time_period = user_.defecation_time_period;
+					if (user_.urinate != "no")
+						user_Basic.urinate = user_.urinate;
+					if (user_.circulation_status != "no")
+						user_Basic.circulation_status = user_.circulation_status;
+					if (user_.left_hand_power != "no")
+						user_Basic.left_hand_power = user_.left_hand_power;
+					if (user_.left_leg_power != "no")
+						user_Basic.left_leg_power = user_.left_leg_power;
+					if (user_.right_hand_power != "no")
+						user_Basic.right_hand_power = user_.right_hand_power;
+					if (user_.right_leg_power != "no")
+						user_Basic.right_leg_power = user_.right_leg_power;
+					if (user_.pipeline != "no")
+						user_Basic.pipeline = user_.pipeline;
+					if (user_.Skin_condition != "no")
+						user_Basic.Skin_condition = user_.Skin_condition;
+					if (user_.sleep != "no")
+						user_Basic.sleep = user_.sleep;
+					if (user_.care_four != "no")
+						user_Basic.substance_abuse = user_.substance_abuse;
+				user_Basics.Add(user_Basic);
+
+				i = 2;
+			}
+			TempData["usr_basic"] = user_Basics;
+			return Json("Case_history_Home_Service_Supervisor");
+		}
 		//督導-(開案)跌倒評估
 		public ActionResult Fall_assessment_Home_Service_Supervisor()
 		{
@@ -1559,27 +1715,177 @@ namespace Web_Phone.Controllers
 		//督導-(開案)其他評估
 		public ActionResult Other_assessments_Home_Service_Supervisor()
 		{
+			ViewBag.usr = TempData["usr_basic"];
+			TempData.Keep();
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Other_assessments_Home_Service_Supervisor(user_basic user_)
+		{
+			List<user_basic> user_Basics = new List<user_basic>();
 
+			if (i != 0)
+			{
+				List<user_basic> user_Basics1 = new List<user_basic>();
+				user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+				foreach (user_basic user_Basic in user_Basics1)
+				{
+					if (user_.environment != "no")
+						user_Basic.environment = user_.environment;
+
+					if (user_.self_psychology_one != "no")
+						user_Basic.self_psychology_one = user_.self_psychology_one;
+
+					if (user_.self_psychology_twe != "no")
+						user_Basic.self_psychology_twe = user_.self_psychology_twe;
+
+					if (user_.self_psychology_three != "no")
+						user_Basic.self_psychology_three = user_.self_psychology_three;
+
+					if (user_.others_psychology_one != "no")
+						user_Basic.others_psychology_one = user_.others_psychology_one;
+
+					if (user_.others_psychology_twe != "no")
+						user_Basic.others_psychology_twe = user_.others_psychology_twe;
+
+					if (user_.religion != "no")
+						user_Basic.religion = user_.religion;
+
+					if (user_.talk_status != "no")
+						user_Basic.talk_status = user_.talk_status;
+
+					if (user_.participate_religion != "no")
+						user_Basic.participate_religion = user_.participate_religion;
+					if (user_.participate_religion2 != "no")
+						user_Basic.participate_religion2 = user_.participate_religion2;
+					if (user_.special_habits != "no")
+						user_Basic.special_habits = user_.special_habits;
+					user_Basics.Add(user_Basic);
+
+				}
+
+			}
+			else
+			{
+				user_basic user_Basic = new user_basic();
+				if (user_.environment != "no")
+						user_Basic.environment = user_.environment;
+
+					if (user_.self_psychology_one != "no")
+						user_Basic.self_psychology_one = user_.self_psychology_one;
+
+					if (user_.self_psychology_twe != "no")
+						user_Basic.self_psychology_twe = user_.self_psychology_twe;
+
+					if (user_.self_psychology_three != "no")
+						user_Basic.self_psychology_three = user_.self_psychology_three;
+
+					if (user_.others_psychology_one != "no")
+						user_Basic.others_psychology_one = user_.others_psychology_one;
+
+					if (user_.others_psychology_twe != "no")
+						user_Basic.others_psychology_twe = user_.others_psychology_twe;
+
+					if (user_.religion != "no")
+						user_Basic.religion = user_.religion;
+
+					if (user_.talk_status != "no")
+						user_Basic.talk_status = user_.talk_status;
+
+					if (user_.participate_religion != "no")
+						user_Basic.participate_religion = user_.participate_religion;
+					if (user_.participate_religion2 != "no")
+						user_Basic.participate_religion2 = user_.participate_religion2;
+					if (user_.special_habits != "no")
+						user_Basic.special_habits = user_.special_habits;
+					user_Basics.Add(user_Basic);
+
+				i = 2;
+			}
+			TempData["usr_basic"] = user_Basics;
+			return Json("Other_assessments_Home_Service_Supervisor");
+		}
 		//督導-(開案)個案資料上傳
 		public ActionResult Information_upload_Home_Service_Supervisor()
 		{
 			return View();
 		}
-		//	[HttpPost]
-		//	public ActionResult Information_upload_Home_Service_Supervisor(user_basic_db user_basic_db)
+		[HttpPost]
+		public ActionResult Information_upload_Home_Service_Supervisor_2(HttpPostedFileBase pic_contract, HttpPostedFileBase urinapic_major_injuryte, HttpPostedFileBase pic_disability, HttpPostedFileBase pic_identity_card_correct, HttpPostedFileBase pic_identity_card_counter)
+		{
+			// check if the user selected a file to upload
+			if (Request.Files.Count > 0)
+			{
+				List<user_basic> user_Basics = new List<user_basic>();
+				List<user_basic> user_Basics1 = new List<user_basic>();
+				user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+
+				foreach (user_basic user_Basic in user_Basics1)
+				{ 
+					for (int i = 0; i < Request.Files.Count; i++)
+					{
+
+						HttpFileCollectionBase files = Request.Files;
+
+						HttpPostedFileBase file = files[i];
+						string fileName = file.FileName;
+						string picname = string.Format("{0}-{1}.jpg", DateTime.Now.ToString("yyyyMMddHmm"), fileName);
+
+						if (fileName == "pic_contract")
+							user_Basic.environment = picname;
+
+						if (fileName == "urinapic_major_injuryte")
+							user_Basic.self_psychology_one = picname;
+
+						if (fileName == "pic_identity_card_correct")
+							user_Basic.self_psychology_twe = picname;
+
+						if (fileName == "pic_identity_card_correct")
+							user_Basic.self_psychology_three = picname;
+
+						if (fileName == "pic_identity_card_counter")
+							user_Basic.others_psychology_one = picname;
+
+
+						// create the uploads folder if it doesn't exist
+						Directory.CreateDirectory(Server.MapPath("~/Photos/"));
+						string path = Path.Combine(Server.MapPath("~/Photos/"), picname);
+
+						// save the file
+						file.SaveAs(path);
+					}
+					user_Basics.Add(user_Basic);
+				}
+				TempData["usr_basic"] = user_Basics;
+
+
+			}
+			return Json("Information_upload_Home_Service_Supervisor");
+		}
+		//[HttpPost]
+		//public ActionResult Information_upload_Home_Service_Supervisor_2(HttpPostedFileBase BA01loc)
+		//{
+		//	string picname = string.Format("{0}-BA01.jpg", DateTime.Now.ToString("yyyyMMddHmm"));
+		//	if (BA01loc.ContentLength > 0)
 		//	{
-		//		user_basic_db dbmanager = new user_basic_db();
-		//		try
-		//		{
-		//		dbmanager.user_basic_db_insert(user_basic_db);
-		//		}
-		//		catch (Exception e)
-		//		{
-		//			Console.WriteLine(e.ToString());
-		//		}
+		//		var path = Path.Combine(Server.MapPath("~/Photos"), picname);
+		//		BA01loc.SaveAs(path);
 		//	}
+		//	TempData["BA01"] = picname;
+		//	return RedirectToAction("Daily_care_record_Home_attendant");
+		//}
+		[HttpPost]
+			public ActionResult Information_upload_Home_Service_Supervisor_()
+			{
+			user_basic_db basic_Db = new user_basic_db();
+			List<user_basic> user_Basics1 = new List<user_basic>();
+			user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+			foreach (user_basic user_Basic in user_Basics1)
+			{
+				basic_Db.user_basic_insert(user_Basic);
+			}
+			return Json("Case_selection_page_Home_Service_Supervisor");
+			}
 
 
 		//督導-(複評)個案選擇頁
