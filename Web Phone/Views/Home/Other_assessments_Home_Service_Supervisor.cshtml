@@ -89,7 +89,12 @@
 
 	});
 	}
-
+		function save() {
+			$.post('@Url.Action("Information_upload_Home_Service_Supervisor_")',
+					function (result) {
+						window.location.href = result;
+					});
+		}
 
 
 	</script>
@@ -359,6 +364,7 @@
 					特殊生活習慣: @user_.special_habits
 				</p>
 				<button class="btn btn-warning btn-lg" onclick="unload();">暫存</button>
+				<input type="button" value="存檔" class="btn btn-primary btn-lg" onclick="save();" />
 			}
 		}
 		catch
@@ -516,6 +522,7 @@
 				</tr>
 			</table>
 			<button class="btn btn-warning btn-lg" onclick="unload();">暫存</button>
+			<input type="button" value="存檔" class="btn btn-primary btn-lg" onclick="save();" />
 		}
 		<div class="auto-style7">
 			<nav aria-label="Page navigation example">

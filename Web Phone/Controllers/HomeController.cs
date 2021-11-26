@@ -1281,7 +1281,7 @@ namespace Web_Phone.Controllers
 			worker_db.worker_arrive_insert(TempData["name"] as string);
 			TempData.Keep();
 
-			return RedirectToAction("Select_case_schedule");
+			return RedirectToAction("Case_selection_page_Home_Service_Supervisor");
 		}
 		//督導-下班打卡
 		public ActionResult Home_Service_Supervisor_sign_out()
@@ -1340,79 +1340,80 @@ namespace Web_Phone.Controllers
 		public ActionResult Case_basic_information_Home_Service_Supervisor(user_basic user_)
 		{
 			List<user_basic> user_Basics = new List<user_basic>();
+
 			
-				try{
-					List<user_basic> user_Basics1 = new List<user_basic>();
-					user_Basics1 = TempData["usr_basic"] as List<user_basic>;
-					foreach (user_basic user_Basic in user_Basics1)
+				List<user_basic> user_Basics1 = new List<user_basic>();
+				user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+				if(user_Basics1.Count != 0) { 
+				foreach (user_basic user_Basic in user_Basics1)
 				{
 					if (user_.usr_name != "no")
 						user_Basic.usr_name = user_.usr_name;
-					
+
 					if (user_.usr_anonymous != "no")
 						user_Basic.usr_anonymous = user_.usr_anonymous;
-					
+
 					if (user_.usr_icustom_languagendex != "no")
 						user_Basic.usr_icustom_languagendex = user_.usr_icustom_languagendex;
-					
+
 					if (user_.mom_language != "no")
 						user_Basic.mom_language = user_.mom_language;
-					
+
 					if (user_.like_topic != "no")
 						user_Basic.like_topic = user_.like_topic;
-					
+
 					if (user_.interest != "no")
 						user_Basic.interest = user_.interest;
-					
+
 					if (user_.occupation != "no")
 						user_Basic.occupation = user_.occupation;
-					
+
 					if (user_.economic_status_one != "no")
 						user_Basic.economic_status_one = user_.economic_status_one;
-					
+
 					if (user_.economic_status_twe != "no")
 						user_Basic.economic_status_twe = user_.economic_status_twe;
-					
+
 					user_Basics.Add(user_Basic);
-					
+
 				}
-				
+
 			}
-			catch
+			else
 			{
-				user_basic user_Basic = new user_basic();
-				if (user_.usr_name != "no")
-					user_Basic.usr_name = user_.usr_name;
-				else
-					user_Basic.usr_name = " ";
-				if (user_.usr_anonymous != "no")
-					user_Basic.usr_anonymous = user_.usr_anonymous;
-				
-				if (user_.usr_icustom_languagendex != "no")
-					user_Basic.usr_icustom_languagendex = user_.usr_icustom_languagendex;
-				
-				if (user_.mom_language != "no")
-					user_Basic.mom_language = user_.mom_language;
-				
-				if (user_.like_topic != "no")
-					user_Basic.like_topic = user_.like_topic;
-				
-				if (user_.interest != "no")
-					user_Basic.interest = user_.interest;
-				
-				if (user_.occupation != "no")
-					user_Basic.occupation = user_.occupation;
-				
-				if (user_.economic_status_one != "no")
-					user_Basic.economic_status_one = user_.economic_status_one;
-				
-				if (user_.economic_status_twe != "no")
-					user_Basic.economic_status_twe = "123";
-				
-				user_Basics.Add(user_Basic);
-				
+			user_basic user_Basic = new user_basic();
+			if (user_.usr_name != "no")
+						user_Basic.usr_name = user_.usr_name;
+					else
+						user_Basic.usr_name = " ";
+					if (user_.usr_anonymous != "no")
+						user_Basic.usr_anonymous = user_.usr_anonymous;
+
+					if (user_.usr_icustom_languagendex != "no")
+						user_Basic.usr_icustom_languagendex = user_.usr_icustom_languagendex;
+
+					if (user_.mom_language != "no")
+						user_Basic.mom_language = user_.mom_language;
+
+					if (user_.like_topic != "no")
+						user_Basic.like_topic = user_.like_topic;
+
+					if (user_.interest != "no")
+						user_Basic.interest = user_.interest;
+
+					if (user_.occupation != "no")
+						user_Basic.occupation = user_.occupation;
+
+					if (user_.economic_status_one != "no")
+						user_Basic.economic_status_one = user_.economic_status_one;
+
+					if (user_.economic_status_twe != "no")
+						user_Basic.economic_status_twe = "123";
+
+					user_Basics.Add(user_Basic);
+				}
 				i = 2;
-			}
+			//}
 			TempData["usr_basic"] = user_Basics;
 			return Json("Case_basic_information_Home_Service_Supervisor");
 		}
@@ -1808,6 +1809,32 @@ namespace Web_Phone.Controllers
 		//督導-(開案)個案資料上傳
 		public ActionResult Information_upload_Home_Service_Supervisor()
 		{
+			TempData["pic_contract"] = "沒資料";
+			TempData["urinapic_major_injuryte"] = "沒資料";
+			TempData["pic_disability"] = "沒資料";
+			TempData["pic_identity_card_correct"] = "沒資料";
+			TempData["pic_identity_card_counter"] = "沒資料";
+			List<user_basic> user_Basics1 = new List<user_basic>();
+			user_Basics1 = TempData["usr_basic"] as List<user_basic>;
+			foreach (user_basic user_Basic in user_Basics1)
+			{
+				if (user_Basic.pic_contract != null)
+					TempData["pic_contract"] = "有資料";
+				if (user_Basic.urinapic_major_injuryte != null)
+					TempData["urinapic_major_injuryte"] = "有資料";
+				if (user_Basic.pic_disability != null)
+					TempData["pic_disability"] = "有資料";
+				if (user_Basic.pic_identity_card_correct != null)
+					TempData["pic_identity_card_correct"] = "有資料";
+				if (user_Basic.pic_identity_card_counter != null)
+					TempData["pic_identity_card_counter"] = "有資料";
+			}
+			ViewBag.pic_contract = TempData["pic_contract"];
+			ViewBag.urinapic_major_injuryte = TempData["urinapic_major_injuryte"];
+			ViewBag.pic_disability = TempData["pic_disability"];
+			ViewBag.pic_identity_card_correct = TempData["pic_identity_card_correct"];
+			ViewBag.pic_identity_card_counter = TempData["pic_identity_card_counter"];
+			TempData.Keep();
 			return View();
 		}
 		[HttpPost]
@@ -1819,48 +1846,59 @@ namespace Web_Phone.Controllers
 				List<user_basic> user_Basics = new List<user_basic>();
 				List<user_basic> user_Basics1 = new List<user_basic>();
 				user_Basics1 = TempData["usr_basic"] as List<user_basic>;
-
+				string picname = "";
 				foreach (user_basic user_Basic in user_Basics1)
-				{ 
-					for (int i = 0; i < Request.Files.Count; i++)
+				{
+					try {picname = string.Format("{0}-pic_contract.jpg", DateTime.Now.ToString("yyyyMMddHmm"));
+					if (pic_contract.ContentLength > 0)
 					{
+						var path = Path.Combine(Server.MapPath("~/Photos"), picname);
+						pic_contract.SaveAs(path);
+						user_Basic.pic_contract = picname;
+					} } catch { }
+					
+					try {picname = string.Format("{0}-urinapic_major_injuryte.jpg", DateTime.Now.ToString("yyyyMMddHmm"));
+					if (urinapic_major_injuryte.ContentLength > 0)
+					{
+						var path = Path.Combine(Server.MapPath("~/Photos"), picname);
+						urinapic_major_injuryte.SaveAs(path);
+						user_Basic.urinapic_major_injuryte = picname;
+					} } catch { }
+					
+					try {picname = string.Format("{0}-pic_disability.jpg", DateTime.Now.ToString("yyyyMMddHmm"));
+					if (pic_disability.ContentLength > 0)
+					{
+						var path = Path.Combine(Server.MapPath("~/Photos"), picname);
+						pic_disability.SaveAs(path);
+						user_Basic.pic_disability = picname;
+					} } catch { }
+					
+					try {
+						picname = string.Format("{0}-pic_identity_card_correct.jpg", DateTime.Now.ToString("yyyyMMddHmm"));
+						if (pic_identity_card_correct.ContentLength > 0)
+						{
+							var path = Path.Combine(Server.MapPath("~/Photos"), picname);
+							pic_identity_card_correct.SaveAs(path);
+							user_Basic.pic_identity_card_correct = picname;
+						}
+					} catch { }
+					
+					try { picname = string.Format("{0}-pic_identity_card_counter.jpg", DateTime.Now.ToString("yyyyMMddHmm"));
+					if (pic_identity_card_counter.ContentLength > 0)
+					{
+						var path = Path.Combine(Server.MapPath("~/Photos"), picname);
+						pic_identity_card_counter.SaveAs(path);
+						user_Basic.pic_identity_card_counter = picname;
+					}} catch { }
+					
 
-						HttpFileCollectionBase files = Request.Files;
-
-						HttpPostedFileBase file = files[i];
-						string fileName = file.FileName;
-						string picname = string.Format("{0}-{1}.jpg", DateTime.Now.ToString("yyyyMMddHmm"), fileName);
-
-						if (fileName == "pic_contract")
-							user_Basic.environment = picname;
-
-						if (fileName == "urinapic_major_injuryte")
-							user_Basic.self_psychology_one = picname;
-
-						if (fileName == "pic_identity_card_correct")
-							user_Basic.self_psychology_twe = picname;
-
-						if (fileName == "pic_identity_card_correct")
-							user_Basic.self_psychology_three = picname;
-
-						if (fileName == "pic_identity_card_counter")
-							user_Basic.others_psychology_one = picname;
-
-
-						// create the uploads folder if it doesn't exist
-						Directory.CreateDirectory(Server.MapPath("~/Photos/"));
-						string path = Path.Combine(Server.MapPath("~/Photos/"), picname);
-
-						// save the file
-						file.SaveAs(path);
-					}
 					user_Basics.Add(user_Basic);
 				}
 				TempData["usr_basic"] = user_Basics;
 
 
 			}
-			return Json("Information_upload_Home_Service_Supervisor");
+			return RedirectToAction("Information_upload_Home_Service_Supervisor");
 		}
 		//[HttpPost]
 		//public ActionResult Information_upload_Home_Service_Supervisor_2(HttpPostedFileBase BA01loc)
