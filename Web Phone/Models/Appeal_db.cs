@@ -14,6 +14,7 @@ namespace Web_Phone.Models
 
 		public void appeal_insert(Appeal appeal)
 		{
+			string tim = DateTime.Now.ToString("yyyy.MM.dd H.mm");
 			SqlConnection sqlConnection = new SqlConnection(ConnStr);
 			SqlCommand sqlCommand = new SqlCommand(
 				@"INSERT INTO appeal (US_name,user_status,phone,fall_class,conten,pic_one,tim)
@@ -24,7 +25,7 @@ namespace Web_Phone.Models
 			sqlCommand.Parameters.Add(new SqlParameter("@phone", appeal.phone));
 			sqlCommand.Parameters.Add(new SqlParameter("@fall_class", appeal.fall_class));
 			sqlCommand.Parameters.Add(new SqlParameter("@conten", appeal.conten));
-			sqlCommand.Parameters.Add(new SqlParameter("@tim", appeal.tim));
+			sqlCommand.Parameters.Add(new SqlParameter("@tim", tim));
 			if (appeal.pic_one == null)
 				sqlCommand.Parameters.Add(new SqlParameter("@pic_pne", DBNull.Value));
 			else

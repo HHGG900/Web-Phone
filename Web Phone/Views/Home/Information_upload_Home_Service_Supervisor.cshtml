@@ -177,7 +177,7 @@
 									<li class="page-item"><a class="page-link" href="/Home/Single_case_care_Home_Service_Supervisor">2</a></li>
 									<li class="page-item"><a class="page-link" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
 									<li class="page-item"><a class="page-link" href="/Home/Other_assessments_Home_Service_Supervisor">4</a></li>
-									<li class="page-item"><a class="page-link" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
+									<li class="page-item"><a class="page-link"style="color:red" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
 								</ul>
 								<p>
 									&nbsp;
@@ -189,7 +189,7 @@
 
 					<td>
 						<div class="auto-style8">
-							<input type="submit" value="暫檔" class="btn btn-primary btn-lg" onclick="tosave();" />
+							<input type="submit" value="暫檔" class="btn btn-primary btn-lg" onclick="window.alert('暫存成功')" />
 							@Html.ActionLink("回首頁", "Case_selection_page_Home_Service_Supervisor", "Home", new { @class = "btn btn-warning btn-lg" })
 							<br />
 

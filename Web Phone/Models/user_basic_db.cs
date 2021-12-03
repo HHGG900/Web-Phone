@@ -109,7 +109,7 @@ namespace Web_Phone.Models
 		{
 			List<user_basic> user_basic = new List<user_basic>();
 			SqlConnection sqlConnection = new SqlConnection(ConnStr);
-			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM user_basic WHERE usr_name = @usr_name and tim = (SELECT MAX (tim) FROM user_basic)");
+			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM user_basic WHERE usr_name = @usr_name and tim = (SELECT MAX (tim) FROM user_basic WHERE usr_name = @usr_name)");
 			sqlCommand.Connection = sqlConnection;
 			sqlCommand.Parameters.Add(new SqlParameter("@usr_name", Username));
 			sqlConnection.Open();

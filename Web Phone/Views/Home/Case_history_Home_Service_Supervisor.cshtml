@@ -38,10 +38,13 @@
 		function unload() {
 
 
-	var location = get_value("input[name='location']:checked");
-	if (location == '')
-		location = "no";
-
+			var location = get_value("input[name='location']:checked");
+			var loc = document.getElementById("loc").value;
+	if (location == '' && loc == '')
+				location = "no";
+			
+			if (loc != '')
+				location += ','+loc;
 		var location1 = get_value("input[name='location1']:checked");
 		if (location1 == '')
 			location1 = "no";
@@ -301,6 +304,7 @@
 						</td>
 						<td bgcolor="#F0F0F0" class="auto-style14">
 							<font color="#F67377" size="4">
+								<input type="checkbox" name="location" value="無" class="auto-style8" /> 無
 								<input type="checkbox" name="location" value="高血壓" class="auto-style8" /> 高血壓
 								<input type="checkbox" name="location" value="糖尿病" class="auto-style8" /> 糖尿病
 								<input type="checkbox" name="location" value="骨骼系統" class="auto-style8" /> 骨骼系統<br />
@@ -315,8 +319,10 @@
 								<input type="checkbox" name="location" value="泌尿系統" class="auto-style8" /> 泌尿系統
 								<br />
 								<input type="checkbox" name="location" value="帕金森氏症" class="auto-style8" /> 帕金森氏症
+								<input type="checkbox" name="location" value="帕金森氏症" class="auto-style8" /> 帕金森氏症
 								<input type="checkbox" name="location" value="脊髓損傷" class="auto-style8" /> 脊髓損傷
-								<input type="checkbox" name="location" value="腦性麻痺" class="auto-style8" /> 腦性麻痺
+								<input type="checkbox" name="location" value="腦性麻痺" class="auto-style8" /> 腦性麻痺<br />
+								其他<input type="text" id="loc" />
 							</font>
 						</td>
 					</tr>
@@ -336,6 +342,7 @@
 						</td>
 						<td bgcolor="#F0F0F0" class="auto-style14" valign="top">
 							<font color="#F67377" size="4">
+								<input type="checkbox" name="location1" value="無" />無
 								<input type="checkbox" name="location1" value="正常" />正常
 							</font>
 						</td>
@@ -386,7 +393,7 @@
 								<br />
 								&nbsp;&nbsp;
 							</font>
-							(可量測時)
+							(可量測時,<br />身高以公尺為單位 => 156 -> 1.56)
 						</td>
 					</tr>
 					<tr>
@@ -466,7 +473,7 @@
 				</p>
 				<table align="center" class="auto-style5">
 					<tr>
-						<td bgcolor="#F0F0F0" class="auto-style27" rowspan="2">
+						<td bgcolor="#F0F0F0" class="auto-style27" rowspan="3">
 							<font color="#0d62c3" size="5">口腔面相</font>
 						</td>
 						<td bgcolor="#F0F0F0" class="auto-style14">
@@ -478,6 +485,8 @@
 								<input type="radio" name="location6" value="異常" />異常
 							</font>
 						</td>
+						</tr>
+						<tr>
 						<td bgcolor="#F0F0F0" class="auto-style14">
 							<font color="#FF0000" size="4" face="標楷體">
 								<strong>吞嚥</strong>
@@ -789,7 +798,9 @@
 				<br />
 				<button class="btn btn-warning btn-lg" onclick="unload()">
 					暫存
-				</button>}
+				</button>
+				break;
+			}
 		}
 		catch
 		{<table align="center" class="auto-style5">
@@ -799,6 +810,7 @@
 					</td>
 					<td bgcolor="#F0F0F0" class="auto-style14">
 						<font color="#F67377" size="4">
+							<input type="checkbox" name="location" value="無" class="auto-style8" /> 無
 							<input type="checkbox" name="location" value="高血壓" class="auto-style8" /> 高血壓
 							<input type="checkbox" name="location" value="糖尿病" class="auto-style8" /> 糖尿病
 							<input type="checkbox" name="location" value="骨骼系統" class="auto-style8" /> 骨骼系統<br />
@@ -807,14 +819,15 @@
 							<input type="checkbox" name="location" value="冠狀動脈病" class="auto-style8" /> 冠狀動脈病&nbsp;
 							<input type="checkbox" name="location" value="癌症" class="auto-style8" /> 癌症
 							<input type="checkbox" name="location" value="心房顫動/節律障礙" class="auto-style8" /> 心房顫動/節律障礙
-							<input type="checkbox" name="location" value="呼吸系統" class="auto-style8" /> 呼吸系統 					<input type="checkbox" name="location10" value="正義" class="auto-style8" /> 失智症
+							<input type="checkbox" name="location" value="呼吸系統" class="auto-style8" /> 呼吸系統 					<input type="checkbox" name="location" value="失智症" class="auto-style8" /> 失智症
 							<input type="checkbox" name="location" value="消化系統" class="auto-style8" /> 消化系統
 							<input type="checkbox" name="location" value="營養不良" class="auto-style8" /> 營養不良
 							<input type="checkbox" name="location" value="泌尿系統" class="auto-style8" /> 泌尿系統
 							<br />
 							<input type="checkbox" name="location" value="帕金森氏症" class="auto-style8" /> 帕金森氏症
 							<input type="checkbox" name="location" value="脊髓損傷" class="auto-style8" /> 脊髓損傷
-							<input type="checkbox" name="location" value="腦性麻痺" class="auto-style8" /> 腦性麻痺
+							<input type="checkbox" name="location" value="腦性麻痺" class="auto-style8" /> 腦性麻痺<br />
+							其他<input type="text" id="loc" />
 						</font>
 					</td>
 				</tr>
@@ -835,6 +848,7 @@
 					<td bgcolor="#F0F0F0" class="auto-style14" valign="top">
 						<font color="#F67377" size="4">
 							<input type="checkbox" name="location1" value="正常" />正常
+							<input type="checkbox" name="location1" value="無" />無
 						</font>
 					</td>
 					<td bgcolor="#F0F0F0" class="auto-style14">
@@ -882,7 +896,7 @@
 							<br />
 							&nbsp;&nbsp;
 						</font>
-						(可量測時)
+						(可量測時,<br />身高以公尺為單位 => 156 -> 1.56)
 					</td>
 				</tr>
 				<tr>
@@ -958,7 +972,7 @@
 			</p>
 			<table align="center" class="auto-style5">
 				<tr>
-					<td bgcolor="#F0F0F0" class="auto-style27" rowspan="2">
+					<td bgcolor="#F0F0F0" class="auto-style27" rowspan="3">
 						<font color="#0d62c3" size="5">口腔面相</font>
 					</td>
 					<td bgcolor="#F0F0F0" class="auto-style14">
@@ -970,6 +984,8 @@
 							<input type="radio" name="location6" value="異常" />異常
 						</font>
 					</td>
+					</tr>
+				<tr>
 					<td bgcolor="#F0F0F0" class="auto-style14">
 						<font color="#FF0000" size="4" face="標楷體">
 							<strong>吞嚥</strong>
@@ -1273,7 +1289,7 @@
 					</li>
 					<li class="page-item"><a class="page-link" href="/Home/Case_basic_information_Home_Service_Supervisor">1</a></li>
 					<li class="page-item"><a class="page-link" href="/Home/Single_case_care_Home_Service_Supervisor">2</a></li>
-					<li class="page-item"><a class="page-link" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
+					<li class="page-item"><a class="page-link" style="color:red" href="/Home/Case_history_Home_Service_Supervisor">3</a></li>
 					<li class="page-item"><a class="page-link" href="/Home/Other_assessments_Home_Service_Supervisor">4</a></li>
 					<li class="page-item"><a class="page-link" href="/Home/Information_upload_Home_Service_Supervisor">5</a></li>
 					<li class="page-item">

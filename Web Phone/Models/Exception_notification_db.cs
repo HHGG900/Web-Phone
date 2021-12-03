@@ -87,6 +87,7 @@ namespace Web_Phone.Models
 				{
 			int id = exception_notification_top_select();
 					SqlConnection sqlConnection = new SqlConnection(ConnStr);
+					string tim = DateTime.Now.AddHours(8).ToString("yyyyMMdd ");
 					SqlCommand sqlCommand = new SqlCommand(
 						@"INSERT INTO exception_notification (working_name,event_description,exception_class,ten_index,tim,id)
 						VALUES(@working_name,@event_description,@exception_class,@ten_index,@tim,@id)");
