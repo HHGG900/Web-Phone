@@ -76,7 +76,7 @@
 </head>
 <body style="background-color:#FAF4FF;  ">
 	<div class="auto-style1">
-		<marquee direction="up" scrollamount="1" class="auto-style6"><font color="#ff0099">公告：8/18(六)辦理員工體檢，相關注意事項請查閱公告</font></marquee>
+		<marquee direction="up" scrollamount="1" class="auto-style6"><font color="#ff0099">@ViewBag.mar</font></marquee>
 	</div>
 	<br />
 	<br />
@@ -98,7 +98,7 @@
 			<br />
 			<label for="inputusr_index">
 				<span class="auto-style8">單位代號:</span>
-				<input type="text" id="inputusr_index" name="usr_index" required class="auto-style12" />
+				<input type="text" id="inputusr_index" name="usr_index" value="@ViewBag.index" required class="auto-style12" />
 			</label>
 			<label for="inputtim">
 				<input type="datetime" id="inputtim" name="tim" placeholder="@DateTime.Today" value="@DateTime.Today" hidden="hidden" />
@@ -108,7 +108,7 @@
 		<label for="inputusr_name">
 			<div class="text-center">
 			<span class="glyphicon glyphicon-user"></span><span class="auto-style8">人員名稱:</span>
-			<input type="text" id="inputusr_name" name="usr_name" required="required" class="auto-style12" />
+			<input type="text" id="inputusr_name" name="usr_name" required="required" value="@ViewBag.name" class="auto-style12" />
 			</div>
 		</label>
 		<table align="center" class="auto-style4">

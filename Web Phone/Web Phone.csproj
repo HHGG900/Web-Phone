@@ -355,6 +355,8 @@
     <Compile Include="Models\home_write.cs" />
     <Compile Include="Models\home_write_db.cs" />
     <Compile Include="Models\list_index_class.cs" />
+    <Compile Include="Models\marquee.cs" />
+    <Compile Include="Models\marquee_db.cs" />
     <Compile Include="Models\pressure.cs" />
     <Compile Include="Models\pressure_db.cs" />
     <Compile Include="Models\reply_db.cs" />

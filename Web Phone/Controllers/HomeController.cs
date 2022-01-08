@@ -321,6 +321,10 @@ namespace Web_Phone.Controllers
 		//照服員網路打卡頁面
 		public ActionResult Home_attendant_main_sign_in_page()
 		{
+			marquee_db marquee_Db = new marquee_db();
+			marquee marquees = marquee_Db.marquee_db_select(TempData["name"] as string);
+			TempData["marquees"] = marquees.marquee1;
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
@@ -345,6 +349,7 @@ namespace Web_Phone.Controllers
 		//照服員-上班打卡登入
 		public ActionResult Main_sign_in_success()
 		{
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
@@ -365,6 +370,7 @@ namespace Web_Phone.Controllers
 		//照服員-再次進入
 		public ActionResult Again_into()
 		{
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
@@ -374,6 +380,7 @@ namespace Web_Phone.Controllers
 		//照服員-下班打卡登出
 		public ActionResult Sign_out()
 		{
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.ii = TempData["name"];
 			ViewBag.i = TempData["index"];
 			return View();
@@ -400,6 +407,7 @@ namespace Web_Phone.Controllers
 		//照服員-個案班表
 		public ActionResult Select_case_schedule()
 		{
+			ViewBag.mar = TempData["marquees"];
 			string name = TempData["name"] as string;
 			Roster_db roster_Db = new Roster_db();
 			List<Roster> rosters = roster_Db.Roster_select(name);
@@ -423,6 +431,7 @@ namespace Web_Phone.Controllers
 		//照服員主頁面
 		public ActionResult Home_attendant_index()
 		{
+			ViewBag.mar = TempData["marquees"];
 			Case_information_db case_Information_Db = new Case_information_db();
 			List<Case_informatio> case_s = case_Information_Db.Get_Case_informatio_one(TempData["name"] as string, TempData["case_name"] as string);
 			TempData["case_data"] = case_s;
@@ -438,6 +447,7 @@ namespace Web_Phone.Controllers
 		//家屬照顧紀錄-照服員
 		public ActionResult Family_care_record_Home_attendant()
 		{
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
@@ -447,6 +457,7 @@ namespace Web_Phone.Controllers
 		//家屬照顧紀錄(照服員)-有去就醫時
 		public ActionResult When_go_to_the_doctor_Home_attendant()
 		{
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
@@ -471,6 +482,7 @@ namespace Web_Phone.Controllers
 		//照服員-每次守護紀錄
 		public ActionResult Every_guardian_the_record()
 		{
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.skin_place = TempData["skin_place"];
 			ViewBag.skin_status = TempData["skin_status"];
 			ViewBag.Emotional_front = TempData["Emotional_front"];
@@ -499,7 +511,7 @@ namespace Web_Phone.Controllers
 		//照服員-皮膚異常
 		public ActionResult Abnormal_skin()
 		{
-
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
@@ -519,6 +531,7 @@ namespace Web_Phone.Controllers
 		{
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.mar = TempData["marquees"];
 			TempData.Keep();
 			return View();
 		}
@@ -549,6 +562,7 @@ namespace Web_Phone.Controllers
 		{
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.mar = TempData["marquees"];
 			TempData.Keep();
 			return View();
 		}
@@ -557,6 +571,7 @@ namespace Web_Phone.Controllers
 		public ActionResult Pain_assessment_Home_attendant2()
 		{
 			ViewBag.name = TempData["name"];
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
@@ -567,6 +582,7 @@ namespace Web_Phone.Controllers
 		{
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.mar = TempData["marquees"];
 			TempData.Keep();
 			return View();
 		}
@@ -582,6 +598,7 @@ namespace Web_Phone.Controllers
 		public ActionResult Guardian_of_the_month_Home_attendant()
 		{
 			ViewBag.caser = TempData["case_name"] as string;
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.name = TempData["name"] as string;
 			ViewBag.Resource = TempData["Resource"];
 			ViewBag.Understand = TempData["Understand"];
@@ -638,6 +655,7 @@ namespace Web_Phone.Controllers
 		public ActionResult Abnormal_vision_Home_attendant()
 		{
 			ViewBag.name = TempData["name"];
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
@@ -653,6 +671,7 @@ namespace Web_Phone.Controllers
 		public ActionResult Abnormal_hearing_Home_attendant()
 		{
 			ViewBag.name = TempData["name"];
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
@@ -669,6 +688,7 @@ namespace Web_Phone.Controllers
 		{
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.mar = TempData["marquees"];
 			TempData.Keep();
 			return View();
 		}
@@ -683,6 +703,7 @@ namespace Web_Phone.Controllers
 		public ActionResult Understand_anomalies_Home_attendant()
 		{
 			ViewBag.name = TempData["name"];
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.index = TempData["index"];
 			TempData.Keep();
 			return View();
@@ -699,6 +720,7 @@ namespace Web_Phone.Controllers
 		{
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.mar = TempData["marquees"];
 			TempData.Keep();
 			return View();
 		}
@@ -780,6 +802,7 @@ namespace Web_Phone.Controllers
 			ViewBag.case_data = TempData["case_data"];
 			ViewBag.name = TempData["name"];
 			ViewBag.index = TempData["index"];
+			ViewBag.mar = TempData["marquees"];
 			ViewBag.case_name = TempData["case_name"];
 			TempData.Keep();
 			return View();
@@ -1197,9 +1220,11 @@ namespace Web_Phone.Controllers
 		//照服員-異常事件執行表
 		public ActionResult Abnormal_event_execution_table()
 		{
+			ViewBag.mar = TempData["marquees"];
 			Exception_notification_db exception_notification_db = new Exception_notification_db();
 			List<Exception_notification> exception_notifications = exception_notification_db.GetException_notification();
 			ViewBag.exception_notifications = exception_notifications;
+			TempData.Keep();
 			return View();
 		}
 		[HttpPost]
@@ -1217,6 +1242,7 @@ namespace Web_Phone.Controllers
 		//照服員-異常事件執行
 		public ActionResult Abnormal_event_execution()
 		{
+			ViewBag.mar = TempData["marquees"];
 			Exception_notification_db exception_notification_db = new Exception_notification_db();
 			List<Exception_notification> exception_notifications = exception_notification_db.GetException_notification_one(TempData["event_id"] as string);
 			TempData.Keep();
@@ -1234,6 +1260,7 @@ namespace Web_Phone.Controllers
 		//照服員-異常事件執行追蹤
 		public ActionResult Abnormal_event_tracking()
 		{
+			ViewBag.mar = TempData["marquees"];
 			Exception_notification_db exception_notification_db = new Exception_notification_db();
 			List<Exception_notification> exception_notifications = exception_notification_db.GetException_notification_one(TempData["event_id"] as string);
 			TempData.Keep();
